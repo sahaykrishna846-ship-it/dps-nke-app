@@ -2,367 +2,280 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>DPS Narkatiaganj Parent App</title>
- <link rel="manifest" href="manifest.json">
+
+<link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#3158c9">
 
 <style>
 *{box-sizing:border-box}
 body{
- margin:0;
- font-family:Arial,sans-serif;
- background:#f4f7fb;
- color:#172033;
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f4f7fb;
+  color:#222;
 }
-.header{
- background:linear-gradient(135deg,#172b70,#3158c9);
- color:white;
- padding:28px 20px 35px;
- border-radius:0 0 25px 25px;
+.container{
+  max-width:500px;
+  margin:auto;
+  padding:20px;
 }
-.header h1{margin:0;font-size:25px}
-.header p{margin:7px 0 0;opacity:.9}
-.container{padding:18px;max-width:600px;margin:auto}
 .card{
- background:white;
- border-radius:18px;
- padding:18px;
- margin-bottom:15px;
- box-shadow:0 4px 15px #00000012;
+  background:white;
+  padding:20px;
+  margin:12px 0;
+  border-radius:16px;
+  box-shadow:0 3px 12px #0001;
 }
-.login input{
- width:100%;
- padding:14px;
- margin:8px 0;
- border:1px solid #ddd;
- border-radius:10px;
- font-size:16px;
+h1,h2{margin-top:0}
+input{
+  width:100%;
+  padding:14px;
+  margin:8px 0;
+  border:1px solid #ddd;
+  border-radius:10px;
+  font-size:16px;
 }
 button{
- border:0;
- border-radius:11px;
- padding:13px 18px;
- font-size:16px;
- cursor:pointer;
+  width:100%;
+  padding:14px;
+  margin:8px 0;
+  border:0;
+  border-radius:10px;
+  background:#3158c9;
+  color:white;
+  font-size:16px;
+  font-weight:bold;
 }
-.login button{
- width:100%;
- background:#3158c9;
- color:white;
- margin-top:8px;
-}
-.error{color:#d22;margin-top:10px}
+.red{background:#d93025}
 .hidden{display:none}
-.grid{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:12px;
-}
 .menu{
- background:white;
- padding:18px 10px;
- border-radius:16px;
- text-align:center;
- box-shadow:0 3px 12px #00000010;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
 }
-.menu .icon{font-size:30px}
-.menu b{display:block;margin-top:7px}
-.section{display:none}
-.section.active{display:block}
-.back{
- background:#e8edff;
- color:#23449c;
- margin-bottom:15px;
+.menu button{
+  background:white;
+  color:#222;
+  box-shadow:0 2px 8px #0001;
 }
-.notice{
- border-left:5px solid #3158c9;
- padding-left:12px;
- margin:12px 0;
+.student{
+  border-left:5px solid #3158c9;
+  padding:12px;
+  margin:10px 0;
+  background:#f7f9ff;
+  border-radius:8px;
 }
-.logout{
- background:#e53935;
- color:white;
- width:100%;
- margin-top:15px;
-}
-.small{color:#68738a;font-size:14px}
 </style>
 </head>
 
 <body>
 
-<!-- LOGIN -->
-<div id="loginPage">
- <div class="header">
-  <h1>🏫 DPS Narkatiaganj</h1>
-  <p>Parent Portal</p>
- </div>
-
- <div class="container">
-  <div class="card login">
-   <h2>Parent Login</h2>
-   <p class="small">Please login to access your child's information.</p>
-
-   <input id="username" placeholder="Parent ID">
-   <input id="password" type="password" placeholder="Password">
-
-   <button onclick="login()">Login</button>
-
-   <div id="error" class="error"></div>
-
-   <p class="small">
-    Demo Login: <b>parent001</b> / <b>123456</b>
-   </p>
-  </div>
- </div>
-</div>
-
-
-<!-- DASHBOARD -->
-<div id="app" class="hidden">
-
- <div class="header">
-  <h1>🏫 DPS Narkatiaganj</h1>
-  <p>Parent Dashboard</p>
- </div>
-
- <div class="container">
+<!-- LOGIN PAGE -->
+<div id="loginPage" class="container">
 
   <div class="card">
-   <h2>Welcome, Parent 👋</h2>
-   <p><b>Student:</b> Rahul Kumar</p>
-   <p><b>Class:</b> 8 • Section A</p>
-   <p><b>Roll No:</b> 15</p>
+    <h1>🏫 DPS Narkatiaganj</h1>
+    <p>Parent Portal</p>
+
+    <input id="username" placeholder="Parent ID">
+    <input id="password" type="password" placeholder="Password">
+
+    <button onclick="login()">Parent Login</button>
+
+    <button onclick="adminLogin()">🔐 Admin Login</button>
+
+    <p id="error"></p>
   </div>
 
-  <div class="grid">
+</div>
 
-   <div class="menu" onclick="showSection('attendance')">
-    <div class="icon">📊</div><b>Attendance</b>
-   </div>
 
-   <div class="menu" onclick="showSection('homework')">
-    <div class="icon">📚</div><b>Homework</b>
-   </div>
+<!-- PARENT APP -->
+<div id="app" class="container hidden">
 
-   <div class="menu" onclick="showSection('fees')">
-    <div class="icon">💳</div><b>Fees</b>
-   </div>
+  <div class="card">
+    <h1>👋 Welcome</h1>
+    <h2 id="parentStudent">Rahul Kumar</h2>
+    <p>Class 8-A | Roll No. 15</p>
+  </div>
 
-   <div class="menu" onclick="showSection('result')">
-    <div class="icon">📝</div><b>Results</b>
-   </div>
+  <div class="menu">
 
-   <div class="menu" onclick="showSection('notice')">
-    <div class="icon">📢</div><b>Notices</b>
-   </div>
+    <button onclick="showMessage('Attendance: 92%')">
+      📅 Attendance
+    </button>
 
-   <div class="menu" onclick="showSection('timetable')">
-    <div class="icon">🕐</div><b>Timetable</b>
-   </div>
+    <button onclick="showMessage('No new homework')">
+      📚 Homework
+    </button>
 
-   <div class="menu" onclick="showSection('leave')">
-    <div class="icon">📄</div><b>Leave</b>
-   </div>
+    <button onclick="showMessage('Fees status: Paid')">
+      💰 Fees
+    </button>
 
-   <div class="menu" onclick="showSection('profile')">
-    <div class="icon">👤</div><b>Profile</b>
-   </div>
+    <button onclick="showMessage('Latest Result: Available')">
+      📝 Results
+    </button>
+
+    <button onclick="showMessage('School will remain open tomorrow.')">
+      📢 Notices
+    </button>
+
+    <button onclick="showMessage('Timetable: Available')">
+      🕐 Timetable
+    </button>
 
   </div>
 
+  <button class="red" onclick="logout()">Logout</button>
 
-  <div id="attendance" class="section card">
-   <button class="back" onclick="back()">← Back</button>
-   <h2>📊 Attendance</h2>
-   <h3>Present: 92%</h3>
-   <p>Present Days: 138</p>
-   <p>Absent Days: 12</p>
+</div>
+
+
+<!-- ADMIN PANEL -->
+<div id="adminPanel" class="container hidden">
+
+  <div class="card">
+
+    <h1>🔐 Admin Panel</h1>
+
+    <h2>Add Student</h2>
+
+    <input id="studentName" placeholder="Student Name">
+
+    <input id="studentClass" placeholder="Class">
+
+    <input id="studentRoll" placeholder="Roll Number">
+
+    <input id="parentId" placeholder="Parent ID">
+
+    <button onclick="addStudent()">➕ Add Student</button>
+
   </div>
 
+  <div class="card">
 
-  <div id="homework" class="section card">
-   <button class="back" onclick="back()">← Back</button>
-   <h2>📚 Homework</h2>
-   <div class="notice">
-    <b>Mathematics</b><br>
-    Complete Exercise 7.3
-   </div>
-   <div class="notice">
-    <b>Science</b><br>
-    Learn Chapter 5
-   </div>
-   <div class="notice">
-    <b>English</b><br>
-    Write the given paragraph.
-   </div>
+    <h2>🧑‍🎓 Students</h2>
+
+    <div id="studentList">
+      <p>No students added yet.</p>
+    </div>
+
   </div>
 
+  <button class="red" onclick="adminLogout()">Admin Logout</button>
 
-  <div id="fees" class="section card">
-   <button class="back" onclick="back()">← Back</button>
-   <h2>💳 Fee Details</h2>
-   <p><b>Total Fee:</b> ₹18,000</p>
-   <p><b>Paid:</b> ₹12,000</p>
-   <p><b>Due:</b> ₹6,000</p>
-   <button style="background:#3158c9;color:white"
-   onclick="alert('Online payment will be connected here.')">
-   Pay Fee
-   </button>
-  </div>
-
-
-  <div id="result" class="section card">
-   <button class="back" onclick="back()">← Back</button>
-   <h2>📝 Examination Result</h2>
-   <p>Mathematics — <b>82%</b></p>
-   <p>Science — <b>78%</b></p>
-   <p>English — <b>85%</b></p>
-   <p>Hindi — <b>88%</b></p>
-   <p>Social Science — <b>80%</b></p>
-  </div>
-
-
-  <div id="notice" class="section card">
-   <button class="back" onclick="back()">← Back</button>
-   <h2>📢 School Notices</h2>
-
-   <div class="notice">
-    <b>Parent-Teacher Meeting</b><br>
-    Parents are requested to attend the meeting.
-   </div>
-
-   <div class="notice">
-    <b>Holiday Notice</b><br>
-    School will remain closed as per the school calendar.
-   </div>
-
-   <div class="notice">
-    <b>Important Announcement</b><br>
-    Please check the school office for further information.
-   </div>
-  </div>
-
-
-  <div id="timetable" class="section card">
-   <button class="back" onclick="back()">← Back</button>
-   <h2>🕐 Timetable</h2>
-   <p>08:00 — Assembly</p>
-   <p>08:30 — Mathematics</p>
-   <p>09:20 — English</p>
-   <p>10:10 — Science</p>
-   <p>11:00 — Hindi</p>
-   <p>12:00 — Social Science</p>
-  </div>
-
-
-  <div id="leave" class="section card">
-   <button class="back" onclick="back()">← Back</button>
-   <h2>📄 Leave Application</h2>
-
-   <input style="width:100%;padding:13px;border:1px solid #ddd;border-radius:10px"
-   placeholder="Reason for leave">
-
-   <button style="margin-top:12px;background:#3158c9;color:white"
-   onclick="alert('Leave application submitted.')">
-   Submit Leave
-   </button>
-  </div>
-
-
-  <div id="profile" class="section card">
-   <button class="back" onclick="back()">← Back</button>
-   <h2>👤 Student Profile</h2>
-   <p><b>Name:</b> Rahul Kumar</p>
-   <p><b>Father:</b> Mr. Raj Kumar</p>
-   <p><b>Class:</b> 8 A</p>
-   <p><b>Roll No:</b> 15</p>
-   <p><b>Parent Mobile:</b> 98XXXXXX10</p>
-  </div>
-
-
-  <button class="logout" onclick="logout()">Logout</button>
-
- </div>
 </div>
 
 
 <script>
+
 function login(){
- let u=document.getElementById("username").value;
- let p=document.getElementById("password").value;
 
- if(u==="parent001" && p==="123456"){
-  document.getElementById("loginPage").classList.add("hidden");
-  document.getElementById("app").classList.remove("hidden");
- }else{
-  document.getElementById("error").innerText="Invalid Parent ID or Password";
- }
+  let u=document.getElementById("username").value;
+  let p=document.getElementById("password").value;
+
+  if(u==="parent001" && p==="123456"){
+
+    document.getElementById("loginPage").classList.add("hidden");
+    document.getElementById("app").classList.remove("hidden");
+
+  }else{
+
+    document.getElementById("error").innerText=
+    "Invalid Parent ID or Password";
+
+  }
 }
 
-function showSection(id){
- document.querySelectorAll(".section").forEach(x=>x.classList.remove("active"));
- document.getElementById(id).classList.add("active");
- window.scrollTo(0,0);
+
+function adminLogin(){
+
+  let id=prompt("Admin ID:");
+  let password=prompt("Admin Password:");
+
+  if(id==="admin" && password==="admin123"){
+
+    document.getElementById("loginPage").classList.add("hidden");
+    document.getElementById("adminPanel").classList.remove("hidden");
+
+  }else{
+
+    alert("Wrong Admin ID or Password");
+
+  }
 }
 
-function back(){
- document.querySelectorAll(".section").forEach(x=>x.classList.remove("active"));
+
+function addStudent(){
+
+  let name=document.getElementById("studentName").value;
+  let cls=document.getElementById("studentClass").value;
+  let roll=document.getElementById("studentRoll").value;
+  let parent=document.getElementById("parentId").value;
+
+  if(!name || !cls || !roll || !parent){
+
+    alert("Please fill all details");
+    return;
+
+  }
+
+  let list=document.getElementById("studentList");
+
+  let student=document.createElement("div");
+
+  student.className="student";
+
+  student.innerHTML=
+  "<b>👤 "+name+"</b><br>"+
+  "Class: "+cls+"<br>"+
+  "Roll No: "+roll+"<br>"+
+  "Parent ID: "+parent;
+
+  list.appendChild(student);
+
+  document.getElementById("studentName").value="";
+  document.getElementById("studentClass").value="";
+  document.getElementById("studentRoll").value="";
+  document.getElementById("parentId").value="";
+
+  alert("Student added successfully!");
+
 }
+
+
+function showMessage(message){
+  alert(message);
+}
+
 
 function logout(){
- document.getElementById("app").classList.add("hidden");
- document.getElementById("loginPage").classList.remove("hidden");
-}
-</script>
-<button>Parent Login</button>
 
-<script>
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("sw.js");
+  document.getElementById("app").classList.add("hidden");
+  document.getElementById("loginPage").classList.remove("hidden");
+
 }
+
+
+function adminLogout(){
+
+  document.getElementById("adminPanel").classList.add("hidden");
+  document.getElementById("loginPage").classList.remove("hidden");
+
+}
+
+
+if("serviceWorker" in navigator){
+
+  navigator.serviceWorker.register("sw.js");
+
+}
+
 </script>
 
 </body>
 </html>
-<!-- ADMIN PANEL -->
-<div id="adminPanel" class="hidden">
-  <h2>🔐 Admin Panel</h2>
-
-  <input id="studentName" placeholder="Student Name">
-  <input id="studentClass" placeholder="Class">
-  <input id="studentRoll" placeholder="Roll Number">
-
-  <button onclick="addStudent()">➕ Add Student</button>
-
-  <div id="studentList"></div>
-</div>
-
-<script>
-function addStudent(){
-  const name = document.getElementById("studentName").value;
-  const cls = document.getElementById("studentClass").value;
-  const roll = document.getElementById("studentRoll").value;
-
-  if(!name || !cls || !roll){
-    alert("Please fill all details");
-    return;
-  }
-
-  const student = document.createElement("div");
-  student.innerHTML =
-    "<hr><b>" + name + "</b><br>Class: " + cls +
-    "<br>Roll No: " + roll;
-
-  document.getElementById("studentList").appendChild(student);
-
-  document.getElementById("studentName").value = "";
-  document.getElementById("studentClass").value = "";
-  document.getElementById("studentRoll").value = "";
-
-  alert("Student added!");
-}
-</script>
-</body>
-     </html>
