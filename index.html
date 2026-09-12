@@ -326,5 +326,43 @@ if ("serviceWorker" in navigator) {
 
 </body>
 </html>
+<!-- ADMIN PANEL -->
+<div id="adminPanel" class="hidden">
+  <h2>🔐 Admin Panel</h2>
+
+  <input id="studentName" placeholder="Student Name">
+  <input id="studentClass" placeholder="Class">
+  <input id="studentRoll" placeholder="Roll Number">
+
+  <button onclick="addStudent()">➕ Add Student</button>
+
+  <div id="studentList"></div>
+</div>
+
+<script>
+function addStudent(){
+  const name = document.getElementById("studentName").value;
+  const cls = document.getElementById("studentClass").value;
+  const roll = document.getElementById("studentRoll").value;
+
+  if(!name || !cls || !roll){
+    alert("Please fill all details");
+    return;
+  }
+
+  const student = document.createElement("div");
+  student.innerHTML =
+    "<hr><b>" + name + "</b><br>Class: " + cls +
+    "<br>Roll No: " + roll;
+
+  document.getElementById("studentList").appendChild(student);
+
+  document.getElementById("studentName").value = "";
+  document.getElementById("studentClass").value = "";
+  document.getElementById("studentRoll").value = "";
+
+  alert("Student added!");
+}
+</script>
 </body>
      </html>
