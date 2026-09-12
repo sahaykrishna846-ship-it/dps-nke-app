@@ -11,193 +11,189 @@
 
 <style>
 *{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#f4f7fb;
-  color:#222;
-}
-.container{
-  max-width:500px;
-  margin:auto;
-  padding:20px;
-}
-.card{
-  background:white;
-  padding:20px;
-  margin:12px 0;
-  border-radius:16px;
-  box-shadow:0 3px 12px #0001;
-}
-h1,h2{margin-top:0}
-input{
-  width:100%;
-  padding:14px;
-  margin:8px 0;
-  border:1px solid #ddd;
-  border-radius:10px;
-  font-size:16px;
-}
-button{
-  width:100%;
-  padding:14px;
-  margin:8px 0;
-  border:0;
-  border-radius:10px;
-  background:#3158c9;
-  color:white;
-  font-size:16px;
-  font-weight:bold;
-}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f7fb;color:#222}
+.container{max-width:500px;margin:auto;padding:20px}
+.card{background:white;padding:20px;margin:12px 0;border-radius:16px;box-shadow:0 3px 12px #0001}
+input{width:100%;padding:14px;margin:8px 0;border:1px solid #ddd;border-radius:10px;font-size:16px}
+button{width:100%;padding:14px;margin:8px 0;border:0;border-radius:10px;background:#3158c9;color:white;font-size:16px;font-weight:bold}
 .red{background:#d93025}
 .hidden{display:none}
-.menu{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-}
-.menu button{
-  background:white;
-  color:#222;
-  box-shadow:0 2px 8px #0001;
-}
-.student{
-  border-left:5px solid #3158c9;
-  padding:12px;
-  margin:10px 0;
-  background:#f7f9ff;
-  border-radius:8px;
-}
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.menu button{background:white;color:#222;box-shadow:0 2px 8px #0001}
+.student{border-left:5px solid #3158c9;padding:12px;margin:10px 0;background:#f7f9ff;border-radius:8px}
+#error{color:#d93025}
 </style>
 </head>
 
 <body>
 
-<!-- LOGIN PAGE -->
+<!-- LOGIN -->
 <div id="loginPage" class="container">
+<div class="card">
+<h1>🏫 DPS Narkatiaganj</h1>
+<p>Parent Portal</p>
 
-  <div class="card">
-    <h1>🏫 DPS Narkatiaganj</h1>
-    <p>Parent Portal</p>
+<input id="username" placeholder="Parent Email">
+<input id="password" type="password" placeholder="Password">
 
-    <input id="username" placeholder="Parent ID">
-    <input id="password" type="password" placeholder="Password">
+<button onclick="login()">Parent Login</button>
+<button onclick="adminLogin()">🔐 Admin Login</button>
 
-    <button onclick="login()">Parent Login</button>
-
-    <button onclick="adminLogin()">🔐 Admin Login</button>
-
-    <p id="error"></p>
-  </div>
-
+<p id="error"></p>
+</div>
 </div>
 
 
 <!-- PARENT APP -->
 <div id="app" class="container hidden">
 
-  <div class="card">
-    <h1>👋 Welcome</h1>
-    <h2 id="parentStudent">Rahul Kumar</h2>
-    <p>Class 8-A | Roll No. 15</p>
-  </div>
+<div class="card">
+<h1>👋 Welcome</h1>
+<h2 id="parentStudent">Student</h2>
+<p id="studentInfo"></p>
+</div>
 
-  <div class="menu">
+<div class="menu">
+<button onclick="showMessage('Attendance section')">📅 Attendance</button>
+<button onclick="showMessage('Homework section')">📚 Homework</button>
+<button onclick="showMessage('Fees section')">💰 Fees</button>
+<button onclick="showMessage('Results section')">📝 Results</button>
+<button onclick="showMessage('Notices section')">📢 Notices</button>
+<button onclick="showMessage('Timetable section')">🕐 Timetable</button>
+</div>
 
-    <button onclick="showMessage('Attendance: 92%')">
-      📅 Attendance
-    </button>
-
-    <button onclick="showMessage('No new homework')">
-      📚 Homework
-    </button>
-
-    <button onclick="showMessage('Fees status: Paid')">
-      💰 Fees
-    </button>
-
-    <button onclick="showMessage('Latest Result: Available')">
-      📝 Results
-    </button>
-
-    <button onclick="showMessage('School will remain open tomorrow.')">
-      📢 Notices
-    </button>
-
-    <button onclick="showMessage('Timetable: Available')">
-      🕐 Timetable
-    </button>
-
-  </div>
-
-  <button class="red" onclick="logout()">Logout</button>
-
+<button class="red" onclick="logout()">Logout</button>
 </div>
 
 
-<!-- ADMIN PANEL -->
+<!-- ADMIN -->
 <div id="adminPanel" class="container hidden">
 
-  <div class="card">
+<div class="card">
+<h1>🔐 Admin Panel</h1>
+<h2>➕ Add Student</h2>
 
-    <h1>🔐 Admin Panel</h1>
+<input id="studentName" placeholder="Student Name">
+<input id="studentClass" placeholder="Class">
+<input id="studentRoll" placeholder="Roll Number">
+<input id="parentEmail" placeholder="Parent Email">
 
-    <h2>Add Student</h2>
+<button onclick="addStudent()">Add Student</button>
+</div>
 
-    <input id="studentName" placeholder="Student Name">
+<div class="card">
+<h2>🧑‍🎓 Students</h2>
+<div id="studentList">
+<p>No students added.</p>
+</div>
+</div>
 
-    <input id="studentClass" placeholder="Class">
-
-    <input id="studentRoll" placeholder="Roll Number">
-
-    <input id="parentId" placeholder="Parent ID">
-
-    <button onclick="addStudent()">➕ Add Student</button>
-
-  </div>
-
-  <div class="card">
-
-    <h2>🧑‍🎓 Students</h2>
-
-    <div id="studentList">
-      <p>No students added yet.</p>
-    </div>
-
-  </div>
-
-  <button class="red" onclick="adminLogout()">Admin Logout</button>
-
+<button class="red" onclick="adminLogout()">Admin Logout</button>
 </div>
 
 
-<script>
+<!-- FIREBASE -->
+<script type="module">
 
-function login(){
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 
-  let u=document.getElementById("username").value;
-  let p=document.getElementById("password").value;
+import {
+  getAuth,
+  signInWithEmailAndPassword
+}
+from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 
-  if(u==="parent001" && p==="123456"){
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  query,
+  where,
+  getDocs
+}
+from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBoDLUAc-y9nqFBn8vB9wRUUtMY0WALxwA",
+  authDomain: "dps-narkatiaganj.firebaseapp.com",
+  projectId: "dps-narkatiaganj",
+  storageBucket: "dps-narkatiaganj.firebasestorage.app",
+  messagingSenderId: "199351719662",
+  appId: "1:199351719662:web:612fb6010c40a42c2a45ff",
+  measurementId: "G-49BGF6LQ9P"
+};
+
+const firebaseApp = initializeApp(firebaseConfig);
+const auth = getAuth(firebaseApp);
+const db = getFirestore(firebaseApp);
+
+
+window.login = async function(){
+
+  const email = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value;
+
+  try{
+
+    const result = await signInWithEmailAndPassword(
+      auth,email,password
+    );
+
+    const userEmail = result.user.email;
+
+    const q = query(
+      collection(db,"students"),
+      where("parentEmail","==",userEmail)
+    );
+
+    const snapshot = await getDocs(q);
 
     document.getElementById("loginPage").classList.add("hidden");
     document.getElementById("app").classList.remove("hidden");
 
-  }else{
+    if(snapshot.empty){
 
-    document.getElementById("error").innerText=
-    "Invalid Parent ID or Password";
+      document.getElementById("parentStudent").innerText =
+      "No student linked";
+
+      document.getElementById("studentInfo").innerText =
+      "Please contact school admin.";
+
+    }else{
+
+      snapshot.forEach(doc => {
+
+        const s = doc.data();
+
+        document.getElementById("parentStudent").innerText =
+        s.name;
+
+        document.getElementById("studentInfo").innerText =
+        "Class: " + s.class +
+        " | Roll No: " + s.roll;
+
+      });
+
+    }
+
+  }catch(error){
+
+    document.getElementById("error").innerText =
+    "Invalid email or password.";
 
   }
-}
+
+};
 
 
-function adminLogin(){
+window.adminLogin = function(){
 
-  let id=prompt("Admin ID:");
-  let password=prompt("Admin Password:");
+  const id = prompt("Admin ID:");
+  const password = prompt("Admin Password:");
 
-  if(id==="admin" && password==="admin123"){
+  if(id === "admin" && password === "admin123"){
 
     document.getElementById("loginPage").classList.add("hidden");
     document.getElementById("adminPanel").classList.remove("hidden");
@@ -207,74 +203,85 @@ function adminLogin(){
     alert("Wrong Admin ID or Password");
 
   }
-}
+
+};
 
 
-function addStudent(){
+window.addStudent = async function(){
 
-  let name=document.getElementById("studentName").value;
-  let cls=document.getElementById("studentClass").value;
-  let roll=document.getElementById("studentRoll").value;
-  let parent=document.getElementById("parentId").value;
+  const name =
+  document.getElementById("studentName").value.trim();
 
-  if(!name || !cls || !roll || !parent){
+  const cls =
+  document.getElementById("studentClass").value.trim();
 
-    alert("Please fill all details");
+  const roll =
+  document.getElementById("studentRoll").value.trim();
+
+  const parentEmail =
+  document.getElementById("parentEmail").value.trim();
+
+  if(!name || !cls || !roll || !parentEmail){
+
+    alert("Please fill all details.");
     return;
 
   }
 
-  let list=document.getElementById("studentList");
+  try{
 
-  let student=document.createElement("div");
+    await addDoc(collection(db,"students"),{
 
-  student.className="student";
+      name:name,
+      class:cls,
+      roll:roll,
+      parentEmail:parentEmail
 
-  student.innerHTML=
-  "<b>👤 "+name+"</b><br>"+
-  "Class: "+cls+"<br>"+
-  "Roll No: "+roll+"<br>"+
-  "Parent ID: "+parent;
+    });
 
-  list.appendChild(student);
+    alert("Student saved successfully!");
 
-  document.getElementById("studentName").value="";
-  document.getElementById("studentClass").value="";
-  document.getElementById("studentRoll").value="";
-  document.getElementById("parentId").value="";
+    document.getElementById("studentName").value="";
+    document.getElementById("studentClass").value="";
+    document.getElementById("studentRoll").value="";
+    document.getElementById("parentEmail").value="";
 
-  alert("Student added successfully!");
+  }catch(error){
 
-}
+    alert("Database error: " + error.message);
 
+  }
 
-function showMessage(message){
-  alert(message);
-}
+};
 
 
-function logout(){
+window.logout = function(){
 
   document.getElementById("app").classList.add("hidden");
   document.getElementById("loginPage").classList.remove("hidden");
 
-}
+};
 
 
-function adminLogout(){
+window.adminLogout = function(){
 
   document.getElementById("adminPanel").classList.add("hidden");
   document.getElementById("loginPage").classList.remove("hidden");
 
-}
+};
 
 
+window.showMessage = function(message){
+  alert(message);
+};
+
+</script>
+
+
+<script>
 if("serviceWorker" in navigator){
-
   navigator.serviceWorker.register("sw.js");
-
 }
-
 </script>
 
 </body>
