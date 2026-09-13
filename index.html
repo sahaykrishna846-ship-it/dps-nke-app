@@ -2,604 +2,330 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>DPS Narkatiaganj Parent App</title>
-
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#3158c9">
 
 <style>
 *{box-sizing:border-box}
-
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#f4f7fb;
-  color:#222;
-}
-
-.container{
-  max-width:500px;
-  margin:auto;
-  padding:20px;
-}
-
-.card{
-  background:white;
-  padding:20px;
-  margin:12px 0;
-  border-radius:16px;
-  box-shadow:0 3px 12px #0001;
-}
-
-input{
-  width:100%;
-  padding:14px;
-  margin:8px 0;
-  border:1px solid #ddd;
-  border-radius:10px;
-  font-size:16px;
-}
-
-button{
-  width:100%;
-  padding:14px;
-  margin:8px 0;
-  border:0;
-  border-radius:10px;
-  background:#3158c9;
-  color:white;
-  font-size:16px;
-  font-weight:bold;
-}
-
-.red{
-  background:#d93025;
-}
-
-.hidden{
-  display:none;
-}
-
-.menu{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-}
-
-.menu button{
-  background:white;
-  color:#222;
-  box-shadow:0 2px 8px #0001;
-}
-
-.student{
-  border-left:5px solid #3158c9;
-  padding:12px;
-  margin:10px 0;
-  background:#f7f9ff;
-  border-radius:8px;
-}
-
-#error{
-  color:#d93025;
-}
-
-.success{
-  color:green;
-}
+body{margin:0;font-family:Arial;background:#f4f7fb;color:#222}
+.container{max-width:500px;margin:auto;padding:20px}
+.card{background:white;padding:20px;margin:12px 0;border-radius:16px;box-shadow:0 3px 12px #0001}
+input{width:100%;padding:14px;margin:8px 0;border:1px solid #ddd;border-radius:10px;font-size:16px}
+button{width:100%;padding:14px;margin:8px 0;border:0;border-radius:10px;background:#3158c9;color:white;font-size:16px;font-weight:bold}
+.red{background:#d93025}
+.hidden{display:none}
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.menu button{background:white;color:#222;box-shadow:0 2px 8px #0001}
+.attendance{padding:14px;margin:8px 0;background:#f7f9ff;border-radius:10px}
+.present{color:green;font-weight:bold}
+.absent{color:red;font-weight:bold}
+#error{color:#d93025}
 </style>
 </head>
 
 <body>
 
-<!-- LOGIN PAGE -->
+<!-- LOGIN -->
 
 <div id="loginPage" class="container">
+<div class="card">
+<h1>🏫 DPS Narkatiaganj</h1>
+<p>Parent & School Portal</p>
 
-  <div class="card">
+<input id="username" type="email" placeholder="Parent Email">
+<input id="password" type="password" placeholder="Password">
 
-    <h1>🏫 DPS Narkatiaganj</h1>
+<button onclick="login()">👨‍👩‍👧 Parent Login</button>
+<button onclick="adminLogin()">🔐 Admin Login</button>
 
-    <p>Parent & School Portal</p>
-
-    <input
-      id="username"
-      type="email"
-      placeholder="Parent Email"
-    >
-
-    <input
-      id="password"
-      type="password"
-      placeholder="Password"
-    >
-
-    <button onclick="login()">
-      👨‍👩‍👧 Parent Login
-    </button>
-
-    <button onclick="adminLogin()">
-      🔐 Admin Login
-    </button>
-
-    <p id="error"></p>
-
-  </div>
-
+<p id="error"></p>
+</div>
 </div>
 
 
-<!-- PARENT APP -->
+<!-- PARENT -->
 
 <div id="app" class="container hidden">
 
-  <div class="card">
+<div class="card">
+<h1>👋 Welcome</h1>
+<h2 id="parentStudent">Student</h2>
+<p id="studentInfo"></p>
+</div>
 
-    <h1>👋 Welcome</h1>
+<div class="menu">
 
-    <h2 id="parentStudent">
-      Student
-    </h2>
+<button onclick="loadAttendance()">
+📅 Attendance
+</button>
 
-    <p id="studentInfo"></p>
+<button onclick="showMessage('📚 Homework coming soon')">
+📚 Homework
+</button>
 
-  </div>
+<button onclick="showMessage('💰 Fees coming soon')">
+💰 Fees
+</button>
 
+<button onclick="showMessage('📝 Results coming soon')">
+📝 Results
+</button>
 
-  <div class="menu">
+<button onclick="showMessage('📢 Notices coming soon')">
+📢 Notices
+</button>
 
-    <button onclick="showMessage('📅 Attendance')">
-      📅 Attendance
-    </button>
+<button onclick="showMessage('🕐 Timetable coming soon')">
+🕐 Timetable
+</button>
 
-    <button onclick="showMessage('📚 Homework')">
-      📚 Homework
-    </button>
+</div>
 
-    <button onclick="showMessage('💰 Fees')">
-      💰 Fees
-    </button>
+<div id="attendanceBox"></div>
 
-    <button onclick="showMessage('📝 Results')">
-      📝 Results
-    </button>
-
-    <button onclick="showMessage('📢 Notices')">
-      📢 Notices
-    </button>
-
-    <button onclick="showMessage('🕐 Timetable')">
-      🕐 Timetable
-    </button>
-
-  </div>
-
-
-  <button class="red" onclick="logout()">
-    Logout
-  </button>
+<button class="red" onclick="logout()">Logout</button>
 
 </div>
 
 
-<!-- ADMIN PANEL -->
+<!-- ADMIN -->
 
 <div id="adminPanel" class="container hidden">
 
-  <div class="card">
+<div class="card">
+<h1>🔐 Admin Panel</h1>
 
-    <h1>🔐 Admin Panel</h1>
+<h2>➕ Add Student</h2>
 
-    <h2>➕ Add Student</h2>
+<input id="studentName" placeholder="Student Name">
+<input id="studentClass" placeholder="Class">
+<input id="studentRoll" placeholder="Roll Number">
+<input id="parentEmail" type="email" placeholder="Parent Email">
 
-    <input
-      id="studentName"
-      placeholder="Student Name"
-    >
+<button onclick="addStudent()">Add Student</button>
 
-    <input
-      id="studentClass"
-      placeholder="Class"
-    >
+<p id="adminMessage"></p>
+</div>
 
-    <input
-      id="studentRoll"
-      placeholder="Roll Number"
-    >
+<div class="card">
+<h2>🧑‍🎓 Students</h2>
+<div id="studentList">
+<p>No students loaded.</p>
+</div>
+</div>
 
-    <input
-      id="parentEmail"
-      type="email"
-      placeholder="Parent Email"
-    >
-
-    <button onclick="addStudent()">
-      Add Student
-    </button>
-
-    <p id="adminMessage"></p>
-
-  </div>
-
-
-  <div class="card">
-
-    <h2>🧑‍🎓 Students</h2>
-
-    <div id="studentList">
-      <p>No students loaded.</p>
-    </div>
-
-  </div>
-
-
-  <button class="red" onclick="adminLogout()">
-    Admin Logout
-  </button>
+<button class="red" onclick="adminLogout()">
+Admin Logout
+</button>
 
 </div>
 
 
-<!-- FIREBASE -->
-
 <script type="module">
 
-import { initializeApp }
+import {initializeApp}
 from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 
-
 import {
-  getAuth,
-  signInWithEmailAndPassword,
-  signOut
+getAuth,
+signInWithEmailAndPassword,
+signOut
 }
 from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 
-
 import {
-  getFirestore,
-  collection,
-  addDoc,
-  query,
-  where,
-  getDocs
+getFirestore,
+collection,
+addDoc,
+query,
+where,
+getDocs
 }
 from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
 
-/* FIREBASE CONFIG */
-
 const firebaseConfig = {
 
-  apiKey:
-  "AIzaSyBoDLUAc-y9nqFBn8vB9wRUUtMY0WALxwA",
+apiKey:"AIzaSyBoDLUAc-y9nqFB8nB9wRUUtMY0WALxwA",
 
-  authDomain:
-  "dps-narkatiaganj.firebaseapp.com",
+authDomain:"dps-narkatiaganj.firebaseapp.com",
 
-  projectId:
-  "dps-narkatiaganj",
+projectId:"dps-narkatiaganj",
 
-  storageBucket:
-  "dps-narkatiaganj.firebasestorage.app",
+storageBucket:"dps-narkatiaganj.firebasestorage.app",
 
-  messagingSenderId:
-  "199351719662",
+messagingSenderId:"199351719662",
 
-  appId:
-  "1:199351719662:web:612fb6010c40a42c2a45ff",
+appId:"1:199351719662:web:612fb6010c40a42c2a45ff",
 
-  measurementId:
-  "G-49BGF6LQ9P"
+measurementId:"G-49BGF6LQ9P"
 
 };
 
 
-const firebaseApp =
-initializeApp(firebaseConfig);
+const firebaseApp=initializeApp(firebaseConfig);
 
+const auth=getAuth(firebaseApp);
 
-const auth =
-getAuth(firebaseApp);
-
-
-const db =
-getFirestore(firebaseApp);
+const db=getFirestore(firebaseApp);
 
 
 /* PARENT LOGIN */
 
-window.login = async function(){
+window.login=async function(){
 
-  const email =
-  document.getElementById("username")
-  .value
-  .trim();
+const email=document.getElementById("username").value.trim();
 
-  const password =
-  document.getElementById("password")
-  .value;
+const password=document.getElementById("password").value;
 
+if(!email||!password){
 
-  if(!email || !password){
+document.getElementById("error").innerText=
+"Email aur password bharna zaroori hai.";
 
-    document.getElementById("error")
-    .innerText =
-    "Email aur password bharna zaroori hai.";
+return;
+}
 
-    return;
+try{
 
-  }
+const result=await signInWithEmailAndPassword(
+auth,email,password
+);
 
+const q=query(
+collection(db,"students"),
+where("parentEmail","==",result.user.email)
+);
 
-  try{
+const snapshot=await getDocs(q);
 
-    const result =
-    await signInWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
+document.getElementById("loginPage").classList.add("hidden");
 
+document.getElementById("app").classList.remove("hidden");
 
-    const userEmail =
-    result.user.email;
+if(snapshot.empty){
 
+document.getElementById("parentStudent").innerText=
+"No student linked";
 
-    const q =
-    query(
-      collection(db,"students"),
-      where(
-        "parentEmail",
-        "==",
-        userEmail
-      )
-    );
+document.getElementById("studentInfo").innerText=
+"Please contact school admin.";
 
+}else{
 
-    const snapshot =
-    await getDocs(q);
+snapshot.forEach(doc=>{
 
+const s=doc.data();
 
-    document
-    .getElementById("loginPage")
-    .classList
-    .add("hidden");
+document.getElementById("parentStudent").innerText=s.name;
 
+document.getElementById("studentInfo").innerText=
+"Class: "+s.class+" | Roll No: "+s.roll;
 
-    document
-    .getElementById("app")
-    .classList
-    .remove("hidden");
+});
 
+}
 
-    if(snapshot.empty){
+}
 
-      document
-      .getElementById("parentStudent")
-      .innerText =
-      "No student linked";
+catch(error){
 
+document.getElementById("error").innerText=
+"Invalid email or password.";
 
-      document
-      .getElementById("studentInfo")
-      .innerText =
-      "Please contact school admin.";
-
-    }
-
-    else{
-
-      snapshot.forEach(doc => {
-
-        const s =
-        doc.data();
-
-
-        document
-        .getElementById("parentStudent")
-        .innerText =
-        s.name;
-
-
-        document
-        .getElementById("studentInfo")
-        .innerText =
-        "Class: " +
-        s.class +
-        " | Roll No: " +
-        s.roll;
-
-      });
-
-    }
-
-
-  }
-
-  catch(error){
-
-    document
-    .getElementById("error")
-    .innerText =
-    "Invalid email or password.";
-
-  }
+}
 
 };
 
 
 /* ADMIN LOGIN */
 
-window.adminLogin = async function(){
+window.adminLogin=async function(){
 
-  const email =
-  prompt("Admin Email:");
+const email=prompt("Admin Email:");
 
+const password=prompt("Admin Password:");
 
-  const password =
-  prompt("Admin Password:");
+if(!email||!password){
 
+alert("Email aur password bharna zaroori hai.");
 
-  if(!email || !password){
+return;
+}
 
-    alert(
-      "Email aur password bharna zaroori hai."
-    );
+try{
 
-    return;
+await signInWithEmailAndPassword(
+auth,email,password
+);
 
-  }
+document.getElementById("loginPage").classList.add("hidden");
 
+document.getElementById("adminPanel").classList.remove("hidden");
 
-  try{
+loadStudents();
 
-    await signInWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
+}
 
+catch(error){
 
-    document
-    .getElementById("loginPage")
-    .classList
-    .add("hidden");
+alert("Admin login failed.");
 
-
-    document
-    .getElementById("adminPanel")
-    .classList
-    .remove("hidden");
-
-
-    loadStudents();
-
-  }
-
-  catch(error){
-
-    alert(
-      "Admin login failed. Email ya password check karo."
-    );
-
-  }
+}
 
 };
 
 
 /* ADD STUDENT */
 
-window.addStudent = async function(){
+window.addStudent=async function(){
 
-  const name =
-  document
-  .getElementById("studentName")
-  .value
-  .trim();
+const name=document.getElementById("studentName").value.trim();
 
+const cls=document.getElementById("studentClass").value.trim();
 
-  const cls =
-  document
-  .getElementById("studentClass")
-  .value
-  .trim();
+const roll=document.getElementById("studentRoll").value.trim();
 
+const parentEmail=document.getElementById("parentEmail").value.trim();
 
-  const roll =
-  document
-  .getElementById("studentRoll")
-  .value
-  .trim();
+if(!name||!cls||!roll||!parentEmail){
 
+alert("Please fill all details.");
 
-  const parentEmail =
-  document
-  .getElementById("parentEmail")
-  .value
-  .trim();
+return;
+}
 
+try{
 
-  if(
-    !name ||
-    !cls ||
-    !roll ||
-    !parentEmail
-  ){
+await addDoc(
+collection(db,"students"),
+{
+name:name,
+class:cls,
+roll:roll,
+parentEmail:parentEmail
+}
+);
 
-    alert(
-      "Please fill all details."
-    );
+document.getElementById("adminMessage").innerText=
+"Student saved successfully!";
 
-    return;
+document.getElementById("studentName").value="";
+document.getElementById("studentClass").value="";
+document.getElementById("studentRoll").value="";
+document.getElementById("parentEmail").value="";
 
-  }
+loadStudents();
 
+}
 
-  try{
+catch(error){
 
-    await addDoc(
-      collection(db,"students"),
-      {
+alert("Database error: "+error.message);
 
-        name:name,
-
-        class:cls,
-
-        roll:roll,
-
-        parentEmail:parentEmail
-
-      }
-    );
-
-
-    document
-    .getElementById("adminMessage")
-    .innerText =
-    "Student saved successfully!";
-
-
-    document
-    .getElementById("adminMessage")
-    .classList
-    .add("success");
-
-
-    document
-    .getElementById("studentName")
-    .value = "";
-
-
-    document
-    .getElementById("studentClass")
-    .value = "";
-
-
-    document
-    .getElementById("studentRoll")
-    .value = "";
-
-
-    document
-    .getElementById("parentEmail")
-    .value = "";
-
-
-    loadStudents();
-
-  }
-
-  catch(error){
-
-    alert(
-      "Database error: " +
-      error.message
-    );
-
-  }
+}
 
 };
 
@@ -608,144 +334,132 @@ window.addStudent = async function(){
 
 async function loadStudents(){
 
-  try{
+const snapshot=await getDocs(
+collection(db,"students")
+);
 
-    const snapshot =
-    await getDocs(
-      collection(db,"students")
-    );
+const list=document.getElementById("studentList");
 
+list.innerHTML="";
 
-    const list =
-    document
-    .getElementById("studentList");
+if(snapshot.empty){
 
+list.innerHTML="<p>No students added.</p>";
 
-    list.innerHTML = "";
+return;
+}
 
+snapshot.forEach(doc=>{
 
-    if(snapshot.empty){
+const s=doc.data();
 
-      list.innerHTML =
-      "<p>No students added.</p>";
+const div=document.createElement("div");
 
-      return;
+div.className="attendance";
 
-    }
+div.innerHTML=
+"<strong>"+s.name+"</strong><br>"+
+"Class: "+s.class+
+" | Roll: "+s.roll+
+"<br>Parent: "+s.parentEmail;
 
+list.appendChild(div);
 
-    snapshot.forEach(doc => {
-
-      const s =
-      doc.data();
-
-
-      const div =
-      document.createElement("div");
-
-
-      div.className =
-      "student";
-
-
-      div.innerHTML =
-
-      "<strong>" +
-      s.name +
-      "</strong><br>" +
-
-      "Class: " +
-      s.class +
-      "<br>" +
-
-      "Roll: " +
-      s.roll +
-      "<br>" +
-
-      "Parent: " +
-      s.parentEmail;
-
-
-      list.appendChild(div);
-
-    });
-
-  }
-
-  catch(error){
-
-    console.log(error);
-
-  }
+});
 
 }
 
 
+/* REAL ATTENDANCE */
+
+window.loadAttendance=async function(){
+
+const email=auth.currentUser.email;
+
+const q=query(
+collection(db,"attendance"),
+where("parentEmail","==",email)
+);
+
+const snapshot=await getDocs(q);
+
+const box=document.getElementById("attendanceBox");
+
+box.innerHTML=
+'<div class="card"><h2>📅 Attendance</h2></div>';
+
+const card=box.querySelector(".card");
+
+if(snapshot.empty){
+
+card.innerHTML+=
+"<p>No attendance record found.</p>";
+
+return;
+}
+
+snapshot.forEach(doc=>{
+
+const a=doc.data();
+
+const div=document.createElement("div");
+
+div.className="attendance";
+
+const statusClass=
+a.status==="Present"?"present":"absent";
+
+div.innerHTML=
+"📅 Date: <b>"+a.date+"</b><br>"+
+"Status: <span class='"+statusClass+"'>"+
+a.status+
+"</span>";
+
+card.appendChild(div);
+
+});
+
+};
+
+
 /* LOGOUT */
 
-window.logout = async function(){
+window.logout=async function(){
 
-  await signOut(auth);
+await signOut(auth);
 
+document.getElementById("app").classList.add("hidden");
 
-  document
-  .getElementById("app")
-  .classList
-  .add("hidden");
-
-
-  document
-  .getElementById("loginPage")
-  .classList
-  .remove("hidden");
+document.getElementById("loginPage").classList.remove("hidden");
 
 };
 
 
-/* ADMIN LOGOUT */
+window.adminLogout=async function(){
 
-window.adminLogout = async function(){
+await signOut(auth);
 
-  await signOut(auth);
+document.getElementById("adminPanel").classList.add("hidden");
 
-
-  document
-  .getElementById("adminPanel")
-  .classList
-  .add("hidden");
-
-
-  document
-  .getElementById("loginPage")
-  .classList
-  .remove("hidden");
+document.getElementById("loginPage").classList.remove("hidden");
 
 };
 
 
-/* FEATURE BUTTONS */
+window.showMessage=function(message){
 
-window.showMessage =
-function(message){
-
-  alert(
-    message +
-    "\n\nYe section next step mein database se connect hoga."
-  );
+alert(message);
 
 };
 
 </script>
 
 
-<!-- SERVICE WORKER -->
-
 <script>
 
 if("serviceWorker" in navigator){
 
-  navigator.serviceWorker
-  .register("sw.js");
+navigator.serviceWorker.register("sw.js");
 
 }
 
