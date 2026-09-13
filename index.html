@@ -1,24 +1,1221 @@
-<!-- ADD NOTICE -->
-<div class="card">
-  <h2>📢 Publish Notice</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>DPS Narkatiaganj Parent App</title>
 
-  <input
-    type="text"
-    id="noticeTitle"
-    placeholder="Notice Title">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#3158c9">
 
-  <textarea
-    id="noticeMessage"
-    placeholder="Notice Message"
-    rows="5"></textarea>
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
+}
 
-  <input
-    type="date"
-    id="noticeDate">
+body{
+  background:#f4f7fb;
+  color:#172033;
+}
 
-  <button onclick="addNotice()" class="green">
-    📢 Publish Notice
+header{
+  background:linear-gradient(135deg,#3158c9,#17358d);
+  color:white;
+  padding:22px 18px;
+  text-align:center;
+  box-shadow:0 4px 15px #0002;
+}
+
+header h1{
+  font-size:24px;
+  margin-bottom:5px;
+}
+
+header p{
+  font-size:13px;
+  opacity:.9;
+}
+
+.container{
+  max-width:600px;
+  margin:auto;
+  padding:18px;
+}
+
+.card{
+  background:white;
+  border-radius:18px;
+  padding:20px;
+  margin-bottom:16px;
+  box-shadow:0 5px 18px #00000012;
+}
+
+.card h2{
+  font-size:19px;
+  margin-bottom:15px;
+}
+
+.hero{
+  text-align:center;
+  padding:30px 15px;
+}
+
+.logo{
+  width:85px;
+  height:85px;
+  border-radius:22px;
+  background:#3158c9;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:27px;
+  font-weight:bold;
+  margin:0 auto 18px;
+  box-shadow:0 8px 20px #3158c955;
+}
+
+.hero h2{
+  font-size:25px;
+  margin-bottom:8px;
+}
+
+.hero p{
+  color:#667085;
+  line-height:1.5;
+  margin-bottom:22px;
+}
+
+button{
+  width:100%;
+  border:0;
+  border-radius:12px;
+  padding:14px;
+  margin-top:10px;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+  background:#3158c9;
+  color:white;
+}
+
+button:active{
+  transform:scale(.98);
+}
+
+.secondary{
+  background:#eef2ff;
+  color:#3158c9;
+}
+
+.danger{
+  background:#dc3545;
+}
+
+.green{
+  background:#198754;
+}
+
+input,select,textarea{
+  width:100%;
+  padding:13px;
+  border:1px solid #d9dee8;
+  border-radius:11px;
+  margin:7px 0;
+  font-size:14px;
+  background:white;
+}
+
+textarea{
+  resize:vertical;
+}
+
+label{
+  display:block;
+  font-size:13px;
+  font-weight:bold;
+  margin-top:10px;
+}
+
+.hidden{
+  display:none!important;
+}
+
+.message{
+  padding:11px;
+  border-radius:10px;
+  margin-top:10px;
+  font-size:13px;
+  text-align:center;
+  background:#eef2ff;
+}
+
+.success{
+  background:#e8f7ee;
+  color:#16743d;
+}
+
+.error{
+  background:#fdecec;
+  color:#b42318;
+}
+
+.dashboard-title{
+  margin:10px 0 15px;
+}
+
+.dashboard-title h2{
+  font-size:23px;
+}
+
+.dashboard-title p{
+  color:#667085;
+  font-size:13px;
+  margin-top:4px;
+}
+
+.menu-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.menu{
+  background:white;
+  border-radius:16px;
+  padding:20px 10px;
+  text-align:center;
+  box-shadow:0 4px 15px #0000000d;
+  cursor:pointer;
+}
+
+.menu .icon{
+  font-size:30px;
+  margin-bottom:8px;
+}
+
+.menu b{
+  font-size:14px;
+}
+
+.student-box{
+  background:linear-gradient(135deg,#3158c9,#203e9b);
+  color:white;
+  border-radius:18px;
+  padding:20px;
+  margin-bottom:16px;
+}
+
+.student-box h2{
+  margin-bottom:10px;
+}
+
+.student-row{
+  display:flex;
+  justify-content:space-between;
+  border-top:1px solid #ffffff33;
+  padding:10px 0 0;
+  margin-top:8px;
+  font-size:14px;
+}
+
+.list-item{
+  padding:15px;
+  border:1px solid #e7eaf0;
+  border-radius:13px;
+  margin-bottom:10px;
+  background:#fff;
+}
+
+.list-item h3{
+  font-size:16px;
+  margin-bottom:5px;
+}
+
+.list-item p{
+  font-size:13px;
+  color:#667085;
+  line-height:1.5;
+}
+
+.present{
+  color:#198754;
+  font-weight:bold;
+}
+
+.absent{
+  color:#dc3545;
+  font-weight:bold;
+}
+
+.badge{
+  display:inline-block;
+  padding:5px 9px;
+  border-radius:20px;
+  background:#eef2ff;
+  color:#3158c9;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.footer{
+  text-align:center;
+  color:#8a94a6;
+  font-size:12px;
+  padding:20px 0 35px;
+}
+
+.back{
+  background:#eef2ff;
+  color:#3158c9;
+  margin-bottom:15px;
+}
+
+hr{
+  border:0;
+  border-top:1px solid #eee;
+  margin:18px 0;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>DELHI PUBLIC SCHOOL</h1>
+  <p>Narkatiaganj • Parent Portal</p>
+</header>
+
+<div class="container">
+
+<!-- HOME -->
+<section id="homePage">
+  <div class="card hero">
+    <div class="logo">DPS</div>
+    <h2>Parent Portal</h2>
+    <p>
+      Welcome to DPS Narkatiaganj Parent App.
+      Check your child's attendance, notices and student information.
+    </p>
+
+    <button onclick="showPage('parentLoginPage')">
+      👨‍👩‍👦 Parent Login
+    </button>
+
+    <button class="secondary" onclick="showPage('adminLoginPage')">
+      🛡️ Admin Login
+    </button>
+  </div>
+
+  <div class="card">
+    <h2>📌 Quick Information</h2>
+    <p style="color:#667085;font-size:14px;line-height:1.6">
+      This portal is designed for DPS Narkatiaganj parents
+      to access important school information digitally.
+    </p>
+  </div>
+</section>
+
+
+<!-- PARENT LOGIN -->
+<section id="parentLoginPage" class="hidden">
+
+  <div class="card">
+    <h2>👨‍👩‍👦 Parent Login</h2>
+
+    <label>Email</label>
+    <input id="parentEmail" type="email"
+      placeholder="Enter parent email">
+
+    <label>Password</label>
+    <input id="parentPassword" type="password"
+      placeholder="Enter password">
+
+    <button onclick="parentLogin()">
+      🔐 Login
+    </button>
+
+    <button class="back" onclick="showPage('homePage')">
+      ← Back
+    </button>
+
+    <div id="parentLoginMessage"></div>
+  </div>
+
+</section>
+
+
+<!-- ADMIN LOGIN -->
+<section id="adminLoginPage" class="hidden">
+
+  <div class="card">
+    <h2>🛡️ Admin Login</h2>
+
+    <label>Email</label>
+    <input id="adminEmail" type="email"
+      placeholder="Admin email">
+
+    <label>Password</label>
+    <input id="adminPassword" type="password"
+      placeholder="Admin password">
+
+    <button onclick="adminLogin()">
+      🔐 Admin Login
+    </button>
+
+    <button class="back" onclick="showPage('homePage')">
+      ← Back
+    </button>
+
+    <div id="adminLoginMessage"></div>
+  </div>
+
+</section>
+
+
+<!-- PARENT DASHBOARD -->
+<section id="parentDashboard" class="hidden">
+
+  <div class="dashboard-title">
+    <h2>👋 Welcome Parent</h2>
+    <p>DPS Narkatiaganj Parent Dashboard</p>
+  </div>
+
+  <div id="studentInfo"></div>
+
+  <div class="menu-grid">
+
+    <div class="menu" onclick="showAttendance()">
+      <div class="icon">📅</div>
+      <b>Attendance</b>
+    </div>
+
+    <div class="menu" onclick="showNotices()">
+      <div class="icon">📢</div>
+      <b>Notices</b>
+    </div>
+
+    <div class="menu" onclick="showStudentInfo()">
+      <div class="icon">👨‍🎓</div>
+      <b>Student</b>
+    </div>
+
+    <div class="menu" onclick="showPage('homePage');logout()">
+      <div class="icon">🚪</div>
+      <b>Logout</b>
+    </div>
+
+  </div>
+
+  <div id="parentContent" style="margin-top:16px"></div>
+
+</section>
+
+
+<!-- ADMIN DASHBOARD -->
+<section id="adminDashboard" class="hidden">
+
+  <div class="dashboard-title">
+    <h2>🛡️ Admin Dashboard</h2>
+    <p>Manage students, attendance and notices</p>
+  </div>
+
+
+  <!-- ADD STUDENT -->
+  <div class="card">
+    <h2>👨‍🎓 Add Student</h2>
+
+    <label>Student Name</label>
+    <input id="studentName"
+      placeholder="Student name">
+
+    <label>Class</label>
+    <input id="studentClass"
+      placeholder="Example: 12">
+
+    <label>Roll Number</label>
+    <input id="studentRoll"
+      placeholder="Example: 1">
+
+    <label>Parent Email</label>
+    <input id="studentParentEmail"
+      type="email"
+      placeholder="parent001@dpsnke.com">
+
+    <button class="green" onclick="addStudent()">
+      ➕ Add Student
+    </button>
+
+    <div id="studentAdminMessage"></div>
+  </div>
+
+
+  <!-- ADD ATTENDANCE -->
+  <div class="card">
+    <h2>📅 Add Attendance</h2>
+
+    <label>Select Student</label>
+    <select id="attendanceStudent">
+      <option value="">Loading students...</option>
+    </select>
+
+    <label>Date</label>
+    <input id="attendanceDate" type="date">
+
+    <label>Status</label>
+    <select id="attendanceStatus">
+      <option value="Present">Present</option>
+      <option value="Absent">Absent</option>
+    </select>
+
+    <button class="green" onclick="addAttendance()">
+      ➕ Add Attendance
+    </button>
+
+    <div id="attendanceAdminMessage"></div>
+  </div>
+
+
+  <!-- ADD NOTICE -->
+  <div class="card">
+    <h2>📢 Publish Notice</h2>
+
+    <label>Notice Title</label>
+    <input id="noticeTitle"
+      placeholder="Example: Holiday Notice">
+
+    <label>Notice Message</label>
+    <textarea id="noticeMessage"
+      rows="5"
+      placeholder="Write notice here..."></textarea>
+
+    <label>Notice Date</label>
+    <input id="noticeDate" type="date">
+
+    <button class="green" onclick="addNotice()">
+      📢 Publish Notice
+    </button>
+
+    <div id="noticeAdminMessage"></div>
+  </div>
+
+
+  <!-- STUDENT LIST -->
+  <div class="card">
+    <h2>📋 Students</h2>
+
+    <button class="secondary" onclick="loadAllStudents()">
+      🔄 Load Students
+    </button>
+
+    <div id="allStudents"></div>
+  </div>
+
+
+  <button class="danger" onclick="logout();showPage('homePage')">
+    🚪 Logout Admin
   </button>
 
-  <div id="noticeAdminMessage"></div>
+</section>
+
+
+<div class="footer">
+  © DPS Narkatiaganj • Parent Portal
 </div>
+
+</div>
+
+
+<script type="module">
+
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  signOut
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  where,
+  orderBy
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBoDLUAc-y9nqFBn8vB9wRUUtMY0WALxwA",
+  authDomain: "dps-narkatiaganj.firebaseapp.com",
+  projectId: "dps-narkatiaganj",
+  storageBucket: "dps-narkatiaganj.firebasestorage.app",
+  messagingSenderId: "199351719662",
+  appId: "1:199351719662:web:612fb6010c40a42c2a45ff",
+  measurementId: "G-49BGF6LQ9P"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+
+/* ADMIN EMAIL */
+const ADMIN_EMAIL = "admin@dpsnke.com";
+
+
+/* PAGE SYSTEM */
+window.showPage = function(id){
+
+  const pages = [
+    "homePage",
+    "parentLoginPage",
+    "adminLoginPage",
+    "parentDashboard",
+    "adminDashboard"
+  ];
+
+  pages.forEach(page=>{
+    document.getElementById(page).classList.add("hidden");
+  });
+
+  document.getElementById(id).classList.remove("hidden");
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+};
+
+
+/* PARENT LOGIN */
+window.parentLogin = async function(){
+
+  const email =
+    document.getElementById("parentEmail").value
+    .trim()
+    .toLowerCase();
+
+  const password =
+    document.getElementById("parentPassword").value;
+
+  const msg =
+    document.getElementById("parentLoginMessage");
+
+  if(!email || !password){
+    msg.className="message error";
+    msg.innerText="Please enter email and password.";
+    return;
+  }
+
+  try{
+
+    const result =
+      await signInWithEmailAndPassword(
+        auth,email,password
+      );
+
+    await loadParentStudent(result.user.email);
+
+  }catch(error){
+
+    msg.className="message error";
+    msg.innerText="Login failed. Please check your details.";
+
+    console.log(error);
+  }
+};
+
+
+/* LOAD PARENT STUDENT */
+async function loadParentStudent(parentEmail){
+
+  parentEmail = parentEmail.toLowerCase();
+
+  const q = query(
+    collection(db,"students"),
+    where("parentEmail","==",parentEmail)
+  );
+
+  const snapshot = await getDocs(q);
+
+  const studentInfo =
+    document.getElementById("studentInfo");
+
+  if(snapshot.empty){
+
+    studentInfo.innerHTML = `
+      <div class="card">
+        <h2>⚠️ Student Not Found</h2>
+        <p style="color:#667085">
+        No student is connected with this parent account.
+        </p>
+      </div>
+    `;
+
+    showPage("parentDashboard");
+    return;
+  }
+
+  let html="";
+
+  snapshot.forEach(doc=>{
+
+    const data=doc.data();
+
+    html += `
+      <div class="student-box">
+        <h2>👨‍🎓 ${escapeHTML(data.name)}</h2>
+
+        <div class="student-row">
+          <span>Class</span>
+          <b>${escapeHTML(data.class)}</b>
+        </div>
+
+        <div class="student-row">
+          <span>Roll No.</span>
+          <b>${escapeHTML(String(data.roll))}</b>
+        </div>
+      </div>
+    `;
+  });
+
+  studentInfo.innerHTML=html;
+
+  showPage("parentDashboard");
+}
+
+
+/* STUDENT INFO */
+window.showStudentInfo = function(){
+
+  const studentInfo =
+    document.getElementById("studentInfo");
+
+  document.getElementById("parentContent").innerHTML = `
+    <div class="card">
+      <h2>👨‍🎓 Student Information</h2>
+      ${studentInfo.innerHTML}
+    </div>
+  `;
+};
+
+
+/* PARENT ATTENDANCE */
+window.showAttendance = async function(){
+
+  const content =
+    document.getElementById("parentContent");
+
+  content.innerHTML=`
+    <div class="card">
+      <h2>📅 Attendance</h2>
+      <p style="color:#667085">Loading attendance...</p>
+    </div>
+  `;
+
+  const user=auth.currentUser;
+
+  if(!user)return;
+
+  const email=user.email.toLowerCase();
+
+  const q=query(
+    collection(db,"attendance"),
+    where("parentEmail","==",email)
+  );
+
+  try{
+
+    const snapshot=await getDocs(q);
+
+    if(snapshot.empty){
+
+      content.innerHTML=`
+        <div class="card">
+          <h2>📅 Attendance</h2>
+          <p style="color:#667085">
+          No attendance records found.
+          </p>
+        </div>
+      `;
+
+      return;
+    }
+
+    let html=`
+      <div class="card">
+      <h2>📅 Attendance Records</h2>
+    `;
+
+    snapshot.forEach(doc=>{
+
+      const data=doc.data();
+
+      const statusClass =
+        data.status==="Present"
+        ? "present"
+        : "absent";
+
+      html += `
+        <div class="list-item">
+          <h3>📅 ${escapeHTML(data.date || "")}</h3>
+          <p class="${statusClass}">
+            ${escapeHTML(data.status || "")}
+          </p>
+        </div>
+      `;
+    });
+
+    html += `</div>`;
+
+    content.innerHTML=html;
+
+  }catch(error){
+
+    content.innerHTML=`
+      <div class="card">
+        <h2>⚠️ Error</h2>
+        <p>${escapeHTML(error.message)}</p>
+      </div>
+    `;
+
+    console.log(error);
+  }
+};
+
+
+/* PARENT NOTICES */
+window.showNotices = async function(){
+
+  const content =
+    document.getElementById("parentContent");
+
+  content.innerHTML=`
+    <div class="card">
+      <h2>📢 Notices</h2>
+      <p style="color:#667085">Loading notices...</p>
+    </div>
+  `;
+
+  try{
+
+    const snapshot =
+      await getDocs(collection(db,"notices"));
+
+    if(snapshot.empty){
+
+      content.innerHTML=`
+        <div class="card">
+          <h2>📢 Notices</h2>
+          <p style="color:#667085">
+          No notices available.
+          </p>
+        </div>
+      `;
+
+      return;
+    }
+
+    let notices=[];
+
+    snapshot.forEach(doc=>{
+      notices.push(doc.data());
+    });
+
+    notices.sort((a,b)=>
+      String(b.date||"").localeCompare(
+        String(a.date||"")
+      )
+    );
+
+    let html=`
+      <div class="card">
+        <h2>📢 School Notices</h2>
+    `;
+
+    notices.forEach(data=>{
+
+      html += `
+        <div class="list-item">
+          <span class="badge">
+            ${escapeHTML(data.date||"")}
+          </span>
+
+          <h3 style="margin-top:9px">
+            ${escapeHTML(data.title||"Notice")}
+          </h3>
+
+          <p>
+            ${escapeHTML(data.message||"")}
+          </p>
+        </div>
+      `;
+    });
+
+    html += `</div>`;
+
+    content.innerHTML=html;
+
+  }catch(error){
+
+    content.innerHTML=`
+      <div class="card">
+        <h2>⚠️ Error</h2>
+        <p>${escapeHTML(error.message)}</p>
+      </div>
+    `;
+  }
+};
+
+
+/* ADMIN LOGIN */
+window.adminLogin = async function(){
+
+  const email =
+    document.getElementById("adminEmail")
+    .value.trim().toLowerCase();
+
+  const password =
+    document.getElementById("adminPassword").value;
+
+  const msg =
+    document.getElementById("adminLoginMessage");
+
+  if(email !== ADMIN_EMAIL){
+
+    msg.className="message error";
+    msg.innerText="This account is not an admin account.";
+    return;
+  }
+
+  try{
+
+    await signInWithEmailAndPassword(
+      auth,email,password
+    );
+
+    showPage("adminDashboard");
+
+    loadAttendanceStudents();
+    loadAllStudents();
+
+  }catch(error){
+
+    msg.className="message error";
+    msg.innerText="Admin login failed.";
+
+    console.log(error);
+  }
+};
+
+
+/* ADD STUDENT */
+window.addStudent = async function(){
+
+  const name =
+    document.getElementById("studentName").value.trim();
+
+  const studentClass =
+    document.getElementById("studentClass").value.trim();
+
+  const roll =
+    document.getElementById("studentRoll").value.trim();
+
+  const parentEmail =
+    document.getElementById("studentParentEmail")
+    .value.trim()
+    .toLowerCase();
+
+  const msg =
+    document.getElementById("studentAdminMessage");
+
+  if(!name || !studentClass || !roll || !parentEmail){
+
+    msg.className="message error";
+    msg.innerText="Please fill all fields.";
+    return;
+  }
+
+  try{
+
+    await addDoc(collection(db,"students"),{
+
+      name:name,
+      class:studentClass,
+      roll:roll,
+      parentEmail:parentEmail
+
+    });
+
+    msg.className="message success";
+    msg.innerText="✅ Student added successfully.";
+
+    document.getElementById("studentName").value="";
+    document.getElementById("studentClass").value="";
+    document.getElementById("studentRoll").value="";
+    document.getElementById("studentParentEmail").value="";
+
+    loadAttendanceStudents();
+    loadAllStudents();
+
+  }catch(error){
+
+    msg.className="message error";
+    msg.innerText=error.message;
+
+    console.log(error);
+  }
+};
+
+
+/* LOAD STUDENTS FOR ATTENDANCE */
+async function loadAttendanceStudents(){
+
+  const select =
+    document.getElementById("attendanceStudent");
+
+  try{
+
+    const snapshot =
+      await getDocs(collection(db,"students"));
+
+    select.innerHTML =
+      `<option value="">Select Student</option>`;
+
+    snapshot.forEach(doc=>{
+
+      const data=doc.data();
+
+      if(data.parentEmail){
+
+        const option =
+          document.createElement("option");
+
+        option.value=data.parentEmail;
+
+        option.textContent =
+          `${data.name} - Class ${data.class}`;
+
+        select.appendChild(option);
+      }
+    });
+
+  }catch(error){
+
+    select.innerHTML =
+      `<option value="">Unable to load students</option>`;
+
+    console.log(error);
+  }
+}
+
+
+/* ADD ATTENDANCE */
+window.addAttendance = async function(){
+
+  const parentEmail =
+    document.getElementById("attendanceStudent")
+    .value.trim().toLowerCase();
+
+  const date =
+    document.getElementById("attendanceDate").value;
+
+  const status =
+    document.getElementById("attendanceStatus").value;
+
+  const msg =
+    document.getElementById("attendanceAdminMessage");
+
+  if(!parentEmail || !date){
+
+    msg.className="message error";
+    msg.innerText="Please select student and date.";
+    return;
+  }
+
+  try{
+
+    await addDoc(collection(db,"attendance"),{
+
+      parentEmail:parentEmail,
+      date:date,
+      status:status
+
+    });
+
+    msg.className="message success";
+    msg.innerText="✅ Attendance added successfully.";
+
+  }catch(error){
+
+    msg.className="message error";
+    msg.innerText=error.message;
+
+    console.log(error);
+  }
+};
+
+
+/* ADD NOTICE */
+window.addNotice = async function(){
+
+  const title =
+    document.getElementById("noticeTitle")
+    .value.trim();
+
+  const message =
+    document.getElementById("noticeMessage")
+    .value.trim();
+
+  const date =
+    document.getElementById("noticeDate").value;
+
+  const msg =
+    document.getElementById("noticeAdminMessage");
+
+  if(!title || !message || !date){
+
+    msg.className="message error";
+    msg.innerText="Please fill all notice fields.";
+    return;
+  }
+
+  try{
+
+    await addDoc(collection(db,"notices"),{
+
+      title:title,
+      message:message,
+      date:date
+
+    });
+
+    msg.className="message success";
+    msg.innerText="✅ Notice published successfully.";
+
+    document.getElementById("noticeTitle").value="";
+    document.getElementById("noticeMessage").value="";
+    document.getElementById("noticeDate").value="";
+
+  }catch(error){
+
+    msg.className="message error";
+    msg.innerText=error.message;
+
+    console.log(error);
+  }
+};
+
+
+/* LOAD ALL STUDENTS */
+window.loadAllStudents = async function(){
+
+  const box =
+    document.getElementById("allStudents");
+
+  box.innerHTML=
+    `<p style="color:#667085">Loading...</p>`;
+
+  try{
+
+    const snapshot =
+      await getDocs(collection(db,"students"));
+
+    if(snapshot.empty){
+
+      box.innerHTML=
+        `<p style="color:#667085">No students found.</p>`;
+
+      return;
+    }
+
+    let html="";
+
+    snapshot.forEach(doc=>{
+
+      const data=doc.data();
+
+      html += `
+        <div class="list-item">
+
+          <h3>👨‍🎓 ${escapeHTML(data.name)}</h3>
+
+          <p>
+            Class: ${escapeHTML(data.class)}
+            <br>
+            Roll: ${escapeHTML(String(data.roll))}
+            <br>
+            Parent: ${escapeHTML(data.parentEmail)}
+          </p>
+
+        </div>
+      `;
+    });
+
+    box.innerHTML=html;
+
+  }catch(error){
+
+    box.innerHTML=
+      `<p class="error">${escapeHTML(error.message)}</p>`;
+  }
+};
+
+
+/* LOGOUT */
+window.logout = async function(){
+
+  try{
+    await signOut(auth);
+  }catch(error){
+    console.log(error);
+  }
+};
+
+
+/* HTML SAFETY */
+function escapeHTML(value){
+
+  return String(value)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
+
+/* SERVICE WORKER */
+if("serviceWorker" in navigator){
+
+  window.addEventListener("load",()=>{
+
+    navigator.serviceWorker
+      .register("sw.js")
+      .catch(error=>{
+        console.log("SW error:",error);
+      });
+
+  });
+}
+
+
+/* DEFAULT DATE */
+const today =
+  new Date().toISOString().split("T")[0];
+
+document.getElementById("attendanceDate").value=today;
+document.getElementById("noticeDate").value=today;
+
+</script>
+
+</body>
+  </html>
