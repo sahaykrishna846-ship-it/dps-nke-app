@@ -1,1154 +1,1141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>DPS Narkatiaganj Parent App</title>
+<title>DPS Narkatiaganj Parent App</title>
 
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#3158c9">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#3158c9">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<style>
+*{
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
 
-    body {
-      margin: 0;
-      background: #f4f7fb;
-      color: #222;
-    }
+body{
+  margin:0;
+  background:#f4f7fb;
+  color:#222;
+}
 
-    header {
-      background: #3158c9;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
+header{
+  background:#3158c9;
+  color:white;
+  padding:20px;
+  text-align:center;
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 24px;
-    }
+header h1{
+  margin:0;
+  font-size:24px;
+}
 
-    header p {
-      margin: 6px 0 0;
-      font-size: 14px;
-    }
+header p{
+  margin:6px 0 0;
+  font-size:14px;
+}
 
-    .container {
-      max-width: 600px;
-      margin: auto;
-      padding: 20px;
-    }
+.container{
+  max-width:600px;
+  margin:auto;
+  padding:20px;
+}
 
-    .card {
-      background: white;
-      padding: 20px;
-      margin-bottom: 18px;
-      border-radius: 15px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-    }
+.card{
+  background:white;
+  padding:20px;
+  margin-bottom:18px;
+  border-radius:15px;
+  box-shadow:0 3px 12px rgba(0,0,0,0.08);
+}
 
-    h2 {
-      margin-top: 0;
-      color: #3158c9;
-    }
+h2{
+  margin-top:0;
+  color:#3158c9;
+}
 
-    input {
-      width: 100%;
-      padding: 13px;
-      margin: 8px 0;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 16px;
-    }
+input,select{
+  width:100%;
+  padding:13px;
+  margin:8px 0;
+  border:1px solid #ccc;
+  border-radius:8px;
+  font-size:16px;
+  background:white;
+}
 
-    button {
-      width: 100%;
-      padding: 13px;
-      margin-top: 8px;
-      border: none;
-      border-radius: 8px;
-      background: #3158c9;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-    }
+button{
+  width:100%;
+  padding:13px;
+  margin-top:8px;
+  border:none;
+  border-radius:8px;
+  background:#3158c9;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+}
 
-    .logout {
-      background: #d93025;
-    }
+.logout{
+  background:#d93025;
+}
 
-    .green {
-      background: #188038;
-    }
+.green{
+  background:#188038;
+}
 
-    .gray {
-      background: #666;
-    }
+.gray{
+  background:#666;
+}
 
-    .hidden {
-      display: none;
-    }
+.hidden{
+  display:none;
+}
 
-    .student {
-      background: #f1f5ff;
-      padding: 18px;
-      border-radius: 12px;
-      margin-top: 12px;
-      line-height: 1.8;
-    }
+.student{
+  background:#f1f5ff;
+  padding:18px;
+  border-radius:12px;
+  margin-top:12px;
+  line-height:1.8;
+}
 
-    .feature {
-      padding: 14px;
-      background: #f7f7f7;
-      border-radius: 10px;
-      margin: 8px 0;
-      cursor: pointer;
-    }
+.feature{
+  padding:14px;
+  background:#f7f7f7;
+  border-radius:10px;
+  margin:8px 0;
+  cursor:pointer;
+}
 
-    .errorBox {
-      background: #ffe8e8;
-      color: #b00020;
-      padding: 12px;
-      border-radius: 8px;
-      margin-top: 10px;
-      display: none;
-      white-space: pre-wrap;
-      word-break: break-word;
-    }
+.errorBox{
+  background:#ffe8e8;
+  color:#b00020;
+  padding:12px;
+  border-radius:8px;
+  margin-top:10px;
+  display:none;
+  white-space:pre-wrap;
+  word-break:break-word;
+}
 
-    .successBox {
-      background: #e8f5e9;
-      color: #137333;
-      padding: 12px;
-      border-radius: 8px;
-      margin-top: 10px;
-    }
+.successBox{
+  background:#e8f5e9;
+  color:#137333;
+  padding:12px;
+  border-radius:8px;
+  margin-top:10px;
+}
 
-    .emailBox {
-      background: #eef3ff;
-      padding: 10px;
-      border-radius: 8px;
-      font-size: 14px;
-      word-break: break-all;
-    }
-  </style>
+.emailBox{
+  background:#eef3ff;
+  padding:10px;
+  border-radius:8px;
+  font-size:14px;
+  word-break:break-all;
+}
+
+.attendancePresent{
+  background:#e8f5e9;
+  color:#137333;
+  padding:12px;
+  margin:8px 0;
+  border-radius:8px;
+}
+
+.attendanceAbsent{
+  background:#ffe8e8;
+  color:#b00020;
+  padding:12px;
+  margin:8px 0;
+  border-radius:8px;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>Delhi Public School</h1>
-  <p>Narkatiaganj • Parent Portal</p>
+<h1>Delhi Public School</h1>
+<p>Narkatiaganj • Parent Portal</p>
 </header>
 
 <div class="container">
 
-  <!-- HOME -->
-  <div id="home" class="card">
-    <h2>Welcome</h2>
-    <p>Choose your login:</p>
+<!-- HOME -->
+<div id="home" class="card">
 
-    <button onclick="showParentLogin()">
-      👨‍👩‍👧 Parent Login
-    </button>
+<h2>Welcome</h2>
+<p>Choose your login:</p>
 
-    <button onclick="showAdminLogin()" class="gray">
-      🔐 Admin Login
-    </button>
-  </div>
+<button onclick="showParentLogin()">
+👨‍👩‍👧 Parent Login
+</button>
 
+<button onclick="showAdminLogin()" class="gray">
+🔐 Admin Login
+</button>
 
-  <!-- PARENT LOGIN -->
-  <div id="parentLogin" class="card hidden">
+</div>
 
-    <h2>Parent Login</h2>
 
-    <input
-      type="email"
-      id="parentEmail"
-      placeholder="Parent Email"
-    >
+<!-- PARENT LOGIN -->
+<div id="parentLogin" class="card hidden">
 
-    <input
-      type="password"
-      id="parentPassword"
-      placeholder="Password"
-    >
+<h2>Parent Login</h2>
 
-    <button onclick="parentLoginUser()">
-      Login
-    </button>
+<input
+type="email"
+id="parentEmail"
+placeholder="Parent Email">
 
-    <button onclick="backHome()" class="gray">
-      Back
-    </button>
+<input
+type="password"
+id="parentPassword"
+placeholder="Password">
 
-    <div id="parentError" class="errorBox"></div>
+<button onclick="parentLoginUser()">
+Login
+</button>
 
-  </div>
+<button onclick="backHome()" class="gray">
+Back
+</button>
 
+<div id="parentError" class="errorBox"></div>
 
-  <!-- ADMIN LOGIN -->
-  <div id="adminLogin" class="card hidden">
+</div>
 
-    <h2>Admin Login</h2>
 
-    <input
-      type="email"
-      id="adminEmail"
-      placeholder="Admin Email"
-    >
+<!-- ADMIN LOGIN -->
+<div id="adminLogin" class="card hidden">
 
-    <input
-      type="password"
-      id="adminPassword"
-      placeholder="Password"
-    >
+<h2>Admin Login</h2>
 
-    <button onclick="adminLoginUser()">
-      Admin Login
-    </button>
+<input
+type="email"
+id="adminEmail"
+placeholder="Admin Email">
 
-    <button onclick="backHome()" class="gray">
-      Back
-    </button>
+<input
+type="password"
+id="adminPassword"
+placeholder="Password">
 
-    <div id="adminError" class="errorBox"></div>
+<button onclick="adminLoginUser()">
+Admin Login
+</button>
 
-  </div>
+<button onclick="backHome()" class="gray">
+Back
+</button>
 
+<div id="adminError" class="errorBox"></div>
 
-  <!-- PARENT DASHBOARD -->
-  <div id="parentDashboard" class="hidden">
+</div>
 
-    <div class="card">
 
-      <h2>👨‍👩‍👧 Parent Dashboard</h2>
+<!-- PARENT DASHBOARD -->
+<div id="parentDashboard" class="hidden">
 
-      <p>Logged in as:</p>
+<div class="card">
 
-      <div class="emailBox">
-        <b id="loggedParentEmail"></b>
-      </div>
+<h2>👨‍👩‍👧 Parent Dashboard</h2>
 
-    </div>
+<p>Logged in as:</p>
 
+<div class="emailBox">
+<b id="loggedParentEmail"></b>
+</div>
 
-    <!-- STUDENT INFORMATION -->
-    <div class="card">
+</div>
 
-      <h2>🎓 Student Information</h2>
 
-      <div id="studentList">
-        <div class="successBox">
-          Please wait... Loading student information...
-        </div>
-      </div>
+<!-- STUDENT -->
+<div class="card">
 
-    </div>
+<h2>🎓 Student Information</h2>
 
+<div id="studentList">
+<div class="successBox">
+Please wait... Loading student information...
+</div>
+</div>
 
-    <!-- SCHOOL SERVICES -->
-    <div class="card">
+</div>
 
-      <h2>📚 School Services</h2>
 
-      <div class="feature" onclick="showHomework()">
-        📚 Homework
-      </div>
+<!-- SERVICES -->
+<div class="card">
 
-      <div class="feature" onclick="showAttendance()">
-        🗓️ Attendance
-      </div>
+<h2>📚 School Services</h2>
 
-      <div class="feature" onclick="showResults()">
-        📝 Results
-      </div>
+<div class="feature" onclick="showHomework()">
+📚 Homework
+</div>
 
-      <div class="feature" onclick="showFees()">
-        💰 Fees
-      </div>
+<div class="feature" onclick="showAttendance()">
+🗓️ Attendance
+</div>
 
-      <div class="feature" onclick="showNotices()">
-        📢 Notices
-      </div>
+<div class="feature" onclick="showResults()">
+📝 Results
+</div>
 
-      <div class="feature" onclick="showTimetable()">
-        🕐 Timetable
-      </div>
+<div class="feature" onclick="showFees()">
+💰 Fees
+</div>
 
-    </div>
+<div class="feature" onclick="showNotices()">
+📢 Notices
+</div>
 
+<div class="feature" onclick="showTimetable()">
+🕐 Timetable
+</div>
 
-    <div class="card">
+</div>
 
-      <button onclick="parentLogout()" class="logout">
-        Logout
-      </button>
 
-    </div>
+<div class="card">
 
-  </div>
+<button onclick="parentLogout()" class="logout">
+Logout
+</button>
 
+</div>
 
-  <!-- ADMIN DASHBOARD -->
-  <div id="adminDashboard" class="hidden">
+</div>
 
-    <div class="card">
 
-      <h2>🔐 Admin Dashboard</h2>
+<!-- ADMIN DASHBOARD -->
+<div id="adminDashboard" class="hidden">
 
-      <p>Admin:</p>
+<div class="card">
 
-      <div class="emailBox">
-        <b id="loggedAdminEmail"></b>
-      </div>
+<h2>🔐 Admin Dashboard</h2>
 
-    </div>
+<p>Admin:</p>
 
+<div class="emailBox">
+<b id="loggedAdminEmail"></b>
+</div>
 
-    <!-- ADD STUDENT -->
-    <div class="card">
+</div>
 
-      <h2>➕ Add Student</h2>
 
-      <input
-        type="text"
-        id="studentName"
-        placeholder="Student Name"
-      >
+<!-- ADD STUDENT -->
+<div class="card">
 
-      <input
-        type="text"
-        id="studentClass"
-        placeholder="Class"
-      >
+<h2>➕ Add Student</h2>
 
-      <input
-        type="text"
-        id="studentRoll"
-        placeholder="Roll Number"
-      >
+<input
+type="text"
+id="studentName"
+placeholder="Student Name">
 
-      <input
-        type="email"
-        id="studentParentEmail"
-        placeholder="Parent Email"
-      >
+<input
+type="text"
+id="studentClass"
+placeholder="Class">
 
-      <button onclick="addStudent()" class="green">
-        Add Student
-      </button>
+<input
+type="text"
+id="studentRoll"
+placeholder="Roll Number">
 
-    </div>
+<input
+type="email"
+id="studentParentEmail"
+placeholder="Parent Email">
 
+<button onclick="addStudent()" class="green">
+Add Student
+</button>
 
-    <!-- STUDENT LIST -->
-    <div class="card">
+</div>
 
-      <h2>👨‍🎓 Students</h2>
 
-      <button onclick="loadAllStudents()">
-        🔄 Load Students
-      </button>
+<!-- STUDENT LIST -->
+<div class="card">
 
-      <div id="adminStudentList">
-        No students loaded.
-      </div>
+<h2>👨‍🎓 Students</h2>
 
-    </div>
+<button onclick="loadAllStudents()">
+🔄 Load Students
+</button>
 
+<div id="adminStudentList">
+No students loaded.
+</div>
 
-    <div class="card">
+</div>
 
-      <button onclick="adminLogout()" class="logout">
-        Logout
-      </button>
 
-    </div>
+<!-- ADD ATTENDANCE -->
+<div class="card">
 
-  </div>
+<h2>🗓️ Add Attendance</h2>
+
+<select id="attendanceStudent">
+<option value="">Select Student</option>
+</select>
+
+<input
+type="date"
+id="attendanceDate">
+
+<select id="attendanceStatus">
+
+<option value="Present">
+Present
+</option>
+
+<option value="Absent">
+Absent
+</option>
+
+</select>
+
+<button onclick="addAttendance()" class="green">
+➕ Add Attendance
+</button>
+
+<div id="attendanceAdminMessage"></div>
+
+</div>
+
+
+<!-- ADMIN LOGOUT -->
+<div class="card">
+
+<button onclick="adminLogout()" class="logout">
+Logout
+</button>
+
+</div>
+
+</div>
 
 </div>
 
 
 <script type="module">
 
-  import {
-    initializeApp
-  } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+import {
+initializeApp
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 
-  import {
-    getAuth,
-    signInWithEmailAndPassword,
-    signOut
-  } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+import {
+getAuth,
+signInWithEmailAndPassword,
+signOut
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 
-  import {
-    getFirestore,
-    collection,
-    addDoc,
-    getDocs,
-    query,
-    where
-  } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+import {
+getFirestore,
+collection,
+addDoc,
+getDocs,
+query,
+where
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
 
-  /* =========================
-     FIREBASE CONFIG
-  ========================= */
+/* FIREBASE */
 
-  const firebaseConfig = {
+const firebaseConfig = {
 
-    apiKey:
-      "AIzaSyBoDLUAc-y9nqFBn8vB9wRUUtMY0WALxwA",
+apiKey:
+"AIzaSyBoDLUAc-y9nqFBn8vB9wRUUtMY0WALxwA",
 
-    authDomain:
-      "dps-narkatiaganj.firebaseapp.com",
+authDomain:
+"dps-narkatiaganj.firebaseapp.com",
 
-    projectId:
-      "dps-narkatiaganj",
+projectId:
+"dps-narkatiaganj",
 
-    storageBucket:
-      "dps-narkatiaganj.firebasestorage.app",
+storageBucket:
+"dps-narkatiaganj.firebasestorage.app",
 
-    messagingSenderId:
-      "199351719662",
+messagingSenderId:
+"199351719662",
 
-    appId:
-      "1:199351719662:web:612fb6010c40a42c2a45ff",
+appId:
+"1:199351719662:web:612fb6010c40a42c2a45ff",
 
-    measurementId:
-      "G-49BGF6LQ9P"
-  };
+measurementId:
+"G-49BGF6LQ9P"
 
+};
 
-  const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
-  const auth = getAuth(app);
+const auth = getAuth(app);
 
-  const db = getFirestore(app);
+const db = getFirestore(app);
 
 
-  /* =========================
-     SCREEN FUNCTIONS
-  ========================= */
+/* SCREEN FUNCTIONS */
 
-  window.showParentLogin = function() {
+window.showParentLogin = function(){
 
-    document.getElementById("home")
-      .classList.add("hidden");
+document.getElementById("home").classList.add("hidden");
 
-    document.getElementById("adminLogin")
-      .classList.add("hidden");
+document.getElementById("adminLogin").classList.add("hidden");
 
-    document.getElementById("parentLogin")
-      .classList.remove("hidden");
+document.getElementById("parentLogin").classList.remove("hidden");
 
-  };
+};
 
 
-  window.showAdminLogin = function() {
+window.showAdminLogin = function(){
 
-    document.getElementById("home")
-      .classList.add("hidden");
+document.getElementById("home").classList.add("hidden");
 
-    document.getElementById("parentLogin")
-      .classList.add("hidden");
+document.getElementById("parentLogin").classList.add("hidden");
 
-    document.getElementById("adminLogin")
-      .classList.remove("hidden");
+document.getElementById("adminLogin").classList.remove("hidden");
 
-  };
+};
 
 
-  window.backHome = function() {
+window.backHome = function(){
 
-    document.getElementById("parentLogin")
-      .classList.add("hidden");
+document.getElementById("parentLogin").classList.add("hidden");
 
-    document.getElementById("adminLogin")
-      .classList.add("hidden");
+document.getElementById("adminLogin").classList.add("hidden");
 
-    document.getElementById("home")
-      .classList.remove("hidden");
+document.getElementById("home").classList.remove("hidden");
 
-  };
+};
 
 
-  /* =========================
-     PARENT LOGIN
-  ========================= */
+/* PARENT LOGIN */
 
-  window.parentLoginUser = async function() {
+window.parentLoginUser = async function(){
 
-    const email =
-      document.getElementById("parentEmail")
-        .value.trim();
+const email =
+document.getElementById("parentEmail").value.trim();
 
-    const password =
-      document.getElementById("parentPassword")
-        .value;
+const password =
+document.getElementById("parentPassword").value;
 
-    const errorBox =
-      document.getElementById("parentError");
+const errorBox =
+document.getElementById("parentError");
 
+errorBox.style.display="none";
 
-    errorBox.style.display = "none";
+if(!email || !password){
 
+errorBox.innerText="Please enter email and password.";
 
-    if (!email || !password) {
+errorBox.style.display="block";
 
-      errorBox.innerText =
-        "Please enter email and password.";
+return;
 
-      errorBox.style.display = "block";
+}
 
-      return;
+try{
 
-    }
+const result =
+await signInWithEmailAndPassword(
+auth,
+email,
+password
+);
 
+document.getElementById("parentLogin")
+.classList.add("hidden");
 
-    try {
+document.getElementById("parentDashboard")
+.classList.remove("hidden");
 
-      const result =
-        await signInWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
+document.getElementById("loggedParentEmail")
+.innerText=result.user.email;
 
+await loadParentStudent(result.user.email);
 
-      document.getElementById("parentLogin")
-        .classList.add("hidden");
+}
 
-      document.getElementById("parentDashboard")
-        .classList.remove("hidden");
+catch(error){
 
+errorBox.innerText=
+"Firebase Error:\n"+
+error.code+
+"\n\n"+
+error.message;
 
-      document.getElementById("loggedParentEmail")
-        .innerText = result.user.email;
+errorBox.style.display="block";
 
+}
 
-      await loadParentStudent(result.user.email);
+};
 
-    }
 
-    catch (error) {
+/* ADMIN LOGIN */
 
-      console.error(error);
+window.adminLoginUser = async function(){
 
-      errorBox.innerText =
-        "Firebase Error:\n" +
-        error.code +
-        "\n\n" +
-        error.message;
+const email =
+document.getElementById("adminEmail").value.trim();
 
-      errorBox.style.display = "block";
+const password =
+document.getElementById("adminPassword").value;
 
-    }
+const errorBox =
+document.getElementById("adminError");
 
-  };
+errorBox.style.display="none";
 
+if(!email || !password){
 
-  /* =========================
-     ADMIN LOGIN
-  ========================= */
+errorBox.innerText="Please enter email and password.";
 
-  window.adminLoginUser = async function() {
+errorBox.style.display="block";
 
-    const email =
-      document.getElementById("adminEmail")
-        .value.trim();
+return;
 
-    const password =
-      document.getElementById("adminPassword")
-        .value;
+}
 
-    const errorBox =
-      document.getElementById("adminError");
+try{
 
+const result =
+await signInWithEmailAndPassword(
+auth,
+email,
+password
+);
 
-    errorBox.style.display = "none";
+document.getElementById("adminLogin")
+.classList.add("hidden");
 
+document.getElementById("adminDashboard")
+.classList.remove("hidden");
 
-    if (!email || !password) {
+document.getElementById("loggedAdminEmail")
+.innerText=result.user.email;
 
-      errorBox.innerText =
-        "Please enter email and password.";
+await loadAttendanceStudents();
 
-      errorBox.style.display = "block";
+}
 
-      return;
+catch(error){
 
-    }
+errorBox.innerText=
+"Firebase Error:\n"+
+error.code+
+"\n\n"+
+error.message;
 
+errorBox.style.display="block";
 
-    try {
+}
 
-      const result =
-        await signInWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
+};
 
 
-      document.getElementById("adminLogin")
-        .classList.add("hidden");
+/* LOAD PARENT STUDENT */
 
-      document.getElementById("adminDashboard")
-        .classList.remove("hidden");
+async function loadParentStudent(email){
 
+const list =
+document.getElementById("studentList");
 
-      document.getElementById("loggedAdminEmail")
-        .innerText = result.user.email;
+list.innerHTML=
+'<div class="successBox">Loading student information...</div>';
 
-    }
+try{
 
-    catch (error) {
+const parentEmail =
+email.trim().toLowerCase();
 
-      console.error(error);
+const q =
+query(
+collection(db,"students"),
+where(
+"parentEmail",
+"==",
+parentEmail
+)
+);
 
-      errorBox.innerText =
-        "Firebase Error:\n" +
-        error.code +
-        "\n\n" +
-        error.message;
+const snapshot =
+await getDocs(q);
 
-      errorBox.style.display = "block";
+if(snapshot.empty){
 
-    }
+list.innerHTML=
+'<div class="errorBox" style="display:block">'+
+'❌ No student found.'+
+'<br><br>Login Email: <b>'+
+parentEmail+
+'</b></div>';
 
-  };
+return;
 
+}
 
-  /* =========================
-     LOAD PARENT STUDENT
-  ========================= */
+list.innerHTML="";
 
-  async function loadParentStudent(email) {
+snapshot.forEach((doc)=>{
 
-    const list =
-      document.getElementById("studentList");
+const data=doc.data();
 
+const studentCard=
+document.createElement("div");
 
-    list.innerHTML =
-      '<div class="successBox">' +
-      'Loading student information...' +
-      '</div>';
+studentCard.className="student";
 
+studentCard.innerHTML=
 
-    try {
+`
+<h3>🎓 ${data.name || "Student"}</h3>
 
-      const parentEmail =
-        email.trim().toLowerCase();
+<b>Student Name:</b>
+${data.name || "-"}
 
+<br>
 
-      const q =
-        query(
-          collection(db, "students"),
-          where(
-            "parentEmail",
-            "==",
-            parentEmail
-          )
-        );
+<b>Class:</b>
+${data.class || "-"}
 
+<br>
 
-      const snapshot =
-        await getDocs(q);
+<b>Roll No:</b>
+${data.roll || "-"}
 
+<br>
 
-      console.log(
-        "Parent email:",
-        parentEmail
-      );
+<b>Parent Email:</b>
+${data.parentEmail || "-"}
+`;
 
-      console.log(
-        "Students found:",
-        snapshot.size
-      );
+list.appendChild(studentCard);
 
+});
 
-      if (snapshot.empty) {
+}
 
-        list.innerHTML = `
+catch(error){
 
-          <div class="errorBox"
-               style="display:block">
+list.innerHTML=
+'<div class="errorBox" style="display:block">'+
+'❌ Firestore Error<br><br>'+
+(error.code || "unknown")+
+'<br>'+
+(error.message || "Unknown error")+
+'</div>';
 
-            ❌ No student found.
+}
 
-            <br><br>
+}
 
-            Login Email:
-            <b>${parentEmail}</b>
 
-            <br><br>
+/* ADD STUDENT */
 
-            Please check that the student's
-            Firestore "parentEmail" field
-            exactly matches this email.
+window.addStudent=async function(){
 
-          </div>
+const name=
+document.getElementById("studentName").value.trim();
 
-        `;
+const studentClass=
+document.getElementById("studentClass").value.trim();
 
-        return;
-      }
+const roll=
+document.getElementById("studentRoll").value.trim();
 
+const parentEmail=
+document.getElementById("studentParentEmail")
+.value.trim()
+.toLowerCase();
 
-      list.innerHTML = "";
+if(!name || !studentClass || !roll || !parentEmail){
 
+alert("Please fill all fields.");
 
-      snapshot.forEach((doc) => {
+return;
 
-        const data = doc.data();
+}
 
+try{
 
-        const studentCard =
-          document.createElement("div");
+await addDoc(
+collection(db,"students"),
+{
 
+name:name,
 
-        studentCard.className =
-          "student";
+class:studentClass,
 
+roll:roll,
 
-        studentCard.innerHTML = `
+parentEmail:parentEmail
 
-          <h3>🎓 ${data.name || "Student"}</h3>
+}
+);
 
-          <b>Student Name:</b>
-          ${data.name || "-"}
+alert("Student added successfully!");
 
-          <br>
+document.getElementById("studentName").value="";
+document.getElementById("studentClass").value="";
+document.getElementById("studentRoll").value="";
+document.getElementById("studentParentEmail").value="";
 
-          <b>Class:</b>
-          ${data.class || "-"}
+await loadAllStudents();
 
-          <br>
+await loadAttendanceStudents();
 
-          <b>Roll No:</b>
-          ${data.roll || "-"}
+}
 
-          <br>
+catch(error){
 
-          <b>Parent Email:</b>
-          ${data.parentEmail || "-"}
+alert(
+"Firestore Error:\n"+
+error.code+
+"\n\n"+
+error.message
+);
 
-        `;
+}
 
+};
 
-        list.appendChild(studentCard);
 
-      });
+/* LOAD ALL STUDENTS */
 
-    }
+window.loadAllStudents=async function(){
 
-    catch (error) {
+const list=
+document.getElementById("adminStudentList");
 
-      console.error(error);
+list.innerHTML="Loading...";
 
+try{
 
-      list.innerHTML = `
+const snapshot=
+await getDocs(
+collection(db,"students")
+);
 
-        <div class="errorBox"
-             style="display:block">
+if(snapshot.empty){
 
-          ❌ Firestore Error
+list.innerHTML="No students found.";
 
-          <br><br>
+return;
 
-          Code:
-          ${error.code || "unknown"}
+}
 
-          <br>
+list.innerHTML="";
 
-          Message:
-          ${error.message || "Unknown error"}
+snapshot.forEach((doc)=>{
 
-        </div>
+const data=doc.data();
 
-      `;
+const student=
+document.createElement("div");
 
-    }
+student.className="student";
 
-  }
+student.innerHTML=
+`
+<b>🎓 ${data.name || "-"}</b>
 
+<br><br>
 
-  /* =========================
-     ADD STUDENT
-  ========================= */
+Class: ${data.class || "-"}
 
-  window.addStudent = async function() {
+<br>
 
-    const name =
-      document.getElementById("studentName")
-        .value.trim();
+Roll: ${data.roll || "-"}
 
-    const studentClass =
-      document.getElementById("studentClass")
-        .value.trim();
+<br>
 
-    const roll =
-      document.getElementById("studentRoll")
-        .value.trim();
+Parent: ${data.parentEmail || "-"}
+`;
 
-    const parentEmail =
-      document.getElementById("studentParentEmail")
-        .value.trim()
-        .toLowerCase();
+list.appendChild(student);
 
+});
 
-    if (
-      !name ||
-      !studentClass ||
-      !roll ||
-      !parentEmail
-    ) {
+}
 
-      alert("Please fill all fields.");
+catch(error){
 
-      return;
+list.innerText=
+"Firestore Error:\n"+
+error.code+
+"\n"+
+error.message;
 
-    }
+}
 
+};
 
-    try {
 
-      await addDoc(
-        collection(db, "students"),
-        {
+/* LOAD STUDENTS INTO ATTENDANCE DROPDOWN */
 
-          name: name,
+async function loadAttendanceStudents(){
 
-          class: studentClass,
+const select=
+document.getElementById("attendanceStudent");
 
-          roll: roll,
+select.innerHTML=
+'<option value="">Select Student</option>';
 
-          parentEmail: parentEmail
+try{
 
-        }
-      );
+const snapshot=
+await getDocs(
+collection(db,"students")
+);
 
+snapshot.forEach((doc)=>{
 
-      alert(
-        "Student added successfully!"
-      );
+const data=doc.data();
 
+if(data.parentEmail){
 
-      document.getElementById("studentName")
-        .value = "";
+const option=
+document.createElement("option");
 
-      document.getElementById("studentClass")
-        .value = "";
+option.value=
+data.parentEmail;
 
-      document.getElementById("studentRoll")
-        .value = "";
+option.textContent=
+(data.name || "Student")+
+" — Class "+
+(data.class || "-");
 
-      document.getElementById("studentParentEmail")
-        .value = "";
+select.appendChild(option);
 
+}
 
-      await loadAllStudents();
+});
 
-    }
+}
 
-    catch (error) {
+catch(error){
 
-      alert(
-        "Firestore Error:\n" +
-        error.code +
-        "\n\n" +
-        error.message
-      );
+console.error(error);
 
-    }
+}
 
-  };
+}
 
 
-  /* =========================
-     LOAD ALL STUDENTS
-  ========================= */
+/* ADD ATTENDANCE */
 
-  window.loadAllStudents = async function() {
+window.addAttendance=async function(){
 
-    const list =
-      document.getElementById("adminStudentList");
+const parentEmail=
+document.getElementById("attendanceStudent").value;
 
+const date=
+document.getElementById("attendanceDate").value;
 
-    list.innerHTML =
-      "Loading...";
+const status=
+document.getElementById("attendanceStatus").value;
 
+const message=
+document.getElementById("attendanceAdminMessage");
 
-    try {
+if(!parentEmail){
 
-      const snapshot =
-        await getDocs(
-          collection(db, "students")
-        );
+alert("Please select a student.");
 
+return;
 
-      if (snapshot.empty) {
+}
 
-        list.innerHTML =
-          "No students found.";
+if(!date){
 
-        return;
+alert("Please select a date.");
 
-      }
+return;
 
+}
 
-      list.innerHTML = "";
+try{
 
+await addDoc(
+collection(db,"attendance"),
+{
 
-      snapshot.forEach((doc) => {
+parentEmail:parentEmail,
 
-        const data = doc.data();
+date:date,
 
+status:status
 
-        const student =
-          document.createElement("div");
+}
+);
 
+message.innerHTML=
+'<div class="successBox">'+
+'✅ Attendance added successfully!'+
+'</div>';
 
-        student.className =
-          "student";
+}
 
+catch(error){
 
-        student.innerHTML = `
+message.innerHTML=
+'<div class="errorBox" style="display:block">'+
+'❌ Attendance Error<br><br>'+
+error.code+
+'<br>'+
+error.message+
+'</div>';
 
-          <b>🎓 ${data.name || "-"}</b>
+}
 
-          <br><br>
+};
 
-          Class:
-          ${data.class || "-"}
 
-          <br>
+/* SHOW ATTENDANCE */
 
-          Roll:
-          ${data.roll || "-"}
+window.showAttendance=async function(){
 
-          <br>
+const user=auth.currentUser;
 
-          Parent:
-          ${data.parentEmail || "-"}
+if(!user){
 
-        `;
+alert("Please login first.");
 
+return;
 
-        list.appendChild(student);
+}
 
-      });
+try{
 
-    }
+const parentEmail=
+user.email.trim().toLowerCase();
 
-    catch (error) {
+const q=
+query(
+collection(db,"attendance"),
+where(
+"parentEmail",
+"==",
+parentEmail
+)
+);
 
-      list.innerHTML =
-        "Firestore Error:\n" +
-        error.code +
-        "\n" +
-        error.message;
+const snapshot=
+await getDocs(q);
 
-    }
+if(snapshot.empty){
 
-  };
+alert("No attendance records found.");
 
+return;
 
-  /* =========================
-     ATTENDANCE
-  ========================= */
+}
 
-  window.showAttendance = async function() {
+let message=
+"🗓️ Attendance\n\n";
 
-    const user =
-      auth.currentUser;
+snapshot.forEach((doc)=>{
 
+const data=doc.data();
 
-    if (!user) {
+message+=
+(data.date || "-")+
+" - "+
+(data.status || "-")+
+"\n";
 
-      alert(
-        "Please login first."
-      );
+});
 
-      return;
+alert(message);
 
-    }
+}
 
+catch(error){
 
-    try {
+alert(
+"Attendance Error:\n"+
+error.code+
+"\n"+
+error.message
+);
 
-      const q =
-        query(
-          collection(db, "attendance"),
-          where(
-            "parentEmail",
-            "==",
-            user.email
-          )
-        );
+}
 
 
-      const snapshot =
-        await getDocs(q);
+/* OTHER FEATURES */
 
+};
 
-      if (snapshot.empty) {
+window.showHomework=function(){
+alert("📚 Homework section coming soon.");
+};
 
-        alert(
-          "No attendance records found."
-        );
+window.showResults=function(){
+alert("📝 Results section coming soon.");
+};
 
-        return;
+window.showFees=function(){
+alert("💰 Fees section coming soon.");
+};
 
-      }
+window.showNotices=function(){
+alert("📢 Notices section coming soon.");
+};
 
+window.showTimetable=function(){
+alert("🕐 Timetable section coming soon.");
+};
 
-      let message =
-        "🗓️ Attendance\n\n";
 
+/* LOGOUT */
 
-      snapshot.forEach((doc) => {
+window.parentLogout=async function(){
 
-        const data = doc.data();
+await signOut(auth);
 
+document.getElementById("parentDashboard")
+.classList.add("hidden");
 
-        message +=
-          (data.date || "-") +
-          " - " +
-          (data.status || "-") +
-          "\n";
+document.getElementById("home")
+.classList.remove("hidden");
 
-      });
+};
 
 
-      alert(message);
+window.adminLogout=async function(){
 
-    }
+await signOut(auth);
 
-    catch (error) {
+document.getElementById("adminDashboard")
+.classList.add("hidden");
 
-      alert(
-        "Attendance Error:\n" +
-        error.code +
-        "\n" +
-        error.message
-      );
+document.getElementById("home")
+.classList.remove("hidden");
 
-    }
+};
 
-  };
 
+/* SERVICE WORKER */
 
-  /* =========================
-     OTHER FEATURES
-  ========================= */
+if("serviceWorker" in navigator){
 
-  window.showHomework = function() {
+navigator.serviceWorker
+.register("sw.js")
+.catch((error)=>{
 
-    alert(
-      "📚 Homework section coming soon."
-    );
+console.log(
+"Service Worker Error:",
+error
+);
 
-  };
+});
 
-
-  window.showResults = function() {
-
-    alert(
-      "📝 Results section coming soon."
-    );
-
-  };
-
-
-  window.showFees = function() {
-
-    alert(
-      "💰 Fees section coming soon."
-    );
-
-  };
-
-
-  window.showNotices = function() {
-
-    alert(
-      "📢 Notices section coming soon."
-    );
-
-  };
-
-
-  window.showTimetable = function() {
-
-    alert(
-      "🕐 Timetable section coming soon."
-    );
-
-  };
-
-
-  /* =========================
-     LOGOUT
-  ========================= */
-
-  window.parentLogout = async function() {
-
-    await signOut(auth);
-
-
-    document.getElementById("parentDashboard")
-      .classList.add("hidden");
-
-
-    document.getElementById("home")
-      .classList.remove("hidden");
-
-  };
-
-
-  window.adminLogout = async function() {
-
-    await signOut(auth);
-
-
-    document.getElementById("adminDashboard")
-      .classList.add("hidden");
-
-
-    document.getElementById("home")
-      .classList.remove("hidden");
-
-  };
-
-
-  /* =========================
-     SERVICE WORKER
-  ========================= */
-
-  if ("serviceWorker" in navigator) {
-
-    navigator.serviceWorker
-      .register("sw.js")
-      .catch((error) => {
-
-        console.log(
-          "Service Worker Error:",
-          error
-        );
-
-      });
-
-  }
+}
 
 </script>
 
