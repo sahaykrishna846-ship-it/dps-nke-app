@@ -1,467 +1,992 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DPS Narkatiaganj Parent App</title>
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#3158c9">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial;background:#f4f7fb;color:#222}
-.container{max-width:500px;margin:auto;padding:20px}
-.card{background:white;padding:20px;margin:12px 0;border-radius:16px;box-shadow:0 3px 12px #0001}
-input{width:100%;padding:14px;margin:8px 0;border:1px solid #ddd;border-radius:10px;font-size:16px}
-button{width:100%;padding:14px;margin:8px 0;border:0;border-radius:10px;background:#3158c9;color:white;font-size:16px;font-weight:bold}
-.red{background:#d93025}
-.hidden{display:none}
-.menu{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.menu button{background:white;color:#222;box-shadow:0 2px 8px #0001}
-.attendance{padding:14px;margin:8px 0;background:#f7f9ff;border-radius:10px}
-.present{color:green;font-weight:bold}
-.absent{color:red;font-weight:bold}
-#error{color:#d93025}
-</style>
+  <title>DPS Narkatiaganj Parent App</title>
+
+  <link rel="manifest" href="manifest.json">
+
+  <meta name="theme-color" content="#3158c9">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #f4f7fb;
+      color: #222;
+    }
+
+    header {
+      background: #3158c9;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    header p {
+      margin: 6px 0 0;
+      font-size: 14px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      margin-bottom: 18px;
+      border-radius: 15px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #3158c9;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 13px;
+      margin-top: 8px;
+      border: none;
+      border-radius: 8px;
+      background: #3158c9;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .logout {
+      background: #d93025;
+    }
+
+    .green {
+      background: #188038;
+    }
+
+    .gray {
+      background: #666;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .student {
+      background: #f1f5ff;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    .feature {
+      padding: 14px;
+      background: #f7f7f7;
+      border-radius: 10px;
+      margin: 8px 0;
+      cursor: pointer;
+    }
+
+    #errorBox {
+      background: #ffe8e8;
+      color: #b00020;
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 10px;
+      display: none;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .small {
+      font-size: 13px;
+      color: #666;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- LOGIN -->
+<header>
+  <h1>Delhi Public School</h1>
+  <p>Narkatiaganj • Parent Portal</p>
+</header>
 
-<div id="loginPage" class="container">
-<div class="card">
-<h1>🏫 DPS Narkatiaganj</h1>
-<p>Parent & School Portal</p>
+<div class="container">
 
-<input id="username" type="email" placeholder="Parent Email">
-<input id="password" type="password" placeholder="Password">
+  <!-- HOME -->
+  <div id="home" class="card">
+    <h2>Welcome</h2>
+    <p>Choose your login:</p>
 
-<button onclick="login()">👨‍👩‍👧 Parent Login</button>
-<button onclick="adminLogin()">🔐 Admin Login</button>
+    <button onclick="showParentLogin()">👨‍👩‍👧 Parent Login</button>
 
-<p id="error"></p>
+    <button onclick="showAdminLogin()" class="gray">
+      🔐 Admin Login
+    </button>
+  </div>
+
+
+  <!-- PARENT LOGIN -->
+  <div id="parentLogin" class="card hidden">
+
+    <h2>Parent Login</h2>
+
+    <input
+      type="email"
+      id="parentEmail"
+      placeholder="Parent Email"
+    >
+
+    <input
+      type="password"
+      id="parentPassword"
+      placeholder="Password"
+    >
+
+    <button onclick="parentLoginUser()">
+      Login
+    </button>
+
+    <button onclick="backHome()" class="gray">
+      Back
+    </button>
+
+    <div id="parentError" class="errorBox"></div>
+
+  </div>
+
+
+  <!-- ADMIN LOGIN -->
+  <div id="adminLogin" class="card hidden">
+
+    <h2>Admin Login</h2>
+
+    <input
+      type="email"
+      id="adminEmail"
+      placeholder="Admin Email"
+    >
+
+    <input
+      type="password"
+      id="adminPassword"
+      placeholder="Password"
+    >
+
+    <button onclick="adminLoginUser()">
+      Admin Login
+    </button>
+
+    <button onclick="backHome()" class="gray">
+      Back
+    </button>
+
+    <div id="adminError" class="errorBox"></div>
+
+  </div>
+
+
+  <!-- PARENT DASHBOARD -->
+  <div id="parentDashboard" class="hidden">
+
+    <div class="card">
+
+      <h2>Parent Dashboard</h2>
+
+      <p>
+        Logged in as:
+        <b id="loggedParentEmail"></b>
+      </p>
+
+      <div id="studentList">
+        Loading student information...
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <h2>School Services</h2>
+
+      <div class="feature" onclick="showHomework()">
+        📚 Homework
+      </div>
+
+      <div class="feature" onclick="showAttendance()">
+        🗓️ Attendance
+      </div>
+
+      <div class="feature" onclick="showResults()">
+        📝 Results
+      </div>
+
+      <div class="feature" onclick="showFees()">
+        💰 Fees
+      </div>
+
+      <div class="feature" onclick="showNotices()">
+        📢 Notices
+      </div>
+
+      <div class="feature" onclick="showTimetable()">
+        🕐 Timetable
+      </div>
+
+    </div>
+
+    <div class="card">
+
+      <button onclick="parentLogout()" class="logout">
+        Logout
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- ADMIN DASHBOARD -->
+  <div id="adminDashboard" class="hidden">
+
+    <div class="card">
+
+      <h2>Admin Dashboard</h2>
+
+      <p>
+        Admin:
+        <b id="loggedAdminEmail"></b>
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h2>Add Student</h2>
+
+      <input
+        type="text"
+        id="studentName"
+        placeholder="Student Name"
+      >
+
+      <input
+        type="text"
+        id="studentClass"
+        placeholder="Class"
+      >
+
+      <input
+        type="text"
+        id="studentRoll"
+        placeholder="Roll Number"
+      >
+
+      <input
+        type="email"
+        id="studentParentEmail"
+        placeholder="Parent Email"
+      >
+
+      <button onclick="addStudent()" class="green">
+        Add Student
+      </button>
+
+    </div>
+
+
+    <div class="card">
+
+      <h2>Students</h2>
+
+      <button onclick="loadAllStudents()">
+        🔄 Load Students
+      </button>
+
+      <div id="adminStudentList">
+        No students loaded.
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <button onclick="adminLogout()" class="logout">
+        Logout
+      </button>
+
+    </div>
+
+  </div>
+
 </div>
-</div>
 
 
-<!-- PARENT -->
-
-<div id="app" class="container hidden">
-
-<div class="card">
-<h1>👋 Welcome</h1>
-<h2 id="parentStudent">Student</h2>
-<p id="studentInfo"></p>
-</div>
-
-<div class="menu">
-
-<button onclick="loadAttendance()">
-📅 Attendance
-</button>
-
-<button onclick="showMessage('📚 Homework coming soon')">
-📚 Homework
-</button>
-
-<button onclick="showMessage('💰 Fees coming soon')">
-💰 Fees
-</button>
-
-<button onclick="showMessage('📝 Results coming soon')">
-📝 Results
-</button>
-
-<button onclick="showMessage('📢 Notices coming soon')">
-📢 Notices
-</button>
-
-<button onclick="showMessage('🕐 Timetable coming soon')">
-🕐 Timetable
-</button>
-
-</div>
-
-<div id="attendanceBox"></div>
-
-<button class="red" onclick="logout()">Logout</button>
-
-</div>
-
-
-<!-- ADMIN -->
-
-<div id="adminPanel" class="container hidden">
-
-<div class="card">
-<h1>🔐 Admin Panel</h1>
-
-<h2>➕ Add Student</h2>
-
-<input id="studentName" placeholder="Student Name">
-<input id="studentClass" placeholder="Class">
-<input id="studentRoll" placeholder="Roll Number">
-<input id="parentEmail" type="email" placeholder="Parent Email">
-
-<button onclick="addStudent()">Add Student</button>
-
-<p id="adminMessage"></p>
-</div>
-
-<div class="card">
-<h2>🧑‍🎓 Students</h2>
-<div id="studentList">
-<p>No students loaded.</p>
-</div>
-</div>
-
-<button class="red" onclick="adminLogout()">
-Admin Logout
-</button>
-
-</div>
-
+<!-- FIREBASE -->
 
 <script type="module">
 
-import {initializeApp}
-from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+  import {
+    initializeApp
+  } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 
-import {
-getAuth,
-signInWithEmailAndPassword,
-signOut
-}
-from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+  import {
+    getAuth,
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut
+  } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 
-import {
-getFirestore,
-collection,
-addDoc,
-query,
-where,
-getDocs
-}
-from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+  import {
+    getFirestore,
+    collection,
+    addDoc,
+    getDocs,
+    query,
+    where
+  } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
 
-const firebaseConfig = {
+  // YOUR FIREBASE CONFIG
 
-apiKey:"AIzaSyBoDLUAc-y9nqFB8nB9wRUUtMY0WALxwA",
+  const firebaseConfig = {
 
-authDomain:"dps-narkatiaganj.firebaseapp.com",
+    apiKey: "AIzaSyBoDLUAc-y9nqFBn8vB9wRUUtMY0WALxwA",
 
-projectId:"dps-narkatiaganj",
+    authDomain:
+      "dps-narkatiaganj.firebaseapp.com",
 
-storageBucket:"dps-narkatiaganj.firebasestorage.app",
+    projectId:
+      "dps-narkatiaganj",
 
-messagingSenderId:"199351719662",
+    storageBucket:
+      "dps-narkatiaganj.firebasestorage.app",
 
-appId:"1:199351719662:web:612fb6010c40a42c2a45ff",
+    messagingSenderId:
+      "199351719662",
 
-measurementId:"G-49BGF6LQ9P"
+    appId:
+      "1:199351719662:web:612fb6010c40a42c2a45ff",
 
-};
+    measurementId:
+      "G-49BGF6LQ9P"
+  };
 
 
-const firebaseApp=initializeApp(firebaseConfig);
+  const app = initializeApp(firebaseConfig);
 
-const auth=getAuth(firebaseApp);
+  const auth = getAuth(app);
 
-const db=getFirestore(firebaseApp);
+  const db = getFirestore(app);
 
 
-/* PARENT LOGIN */
+  // SCREEN FUNCTIONS
 
-window.login=async function(){
+  window.showParentLogin = function() {
 
-const email=document.getElementById("username").value.trim();
+    document.getElementById("home").classList.add("hidden");
 
-const password=document.getElementById("password").value;
+    document.getElementById("adminLogin").classList.add("hidden");
 
-if(!email||!password){
+    document.getElementById("parentLogin").classList.remove("hidden");
 
-document.getElementById("error").innerText=
-"Email aur password bharna zaroori hai.";
+  };
 
-return;
-}
 
-try{
+  window.showAdminLogin = function() {
 
-const result=await signInWithEmailAndPassword(
-auth,email,password
-);
+    document.getElementById("home").classList.add("hidden");
 
-const q=query(
-collection(db,"students"),
-where("parentEmail","==",result.user.email)
-);
+    document.getElementById("parentLogin").classList.add("hidden");
 
-const snapshot=await getDocs(q);
+    document.getElementById("adminLogin").classList.remove("hidden");
 
-document.getElementById("loginPage").classList.add("hidden");
+  };
 
-document.getElementById("app").classList.remove("hidden");
 
-if(snapshot.empty){
+  window.backHome = function() {
 
-document.getElementById("parentStudent").innerText=
-"No student linked";
+    document.getElementById("parentLogin").classList.add("hidden");
 
-document.getElementById("studentInfo").innerText=
-"Please contact school admin.";
+    document.getElementById("adminLogin").classList.add("hidden");
 
-}else{
+    document.getElementById("home").classList.remove("hidden");
 
-snapshot.forEach(doc=>{
+  };
 
-const s=doc.data();
 
-document.getElementById("parentStudent").innerText=s.name;
+  // PARENT LOGIN
 
-document.getElementById("studentInfo").innerText=
-"Class: "+s.class+" | Roll No: "+s.roll;
+  window.parentLoginUser = async function() {
 
-});
+    const email =
+      document.getElementById("parentEmail").value.trim();
 
-}
+    const password =
+      document.getElementById("parentPassword").value;
 
-}
 
-catch(error){
+    const errorBox =
+      document.getElementById("parentError");
 
-document.getElementById("error").innerText=
-"Invalid email or password.";
 
-}
+    errorBox.style.display = "none";
 
-};
 
+    if (!email || !password) {
 
-/* ADMIN LOGIN */
+      errorBox.innerText =
+        "Please enter email and password.";
 
-window.adminLogin=async function(){
+      errorBox.style.display = "block";
 
-const email=prompt("Admin Email:");
+      return;
+    }
 
-const password=prompt("Admin Password:");
 
-if(!email||!password){
+    try {
 
-alert("Email aur password bharna zaroori hai.");
+      const result =
+        await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
 
-return;
-}
 
-try{
+      document.getElementById("parentLogin")
+        .classList.add("hidden");
 
-await signInWithEmailAndPassword(
-auth,email,password
-);
+      document.getElementById("parentDashboard")
+        .classList.remove("hidden");
 
-document.getElementById("loginPage").classList.add("hidden");
 
-document.getElementById("adminPanel").classList.remove("hidden");
+      document.getElementById("loggedParentEmail")
+        .innerText = result.user.email;
 
-loadStudents();
 
-}
+      loadParentStudent(result.user.email);
 
-catch(error){
 
-alert("Admin login failed.");
+    } catch (error) {
 
-}
+      console.error(error);
 
-};
 
+      errorBox.innerText =
+        "Firebase Error:\n" +
+        error.code +
+        "\n\n" +
+        error.message;
 
-/* ADD STUDENT */
 
-window.addStudent=async function(){
+      errorBox.style.display = "block";
 
-const name=document.getElementById("studentName").value.trim();
+    }
 
-const cls=document.getElementById("studentClass").value.trim();
+  };
 
-const roll=document.getElementById("studentRoll").value.trim();
 
-const parentEmail=document.getElementById("parentEmail").value.trim();
+  // ADMIN LOGIN
 
-if(!name||!cls||!roll||!parentEmail){
+  window.adminLoginUser = async function() {
 
-alert("Please fill all details.");
+    const email =
+      document.getElementById("adminEmail").value.trim();
 
-return;
-}
+    const password =
+      document.getElementById("adminPassword").value;
 
-try{
 
-await addDoc(
-collection(db,"students"),
-{
-name:name,
-class:cls,
-roll:roll,
-parentEmail:parentEmail
-}
-);
+    const errorBox =
+      document.getElementById("adminError");
 
-document.getElementById("adminMessage").innerText=
-"Student saved successfully!";
 
-document.getElementById("studentName").value="";
-document.getElementById("studentClass").value="";
-document.getElementById("studentRoll").value="";
-document.getElementById("parentEmail").value="";
+    errorBox.style.display = "none";
 
-loadStudents();
 
-}
+    if (!email || !password) {
 
-catch(error){
+      errorBox.innerText =
+        "Please enter email and password.";
 
-alert("Database error: "+error.message);
+      errorBox.style.display = "block";
 
-}
+      return;
 
-};
+    }
 
 
-/* LOAD STUDENTS */
+    try {
 
-async function loadStudents(){
+      const result =
+        await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
 
-const snapshot=await getDocs(
-collection(db,"students")
-);
 
-const list=document.getElementById("studentList");
+      document.getElementById("adminLogin")
+        .classList.add("hidden");
 
-list.innerHTML="";
+      document.getElementById("adminDashboard")
+        .classList.remove("hidden");
 
-if(snapshot.empty){
 
-list.innerHTML="<p>No students added.</p>";
+      document.getElementById("loggedAdminEmail")
+        .innerText = result.user.email;
 
-return;
-}
 
-snapshot.forEach(doc=>{
+    } catch (error) {
 
-const s=doc.data();
+      console.error(error);
 
-const div=document.createElement("div");
 
-div.className="attendance";
+      errorBox.innerText =
+        "Firebase Error:\n" +
+        error.code +
+        "\n\n" +
+        error.message;
 
-div.innerHTML=
-"<strong>"+s.name+"</strong><br>"+
-"Class: "+s.class+
-" | Roll: "+s.roll+
-"<br>Parent: "+s.parentEmail;
 
-list.appendChild(div);
+      errorBox.style.display = "block";
 
-});
+    }
 
-}
+  };
 
 
-/* REAL ATTENDANCE */
+  // LOAD PARENT STUDENT
 
-window.loadAttendance=async function(){
+  async function loadParentStudent(email) {
 
-const email=auth.currentUser.email;
+    const list =
+      document.getElementById("studentList");
 
-const q=query(
-collection(db,"attendance"),
-where("parentEmail","==",email)
-);
+    list.innerHTML =
+      "Loading student information...";
 
-const snapshot=await getDocs(q);
 
-const box=document.getElementById("attendanceBox");
+    try {
 
-box.innerHTML=
-'<div class="card"><h2>📅 Attendance</h2></div>';
+      const q =
+        query(
+          collection(db, "students"),
+          where("parentEmail", "==", email)
+        );
 
-const card=box.querySelector(".card");
 
-if(snapshot.empty){
+      const snapshot =
+        await getDocs(q);
 
-card.innerHTML+=
-"<p>No attendance record found.</p>";
 
-return;
-}
+      if (snapshot.empty) {
 
-snapshot.forEach(doc=>{
+        list.innerHTML =
+          "<p>No student found for this parent email.</p>";
 
-const a=doc.data();
+        return;
+      }
 
-const div=document.createElement("div");
 
-div.className="attendance";
+      list.innerHTML = "";
 
-const statusClass=
-a.status==="Present"?"present":"absent";
 
-div.innerHTML=
-"📅 Date: <b>"+a.date+"</b><br>"+
-"Status: <span class='"+statusClass+"'>"+
-a.status+
-"</span>";
+      snapshot.forEach((doc) => {
 
-card.appendChild(div);
+        const data = doc.data();
 
-});
 
-};
+        list.innerHTML += `
 
+          <div class="student">
 
-/* LOGOUT */
+            <b>Student Name:</b>
+            ${data.name || ""}
 
-window.logout=async function(){
+            <br><br>
 
-await signOut(auth);
+            <b>Class:</b>
+            ${data.class || ""}
 
-document.getElementById("app").classList.add("hidden");
+            <br>
 
-document.getElementById("loginPage").classList.remove("hidden");
+            <b>Roll No:</b>
+            ${data.roll || ""}
 
-};
+          </div>
 
+        `;
 
-window.adminLogout=async function(){
+      });
 
-await signOut(auth);
 
-document.getElementById("adminPanel").classList.add("hidden");
+    } catch (error) {
 
-document.getElementById("loginPage").classList.remove("hidden");
+      console.error(error);
 
-};
+      list.innerHTML =
+        "Firestore Error: " +
+        error.code;
 
+    }
 
-window.showMessage=function(message){
+  }
 
-alert(message);
 
-};
+  // ADD STUDENT
 
-</script>
+  window.addStudent = async function() {
 
+    const name =
+      document.getElementById("studentName").value.trim();
 
-<script>
+    const studentClass =
+      document.getElementById("studentClass").value.trim();
 
-if("serviceWorker" in navigator){
+    const roll =
+      document.getElementById("studentRoll").value.trim();
 
-navigator.serviceWorker.register("sw.js");
+    const parentEmail =
+      document.getElementById("studentParentEmail")
+        .value.trim();
 
-}
+
+    if (!name || !studentClass || !roll || !parentEmail) {
+
+      alert("Please fill all fields.");
+
+      return;
+
+    }
+
+
+    try {
+
+      await addDoc(
+        collection(db, "students"),
+        {
+
+          name: name,
+
+          class: studentClass,
+
+          roll: roll,
+
+          parentEmail: parentEmail
+
+        }
+      );
+
+
+      alert("Student added successfully.");
+
+
+      document.getElementById("studentName").value = "";
+
+      document.getElementById("studentClass").value = "";
+
+      document.getElementById("studentRoll").value = "";
+
+      document.getElementById("studentParentEmail").value = "";
+
+
+      loadAllStudents();
+
+
+    } catch (error) {
+
+      alert(
+        "Firestore Error:\n" +
+        error.code +
+        "\n" +
+        error.message
+      );
+
+    }
+
+  };
+
+
+  // LOAD ALL STUDENTS
+
+  window.loadAllStudents = async function() {
+
+    const list =
+      document.getElementById("adminStudentList");
+
+
+    list.innerHTML =
+      "Loading...";
+
+
+    try {
+
+      const snapshot =
+        await getDocs(
+          collection(db, "students")
+        );
+
+
+      if (snapshot.empty) {
+
+        list.innerHTML =
+          "No students found.";
+
+        return;
+
+      }
+
+
+      list.innerHTML = "";
+
+
+      snapshot.forEach((doc) => {
+
+        const data = doc.data();
+
+
+        list.innerHTML += `
+
+          <div class="student">
+
+            <b>${data.name || ""}</b>
+
+            <br>
+
+            Class:
+            ${data.class || ""}
+
+            <br>
+
+            Roll:
+            ${data.roll || ""}
+
+            <br>
+
+            Parent:
+            ${data.parentEmail || ""}
+
+          </div>
+
+        `;
+
+      });
+
+
+    } catch (error) {
+
+      list.innerHTML =
+        "Firestore Error:\n" +
+        error.code +
+        "\n" +
+        error.message;
+
+    }
+
+  };
+
+
+  // ATTENDANCE
+
+  window.showAttendance = async function() {
+
+    const user =
+      auth.currentUser;
+
+
+    if (!user) {
+
+      alert("Please login first.");
+
+      return;
+
+    }
+
+
+    try {
+
+      const q =
+        query(
+          collection(db, "attendance"),
+          where(
+            "parentEmail",
+            "==",
+            user.email
+          )
+        );
+
+
+      const snapshot =
+        await getDocs(q);
+
+
+      if (snapshot.empty) {
+
+        alert("No attendance records found.");
+
+        return;
+
+      }
+
+
+      let message =
+        "Attendance:\n\n";
+
+
+      snapshot.forEach((doc) => {
+
+        const data = doc.data();
+
+        message +=
+          data.date +
+          " - " +
+          data.status +
+          "\n";
+
+      });
+
+
+      alert(message);
+
+
+    } catch (error) {
+
+      alert(
+        "Attendance Error:\n" +
+        error.code +
+        "\n" +
+        error.message
+      );
+
+    }
+
+  };
+
+
+  // PLACEHOLDER FEATURES
+
+  window.showHomework = function() {
+
+    alert("Homework section coming soon.");
+
+  };
+
+
+  window.showResults = function() {
+
+    alert("Results section coming soon.");
+
+  };
+
+
+  window.showFees = function() {
+
+    alert("Fees section coming soon.");
+
+  };
+
+
+  window.showNotices = function() {
+
+    alert("Notices section coming soon.");
+
+  };
+
+
+  window.showTimetable = function() {
+
+    alert("Timetable section coming soon.");
+
+  };
+
+
+  // LOGOUT
+
+  window.parentLogout = async function() {
+
+    await signOut(auth);
+
+    document.getElementById("parentDashboard")
+      .classList.add("hidden");
+
+    document.getElementById("home")
+      .classList.remove("hidden");
+
+  };
+
+
+  window.adminLogout = async function() {
+
+    await signOut(auth);
+
+    document.getElementById("adminDashboard")
+      .classList.add("hidden");
+
+    document.getElementById("home")
+      .classList.remove("hidden");
+
+  };
+
+
+  // AUTH STATE
+
+  onAuthStateChanged(auth, (user) => {
+
+    console.log(
+      "Auth state:",
+      user ? user.email : "No user"
+    );
+
+  });
+
+
+  // SERVICE WORKER
+
+  if ("serviceWorker" in navigator) {
+
+    navigator.serviceWorker.register("sw.js")
+      .catch((error) => {
+
+        console.log(
+          "Service Worker Error:",
+          error
+        );
+
+      });
+
+  }
 
 </script>
 
