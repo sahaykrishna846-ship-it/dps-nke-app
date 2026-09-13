@@ -7,7 +7,6 @@
   <title>DPS Narkatiaganj Parent App</title>
 
   <link rel="manifest" href="manifest.json">
-
   <meta name="theme-color" content="#3158c9">
 
   <style>
@@ -79,10 +78,6 @@
       cursor: pointer;
     }
 
-    button:hover {
-      opacity: 0.9;
-    }
-
     .logout {
       background: #d93025;
     }
@@ -101,9 +96,10 @@
 
     .student {
       background: #f1f5ff;
-      padding: 15px;
-      border-radius: 10px;
-      margin-top: 10px;
+      padding: 18px;
+      border-radius: 12px;
+      margin-top: 12px;
+      line-height: 1.8;
     }
 
     .feature {
@@ -114,7 +110,7 @@
       cursor: pointer;
     }
 
-    #errorBox {
+    .errorBox {
       background: #ffe8e8;
       color: #b00020;
       padding: 12px;
@@ -125,9 +121,20 @@
       word-break: break-word;
     }
 
-    .small {
-      font-size: 13px;
-      color: #666;
+    .successBox {
+      background: #e8f5e9;
+      color: #137333;
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    .emailBox {
+      background: #eef3ff;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 14px;
+      word-break: break-all;
     }
   </style>
 </head>
@@ -146,7 +153,9 @@
     <h2>Welcome</h2>
     <p>Choose your login:</p>
 
-    <button onclick="showParentLogin()">👨‍👩‍👧 Parent Login</button>
+    <button onclick="showParentLogin()">
+      👨‍👩‍👧 Parent Login
+    </button>
 
     <button onclick="showAdminLogin()" class="gray">
       🔐 Admin Login
@@ -219,23 +228,35 @@
 
     <div class="card">
 
-      <h2>Parent Dashboard</h2>
+      <h2>👨‍👩‍👧 Parent Dashboard</h2>
 
-      <p>
-        Logged in as:
+      <p>Logged in as:</p>
+
+      <div class="emailBox">
         <b id="loggedParentEmail"></b>
-      </p>
-
-      <div id="studentList">
-        Loading student information...
       </div>
 
     </div>
 
 
+    <!-- STUDENT INFORMATION -->
     <div class="card">
 
-      <h2>School Services</h2>
+      <h2>🎓 Student Information</h2>
+
+      <div id="studentList">
+        <div class="successBox">
+          Please wait... Loading student information...
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- SCHOOL SERVICES -->
+    <div class="card">
+
+      <h2>📚 School Services</h2>
 
       <div class="feature" onclick="showHomework()">
         📚 Homework
@@ -263,6 +284,7 @@
 
     </div>
 
+
     <div class="card">
 
       <button onclick="parentLogout()" class="logout">
@@ -279,19 +301,21 @@
 
     <div class="card">
 
-      <h2>Admin Dashboard</h2>
+      <h2>🔐 Admin Dashboard</h2>
 
-      <p>
-        Admin:
+      <p>Admin:</p>
+
+      <div class="emailBox">
         <b id="loggedAdminEmail"></b>
-      </p>
+      </div>
 
     </div>
 
 
+    <!-- ADD STUDENT -->
     <div class="card">
 
-      <h2>Add Student</h2>
+      <h2>➕ Add Student</h2>
 
       <input
         type="text"
@@ -324,9 +348,10 @@
     </div>
 
 
+    <!-- STUDENT LIST -->
     <div class="card">
 
-      <h2>Students</h2>
+      <h2>👨‍🎓 Students</h2>
 
       <button onclick="loadAllStudents()">
         🔄 Load Students
@@ -352,8 +377,6 @@
 </div>
 
 
-<!-- FIREBASE -->
-
 <script type="module">
 
   import {
@@ -363,7 +386,6 @@
   import {
     getAuth,
     signInWithEmailAndPassword,
-    onAuthStateChanged,
     signOut
   } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 
@@ -377,11 +399,14 @@
   } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
 
-  // YOUR FIREBASE CONFIG
+  /* =========================
+     FIREBASE CONFIG
+  ========================= */
 
   const firebaseConfig = {
 
-    apiKey: "AIzaSyBoDLUAc-y9nqFBn8vB9wRUUtMY0WALxwA",
+    apiKey:
+      "AIzaSyBoDLUAc-y9nqFBn8vB9wRUUtMY0WALxwA",
 
     authDomain:
       "dps-narkatiaganj.firebaseapp.com",
@@ -410,51 +435,65 @@
   const db = getFirestore(app);
 
 
-  // SCREEN FUNCTIONS
+  /* =========================
+     SCREEN FUNCTIONS
+  ========================= */
 
   window.showParentLogin = function() {
 
-    document.getElementById("home").classList.add("hidden");
+    document.getElementById("home")
+      .classList.add("hidden");
 
-    document.getElementById("adminLogin").classList.add("hidden");
+    document.getElementById("adminLogin")
+      .classList.add("hidden");
 
-    document.getElementById("parentLogin").classList.remove("hidden");
+    document.getElementById("parentLogin")
+      .classList.remove("hidden");
 
   };
 
 
   window.showAdminLogin = function() {
 
-    document.getElementById("home").classList.add("hidden");
+    document.getElementById("home")
+      .classList.add("hidden");
 
-    document.getElementById("parentLogin").classList.add("hidden");
+    document.getElementById("parentLogin")
+      .classList.add("hidden");
 
-    document.getElementById("adminLogin").classList.remove("hidden");
+    document.getElementById("adminLogin")
+      .classList.remove("hidden");
 
   };
 
 
   window.backHome = function() {
 
-    document.getElementById("parentLogin").classList.add("hidden");
+    document.getElementById("parentLogin")
+      .classList.add("hidden");
 
-    document.getElementById("adminLogin").classList.add("hidden");
+    document.getElementById("adminLogin")
+      .classList.add("hidden");
 
-    document.getElementById("home").classList.remove("hidden");
+    document.getElementById("home")
+      .classList.remove("hidden");
 
   };
 
 
-  // PARENT LOGIN
+  /* =========================
+     PARENT LOGIN
+  ========================= */
 
   window.parentLoginUser = async function() {
 
     const email =
-      document.getElementById("parentEmail").value.trim();
+      document.getElementById("parentEmail")
+        .value.trim();
 
     const password =
-      document.getElementById("parentPassword").value;
-
+      document.getElementById("parentPassword")
+        .value;
 
     const errorBox =
       document.getElementById("parentError");
@@ -471,6 +510,7 @@
       errorBox.style.display = "block";
 
       return;
+
     }
 
 
@@ -495,20 +535,19 @@
         .innerText = result.user.email;
 
 
-      loadParentStudent(result.user.email);
+      await loadParentStudent(result.user.email);
 
+    }
 
-    } catch (error) {
+    catch (error) {
 
       console.error(error);
-
 
       errorBox.innerText =
         "Firebase Error:\n" +
         error.code +
         "\n\n" +
         error.message;
-
 
       errorBox.style.display = "block";
 
@@ -517,16 +556,19 @@
   };
 
 
-  // ADMIN LOGIN
+  /* =========================
+     ADMIN LOGIN
+  ========================= */
 
   window.adminLoginUser = async function() {
 
     const email =
-      document.getElementById("adminEmail").value.trim();
+      document.getElementById("adminEmail")
+        .value.trim();
 
     const password =
-      document.getElementById("adminPassword").value;
-
+      document.getElementById("adminPassword")
+        .value;
 
     const errorBox =
       document.getElementById("adminError");
@@ -567,18 +609,17 @@
       document.getElementById("loggedAdminEmail")
         .innerText = result.user.email;
 
+    }
 
-    } catch (error) {
+    catch (error) {
 
       console.error(error);
-
 
       errorBox.innerText =
         "Firebase Error:\n" +
         error.code +
         "\n\n" +
         error.message;
-
 
       errorBox.style.display = "block";
 
@@ -587,23 +628,36 @@
   };
 
 
-  // LOAD PARENT STUDENT
+  /* =========================
+     LOAD PARENT STUDENT
+  ========================= */
 
   async function loadParentStudent(email) {
 
     const list =
       document.getElementById("studentList");
 
+
     list.innerHTML =
-      "Loading student information...";
+      '<div class="successBox">' +
+      'Loading student information...' +
+      '</div>';
 
 
     try {
 
+      const parentEmail =
+        email.trim().toLowerCase();
+
+
       const q =
         query(
           collection(db, "students"),
-          where("parentEmail", "==", email)
+          where(
+            "parentEmail",
+            "==",
+            parentEmail
+          )
         );
 
 
@@ -611,10 +665,40 @@
         await getDocs(q);
 
 
+      console.log(
+        "Parent email:",
+        parentEmail
+      );
+
+      console.log(
+        "Students found:",
+        snapshot.size
+      );
+
+
       if (snapshot.empty) {
 
-        list.innerHTML =
-          "<p>No student found for this parent email.</p>";
+        list.innerHTML = `
+
+          <div class="errorBox"
+               style="display:block">
+
+            ❌ No student found.
+
+            <br><br>
+
+            Login Email:
+            <b>${parentEmail}</b>
+
+            <br><br>
+
+            Please check that the student's
+            Firestore "parentEmail" field
+            exactly matches this email.
+
+          </div>
+
+        `;
 
         return;
       }
@@ -628,62 +712,106 @@
         const data = doc.data();
 
 
-        list.innerHTML += `
+        const studentCard =
+          document.createElement("div");
 
-          <div class="student">
 
-            <b>Student Name:</b>
-            ${data.name || ""}
+        studentCard.className =
+          "student";
 
-            <br><br>
 
-            <b>Class:</b>
-            ${data.class || ""}
+        studentCard.innerHTML = `
 
-            <br>
+          <h3>🎓 ${data.name || "Student"}</h3>
 
-            <b>Roll No:</b>
-            ${data.roll || ""}
+          <b>Student Name:</b>
+          ${data.name || "-"}
 
-          </div>
+          <br>
+
+          <b>Class:</b>
+          ${data.class || "-"}
+
+          <br>
+
+          <b>Roll No:</b>
+          ${data.roll || "-"}
+
+          <br>
+
+          <b>Parent Email:</b>
+          ${data.parentEmail || "-"}
 
         `;
 
+
+        list.appendChild(studentCard);
+
       });
 
+    }
 
-    } catch (error) {
+    catch (error) {
 
       console.error(error);
 
-      list.innerHTML =
-        "Firestore Error: " +
-        error.code;
+
+      list.innerHTML = `
+
+        <div class="errorBox"
+             style="display:block">
+
+          ❌ Firestore Error
+
+          <br><br>
+
+          Code:
+          ${error.code || "unknown"}
+
+          <br>
+
+          Message:
+          ${error.message || "Unknown error"}
+
+        </div>
+
+      `;
 
     }
 
   }
 
 
-  // ADD STUDENT
+  /* =========================
+     ADD STUDENT
+  ========================= */
 
   window.addStudent = async function() {
 
     const name =
-      document.getElementById("studentName").value.trim();
+      document.getElementById("studentName")
+        .value.trim();
 
     const studentClass =
-      document.getElementById("studentClass").value.trim();
+      document.getElementById("studentClass")
+        .value.trim();
 
     const roll =
-      document.getElementById("studentRoll").value.trim();
+      document.getElementById("studentRoll")
+        .value.trim();
 
     const parentEmail =
       document.getElementById("studentParentEmail")
-        .value.trim();
+        .value.trim()
+        .toLowerCase();
 
 
-    if (!name || !studentClass || !roll || !parentEmail) {
+    if (
+      !name ||
+      !studentClass ||
+      !roll ||
+      !parentEmail
+    ) {
 
       alert("Please fill all fields.");
 
@@ -710,27 +838,34 @@
       );
 
 
-      alert("Student added successfully.");
+      alert(
+        "Student added successfully!"
+      );
 
 
-      document.getElementById("studentName").value = "";
+      document.getElementById("studentName")
+        .value = "";
 
-      document.getElementById("studentClass").value = "";
+      document.getElementById("studentClass")
+        .value = "";
 
-      document.getElementById("studentRoll").value = "";
+      document.getElementById("studentRoll")
+        .value = "";
 
-      document.getElementById("studentParentEmail").value = "";
+      document.getElementById("studentParentEmail")
+        .value = "";
 
 
-      loadAllStudents();
+      await loadAllStudents();
 
+    }
 
-    } catch (error) {
+    catch (error) {
 
       alert(
         "Firestore Error:\n" +
         error.code +
-        "\n" +
+        "\n\n" +
         error.message
       );
 
@@ -739,7 +874,9 @@
   };
 
 
-  // LOAD ALL STUDENTS
+  /* =========================
+     LOAD ALL STUDENTS
+  ========================= */
 
   window.loadAllStudents = async function() {
 
@@ -777,35 +914,43 @@
         const data = doc.data();
 
 
-        list.innerHTML += `
+        const student =
+          document.createElement("div");
 
-          <div class="student">
 
-            <b>${data.name || ""}</b>
+        student.className =
+          "student";
 
-            <br>
 
-            Class:
-            ${data.class || ""}
+        student.innerHTML = `
 
-            <br>
+          <b>🎓 ${data.name || "-"}</b>
 
-            Roll:
-            ${data.roll || ""}
+          <br><br>
 
-            <br>
+          Class:
+          ${data.class || "-"}
 
-            Parent:
-            ${data.parentEmail || ""}
+          <br>
 
-          </div>
+          Roll:
+          ${data.roll || "-"}
+
+          <br>
+
+          Parent:
+          ${data.parentEmail || "-"}
 
         `;
 
+
+        list.appendChild(student);
+
       });
 
+    }
 
-    } catch (error) {
+    catch (error) {
 
       list.innerHTML =
         "Firestore Error:\n" +
@@ -818,7 +963,9 @@
   };
 
 
-  // ATTENDANCE
+  /* =========================
+     ATTENDANCE
+  ========================= */
 
   window.showAttendance = async function() {
 
@@ -828,7 +975,9 @@
 
     if (!user) {
 
-      alert("Please login first.");
+      alert(
+        "Please login first."
+      );
 
       return;
 
@@ -854,7 +1003,9 @@
 
       if (snapshot.empty) {
 
-        alert("No attendance records found.");
+        alert(
+          "No attendance records found."
+        );
 
         return;
 
@@ -862,17 +1013,18 @@
 
 
       let message =
-        "Attendance:\n\n";
+        "🗓️ Attendance\n\n";
 
 
       snapshot.forEach((doc) => {
 
         const data = doc.data();
 
+
         message +=
-          data.date +
+          (data.date || "-") +
           " - " +
-          data.status +
+          (data.status || "-") +
           "\n";
 
       });
@@ -880,8 +1032,9 @@
 
       alert(message);
 
+    }
 
-    } catch (error) {
+    catch (error) {
 
       alert(
         "Attendance Error:\n" +
@@ -895,51 +1048,67 @@
   };
 
 
-  // PLACEHOLDER FEATURES
+  /* =========================
+     OTHER FEATURES
+  ========================= */
 
   window.showHomework = function() {
 
-    alert("Homework section coming soon.");
+    alert(
+      "📚 Homework section coming soon."
+    );
 
   };
 
 
   window.showResults = function() {
 
-    alert("Results section coming soon.");
+    alert(
+      "📝 Results section coming soon."
+    );
 
   };
 
 
   window.showFees = function() {
 
-    alert("Fees section coming soon.");
+    alert(
+      "💰 Fees section coming soon."
+    );
 
   };
 
 
   window.showNotices = function() {
 
-    alert("Notices section coming soon.");
+    alert(
+      "📢 Notices section coming soon."
+    );
 
   };
 
 
   window.showTimetable = function() {
 
-    alert("Timetable section coming soon.");
+    alert(
+      "🕐 Timetable section coming soon."
+    );
 
   };
 
 
-  // LOGOUT
+  /* =========================
+     LOGOUT
+  ========================= */
 
   window.parentLogout = async function() {
 
     await signOut(auth);
 
+
     document.getElementById("parentDashboard")
       .classList.add("hidden");
+
 
     document.getElementById("home")
       .classList.remove("hidden");
@@ -951,8 +1120,10 @@
 
     await signOut(auth);
 
+
     document.getElementById("adminDashboard")
       .classList.add("hidden");
+
 
     document.getElementById("home")
       .classList.remove("hidden");
@@ -960,23 +1131,14 @@
   };
 
 
-  // AUTH STATE
-
-  onAuthStateChanged(auth, (user) => {
-
-    console.log(
-      "Auth state:",
-      user ? user.email : "No user"
-    );
-
-  });
-
-
-  // SERVICE WORKER
+  /* =========================
+     SERVICE WORKER
+  ========================= */
 
   if ("serviceWorker" in navigator) {
 
-    navigator.serviceWorker.register("sw.js")
+    navigator.serviceWorker
+      .register("sw.js")
       .catch((error) => {
 
         console.log(
