@@ -3,842 +3,519 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#3158c9">
-<meta name="description" content="DPS Narkatiaganj Parent Portal">
-<link rel="manifest" href="manifest.json">
 <title>DPS Narkatiaganj Parent App</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#3158c9">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-font-family:Arial,sans-serif;
-background:#f4f7fb;
-color:#18243a;
-min-height:100vh
-}
-button,input,select,textarea{font:inherit}
-button{cursor:pointer}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+body{background:#f4f7fb;color:#172033}
+header{background:linear-gradient(135deg,#3158c9,#17358d);color:#fff;padding:20px;text-align:center}
+header h1{font-size:23px}
+header p{font-size:13px;margin-top:5px}
+.container{max-width:650px;margin:auto;padding:16px}
+.card{background:#fff;border-radius:18px;padding:18px;margin-bottom:15px;box-shadow:0 5px 18px #0001}
+.hero{text-align:center;padding:28px 18px}
+.logo{width:82px;height:82px;border-radius:22px;background:#3158c9;color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:bold;margin:auto auto 16px}
+h2{font-size:20px;margin-bottom:12px}
+p{line-height:1.5}
+.hero p,.muted{color:#667085}
+button{width:100%;border:0;border-radius:12px;padding:13px;margin-top:9px;font-size:15px;font-weight:bold;background:#3158c9;color:#fff}
+button.secondary{background:#eef2ff;color:#3158c9}
+button.green{background:#198754}
+button.danger{background:#dc3545}
+input,select,textarea{width:100%;padding:12px;border:1px solid #d9dee8;border-radius:11px;margin:6px 0 10px;font-size:14px;background:#fff}
+label{display:block;font-size:13px;font-weight:bold;margin-top:5px}
 .hidden{display:none!important}
-
-.header{
-background:#3158c9;
-color:white;
-padding:18px 16px;
-position:sticky;
-top:0;
-z-index:10;
-box-shadow:0 3px 12px #0002
-}
-.header h1{font-size:21px}
-.header p{font-size:13px;margin-top:4px;opacity:.9}
-
-.container{
-max-width:1000px;
-margin:auto;
-padding:18px
-}
-
-.card{
-background:white;
-border-radius:16px;
-padding:18px;
-margin-bottom:16px;
-box-shadow:0 3px 15px #0000000d
-}
-.card h2{
-font-size:18px;
-margin-bottom:14px
-}
-.card h3{
-font-size:16px;
-margin-bottom:8px
-}
-
-input,select,textarea{
-width:100%;
-padding:12px;
-border:1px solid #d7dce5;
-border-radius:10px;
-margin:6px 0 12px;
-outline:none;
-background:white
-}
-input:focus,select:focus,textarea:focus{
-border-color:#3158c9
-}
-
-.btn{
-border:0;
-border-radius:10px;
-padding:12px 17px;
-background:#3158c9;
-color:white;
-font-weight:bold
-}
-.btn:hover{opacity:.9}
-.btn.secondary{
-background:#eef2ff;
-color:#3158c9
-}
-.btn.danger{background:#d93025}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-gap:14px
-}
-
-.menu{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:10px;
-margin-bottom:18px
-}
-.menu button{
-background:white;
-border:1px solid #e1e5ec;
-border-radius:13px;
-padding:14px 7px;
-font-size:13px;
-font-weight:bold;
-color:#273653
-}
-.menu button.active{
-background:#3158c9;
-color:white;
-border-color:#3158c9
-}
-
-.stat{
-padding:16px;
-border-radius:14px;
-background:#f7f9ff;
-border:1px solid #e5e9f5
-}
-.stat strong{
-display:block;
-font-size:23px;
-margin-top:5px
-}
-
-.item{
-border:1px solid #e4e7ee;
-border-radius:12px;
-padding:14px;
-margin:9px 0;
-background:#fff
-}
-.item small{
-color:#68758c
-}
-.badge{
-display:inline-block;
-padding:5px 9px;
-border-radius:20px;
-font-size:12px;
-font-weight:bold;
-background:#eef2ff;
-color:#3158c9
-}
-.present{color:#16803c}
-.absent{color:#d93025}
-
-.login-wrap{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-padding:20px
-}
-.login{
-width:100%;
-max-width:420px
-}
-.logo{
-width:75px;
-height:75px;
-border-radius:20px;
-background:#3158c9;
-color:white;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:25px;
-font-weight:bold;
-margin:0 auto 15px
-}
-.center{text-align:center}
-
-.notice{
-border-left:4px solid #3158c9
-}
-
-table{
-width:100%;
-border-collapse:collapse;
-font-size:14px
-}
-th,td{
-padding:10px;
-border-bottom:1px solid #e5e7eb;
-text-align:left
-}
-
-.topbar{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:10px;
-margin-bottom:16px
-}
-
-@media(max-width:500px){
-.container{padding:12px}
-.menu{grid-template-columns:repeat(2,1fr)}
-.header h1{font-size:19px}
-.card{padding:15px}
-}
-
-.toast{
-position:fixed;
-bottom:20px;
-left:50%;
-transform:translateX(-50%);
-background:#18243a;
-color:white;
-padding:12px 18px;
-border-radius:10px;
-display:none;
-z-index:100
-}
+.message{padding:10px;border-radius:10px;margin-top:10px;font-size:13px}
+.success{background:#e8f7ee;color:#16743d}
+.error{background:#fdecec;color:#b42318}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.menu{background:#fff;border-radius:16px;padding:19px 8px;text-align:center;box-shadow:0 4px 15px #0001}
+.menu .icon{font-size:29px;margin-bottom:7px}
+.menu b{font-size:13px}
+.student{background:linear-gradient(135deg,#3158c9,#203e9b);color:#fff;border-radius:18px;padding:18px;margin-bottom:15px}
+.row{display:flex;justify-content:space-between;border-top:1px solid #ffffff33;padding-top:9px;margin-top:9px;font-size:13px}
+.item{border:1px solid #e7eaf0;border-radius:13px;padding:14px;margin-bottom:10px}
+.item h3{font-size:16px;margin-bottom:5px}
+.item p{font-size:13px;color:#667085}
+.present{color:#198754!important;font-weight:bold}
+.absent{color:#dc3545!important;font-weight:bold}
+.badge{display:inline-block;padding:4px 8px;border-radius:20px;background:#eef2ff;color:#3158c9;font-size:11px;font-weight:bold}
+.footer{text-align:center;color:#8a94a6;font-size:12px;padding:20px 0 30px}
+.topline{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.smallbtn{width:auto;padding:8px 12px;font-size:12px;margin:0}
+hr{border:0;border-top:1px solid #eee;margin:16px 0}
+.info{background:#eef2ff;color:#3158c9;padding:12px;border-radius:12px;font-size:13px;margin-bottom:12px}
 </style>
 </head>
 
 <body>
 
-<div id="toast" class="toast"></div>
+<header>
+<h1>DELHI PUBLIC SCHOOL</h1>
+<p>Narkatiaganj • Parent Portal</p>
+</header>
 
-<!-- LOGIN -->
-<section id="loginPage" class="login-wrap">
-<div class="login">
+<div class="container">
 
+<!-- HOME -->
+<section id="home">
+
+<div class="card hero">
 <div class="logo">DPS</div>
+<h2>Parent Portal</h2>
+<p>Attendance, notices, fees, homework, results and important school information — all in one place.</p>
+
+<button onclick="page('parentLogin')">
+👨‍👩‍👦 Parent Login
+</button>
+
+<button class="secondary" onclick="page('adminLogin')">
+🛡️ Admin Login
+</button>
+</div>
 
 <div class="card">
-
-<h2 class="center">DPS Narkatiaganj</h2>
-<p class="center" style="color:#68758c;margin:8px 0 18px">
-Parent Portal
+<h2>📌 School Portal</h2>
+<p class="muted">
+DPS Narkatiaganj digital parent-management portal.
 </p>
+</div>
+
+</section>
+
+
+<!-- PARENT LOGIN -->
+<section id="parentLogin" class="hidden">
+
+<div class="card">
+<h2>👨‍👩‍👦 Parent Login</h2>
 
 <label>Email</label>
-<input id="loginEmail" type="email"
-placeholder="Enter email">
+<input id="pEmail" type="email" placeholder="Parent email">
 
 <label>Password</label>
-<input id="loginPassword" type="password"
-placeholder="Enter password">
+<input id="pPass" type="password" placeholder="Password">
 
-<button class="btn" style="width:100%"
-onclick="parentLogin()">
-Parent Login
+<button onclick="parentLogin()">
+🔐 Login
 </button>
 
-<button class="btn secondary"
-style="width:100%;margin-top:10px"
-onclick="showAdminLogin()">
-Admin Login
+<button class="secondary" onclick="page('home')">
+← Back
 </button>
 
-<p id="loginMsg"
-style="color:#d93025;text-align:center;margin-top:12px"></p>
+<div id="pMsg"></div>
+</div>
 
-</div>
-</div>
 </section>
 
 
 <!-- ADMIN LOGIN -->
-<section id="adminLoginPage" class="login-wrap hidden">
-<div class="login">
-
-<div class="logo">DPS</div>
+<section id="adminLogin" class="hidden">
 
 <div class="card">
-
-<h2 class="center">Admin Login</h2>
+<h2>🛡️ Admin Login</h2>
 
 <label>Email</label>
-<input id="adminEmail" type="email"
-placeholder="Admin email">
+<input id="aEmail" type="email" placeholder="Admin email">
 
 <label>Password</label>
-<input id="adminPassword" type="password"
-placeholder="Password">
+<input id="aPass" type="password" placeholder="Password">
 
-<button class="btn"
-style="width:100%"
-onclick="adminLogin()">
-Login
+<button onclick="adminLogin()">
+🔐 Admin Login
 </button>
 
-<button class="btn secondary"
-style="width:100%;margin-top:10px"
-onclick="showLogin()">
-Back
+<button class="secondary" onclick="page('home')">
+← Back
 </button>
 
-<p id="adminMsg"
-style="color:#d93025;text-align:center;margin-top:12px"></p>
+<div id="aMsg"></div>
+</div>
 
-</div>
-</div>
 </section>
 
 
-<!-- PARENT APP -->
-<section id="parentPage" class="hidden">
+<!-- PARENT DASHBOARD -->
+<section id="parentDash" class="hidden">
 
-<div class="header">
-<div class="container" style="padding:0">
-<h1>DPS Narkatiaganj</h1>
-<p>Parent Portal</p>
-</div>
-</div>
-
-<div class="container">
-
-<div class="topbar">
+<div class="topline">
 <div>
-<h2 id="parentWelcome">Welcome</h2>
-<p id="studentTop" style="color:#68758c"></p>
+<h2>👋 Parent Dashboard</h2>
+<p class="muted">DPS Narkatiaganj</p>
+</div>
 </div>
 
-<button class="btn danger"
-onclick="logout()">
-Logout
-</button>
-</div>
-
-
-<div class="menu">
-
-<button onclick="parentSection('dashboard')" id="mDashboard">
-🏠<br>Home
-</button>
-
-<button onclick="parentSection('attendance')" id="mAttendance">
-📅<br>Attendance
-</button>
-
-<button onclick="parentSection('notices')" id="mNotices">
-📢<br>Notices
-</button>
-
-<button onclick="parentSection('fees')" id="mFees">
-💰<br>Fees
-</button>
-
-<button onclick="parentSection('homework')" id="mHomework">
-📚<br>Homework
-</button>
-
-<button onclick="parentSection('materials')" id="mMaterials">
-📖<br>Study Material
-</button>
-
-<button onclick="parentSection('calendar')" id="mCalendar">
-🗓️<br>Calendar
-</button>
-
-<button onclick="parentSection('results')" id="mResults">
-🏆<br>Result
-</button>
-
-<button onclick="parentSection('profile')" id="mProfile">
-👤<br>Profile
-</button>
-
-</div>
-
-
-<!-- DASHBOARD -->
-<div id="parentDashboard" class="parentSection">
-
-<div class="card">
-<h2>Student Overview</h2>
+<div id="studentInfo"></div>
 
 <div class="grid">
 
-<div class="stat">
-Student
-<strong id="dashName">-</strong>
+<div class="menu" onclick="attendance()">
+<div class="icon">📅</div>
+<b>Attendance</b>
 </div>
 
-<div class="stat">
-Class
-<strong id="dashClass">-</strong>
+<div class="menu" onclick="notices()">
+<div class="icon">📢</div>
+<b>Notices</b>
 </div>
 
-<div class="stat">
-Roll No.
-<strong id="dashRoll">-</strong>
+<div class="menu" onclick="fees()">
+<div class="icon">💰</div>
+<b>Fees</b>
 </div>
 
-<div class="stat">
-Attendance
-<strong id="dashAttendance">-</strong>
+<div class="menu" onclick="homework()">
+<div class="icon">📝</div>
+<b>Homework</b>
 </div>
 
-</div>
-</div>
-
-
-<div class="card">
-<h2>Latest Notices</h2>
-<div id="dashNotices">
-Loading...
-</div>
+<div class="menu" onclick="materials()">
+<div class="icon">📚</div>
+<b>Study Material</b>
 </div>
 
+<div class="menu" onclick="calendar()">
+<div class="icon">🗓️</div>
+<b>Calendar</b>
 </div>
 
-
-<!-- ATTENDANCE -->
-<div id="parentAttendance"
-class="parentSection hidden">
-
-<div class="card">
-<h2>Attendance</h2>
-<div id="attendanceList">
-Loading...
+<div class="menu" onclick="results()">
+<div class="icon">🧪</div>
+<b>Exam / Result</b>
 </div>
+
+<div class="menu" onclick="profile()">
+<div class="icon">👤</div>
+<b>Profile</b>
 </div>
 
 </div>
 
+<div id="parentContent" style="margin-top:15px"></div>
 
-<!-- NOTICES -->
-<div id="parentNotices"
-class="parentSection hidden">
+<button class="danger" onclick="logout()">
+🚪 Logout
+</button>
 
-<div class="card">
-<h2>School Notices</h2>
-<div id="noticeList">
-Loading...
-</div>
-</div>
-
-</div>
-
-
-<!-- FEES -->
-<div id="parentFees"
-class="parentSection hidden">
-
-<div class="card">
-<h2>Fee Details</h2>
-<div id="feeList">
-Loading...
-</div>
-</div>
-
-</div>
-
-
-<!-- HOMEWORK -->
-<div id="parentHomework"
-class="parentSection hidden">
-
-<div class="card">
-<h2>Homework</h2>
-<div id="homeworkList">
-Loading...
-</div>
-</div>
-
-</div>
-
-
-<!-- MATERIAL -->
-<div id="parentMaterials"
-class="parentSection hidden">
-
-<div class="card">
-<h2>Study Material</h2>
-<div id="materialList">
-Loading...
-</div>
-</div>
-
-</div>
-
-
-<!-- CALENDAR -->
-<div id="parentCalendar"
-class="parentSection hidden">
-
-<div class="card">
-<h2>School Calendar</h2>
-<div id="calendarList">
-Loading...
-</div>
-</div>
-
-</div>
-
-
-<!-- RESULTS -->
-<div id="parentResults"
-class="parentSection hidden">
-
-<div class="card">
-<h2>Exam / Result</h2>
-<div id="resultList">
-Loading...
-</div>
-</div>
-
-</div>
-
-
-<!-- PROFILE -->
-<div id="parentProfile"
-class="parentSection hidden">
-
-<div class="card">
-<h2>Student Profile</h2>
-
-<div id="profileBox">
-Loading...
-</div>
-
-</div>
-</div>
-
-</div>
 </section>
 
 
-<!-- ADMIN APP -->
-<section id="adminPage" class="hidden">
+<!-- ADMIN DASHBOARD -->
+<section id="adminDash" class="hidden">
 
-<div class="header">
-<div class="container" style="padding:0">
-<h1>DPS Narkatiaganj</h1>
-<p>Admin Dashboard</p>
-</div>
-</div>
-
-<div class="container">
-
-<div class="topbar">
-<div>
-<h2>Admin Dashboard</h2>
-<p style="color:#68758c">
-Manage school information
+<h2>🛡️ Admin Dashboard</h2>
+<p class="muted" style="margin-bottom:15px">
+Manage the parent portal
 </p>
+
+
+<!-- CREATE PARENT ACCOUNT -->
+<div class="card">
+
+<h2>👨‍👩‍👦 Create Parent Account</h2>
+
+<div class="info">
+Admin yahin se parent ka Email aur Password bana sakta hai.
+Parent ko baad mein isi Email + Password se app mein login karna hoga.
 </div>
 
-<button class="btn danger"
-onclick="logout()">
-Logout
+<label>Parent Name</label>
+<input id="parentName" placeholder="Parent name">
+
+<label>Parent Email</label>
+<input id="parentEmailCreate" type="email" placeholder="parent@example.com">
+
+<label>Password</label>
+<input id="parentPasswordCreate" type="password" placeholder="Minimum 6 characters">
+
+<button class="green" onclick="createParentAccount()">
+👤 Create Parent Account
 </button>
-</div>
 
-
-<div class="grid">
-
-<div class="stat">
-Students
-<strong id="adminStudentCount">0</strong>
-</div>
-
-<div class="stat">
-Notices
-<strong id="adminNoticeCount">0</strong>
-</div>
-
-<div class="stat">
-Homework
-<strong id="adminHomeworkCount">0</strong>
-</div>
-
-<div class="stat">
-Fees
-<strong id="adminFeeCount">0</strong>
-</div>
+<div id="parentCreateMsg"></div>
 
 </div>
 
 
 <!-- ADD STUDENT -->
 <div class="card">
-<h2>➕ Add Student</h2>
 
-<label>Student Name</label>
-<input id="studentName"
-placeholder="Rahul Kumar">
+<h2>👨‍🎓 Add Student</h2>
+
+<label>Name</label>
+<input id="sName" placeholder="Student name">
 
 <label>Class</label>
-<input id="studentClass"
-placeholder="12">
+<input id="sClass" placeholder="12">
 
-<label>Roll Number</label>
-<input id="studentRoll"
-placeholder="1">
+<label>Roll</label>
+<input id="sRoll" placeholder="1">
 
 <label>Parent Email</label>
-<input id="studentParentEmail"
-type="email"
-placeholder="parent@example.com">
+<input id="sEmail" type="email" placeholder="parent@example.com">
 
-<button class="btn"
-onclick="addStudent()">
-Add Student
+<button class="green" onclick="addStudent()">
+➕ Add Student
 </button>
+
+<div id="sMsg"></div>
+
 </div>
 
 
-<!-- STUDENT LIST -->
+<!-- ATTENDANCE -->
 <div class="card">
-<h2>👨‍🎓 Students</h2>
-<div id="studentList">
-Loading...
-</div>
-</div>
 
-
-<!-- ADD ATTENDANCE -->
-<div class="card">
 <h2>📅 Add Attendance</h2>
 
 <label>Student</label>
-<select id="attendanceStudent">
-<option value="">Select Student</option>
+<select id="attStudent">
+<option>Loading...</option>
 </select>
 
 <label>Date</label>
-<input id="attendanceDate" type="date">
+<input id="attDate" type="date">
 
 <label>Status</label>
-<select id="attendanceStatus">
-<option value="Present">Present</option>
-<option value="Absent">Absent</option>
+<select id="attStatus">
+<option>Present</option>
+<option>Absent</option>
 </select>
 
-<button class="btn"
-onclick="addAttendance()">
-Save Attendance
+<button class="green" onclick="addAttendance()">
+➕ Add Attendance
 </button>
+
+<div id="attMsg"></div>
+
 </div>
 
 
-<!-- ADD NOTICE -->
+<!-- NOTICE -->
 <div class="card">
+
 <h2>📢 Publish Notice</h2>
 
-<label>Notice Title</label>
-<input id="noticeTitle"
-placeholder="Important Notice">
+<label>Title</label>
+<input id="nTitle" placeholder="Notice title">
 
-<label>Notice Message</label>
-<textarea id="noticeMessage"
-rows="4"
-placeholder="Write notice here..."></textarea>
+<label>Message</label>
+<textarea id="nMessage" rows="4" placeholder="Notice message"></textarea>
 
-<button class="btn"
-onclick="addNotice()">
-Publish Notice
+<label>Date</label>
+<input id="nDate" type="date">
+
+<button class="green" onclick="addNotice()">
+📢 Publish Notice
 </button>
+
+<div id="nMsg"></div>
+
 </div>
 
 
-<!-- ADD FEES -->
+<!-- FEES -->
 <div class="card">
-<h2>💰 Add Fee</h2>
 
-<label>Parent Email</label>
-<input id="feeEmail"
-type="email"
-placeholder="parent@example.com">
+<h2>💰 Add / Update Fees</h2>
 
-<label>Fee Title</label>
-<input id="feeTitle"
-placeholder="Tuition Fee">
+<label>Student</label>
+<select id="feeStudent">
+<option>Loading...</option>
+</select>
 
-<label>Amount</label>
-<input id="feeAmount"
-type="number"
-placeholder="5000">
+<label>Total Fees</label>
+<input id="feeTotal" type="number" min="0" placeholder="50000">
+
+<label>Paid Amount</label>
+<input id="feePaid" type="number" min="0" placeholder="25000">
 
 <label>Due Date</label>
 <input id="feeDueDate" type="date">
 
-<label>Status</label>
-<select id="feeStatus">
-<option value="Pending">Pending</option>
-<option value="Paid">Paid</option>
-</select>
-
-<button class="btn"
-onclick="addFee()">
-Save Fee
+<button class="green" onclick="addFees()">
+💰 Save Fees
 </button>
+
+<div id="feeMsg"></div>
+
 </div>
 
 
-<!-- ADD HOMEWORK -->
+<!-- HOMEWORK -->
 <div class="card">
-<h2>📚 Add Homework</h2>
+
+<h2>📝 Add Homework</h2>
 
 <label>Class</label>
-<input id="homeworkClass"
-placeholder="12">
+<input id="hwClass" placeholder="12">
 
 <label>Subject</label>
-<input id="homeworkSubject"
-placeholder="Physics">
+<input id="hwSubject" placeholder="Physics">
 
 <label>Homework</label>
-<textarea id="homeworkText"
-rows="4"
-placeholder="Write homework..."></textarea>
-
-<label>Due Date</label>
-<input id="homeworkDue" type="date">
-
-<button class="btn"
-onclick="addHomework()">
-Add Homework
-</button>
-</div>
-
-
-<!-- ADD MATERIAL -->
-<div class="card">
-<h2>📖 Add Study Material</h2>
-
-<label>Class</label>
-<input id="materialClass"
-placeholder="12">
-
-<label>Subject</label>
-<input id="materialSubject"
-placeholder="Physics">
-
-<label>Title</label>
-<input id="materialTitle"
-placeholder="Chapter 1 Notes">
-
-<label>Material Link</label>
-<input id="materialLink"
-placeholder="https://...">
-
-<button class="btn"
-onclick="addMaterial()">
-Add Material
-</button>
-</div>
-
-
-<!-- ADD CALENDAR -->
-<div class="card">
-<h2>🗓️ Add Calendar Event</h2>
-
-<label>Event Title</label>
-<input id="calendarTitle"
-placeholder="Parent Meeting">
+<textarea id="hwText" rows="4" placeholder="Homework details"></textarea>
 
 <label>Date</label>
-<input id="calendarDate" type="date">
+<input id="hwDate" type="date">
 
-<label>Description</label>
-<textarea id="calendarDescription"
-rows="3"
-placeholder="Event details"></textarea>
-
-<button class="btn"
-onclick="addCalendar()">
-Add Event
+<button class="green" onclick="addHomework()">
+📝 Publish Homework
 </button>
+
+<div id="hwMsg"></div>
+
 </div>
 
 
-<!-- ADD RESULT -->
+<!-- STUDY MATERIAL -->
 <div class="card">
-<h2>🏆 Add Result</h2>
 
-<label>Parent Email</label>
-<input id="resultEmail"
-type="email"
-placeholder="parent@example.com">
+<h2>📚 Add Study Material</h2>
 
-<label>Exam Name</label>
-<input id="resultExam"
-placeholder="Half Yearly Exam">
+<label>Class</label>
+<input id="matClass" placeholder="12">
 
 <label>Subject</label>
-<input id="resultSubject"
-placeholder="Physics">
+<input id="matSubject" placeholder="Physics">
+
+<label>Title</label>
+<input id="matTitle" placeholder="Chapter notes">
+
+<label>Link</label>
+<input id="matLink" placeholder="https://...">
+
+<button class="green" onclick="addMaterial()">
+📚 Add Material
+</button>
+
+<div id="matMsg"></div>
+
+</div>
+
+
+<!-- CALENDAR -->
+<div class="card">
+
+<h2>🗓️ Add Calendar Event</h2>
+
+<label>Title</label>
+<input id="calTitle" placeholder="Annual Exam">
+
+<label>Date</label>
+<input id="calDate" type="date">
+
+<label>Details</label>
+<textarea id="calDetails" rows="3"></textarea>
+
+<button class="green" onclick="addCalendar()">
+🗓️ Add Event
+</button>
+
+<div id="calMsg"></div>
+
+</div>
+
+
+<!-- RESULT -->
+<div class="card">
+
+<h2>🧪 Add Exam / Result</h2>
+
+<label>Student</label>
+<select id="resultStudent">
+<option>Loading...</option>
+</select>
+
+<label>Exam</label>
+<input id="resultExam" placeholder="First Terminal">
+
+<label>Subject</label>
+<input id="resultSubject" placeholder="Physics">
 
 <label>Marks</label>
-<input id="resultMarks"
-type="number"
-placeholder="85">
+<input id="resultMarks" type="number" min="0">
 
-<label>Total Marks</label>
-<input id="resultTotal"
-type="number"
-placeholder="100">
+<label>Max Marks</label>
+<input id="resultMax" type="number" min="1" value="100">
 
-<button class="btn"
-onclick="addResult()">
-Save Result
+<button class="green" onclick="addResult()">
+🧪 Save Result
 </button>
+
+<div id="resultMsg"></div>
+
 </div>
 
 
-<!-- ADD DOCUMENT -->
+<!-- DOCUMENT -->
 <div class="card">
+
 <h2>📄 Add Document</h2>
 
-<label>Parent Email</label>
-<input id="documentEmail"
-type="email"
-placeholder="parent@example.com">
+<label>Student</label>
+<select id="docStudent">
+<option>Loading...</option>
+</select>
 
-<label>Document Name</label>
-<input id="documentName"
-placeholder="Fee Receipt">
+<label>Title</label>
+<input id="docTitle" placeholder="Fee Receipt / Result">
 
-<label>Document Link</label>
-<input id="documentLink"
-placeholder="https://...">
+<label>Link</label>
+<input id="docLink" placeholder="https://...">
 
-<button class="btn"
-onclick="addDocument()">
-Add Document
+<button class="green" onclick="addDocument()">
+📄 Save Document
 </button>
+
+<div id="docMsg"></div>
+
 </div>
 
 
+<!-- STUDENTS -->
+<div class="card">
+
+<h2>📋 Students</h2>
+
+<button class="secondary" onclick="loadStudents()">
+🔄 Refresh Students
+</button>
+
+<div id="studentsList" style="margin-top:12px"></div>
+
 </div>
+
+
+<button class="danger" onclick="logout()">
+🚪 Logout Admin
+</button>
+
 </section>
+
+
+<div class="footer">
+© DPS Narkatiaganj • Parent Portal
+</div>
+
+</div>
 
 
 <script type="module">
 
-import {
-initializeApp
-} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+import {initializeApp}
+from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 
 import {
 getAuth,
 signInWithEmailAndPassword,
-onAuthStateChanged,
+createUserWithEmailAndPassword,
 signOut
-} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+}
+from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 
 import {
 getFirestore,
@@ -847,9 +524,12 @@ addDoc,
 getDocs,
 query,
 where,
-orderBy
-} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+serverTimestamp
+}
+from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
+
+/* FIREBASE CONFIG */
 
 const firebaseConfig = {
 apiKey:"AIzaSyBoDLUAc-y9nqFBn8vB9wRUUtMY0WALxwA",
@@ -862,837 +542,1631 @@ measurementId:"G-49BGF6LQ9P"
 };
 
 
-const app=initializeApp(firebaseConfig);
-const auth=getAuth(app);
-const db=getFirestore(app);
+/* MAIN APP */
 
-const ADMIN_EMAIL="admin@dpsnke.com";
+const app = initializeApp(firebaseConfig);
 
-let currentUser=null;
-let currentStudent=null;
+const auth = getAuth(app);
 
-
-function toast(message){
-const t=document.getElementById("toast");
-t.textContent=message;
-t.style.display="block";
-setTimeout(()=>{
-t.style.display="none";
-},2500);
-}
+const db = getFirestore(app);
 
 
-function clean(value){
-return String(value??"")
-.replaceAll("&","&amp;")
-.replaceAll("<","&lt;")
-.replaceAll(">","&gt;")
-.replaceAll('"',"&quot;")
-.replaceAll("'","&#039;");
-}
+/*
+SECOND FIREBASE APP
+
+Isse parent account create karte waqt
+Admin account logout nahi hoga.
+*/
+
+const parentCreatorApp =
+initializeApp(firebaseConfig,"ParentCreatorApp");
+
+const parentAuth =
+getAuth(parentCreatorApp);
 
 
-function today(){
-return new Date().toISOString().split("T")[0];
-}
+/* ADMIN EMAIL */
+
+const ADMIN_EMAIL = "admin@dpsnke.com";
+
+let currentStudent = null;
 
 
-window.showAdminLogin=()=>{
-document.getElementById("loginPage").classList.add("hidden");
-document.getElementById("adminLoginPage").classList.remove("hidden");
+/* TODAY */
+
+const today = new Date().toISOString().slice(0,10);
+
+document.getElementById("attDate").value = today;
+document.getElementById("nDate").value = today;
+document.getElementById("hwDate").value = today;
+document.getElementById("calDate").value = today;
+document.getElementById("feeDueDate").value = today;
+
+
+/* PAGE FUNCTION */
+
+window.page = id => {
+
+[
+"home",
+"parentLogin",
+"adminLogin",
+"parentDash",
+"adminDash"
+].forEach(x =>
+document.getElementById(x).classList.add("hidden")
+);
+
+document.getElementById(id).classList.remove("hidden");
+
+scrollTo(0,0);
+
 };
 
 
-window.showLogin=()=>{
-document.getElementById("adminLoginPage").classList.add("hidden");
-document.getElementById("loginPage").classList.remove("hidden");
-};
+/* MESSAGE */
+
+function msg(id,text,ok=false){
+
+const e = document.getElementById(id);
+
+e.className =
+"message " + (ok ? "success" : "error");
+
+e.textContent = text;
+
+}
 
 
-window.parentLogin=async()=>{
+/* SECURITY HTML CLEAN */
 
-const email=document.getElementById("loginEmail").value.trim().toLowerCase();
-const password=document.getElementById("loginPassword").value;
+function clean(v){
+
+return String(v ?? "").replace(
+/[&<>"']/g,
+x => ({
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#039;"
+}[x])
+);
+
+}
+
+
+/* CURRENT USER EMAIL */
+
+function email(){
+
+return auth.currentUser?.email?.toLowerCase() || "";
+
+}
+
+
+/* =========================
+PARENT LOGIN
+========================= */
+
+window.parentLogin = async()=>{
 
 try{
 
-await signInWithEmailAndPassword(auth,email,password);
+const e =
+document.getElementById("pEmail")
+.value.trim()
+.toLowerCase();
 
-}catch(e){
+const p =
+document.getElementById("pPass")
+.value;
 
-document.getElementById("loginMsg").textContent=
-"Login failed. Email or password check karein.";
+if(!e || !p){
+
+return msg(
+"pMsg",
+"Enter email and password."
+);
+
+}
+
+const r =
+await signInWithEmailAndPassword(
+auth,
+e,
+p
+);
+
+await loadParent(r.user.email);
+
+}
+
+catch(e){
+
+console.log(e);
+
+msg(
+"pMsg",
+"Login failed. Check email/password."
+);
 
 }
 
 };
 
 
-window.adminLogin=async()=>{
+/* LOAD PARENT */
 
-const email=document.getElementById("adminEmail").value.trim().toLowerCase();
-const password=document.getElementById("adminPassword").value;
+async function loadParent(e){
 
-if(email!==ADMIN_EMAIL){
-document.getElementById("adminMsg").textContent=
-"Admin access denied.";
-return;
-}
-
-try{
-
-await signInWithEmailAndPassword(auth,email,password);
-
-}catch(e){
-
-document.getElementById("adminMsg").textContent=
-"Admin login failed.";
-
-}
-
-};
-
-
-onAuthStateChanged(auth,async(user)=>{
-
-if(!user)return;
-
-currentUser=user;
-
-const email=user.email.toLowerCase();
-
-if(email===ADMIN_EMAIL){
-
-document.getElementById("loginPage").classList.add("hidden");
-document.getElementById("adminLoginPage").classList.add("hidden");
-document.getElementById("parentPage").classList.add("hidden");
-document.getElementById("adminPage").classList.remove("hidden");
-
-await loadAdmin();
-
-}else{
-
-document.getElementById("loginPage").classList.add("hidden");
-document.getElementById("adminLoginPage").classList.add("hidden");
-document.getElementById("adminPage").classList.add("hidden");
-document.getElementById("parentPage").classList.remove("hidden");
-
-await loadParentStudent(email);
-
-}
-
-});
-
-
-window.logout=async()=>{
-await signOut(auth);
-location.reload();
-};
-
-
-async function loadParentStudent(email){
-
-const q=query(
+const q =
+query(
 collection(db,"students"),
-where("parentEmail","==",email)
+where(
+"parentEmail",
+"==",
+e.toLowerCase()
+)
 );
 
-const snap=await getDocs(q);
+const s =
+await getDocs(q);
 
-if(snap.empty){
+if(s.empty){
 
-document.getElementById("parentWelcome").textContent="Student Not Found";
-document.getElementById("studentTop").textContent=email;
+document.getElementById(
+"studentInfo"
+).innerHTML =
+
+'<div class="card">' +
+'<h2>⚠️ Student Not Found</h2>' +
+'<p class="muted">' +
+'No student is connected with this account.' +
+'</p></div>';
+
+page("parentDash");
+
 return;
 
 }
 
-currentStudent=snap.docs[0].data();
+const d =
+s.docs[0].data();
 
-document.getElementById("parentWelcome").textContent=
-"Welcome, Parent";
-
-document.getElementById("studentTop").textContent=
-currentStudent.name+" • Class "+currentStudent.class;
-
-document.getElementById("dashName").textContent=currentStudent.name;
-document.getElementById("dashClass").textContent=currentStudent.class;
-document.getElementById("dashRoll").textContent=currentStudent.roll;
-
-document.getElementById("profileBox").innerHTML=`
-<div class="item">
-<b>Name</b><br>${clean(currentStudent.name)}
-</div>
-<div class="item">
-<b>Class</b><br>${clean(currentStudent.class)}
-</div>
-<div class="item">
-<b>Roll Number</b><br>${clean(currentStudent.roll)}
-</div>
-<div class="item">
-<b>Parent Email</b><br>${clean(email)}
-</div>
-`;
-
-await showAttendance();
-await showNotices();
-
+currentStudent = {
+id:s.docs[0].id,
+...d
 };
 
+document.getElementById(
+"studentInfo"
+).innerHTML =
 
-window.parentSection=(section)=>{
+`<div class="student">
 
-document.querySelectorAll(".parentSection")
-.forEach(x=>x.classList.add("hidden"));
+<h2>👨‍🎓 ${clean(d.name)}</h2>
 
-document.getElementById("parent"+
-section.charAt(0).toUpperCase()+section.slice(1))
-.classList.remove("hidden");
+<div class="row">
+<span>Class</span>
+<b>${clean(d.class)}</b>
+</div>
 
-document.querySelectorAll(".menu button")
-.forEach(x=>x.classList.remove("active"));
+<div class="row">
+<span>Roll</span>
+<b>${clean(d.roll)}</b>
+</div>
 
-const map={
-dashboard:"mDashboard",
-attendance:"mAttendance",
-notices:"mNotices",
-fees:"mFees",
-homework:"mHomework",
-materials:"mMaterials",
-calendar:"mCalendar",
-results:"mResults",
-profile:"mProfile"
-};
+</div>`;
 
-if(map[section])
-document.getElementById(map[section]).classList.add("active");
+page("parentDash");
 
-if(section==="fees")showFees();
-if(section==="homework")showHomework();
-if(section==="materials")showMaterials();
-if(section==="calendar")showCalendar();
-if(section==="results")showResults();
-
-};
+}
 
 
-async function showAttendance(){
+/* =========================
+ADMIN LOGIN
+========================= */
 
-if(!currentUser)return;
+window.adminLogin = async()=>{
 
-const q=query(
-collection(db,"attendance"),
-where("parentEmail","==",currentUser.email.toLowerCase())
+const e =
+document.getElementById("aEmail")
+.value.trim()
+.toLowerCase();
+
+const p =
+document.getElementById("aPass")
+.value;
+
+if(e !== ADMIN_EMAIL){
+
+return msg(
+"aMsg",
+"This is not the admin account."
 );
 
-const snap=await getDocs(q);
+}
 
-let html="";
+try{
 
-let present=0;
-let total=0;
-
-snap.forEach(doc=>{
-
-const d=doc.data();
-
-total++;
-
-if(d.status==="Present")present++;
-
-html+=`
-<div class="item">
-<b>${clean(d.date)}</b>
-<br>
-<span class="${d.status==="Present"?"present":"absent"}">
-${clean(d.status)}
-</span>
-</div>
-`;
-
-});
-
-document.getElementById("attendanceList").innerHTML=
-html||"<p>No attendance records found.</p>";
-
-const percent=total?
-Math.round(present/total*100):0;
-
-document.getElementById("dashAttendance").textContent=
-percent+"%";
-
-};
-
-
-async function showNotices(){
-
-const snap=await getDocs(
-collection(db,"notices")
+await signInWithEmailAndPassword(
+auth,
+e,
+p
 );
 
-let html="";
+page("adminDash");
 
-snap.forEach(doc=>{
-
-const d=doc.data();
-
-html+=`
-<div class="item notice">
-<h3>${clean(d.title)}</h3>
-<p>${clean(d.message)}</p>
-<small>${clean(d.date||"")}</small>
-</div>
-`;
-
-});
-
-document.getElementById("noticeList").innerHTML=
-html||"<p>No notices available.</p>";
-
-document.getElementById("dashNotices").innerHTML=
-html||"<p>No notices available.</p>";
-
-};
-
-
-async function showFees(){
-
-const q=query(
-collection(db,"fees"),
-where("parentEmail","==",currentUser.email.toLowerCase())
-);
-
-const snap=await getDocs(q);
-
-let html="";
-
-snap.forEach(doc=>{
-
-const d=doc.data();
-
-html+=`
-<div class="item">
-<h3>${clean(d.title)}</h3>
-<p>Amount: ₹${clean(d.amount)}</p>
-<p>Due Date: ${clean(d.dueDate)}</p>
-<span class="badge">${clean(d.status)}</span>
-</div>
-`;
-
-});
-
-document.getElementById("feeList").innerHTML=
-html||"<p>No fee details found.</p>";
-
-};
-
-
-async function showHomework(){
-
-const studentClass=String(currentStudent?.class||"");
-
-const q=query(
-collection(db,"homework"),
-where("class","==",studentClass)
-);
-
-const snap=await getDocs(q);
-
-let html="";
-
-snap.forEach(doc=>{
-
-const d=doc.data();
-
-html+=`
-<div class="item">
-<h3>${clean(d.subject)}</h3>
-<p>${clean(d.text)}</p>
-<small>Due: ${clean(d.dueDate)}</small>
-</div>
-`;
-
-});
-
-document.getElementById("homeworkList").innerHTML=
-html||"<p>No homework found.</p>";
-
-};
-
-
-async function showMaterials(){
-
-const studentClass=String(currentStudent?.class||"");
-
-const q=query(
-collection(db,"materials"),
-where("class","==",studentClass)
-);
-
-const snap=await getDocs(q);
-
-let html="";
-
-snap.forEach(doc=>{
-
-const d=doc.data();
-
-html+=`
-<div class="item">
-<h3>${clean(d.title)}</h3>
-<p>${clean(d.subject)}</p>
-<a href="${clean(d.link)}"
-target="_blank"
-rel="noopener">
-<button class="btn">Open Material</button>
-</a>
-</div>
-`;
-
-});
-
-document.getElementById("materialList").innerHTML=
-html||"<p>No study material found.</p>";
-
-};
-
-
-async function showCalendar(){
-
-const snap=await getDocs(
-collection(db,"calendar")
-);
-
-let html="";
-
-snap.forEach(doc=>{
-
-const d=doc.data();
-
-html+=`
-<div class="item">
-<h3>${clean(d.title)}</h3>
-<p>${clean(d.description)}</p>
-<span class="badge">${clean(d.date)}</span>
-</div>
-`;
-
-});
-
-document.getElementById("calendarList").innerHTML=
-html||"<p>No calendar events.</p>";
-
-};
-
-
-async function showResults(){
-
-const q=query(
-collection(db,"results"),
-where("parentEmail","==",currentUser.email.toLowerCase())
-);
-
-const snap=await getDocs(q);
-
-let html="";
-
-snap.forEach(doc=>{
-
-const d=doc.data();
-
-html+=`
-<div class="item">
-<h3>${clean(d.exam)}</h3>
-<p>
-<b>${clean(d.subject)}</b>
-</p>
-<p>
-Marks: ${clean(d.marks)} / ${clean(d.total)}
-</p>
-</div>
-`;
-
-});
-
-document.getElementById("resultList").innerHTML=
-html||"<p>No results found.</p>";
-
-};
-
-
-async function loadAdmin(){
+await refreshStudentSelects();
 
 await loadStudents();
-await loadAdminCounts();
 
-document.getElementById("attendanceDate").value=today();
-document.getElementById("feeDueDate").value=today();
-document.getElementById("homeworkDue").value=today();
-document.getElementById("calendarDate").value=today();
+}
+
+catch(e){
+
+console.log(e);
+
+msg(
+"aMsg",
+"Admin login failed."
+);
+
+}
 
 };
 
 
-async function loadStudents(){
+/* =========================
+LOGOUT
+========================= */
 
-const snap=await getDocs(
+window.logout = async()=>{
+
+await signOut(auth);
+
+currentStudent = null;
+
+page("home");
+
+};
+
+
+/* =========================
+CREATE PARENT ACCOUNT
+========================= */
+
+window.createParentAccount = async()=>{
+
+try{
+
+/*
+Admin check
+*/
+
+if(
+!auth.currentUser ||
+auth.currentUser.email.toLowerCase()
+!== ADMIN_EMAIL
+){
+
+return msg(
+"parentCreateMsg",
+"Only Admin can create parent accounts."
+);
+
+}
+
+
+/*
+Get fields
+*/
+
+const parentName =
+document.getElementById("parentName")
+.value.trim();
+
+const parentEmail =
+document.getElementById("parentEmailCreate")
+.value.trim()
+.toLowerCase();
+
+const parentPassword =
+document.getElementById("parentPasswordCreate")
+.value;
+
+
+/*
+Validation
+*/
+
+if(!parentName){
+
+return msg(
+"parentCreateMsg",
+"Enter parent name."
+);
+
+}
+
+if(!parentEmail){
+
+return msg(
+"parentCreateMsg",
+"Enter parent email."
+);
+
+}
+
+if(parentPassword.length < 6){
+
+return msg(
+"parentCreateMsg",
+"Password must be at least 6 characters."
+);
+
+}
+
+
+/*
+Create Firebase Auth Account
+*/
+
+await createUserWithEmailAndPassword(
+parentAuth,
+parentEmail,
+parentPassword
+);
+
+
+/*
+Success
+*/
+
+msg(
+"parentCreateMsg",
+"Parent account created successfully.",
+true
+);
+
+
+/*
+Clear fields
+*/
+
+document.getElementById(
+"parentName"
+).value="";
+
+document.getElementById(
+"parentEmailCreate"
+).value="";
+
+document.getElementById(
+"parentPasswordCreate"
+).value="";
+
+}
+
+catch(e){
+
+console.log(e);
+
+if(e.code === "auth/email-already-in-use"){
+
+msg(
+"parentCreateMsg",
+"This email already has a parent account."
+);
+
+}
+
+else if(e.code === "auth/invalid-email"){
+
+msg(
+"parentCreateMsg",
+"Enter a valid email address."
+);
+
+}
+
+else if(e.code === "auth/weak-password"){
+
+msg(
+"parentCreateMsg",
+"Password is too weak. Use at least 6 characters."
+);
+
+}
+
+else{
+
+msg(
+"parentCreateMsg",
+"Could not create parent account: " +
+e.message
+);
+
+}
+
+}
+
+};
+
+
+/* =========================
+STUDENTS
+========================= */
+
+async function students(){
+
+const s =
+await getDocs(
 collection(db,"students")
 );
 
-let html="";
-let options='<option value="">Select Student</option>';
-
-snap.forEach(doc=>{
-
-const d=doc.data();
-
-html+=`
-<div class="item">
-<h3>${clean(d.name)}</h3>
-<p>Class ${clean(d.class)} • Roll ${clean(d.roll)}</p>
-<small>${clean(d.parentEmail)}</small>
-</div>
-`;
-
-options+=`
-<option value="${clean(d.parentEmail)}">
-${clean(d.name)} — Class ${clean(d.class)}
-</option>
-`;
-
-});
-
-document.getElementById("studentList").innerHTML=
-html||"<p>No students found.</p>";
-
-document.getElementById("attendanceStudent").innerHTML=
-options;
-
-document.getElementById("adminStudentCount").textContent=
-snap.size;
-
-};
-
-
-async function loadAdminCounts(){
-
-const collections=[
-["notices","adminNoticeCount"],
-["homework","adminHomeworkCount"],
-["fees","adminFeeCount"]
-];
-
-for(const [name,id] of collections){
-
-const snap=await getDocs(
-collection(db,name)
+return s.docs.map(
+d => ({
+id:d.id,
+...d.data()
+})
 );
 
-document.getElementById(id).textContent=snap.size;
+}
+
+
+/* =========================
+REFRESH STUDENT SELECTS
+========================= */
+
+async function refreshStudentSelects(){
+
+const ss = await students();
+
+[
+"attStudent",
+"feeStudent",
+"resultStudent",
+"docStudent"
+].forEach(id=>{
+
+const el =
+document.getElementById(id);
+
+el.innerHTML =
+'<option value="">Select Student</option>';
+
+ss.forEach(d=>{
+
+if(d.parentEmail){
+
+const o =
+document.createElement("option");
+
+o.value =
+d.parentEmail;
+
+o.textContent =
+`${d.name} — Class ${d.class}`;
+
+el.appendChild(o);
 
 }
 
-};
+});
 
+});
 
-window.addStudent=async()=>{
-
-const name=document.getElementById("studentName").value.trim();
-const studentClass=document.getElementById("studentClass").value.trim();
-const roll=document.getElementById("studentRoll").value.trim();
-const parentEmail=document.getElementById("studentParentEmail").value.trim().toLowerCase();
-
-if(!name||!studentClass||!roll||!parentEmail){
-toast("Sabhi fields bharo");
-return;
 }
 
-await addDoc(collection(db,"students"),{
+
+/* =========================
+ADD STUDENT
+========================= */
+
+window.addStudent = async()=>{
+
+try{
+
+const name =
+sName.value.trim();
+
+const cl =
+sClass.value.trim();
+
+const roll =
+sRoll.value.trim();
+
+const pe =
+sEmail.value.trim()
+.toLowerCase();
+
+if(
+!name ||
+!cl ||
+!roll ||
+!pe
+){
+
+return msg(
+"sMsg",
+"Fill all student fields."
+);
+
+}
+
+await addDoc(
+collection(db,"students"),
+{
 name,
-class:studentClass,
+class:cl,
 roll,
-parentEmail
-});
+parentEmail:pe
+}
+);
 
-toast("Student added");
+msg(
+"sMsg",
+"Student added successfully.",
+true
+);
 
-document.getElementById("studentName").value="";
-document.getElementById("studentClass").value="";
-document.getElementById("studentRoll").value="";
-document.getElementById("studentParentEmail").value="";
+[
+"sName",
+"sClass",
+"sRoll",
+"sEmail"
+].forEach(
+id =>
+document.getElementById(id).value=""
+);
 
-await loadStudents();
-await loadAdminCounts();
+await refreshStudentSelects();
+
+loadStudents();
+
+}
+
+catch(e){
+
+console.log(e);
+
+msg(
+"sMsg",
+e.message
+);
+
+}
 
 };
 
 
-window.addAttendance=async()=>{
+/* =========================
+ATTENDANCE
+========================= */
 
-const parentEmail=
-document.getElementById("attendanceStudent").value;
+window.addAttendance = async()=>{
 
-const date=
-document.getElementById("attendanceDate").value;
+try{
 
-const status=
-document.getElementById("attendanceStatus").value;
+if(
+!attStudent.value ||
+!attDate.value
+){
 
-if(!parentEmail||!date){
-toast("Student aur date select karo");
-return;
+return msg(
+"attMsg",
+"Select student and date."
+);
+
 }
 
-await addDoc(collection(db,"attendance"),{
-parentEmail:parentEmail.toLowerCase(),
-date,
-status
-});
+await addDoc(
+collection(db,"attendance"),
+{
+parentEmail:
+attStudent.value.toLowerCase(),
 
-toast("Attendance saved");
+date:
+attDate.value,
+
+status:
+attStatus.value
+}
+);
+
+msg(
+"attMsg",
+"Attendance added successfully.",
+true
+);
+
+}
+
+catch(e){
+
+msg(
+"attMsg",
+e.message
+);
+
+}
 
 };
 
 
-window.addNotice=async()=>{
+/* =========================
+NOTICE
+========================= */
 
-const title=
-document.getElementById("noticeTitle").value.trim();
+window.addNotice = async()=>{
 
-const message=
-document.getElementById("noticeMessage").value.trim();
+try{
 
-if(!title||!message){
-toast("Notice complete karo");
-return;
+if(
+!nTitle.value.trim() ||
+!nMessage.value.trim() ||
+!nDate.value
+){
+
+return msg(
+"nMsg",
+"Fill all notice fields."
+);
+
 }
 
-await addDoc(collection(db,"notices"),{
-title,
-message,
-date:today(),
-createdAt:Date.now()
-});
+await addDoc(
+collection(db,"notices"),
+{
+title:nTitle.value.trim(),
+message:nMessage.value.trim(),
+date:nDate.value,
+createdAt:serverTimestamp()
+}
+);
 
-toast("Notice published");
+msg(
+"nMsg",
+"Notice published successfully.",
+true
+);
 
-document.getElementById("noticeTitle").value="";
-document.getElementById("noticeMessage").value="";
+nTitle.value="";
+nMessage.value="";
 
-await loadAdminCounts();
+}
+
+catch(e){
+
+msg(
+"nMsg",
+e.message
+);
+
+}
 
 };
 
 
-window.addFee=async()=>{
+/* =========================
+FEES
+========================= */
 
-const email=
-document.getElementById("feeEmail").value.trim().toLowerCase();
+window.addFees = async()=>{
 
-const title=
-document.getElementById("feeTitle").value.trim();
+try{
 
-const amount=
-document.getElementById("feeAmount").value.trim();
+if(!feeStudent.value){
 
-const dueDate=
-document.getElementById("feeDueDate").value;
+return msg(
+"feeMsg",
+"Select student."
+);
 
-const status=
-document.getElementById("feeStatus").value;
-
-if(!email||!title||!amount||!dueDate){
-toast("Fee details complete karo");
-return;
 }
 
-await addDoc(collection(db,"fees"),{
-parentEmail:email,
-title,
-amount,
-dueDate,
-status,
-createdAt:Date.now()
-});
+const total =
+Number(feeTotal.value) || 0;
 
-toast("Fee saved");
+const paid =
+Number(feePaid.value) || 0;
 
-await loadAdminCounts();
+await addDoc(
+collection(db,"fees"),
+{
+parentEmail:
+feeStudent.value.toLowerCase(),
 
-};
-
-
-window.addHomework=async()=>{
-
-const studentClass=
-document.getElementById("homeworkClass").value.trim();
-
-const subject=
-document.getElementById("homeworkSubject").value.trim();
-
-const text=
-document.getElementById("homeworkText").value.trim();
-
-const dueDate=
-document.getElementById("homeworkDue").value;
-
-if(!studentClass||!subject||!text||!dueDate){
-toast("Homework details complete karo");
-return;
-}
-
-await addDoc(collection(db,"homework"),{
-class:studentClass,
-subject,
-text,
-dueDate,
-createdAt:Date.now()
-});
-
-toast("Homework added");
-
-document.getElementById("homeworkText").value="";
-
-await loadAdminCounts();
-
-};
-
-
-window.addMaterial=async()=>{
-
-const studentClass=
-document.getElementById("materialClass").value.trim();
-
-const subject=
-document.getElementById("materialSubject").value.trim();
-
-const title=
-document.getElementById("materialTitle").value.trim();
-
-const link=
-document.getElementById("materialLink").value.trim();
-
-if(!studentClass||!subject||!title||!link){
-toast("Material details complete karo");
-return;
-}
-
-await addDoc(collection(db,"materials"),{
-class:studentClass,
-subject,
-title,
-link,
-createdAt:Date.now()
-});
-
-toast("Material added");
-
-};
-
-
-window.addCalendar=async()=>{
-
-const title=
-document.getElementById("calendarTitle").value.trim();
-
-const date=
-document.getElementById("calendarDate").value;
-
-const description=
-document.getElementById("calendarDescription").value.trim();
-
-if(!title||!date){
-toast("Event details complete karo");
-return;
-}
-
-await addDoc(collection(db,"calendar"),{
-title,
-date,
-description,
-createdAt:Date.now()
-});
-
-toast("Calendar event added");
-
-};
-
-
-window.addResult=async()=>{
-
-const email=
-document.getElementById("resultEmail").value.trim().toLowerCase();
-
-const exam=
-document.getElementById("resultExam").value.trim();
-
-const subject=
-document.getElementById("resultSubject").value.trim();
-
-const marks=
-document.getElementById("resultMarks").value.trim();
-
-const total=
-document.getElementById("resultTotal").value.trim();
-
-if(!email||!exam||!subject||!marks||!total){
-toast("Result details complete karo");
-return;
-}
-
-await addDoc(collection(db,"results"),{
-parentEmail:email,
-exam,
-subject,
-marks,
 total,
-createdAt:Date.now()
-});
 
-toast("Result saved");
+paid,
 
-};
+due:
+Math.max(total-paid,0),
 
+dueDate:
+feeDueDate.value
+}
+);
 
-window.addDocument=async()=>{
+msg(
+"feeMsg",
+"Fees saved successfully.",
+true
+);
 
-const email=
-document.getElementById("documentEmail").value.trim().toLowerCase();
-
-const name=
-document.getElementById("documentName").value.trim();
-
-const link=
-document.getElementById("documentLink").value.trim();
-
-if(!email||!name||!link){
-toast("Document details complete karo");
-return;
 }
 
-await addDoc(collection(db,"documents"),{
-parentEmail:email,
-name,
-link,
-createdAt:Date.now()
-});
+catch(e){
 
-toast("Document added");
+msg(
+"feeMsg",
+e.message
+);
+
+}
 
 };
 
+
+/* =========================
+HOMEWORK
+========================= */
+
+window.addHomework = async()=>{
+
+try{
+
+if(
+!hwClass.value.trim() ||
+!hwSubject.value.trim() ||
+!hwText.value.trim()
+){
+
+return msg(
+"hwMsg",
+"Fill homework fields."
+);
+
+}
+
+await addDoc(
+collection(db,"homework"),
+{
+class:hwClass.value.trim(),
+
+subject:
+hwSubject.value.trim(),
+
+text:
+hwText.value.trim(),
+
+date:
+hwDate.value
+}
+);
+
+msg(
+"hwMsg",
+"Homework published.",
+true
+);
+
+hwText.value="";
+
+}
+
+catch(e){
+
+msg(
+"hwMsg",
+e.message
+);
+
+}
+
+};
+
+
+/* =========================
+MATERIAL
+========================= */
+
+window.addMaterial = async()=>{
+
+try{
+
+if(
+!matClass.value.trim() ||
+!matTitle.value.trim() ||
+!matLink.value.trim()
+){
+
+return msg(
+"matMsg",
+"Fill material fields."
+);
+
+}
+
+await addDoc(
+collection(db,"materials"),
+{
+class:
+matClass.value.trim(),
+
+subject:
+matSubject.value.trim(),
+
+title:
+matTitle.value.trim(),
+
+link:
+matLink.value.trim()
+}
+);
+
+msg(
+"matMsg",
+"Study material added.",
+true
+);
+
+}
+
+catch(e){
+
+msg(
+"matMsg",
+e.message
+);
+
+}
+
+};
+
+
+/* =========================
+CALENDAR
+========================= */
+
+window.addCalendar = async()=>{
+
+try{
+
+if(
+!calTitle.value.trim() ||
+!calDate.value
+){
+
+return msg(
+"calMsg",
+"Enter title and date."
+);
+
+}
+
+await addDoc(
+collection(db,"calendar"),
+{
+title:
+calTitle.value.trim(),
+
+date:
+calDate.value,
+
+details:
+calDetails.value.trim()
+}
+);
+
+msg(
+"calMsg",
+"Calendar event added.",
+true
+);
+
+calTitle.value="";
+calDetails.value="";
+
+}
+
+catch(e){
+
+msg(
+"calMsg",
+e.message
+);
+
+}
+
+};
+
+
+/* =========================
+RESULT
+========================= */
+
+window.addResult = async()=>{
+
+try{
+
+if(
+!resultStudent.value ||
+!resultExam.value.trim() ||
+!resultSubject.value.trim()
+){
+
+return msg(
+"resultMsg",
+"Fill result fields."
+);
+
+}
+
+await addDoc(
+collection(db,"results"),
+{
+parentEmail:
+resultStudent.value.toLowerCase(),
+
+exam:
+resultExam.value.trim(),
+
+subject:
+resultSubject.value.trim(),
+
+marks:
+Number(resultMarks.value) || 0,
+
+maxMarks:
+Number(resultMax.value) || 100
+}
+);
+
+msg(
+"resultMsg",
+"Result saved.",
+true
+);
+
+}
+
+catch(e){
+
+msg(
+"resultMsg",
+e.message
+);
+
+}
+
+};
+
+
+/* =========================
+DOCUMENT
+========================= */
+
+window.addDocument = async()=>{
+
+try{
+
+if(
+!docStudent.value ||
+!docTitle.value.trim() ||
+!docLink.value.trim()
+){
+
+return msg(
+"docMsg",
+"Fill document fields."
+);
+
+}
+
+await addDoc(
+collection(db,"documents"),
+{
+parentEmail:
+docStudent.value.toLowerCase(),
+
+title:
+docTitle.value.trim(),
+
+link:
+docLink.value.trim()
+}
+);
+
+msg(
+"docMsg",
+"Document saved.",
+true
+);
+
+}
+
+catch(e){
+
+msg(
+"docMsg",
+e.message
+);
+
+}
+
+};
+
+
+/* =========================
+STUDENT LIST
+========================= */
+
+window.loadStudents = async()=>{
+
+const box =
+document.getElementById(
+"studentsList"
+);
+
+box.innerHTML =
+'<p class="muted">Loading...</p>';
+
+const ss =
+await students();
+
+if(!ss.length){
+
+box.innerHTML =
+'<p class="muted">No students.</p>';
+
+return;
+
+}
+
+box.innerHTML =
+ss.map(d=>
+
+`<div class="item">
+
+<h3>
+👨‍🎓 ${clean(d.name)}
+</h3>
+
+<p>
+Class ${clean(d.class)}
+• Roll ${clean(d.roll)}
+<br>
+Parent: ${clean(d.parentEmail)}
+</p>
+
+</div>`
+
+).join("");
+
+};
+
+
+/* =========================
+RECORDS
+========================= */
+
+async function records(
+col,
+field,
+value
+){
+
+const s =
+await getDocs(
+query(
+collection(db,col),
+where(field,"==",value)
+)
+);
+
+return s.docs.map(
+d=>d.data()
+);
+
+}
+
+
+/* =========================
+SHOW
+========================= */
+
+function show(title,html){
+
+document.getElementById(
+"parentContent"
+).innerHTML =
+
+`<div class="card">
+<h2>${title}</h2>
+${html}
+</div>`;
+
+}
+
+
+/* =========================
+PARENT ATTENDANCE
+========================= */
+
+window.attendance = async()=>{
+
+show(
+"📅 Attendance",
+'<p class="muted">Loading...</p>'
+);
+
+const a =
+await records(
+"attendance",
+"parentEmail",
+email()
+);
+
+if(!a.length){
+
+return show(
+"📅 Attendance",
+'<p class="muted">No attendance records found.</p>'
+);
+
+}
+
+a.sort(
+(x,y)=>
+String(y.date)
+.localeCompare(String(x.date))
+);
+
+show(
+"📅 Attendance",
+
+a.map(x=>
+
+`<div class="item">
+
+<h3>📅 ${clean(x.date)}</h3>
+
+<p class="${
+x.status==="Present"
+?"present"
+:"absent"
+}">
+${clean(x.status)}
+</p>
+
+</div>`
+
+).join("")
+);
+
+};
+
+
+/* =========================
+PARENT NOTICES
+========================= */
+
+window.notices = async()=>{
+
+show(
+"📢 Notices",
+'<p class="muted">Loading...</p>'
+);
+
+const s =
+await getDocs(
+collection(db,"notices")
+);
+
+let n =
+s.docs.map(d=>d.data());
+
+n.sort(
+(x,y)=>
+String(y.date)
+.localeCompare(String(x.date))
+);
+
+if(!n.length){
+
+return show(
+"📢 Notices",
+'<p class="muted">No notices available.</p>'
+);
+
+}
+
+show(
+"📢 Notices",
+
+n.map(x=>
+
+`<div class="item">
+
+<span class="badge">
+${clean(x.date)}
+</span>
+
+<h3 style="margin-top:8px">
+${clean(x.title)}
+</h3>
+
+<p>
+${clean(x.message)}
+</p>
+
+</div>`
+
+).join("")
+);
+
+};
+
+
+/* =========================
+PARENT FEES
+========================= */
+
+window.fees = async()=>{
+
+show(
+"💰 Fees",
+'<p class="muted">Loading...</p>'
+);
+
+const a =
+await records(
+"fees",
+"parentEmail",
+email()
+);
+
+if(!a.length){
+
+return show(
+"💰 Fees",
+'<p class="muted">No fee record found.</p>'
+);
+
+}
+
+const x =
+a[a.length-1];
+
+show(
+"💰 Fees",
+
+`<div class="item">
+
+<h3>
+Total Fees: ₹${x.total || 0}
+</h3>
+
+<p>
+Paid: ₹${x.paid || 0}
+<br>
+
+<b>
+Due: ₹${x.due || 0}
+</b>
+
+<br>
+
+Due Date:
+${clean(x.dueDate || "Not set")}
+
+</p>
+
+</div>`
+);
+
+};
+
+
+/* =========================
+PARENT HOMEWORK
+========================= */
+
+window.homework = async()=>{
+
+if(!currentStudent)return;
+
+show(
+"📝 Homework",
+'<p class="muted">Loading...</p>'
+);
+
+const a =
+await records(
+"homework",
+"class",
+String(currentStudent.class)
+);
+
+if(!a.length){
+
+return show(
+"📝 Homework",
+'<p class="muted">No homework found.</p>'
+);
+
+}
+
+a.sort(
+(x,y)=>
+String(y.date)
+.localeCompare(String(x.date))
+);
+
+show(
+"📝 Homework",
+
+a.map(x=>
+
+`<div class="item">
+
+<span class="badge">
+${clean(x.date)}
+</span>
+
+<h3>
+${clean(x.subject)}
+</h3>
+
+<p>
+${clean(x.text)}
+</p>
+
+</div>`
+
+).join("")
+);
+
+};
+
+
+/* =========================
+PARENT MATERIAL
+========================= */
+
+window.materials = async()=>{
+
+if(!currentStudent)return;
+
+show(
+"📚 Study Material",
+'<p class="muted">Loading...</p>'
+);
+
+const a =
+await records(
+"materials",
+"class",
+String(currentStudent.class)
+);
+
+if(!a.length){
+
+return show(
+"📚 Study Material",
+'<p class="muted">No material found.</p>'
+);
+
+}
+
+show(
+"📚 Study Material",
+
+a.map(x=>
+
+`<div class="item">
+
+<h3>
+${clean(x.title)}
+</h3>
+
+<p>
+${clean(x.subject || "")}
+</p>
+
+<a
+href="${clean(x.link)}"
+target="_blank"
+rel="noopener"
+>
+
+<button>
+📖 Open Material
+</button>
+
+</a>
+
+</div>`
+
+).join("")
+);
+
+};
+
+
+/* =========================
+CALENDAR
+========================= */
+
+window.calendar = async()=>{
+
+show(
+"🗓️ School Calendar",
+'<p class="muted">Loading...</p>'
+);
+
+const s =
+await getDocs(
+collection(db,"calendar")
+);
+
+let a =
+s.docs.map(d=>d.data());
+
+a.sort(
+(x,y)=>
+String(x.date)
+.localeCompare(String(y.date))
+);
+
+if(!a.length){
+
+return show(
+"🗓️ School Calendar",
+'<p class="muted">No events available.</p>'
+);
+
+}
+
+show(
+"🗓️ School Calendar",
+
+a.map(x=>
+
+`<div class="item">
+
+<span class="badge">
+${clean(x.date)}
+</span>
+
+<h3>
+${clean(x.title)}
+</h3>
+
+<p>
+${clean(x.details || "")}
+</p>
+
+</div>`
+
+).join("")
+);
+
+};
+
+
+/* =========================
+RESULT
+========================= */
+
+window.results = async()=>{
+
+show(
+"🧪 Exam / Result",
+'<p class="muted">Loading...</p>'
+);
+
+const a =
+await records(
+"results",
+"parentEmail",
+email()
+);
+
+if(!a.length){
+
+return show(
+"🧪 Exam / Result",
+'<p class="muted">No result records found.</p>'
+);
+
+}
+
+show(
+"🧪 Exam / Result",
+
+a.map(x=>
+
+`<div class="item">
+
+<h3>
+${clean(x.exam)}
+—
+${clean(x.subject)}
+</h3>
+
+<p>
+Marks:
+<b>
+${x.marks || 0}/${x.maxMarks || 100}
+</b>
+</p>
+
+</div>`
+
+).join("")
+);
+
+};
+
+
+/* =========================
+PROFILE
+========================= */
+
+window.profile = ()=>{
+
+if(!currentStudent)return;
+
+show(
+"👤 Profile",
+
+`<div class="item">
+
+<h3>
+${clean(currentStudent.name)}
+</h3>
+
+<p>
+
+Class:
+${clean(currentStudent.class)}
+
+<br>
+
+Roll:
+${clean(currentStudent.roll)}
+
+<br>
+
+Parent Email:
+${clean(currentStudent.parentEmail)}
+
+</p>
+
+</div>`
+);
+
+};
+
+
+/* =========================
+SERVICE WORKER
+========================= */
 
 if("serviceWorker" in navigator){
 
-window.addEventListener("load",()=>{
 navigator.serviceWorker
 .register("sw.js")
-.catch(()=>{});
-});
+.catch(console.log);
 
 }
 
 </script>
 
 </body>
-</html>
+  </html>
