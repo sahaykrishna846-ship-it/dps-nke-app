@@ -4,49 +4,312 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>DPS Narkatiaganj Parent App</title>
+
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#3158c9">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
-body{background:#f4f7fb;color:#172033}
-header{background:linear-gradient(135deg,#3158c9,#17358d);color:#fff;padding:20px;text-align:center}
-header h1{font-size:23px}
-header p{font-size:13px;margin-top:5px}
-.container{max-width:650px;margin:auto;padding:16px}
-.card{background:#fff;border-radius:18px;padding:18px;margin-bottom:15px;box-shadow:0 5px 18px #0001}
-.hero{text-align:center;padding:28px 18px}
-.logo{width:82px;height:82px;border-radius:22px;background:#3158c9;color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:bold;margin:auto auto 16px}
-h2{font-size:20px;margin-bottom:12px}
-p{line-height:1.5}
-.hero p,.muted{color:#667085}
-button{width:100%;border:0;border-radius:12px;padding:13px;margin-top:9px;font-size:15px;font-weight:bold;background:#3158c9;color:#fff}
-button.secondary{background:#eef2ff;color:#3158c9}
-button.green{background:#198754}
-button.danger{background:#dc3545}
-input,select,textarea{width:100%;padding:12px;border:1px solid #d9dee8;border-radius:11px;margin:6px 0 10px;font-size:14px;background:#fff}
-label{display:block;font-size:13px;font-weight:bold;margin-top:5px}
-.hidden{display:none!important}
-.message{padding:10px;border-radius:10px;margin-top:10px;font-size:13px}
-.success{background:#e8f7ee;color:#16743d}
-.error{background:#fdecec;color:#b42318}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
-.menu{background:#fff;border-radius:16px;padding:19px 8px;text-align:center;box-shadow:0 4px 15px #0001}
-.menu .icon{font-size:29px;margin-bottom:7px}
-.menu b{font-size:13px}
-.student{background:linear-gradient(135deg,#3158c9,#203e9b);color:#fff;border-radius:18px;padding:18px;margin-bottom:15px}
-.row{display:flex;justify-content:space-between;border-top:1px solid #ffffff33;padding-top:9px;margin-top:9px;font-size:13px}
-.item{border:1px solid #e7eaf0;border-radius:13px;padding:14px;margin-bottom:10px}
-.item h3{font-size:16px;margin-bottom:5px}
-.item p{font-size:13px;color:#667085}
-.present{color:#198754!important;font-weight:bold}
-.absent{color:#dc3545!important;font-weight:bold}
-.badge{display:inline-block;padding:4px 8px;border-radius:20px;background:#eef2ff;color:#3158c9;font-size:11px;font-weight:bold}
-.footer{text-align:center;color:#8a94a6;font-size:12px;padding:20px 0 30px}
-.topline{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-.smallbtn{width:auto;padding:8px 12px;font-size:12px;margin:0}
-hr{border:0;border-top:1px solid #eee;margin:16px 0}
-.info{background:#eef2ff;color:#3158c9;padding:12px;border-radius:12px;font-size:13px;margin-bottom:12px}
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial,sans-serif
+}
+
+body{
+background:#f4f7fb;
+color:#172033
+}
+
+header{
+background:linear-gradient(135deg,#3158c9,#17358d);
+color:#fff;
+padding:20px;
+text-align:center
+}
+
+header h1{
+font-size:23px
+}
+
+header p{
+font-size:13px;
+margin-top:5px
+}
+
+.container{
+max-width:650px;
+margin:auto;
+padding:16px
+}
+
+.card{
+background:#fff;
+border-radius:18px;
+padding:18px;
+margin-bottom:15px;
+box-shadow:0 5px 18px #0001
+}
+
+.hero{
+text-align:center;
+padding:28px 18px
+}
+
+.logo{
+width:90px;
+height:90px;
+border-radius:22px;
+object-fit:cover;
+margin:auto auto 16px;
+display:block
+}
+
+h2{
+font-size:20px;
+margin-bottom:12px
+}
+
+h3{
+font-size:16px
+}
+
+p{
+line-height:1.5
+}
+
+.hero p,.muted{
+color:#667085
+}
+
+button{
+width:100%;
+border:0;
+border-radius:12px;
+padding:13px;
+margin-top:9px;
+font-size:15px;
+font-weight:bold;
+background:#3158c9;
+color:#fff
+}
+
+button.secondary{
+background:#eef2ff;
+color:#3158c9
+}
+
+button.green{
+background:#198754
+}
+
+button.danger{
+background:#dc3545
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+border:1px solid #d9dee8;
+border-radius:11px;
+margin:6px 0 10px;
+font-size:14px;
+background:#fff
+}
+
+label{
+display:block;
+font-size:13px;
+font-weight:bold;
+margin-top:5px
+}
+
+.hidden{
+display:none!important
+}
+
+.message{
+padding:10px;
+border-radius:10px;
+margin-top:10px;
+font-size:13px
+}
+
+.success{
+background:#e8f7ee;
+color:#16743d
+}
+
+.error{
+background:#fdecec;
+color:#b42318
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:11px
+}
+
+.menu{
+background:#fff;
+border-radius:16px;
+padding:19px 8px;
+text-align:center;
+box-shadow:0 4px 15px #0001
+}
+
+.menu .icon{
+font-size:29px;
+margin-bottom:7px
+}
+
+.menu b{
+font-size:13px
+}
+
+.student{
+background:linear-gradient(135deg,#3158c9,#203e9b);
+color:#fff;
+border-radius:18px;
+padding:18px;
+margin-bottom:15px
+}
+
+.row{
+display:flex;
+justify-content:space-between;
+border-top:1px solid #ffffff33;
+padding-top:9px;
+margin-top:9px;
+font-size:13px
+}
+
+.item{
+border:1px solid #e7eaf0;
+border-radius:13px;
+padding:14px;
+margin-bottom:10px
+}
+
+.item h3{
+margin-bottom:5px
+}
+
+.item p{
+font-size:13px;
+color:#667085
+}
+
+.present{
+color:#198754!important;
+font-weight:bold
+}
+
+.absent{
+color:#dc3545!important;
+font-weight:bold
+}
+
+.badge{
+display:inline-block;
+padding:4px 8px;
+border-radius:20px;
+background:#eef2ff;
+color:#3158c9;
+font-size:11px;
+font-weight:bold
+}
+
+.footer{
+text-align:center;
+color:#8a94a6;
+font-size:12px;
+padding:20px 0 30px
+}
+
+.topline{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:12px
+}
+
+.info{
+background:#eef2ff;
+color:#3158c9;
+padding:12px;
+border-radius:12px;
+font-size:13px;
+margin-bottom:12px
+}
+
+.school-title{
+text-align:center;
+font-size:25px;
+font-weight:bold;
+color:#17358d;
+margin-bottom:5px
+}
+
+.school-subtitle{
+text-align:center;
+color:#667085;
+font-size:13px;
+margin-bottom:18px
+}
+
+.history{
+line-height:1.7;
+font-size:14px;
+color:#475467
+}
+
+.gallery{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px
+}
+
+.gallery img{
+width:100%;
+height:150px;
+object-fit:cover;
+border-radius:14px;
+border:1px solid #eee
+}
+
+.banner{
+background:linear-gradient(135deg,#3158c9,#17358d);
+color:white;
+border-radius:18px;
+padding:22px;
+margin-bottom:15px;
+text-align:center
+}
+
+.banner h2{
+font-size:22px
+}
+
+.banner p{
+font-size:13px;
+opacity:.95
+}
+
+.section-title{
+font-size:18px;
+font-weight:bold;
+margin-bottom:12px;
+color:#172033
+}
+
+.statbox{
+background:#f8faff;
+border-radius:13px;
+padding:13px;
+margin-top:10px
+}
 </style>
 </head>
 
@@ -59,13 +322,149 @@ hr{border:0;border-top:1px solid #eee;margin:16px 0}
 
 <div class="container">
 
-<!-- HOME -->
+
+<!-- ================= HOME ================= -->
+
 <section id="home">
 
+<div class="card">
+
+<img
+src="icon.svg"
+class="logo"
+alt="DPS Narkatiaganj">
+
+<div class="school-title">
+Delhi Public School
+</div>
+
+<div class="school-subtitle">
+Narkatiaganj • Established 2011
+</div>
+
+</div>
+
+
+<div class="banner">
+
+<h2>🌟 Welcome to DPS Narkatiaganj</h2>
+
+<p>
+Knowledge • Values • Confidence • Excellence
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="section-title">
+🏫 About Our School
+</div>
+
+<p class="history">
+
+Delhi Public School, Narkatiaganj की स्थापना वर्ष
+<b>2011</b> में गुणवत्तापूर्ण एवं संस्कारयुक्त शिक्षा के
+उद्देश्य से की गई।
+
+<br><br>
+
+विद्यालय में <b>NC से Class 10</b> तक विद्यार्थियों के लिए
+शिक्षा की व्यवस्था है और <b>CBSE curriculum</b> के अनुरूप
+learning environment प्रदान करने का लक्ष्य रखा जाता है।
+
+<br><br>
+
+विद्यालय का उद्देश्य विद्यार्थियों को केवल किताबी ज्ञान
+तक सीमित न रखकर उनके <b>शैक्षणिक, रचनात्मक, नैतिक एवं
+सामाजिक विकास</b> पर भी ध्यान देना है।
+
+<br><br>
+
+समय-समय पर Teachers' Day, cultural programmes,
+academic activities, competitions और अन्य
+co-curricular activities आयोजित की जाती हैं।
+
+<br><br>
+
+<b>Our Vision:</b><br>
+“हर विद्यार्थी को ज्ञान, संस्कार और आत्मविश्वास के साथ
+भविष्य के लिए तैयार करना।”
+
+</p>
+
+</div>
+
+
+<!-- PROGRAM GALLERY -->
+
+<div class="card">
+
+<div class="section-title">
+📸 School Programs & Activities
+</div>
+
+<p class="muted" style="margin-bottom:12px">
+विद्यालय के विभिन्न कार्यक्रमों और गतिविधियों की झलक।
+</p>
+
+<div class="gallery">
+
+<img src="program1.jpg" alt="School Program 1">
+
+<img src="program2.jpg" alt="School Program 2">
+
+<img src="program3.jpg" alt="School Program 3">
+
+<img src="program4.jpg" alt="School Program 4">
+
+<img src="program5.jpg" alt="School Program 5">
+
+<img src="program6.jpg" alt="School Program 6">
+
+<img src="program7.jpg" alt="School Program 7">
+
+</div>
+
+</div>
+
+
+<!-- SCHOOL HIGHLIGHTS -->
+
+<div class="card">
+
+<div class="section-title">
+✨ School Highlights
+</div>
+
+<div class="statbox">
+🎓 <b>Classes</b><br>
+<span class="muted">NC to Class 10</span>
+</div>
+
+<div class="statbox">
+📚 <b>Curriculum</b><br>
+<span class="muted">CBSE Curriculum</span>
+</div>
+
+<div class="statbox">
+📅 <b>Established</b><br>
+<span class="muted">2011</span>
+</div>
+
+</div>
+
+
 <div class="card hero">
-<div class="logo">DPS</div>
-<h2>Parent Portal</h2>
-<p>Attendance, notices, fees, homework, results and important school information — all in one place.</p>
+
+<h2>👨‍👩‍👦 Parent Portal</h2>
+
+<p>
+अपने बच्चे की Attendance, Homework, Fees,
+Notices, Study Material और Result की जानकारी
+एक ही जगह पर देखें।
+</p>
 
 <button onclick="page('parentLogin')">
 👨‍👩‍👦 Parent Login
@@ -74,22 +473,18 @@ hr{border:0;border-top:1px solid #eee;margin:16px 0}
 <button class="secondary" onclick="page('adminLogin')">
 🛡️ Admin Login
 </button>
-</div>
 
-<div class="card">
-<h2>📌 School Portal</h2>
-<p class="muted">
-DPS Narkatiaganj digital parent-management portal.
-</p>
 </div>
 
 </section>
 
 
-<!-- PARENT LOGIN -->
+<!-- ================= PARENT LOGIN ================= -->
+
 <section id="parentLogin" class="hidden">
 
 <div class="card">
+
 <h2>👨‍👩‍👦 Parent Login</h2>
 
 <label>Email</label>
@@ -107,15 +502,18 @@ DPS Narkatiaganj digital parent-management portal.
 </button>
 
 <div id="pMsg"></div>
+
 </div>
 
 </section>
 
 
-<!-- ADMIN LOGIN -->
+<!-- ================= ADMIN LOGIN ================= -->
+
 <section id="adminLogin" class="hidden">
 
 <div class="card">
+
 <h2>🛡️ Admin Login</h2>
 
 <label>Email</label>
@@ -133,24 +531,33 @@ DPS Narkatiaganj digital parent-management portal.
 </button>
 
 <div id="aMsg"></div>
+
 </div>
 
 </section>
 
 
-<!-- PARENT DASHBOARD -->
+<!-- ================= PARENT DASHBOARD ================= -->
+
 <section id="parentDash" class="hidden">
 
 <div class="topline">
+
 <div>
 <h2>👋 Parent Dashboard</h2>
 <p class="muted">DPS Narkatiaganj</p>
 </div>
+
 </div>
 
 <div id="studentInfo"></div>
 
 <div class="grid">
+
+<div class="menu" onclick="notifications()">
+<div class="icon">🔔</div>
+<b>Notifications</b>
+</div>
 
 <div class="menu" onclick="attendance()">
 <div class="icon">📅</div>
@@ -203,23 +610,25 @@ DPS Narkatiaganj digital parent-management portal.
 </section>
 
 
-<!-- ADMIN DASHBOARD -->
+<!-- ================= ADMIN DASHBOARD ================= -->
+
 <section id="adminDash" class="hidden">
 
 <h2>🛡️ Admin Dashboard</h2>
+
 <p class="muted" style="margin-bottom:15px">
 Manage the parent portal
 </p>
 
 
-<!-- CREATE PARENT ACCOUNT -->
+<!-- CREATE PARENT -->
+
 <div class="card">
 
 <h2>👨‍👩‍👦 Create Parent Account</h2>
 
 <div class="info">
 Admin yahin se parent ka Email aur Password bana sakta hai.
-Parent ko baad mein isi Email + Password se app mein login karna hoga.
 </div>
 
 <label>Parent Name</label>
@@ -241,6 +650,7 @@ Parent ko baad mein isi Email + Password se app mein login karna hoga.
 
 
 <!-- ADD STUDENT -->
+
 <div class="card">
 
 <h2>👨‍🎓 Add Student</h2>
@@ -249,7 +659,7 @@ Parent ko baad mein isi Email + Password se app mein login karna hoga.
 <input id="sName" placeholder="Student name">
 
 <label>Class</label>
-<input id="sClass" placeholder="12">
+<input id="sClass" placeholder="10">
 
 <label>Roll</label>
 <input id="sRoll" placeholder="1">
@@ -267,6 +677,7 @@ Parent ko baad mein isi Email + Password se app mein login karna hoga.
 
 
 <!-- ATTENDANCE -->
+
 <div class="card">
 
 <h2>📅 Add Attendance</h2>
@@ -294,22 +705,28 @@ Parent ko baad mein isi Email + Password se app mein login karna hoga.
 </div>
 
 
-<!-- NOTICE -->
+<!-- NOTICE / NOTIFICATION -->
+
 <div class="card">
 
-<h2>📢 Publish Notice</h2>
+<h2>🔔 Publish Notification</h2>
+
+<div class="info">
+यह notification parent के app में Notifications और Notices
+दोनों में दिखाई देगा।
+</div>
 
 <label>Title</label>
-<input id="nTitle" placeholder="Notice title">
+<input id="nTitle" placeholder="School Update">
 
 <label>Message</label>
-<textarea id="nMessage" rows="4" placeholder="Notice message"></textarea>
+<textarea id="nMessage" rows="4" placeholder="Notification message"></textarea>
 
 <label>Date</label>
 <input id="nDate" type="date">
 
 <button class="green" onclick="addNotice()">
-📢 Publish Notice
+🔔 Publish Notification
 </button>
 
 <div id="nMsg"></div>
@@ -318,6 +735,7 @@ Parent ko baad mein isi Email + Password se app mein login karna hoga.
 
 
 <!-- FEES -->
+
 <div class="card">
 
 <h2>💰 Add / Update Fees</h2>
@@ -346,12 +764,13 @@ Parent ko baad mein isi Email + Password se app mein login karna hoga.
 
 
 <!-- HOMEWORK -->
+
 <div class="card">
 
 <h2>📝 Add Homework</h2>
 
 <label>Class</label>
-<input id="hwClass" placeholder="12">
+<input id="hwClass" placeholder="10">
 
 <label>Subject</label>
 <input id="hwSubject" placeholder="Physics">
@@ -372,15 +791,16 @@ Parent ko baad mein isi Email + Password se app mein login karna hoga.
 
 
 <!-- STUDY MATERIAL -->
+
 <div class="card">
 
 <h2>📚 Add Study Material</h2>
 
 <label>Class</label>
-<input id="matClass" placeholder="12">
+<input id="matClass" placeholder="10">
 
 <label>Subject</label>
-<input id="matSubject" placeholder="Physics">
+<input id="matSubject" placeholder="Science">
 
 <label>Title</label>
 <input id="matTitle" placeholder="Chapter notes">
@@ -398,6 +818,7 @@ Parent ko baad mein isi Email + Password se app mein login karna hoga.
 
 
 <!-- CALENDAR -->
+
 <div class="card">
 
 <h2>🗓️ Add Calendar Event</h2>
@@ -421,6 +842,7 @@ Parent ko baad mein isi Email + Password se app mein login karna hoga.
 
 
 <!-- RESULT -->
+
 <div class="card">
 
 <h2>🧪 Add Exam / Result</h2>
@@ -434,7 +856,7 @@ Parent ko baad mein isi Email + Password se app mein login karna hoga.
 <input id="resultExam" placeholder="First Terminal">
 
 <label>Subject</label>
-<input id="resultSubject" placeholder="Physics">
+<input id="resultSubject" placeholder="Science">
 
 <label>Marks</label>
 <input id="resultMarks" type="number" min="0">
@@ -452,6 +874,7 @@ Parent ko baad mein isi Email + Password se app mein login karna hoga.
 
 
 <!-- DOCUMENT -->
+
 <div class="card">
 
 <h2>📄 Add Document</h2>
@@ -477,6 +900,7 @@ Parent ko baad mein isi Email + Password se app mein login karna hoga.
 
 
 <!-- STUDENTS -->
+
 <div class="card">
 
 <h2>📋 Students</h2>
@@ -529,20 +953,24 @@ serverTimestamp
 from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
 
-/* FIREBASE CONFIG */
-
 const firebaseConfig = {
+
 apiKey:"AIzaSyBoDLUAc-y9nqFBn8vB9wRUUtMY0WALxwA",
+
 authDomain:"dps-narkatiaganj.firebaseapp.com",
+
 projectId:"dps-narkatiaganj",
+
 storageBucket:"dps-narkatiaganj.firebasestorage.app",
+
 messagingSenderId:"199351719662",
+
 appId:"1:199351719662:web:612fb6010c40a42c2a45ff",
+
 measurementId:"G-49BGF6LQ9P"
+
 };
 
-
-/* MAIN APP */
 
 const app = initializeApp(firebaseConfig);
 
@@ -551,13 +979,6 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 
-/*
-SECOND FIREBASE APP
-
-Isse parent account create karte waqt
-Admin account logout nahi hoga.
-*/
-
 const parentCreatorApp =
 initializeApp(firebaseConfig,"ParentCreatorApp");
 
@@ -565,27 +986,26 @@ const parentAuth =
 getAuth(parentCreatorApp);
 
 
-/* ADMIN EMAIL */
-
-const ADMIN_EMAIL = "admin@dpsnke.com";
+const ADMIN_EMAIL =
+"admin@dpsnke.com";
 
 let currentStudent = null;
 
 
-/* TODAY */
-
-const today = new Date().toISOString().slice(0,10);
-
-document.getElementById("attDate").value = today;
-document.getElementById("nDate").value = today;
-document.getElementById("hwDate").value = today;
-document.getElementById("calDate").value = today;
-document.getElementById("feeDueDate").value = today;
+const today =
+new Date().toISOString().slice(0,10);
 
 
-/* PAGE FUNCTION */
+document.getElementById("attDate").value=today;
+document.getElementById("nDate").value=today;
+document.getElementById("hwDate").value=today;
+document.getElementById("calDate").value=today;
+document.getElementById("feeDueDate").value=today;
 
-window.page = id => {
+
+/* PAGE */
+
+window.page=id=>{
 
 [
 "home",
@@ -593,11 +1013,13 @@ window.page = id => {
 "adminLogin",
 "parentDash",
 "adminDash"
-].forEach(x =>
-document.getElementById(x).classList.add("hidden")
+].forEach(x=>
+document.getElementById(x)
+.classList.add("hidden")
 );
 
-document.getElementById(id).classList.remove("hidden");
+document.getElementById(id)
+.classList.remove("hidden");
 
 scrollTo(0,0);
 
@@ -608,23 +1030,23 @@ scrollTo(0,0);
 
 function msg(id,text,ok=false){
 
-const e = document.getElementById(id);
+const e=document.getElementById(id);
 
-e.className =
-"message " + (ok ? "success" : "error");
+e.className=
+"message "+(ok?"success":"error");
 
-e.textContent = text;
+e.textContent=text;
 
 }
 
 
-/* SECURITY HTML CLEAN */
+/* CLEAN */
 
 function clean(v){
 
-return String(v ?? "").replace(
+return String(v??"").replace(
 /[&<>"']/g,
-x => ({
+x=>({
 "&":"&amp;",
 "<":"&lt;",
 ">":"&gt;",
@@ -636,33 +1058,32 @@ x => ({
 }
 
 
-/* CURRENT USER EMAIL */
+/* EMAIL */
 
 function email(){
 
-return auth.currentUser?.email?.toLowerCase() || "";
+return auth.currentUser?.email
+?.toLowerCase() || "";
 
 }
 
 
-/* =========================
-PARENT LOGIN
-========================= */
+/* PARENT LOGIN */
 
-window.parentLogin = async()=>{
+window.parentLogin=async()=>{
 
 try{
 
-const e =
+const e=
 document.getElementById("pEmail")
 .value.trim()
 .toLowerCase();
 
-const p =
+const p=
 document.getElementById("pPass")
 .value;
 
-if(!e || !p){
+if(!e||!p){
 
 return msg(
 "pMsg",
@@ -671,11 +1092,9 @@ return msg(
 
 }
 
-const r =
+const r=
 await signInWithEmailAndPassword(
-auth,
-e,
-p
+auth,e,p
 );
 
 await loadParent(r.user.email);
@@ -700,7 +1119,7 @@ msg(
 
 async function loadParent(e){
 
-const q =
+const q=
 query(
 collection(db,"students"),
 where(
@@ -710,19 +1129,18 @@ e.toLowerCase()
 )
 );
 
-const s =
+const s=
 await getDocs(q);
 
 if(s.empty){
 
 document.getElementById(
 "studentInfo"
-).innerHTML =
-
-'<div class="card">' +
-'<h2>⚠️ Student Not Found</h2>' +
-'<p class="muted">' +
-'No student is connected with this account.' +
+).innerHTML=
+'<div class="card">'+
+'<h2>⚠️ Student Not Found</h2>'+
+'<p class="muted">'+
+'No student is connected with this account.'+
 '</p></div>';
 
 page("parentDash");
@@ -731,17 +1149,16 @@ return;
 
 }
 
-const d =
-s.docs[0].data();
+const d=s.docs[0].data();
 
-currentStudent = {
+currentStudent={
 id:s.docs[0].id,
 ...d
 };
 
 document.getElementById(
 "studentInfo"
-).innerHTML =
+).innerHTML=
 
 `<div class="student">
 
@@ -764,22 +1181,20 @@ page("parentDash");
 }
 
 
-/* =========================
-ADMIN LOGIN
-========================= */
+/* ADMIN LOGIN */
 
-window.adminLogin = async()=>{
+window.adminLogin=async()=>{
 
-const e =
+const e=
 document.getElementById("aEmail")
 .value.trim()
 .toLowerCase();
 
-const p =
+const p=
 document.getElementById("aPass")
 .value;
 
-if(e !== ADMIN_EMAIL){
+if(e!==ADMIN_EMAIL){
 
 return msg(
 "aMsg",
@@ -791,9 +1206,7 @@ return msg(
 try{
 
 await signInWithEmailAndPassword(
-auth,
-e,
-p
+auth,e,p
 );
 
 page("adminDash");
@@ -818,37 +1231,29 @@ msg(
 };
 
 
-/* =========================
-LOGOUT
-========================= */
+/* LOGOUT */
 
-window.logout = async()=>{
+window.logout=async()=>{
 
 await signOut(auth);
 
-currentStudent = null;
+currentStudent=null;
 
 page("home");
 
 };
 
 
-/* =========================
-CREATE PARENT ACCOUNT
-========================= */
+/* CREATE PARENT */
 
-window.createParentAccount = async()=>{
+window.createParentAccount=async()=>{
 
 try{
-
-/*
-Admin check
-*/
 
 if(
 !auth.currentUser ||
 auth.currentUser.email.toLowerCase()
-!== ADMIN_EMAIL
+!==ADMIN_EMAIL
 ){
 
 return msg(
@@ -858,28 +1263,18 @@ return msg(
 
 }
 
-
-/*
-Get fields
-*/
-
-const parentName =
+const parentName=
 document.getElementById("parentName")
 .value.trim();
 
-const parentEmail =
+const parentEmail=
 document.getElementById("parentEmailCreate")
 .value.trim()
 .toLowerCase();
 
-const parentPassword =
+const parentPassword=
 document.getElementById("parentPasswordCreate")
 .value;
-
-
-/*
-Validation
-*/
 
 if(!parentName){
 
@@ -899,7 +1294,7 @@ return msg(
 
 }
 
-if(parentPassword.length < 6){
+if(parentPassword.length<6){
 
 return msg(
 "parentCreateMsg",
@@ -908,21 +1303,11 @@ return msg(
 
 }
 
-
-/*
-Create Firebase Auth Account
-*/
-
 await createUserWithEmailAndPassword(
 parentAuth,
 parentEmail,
 parentPassword
 );
-
-
-/*
-Success
-*/
 
 msg(
 "parentCreateMsg",
@@ -930,22 +1315,14 @@ msg(
 true
 );
 
-
-/*
-Clear fields
-*/
+document.getElementById(
+"parentName").value="";
 
 document.getElementById(
-"parentName"
-).value="";
+"parentEmailCreate").value="";
 
 document.getElementById(
-"parentEmailCreate"
-).value="";
-
-document.getElementById(
-"parentPasswordCreate"
-).value="";
+"parentPasswordCreate").value="";
 
 }
 
@@ -953,7 +1330,7 @@ catch(e){
 
 console.log(e);
 
-if(e.code === "auth/email-already-in-use"){
+if(e.code==="auth/email-already-in-use"){
 
 msg(
 "parentCreateMsg",
@@ -962,7 +1339,7 @@ msg(
 
 }
 
-else if(e.code === "auth/invalid-email"){
+else if(e.code==="auth/invalid-email"){
 
 msg(
 "parentCreateMsg",
@@ -971,11 +1348,11 @@ msg(
 
 }
 
-else if(e.code === "auth/weak-password"){
+else if(e.code==="auth/weak-password"){
 
 msg(
 "parentCreateMsg",
-"Password is too weak. Use at least 6 characters."
+"Password is too weak."
 );
 
 }
@@ -984,7 +1361,7 @@ else{
 
 msg(
 "parentCreateMsg",
-"Could not create parent account: " +
+"Could not create parent account: "+
 e.message
 );
 
@@ -995,19 +1372,17 @@ e.message
 };
 
 
-/* =========================
-STUDENTS
-========================= */
+/* STUDENTS */
 
 async function students(){
 
-const s =
+const s=
 await getDocs(
 collection(db,"students")
 );
 
 return s.docs.map(
-d => ({
+d=>({
 id:d.id,
 ...d.data()
 })
@@ -1016,13 +1391,11 @@ id:d.id,
 }
 
 
-/* =========================
-REFRESH STUDENT SELECTS
-========================= */
+/* SELECTS */
 
 async function refreshStudentSelects(){
 
-const ss = await students();
+const ss=await students();
 
 [
 "attStudent",
@@ -1031,23 +1404,22 @@ const ss = await students();
 "docStudent"
 ].forEach(id=>{
 
-const el =
+const el=
 document.getElementById(id);
 
-el.innerHTML =
+el.innerHTML=
 '<option value="">Select Student</option>';
 
 ss.forEach(d=>{
 
 if(d.parentEmail){
 
-const o =
+const o=
 document.createElement("option");
 
-o.value =
-d.parentEmail;
+o.value=d.parentEmail;
 
-o.textContent =
+o.textContent=
 `${d.name} — Class ${d.class}`;
 
 el.appendChild(o);
@@ -1061,33 +1433,20 @@ el.appendChild(o);
 }
 
 
-/* =========================
-ADD STUDENT
-========================= */
+/* ADD STUDENT */
 
-window.addStudent = async()=>{
+window.addStudent=async()=>{
 
 try{
 
-const name =
-sName.value.trim();
+const name=sName.value.trim();
+const cl=sClass.value.trim();
+const roll=sRoll.value.trim();
 
-const cl =
-sClass.value.trim();
+const pe=
+sEmail.value.trim().toLowerCase();
 
-const roll =
-sRoll.value.trim();
-
-const pe =
-sEmail.value.trim()
-.toLowerCase();
-
-if(
-!name ||
-!cl ||
-!roll ||
-!pe
-){
+if(!name||!cl||!roll||!pe){
 
 return msg(
 "sMsg",
@@ -1118,8 +1477,7 @@ true
 "sRoll",
 "sEmail"
 ].forEach(
-id =>
-document.getElementById(id).value=""
+id=>document.getElementById(id).value=""
 );
 
 await refreshStudentSelects();
@@ -1130,30 +1488,20 @@ loadStudents();
 
 catch(e){
 
-console.log(e);
-
-msg(
-"sMsg",
-e.message
-);
+msg("sMsg",e.message);
 
 }
 
 };
 
 
-/* =========================
-ATTENDANCE
-========================= */
+/* ATTENDANCE */
 
-window.addAttendance = async()=>{
+window.addAttendance=async()=>{
 
 try{
 
-if(
-!attStudent.value ||
-!attDate.value
-){
+if(!attStudent.value||!attDate.value){
 
 return msg(
 "attMsg",
@@ -1168,11 +1516,9 @@ collection(db,"attendance"),
 parentEmail:
 attStudent.value.toLowerCase(),
 
-date:
-attDate.value,
+date:attDate.value,
 
-status:
-attStatus.value
+status:attStatus.value
 }
 );
 
@@ -1186,33 +1532,28 @@ true
 
 catch(e){
 
-msg(
-"attMsg",
-e.message
-);
+msg("attMsg",e.message);
 
 }
 
 };
 
 
-/* =========================
-NOTICE
-========================= */
+/* NOTICE / NOTIFICATION */
 
-window.addNotice = async()=>{
+window.addNotice=async()=>{
 
 try{
 
 if(
-!nTitle.value.trim() ||
-!nMessage.value.trim() ||
+!nTitle.value.trim()||
+!nMessage.value.trim()||
 !nDate.value
 ){
 
 return msg(
 "nMsg",
-"Fill all notice fields."
+"Fill all notification fields."
 );
 
 }
@@ -1221,15 +1562,19 @@ await addDoc(
 collection(db,"notices"),
 {
 title:nTitle.value.trim(),
+
 message:nMessage.value.trim(),
+
 date:nDate.value,
-createdAt:serverTimestamp()
+
+createdAt:
+serverTimestamp()
 }
 );
 
 msg(
 "nMsg",
-"Notice published successfully.",
+"Notification published successfully.",
 true
 );
 
@@ -1240,21 +1585,16 @@ nMessage.value="";
 
 catch(e){
 
-msg(
-"nMsg",
-e.message
-);
+msg("nMsg",e.message);
 
 }
 
 };
 
 
-/* =========================
-FEES
-========================= */
+/* FEES */
 
-window.addFees = async()=>{
+window.addFees=async()=>{
 
 try{
 
@@ -1267,11 +1607,11 @@ return msg(
 
 }
 
-const total =
-Number(feeTotal.value) || 0;
+const total=
+Number(feeTotal.value)||0;
 
-const paid =
-Number(feePaid.value) || 0;
+const paid=
+Number(feePaid.value)||0;
 
 await addDoc(
 collection(db,"fees"),
@@ -1280,7 +1620,6 @@ parentEmail:
 feeStudent.value.toLowerCase(),
 
 total,
-
 paid,
 
 due:
@@ -1301,27 +1640,22 @@ true
 
 catch(e){
 
-msg(
-"feeMsg",
-e.message
-);
+msg("feeMsg",e.message);
 
 }
 
 };
 
 
-/* =========================
-HOMEWORK
-========================= */
+/* HOMEWORK */
 
-window.addHomework = async()=>{
+window.addHomework=async()=>{
 
 try{
 
 if(
-!hwClass.value.trim() ||
-!hwSubject.value.trim() ||
+!hwClass.value.trim()||
+!hwSubject.value.trim()||
 !hwText.value.trim()
 ){
 
@@ -1335,7 +1669,8 @@ return msg(
 await addDoc(
 collection(db,"homework"),
 {
-class:hwClass.value.trim(),
+class:
+hwClass.value.trim(),
 
 subject:
 hwSubject.value.trim(),
@@ -1360,27 +1695,22 @@ hwText.value="";
 
 catch(e){
 
-msg(
-"hwMsg",
-e.message
-);
+msg("hwMsg",e.message);
 
 }
 
 };
 
 
-/* =========================
-MATERIAL
-========================= */
+/* MATERIAL */
 
-window.addMaterial = async()=>{
+window.addMaterial=async()=>{
 
 try{
 
 if(
-!matClass.value.trim() ||
-!matTitle.value.trim() ||
+!matClass.value.trim()||
+!matTitle.value.trim()||
 !matLink.value.trim()
 ){
 
@@ -1418,26 +1748,21 @@ true
 
 catch(e){
 
-msg(
-"matMsg",
-e.message
-);
+msg("matMsg",e.message);
 
 }
 
 };
 
 
-/* =========================
-CALENDAR
-========================= */
+/* CALENDAR */
 
-window.addCalendar = async()=>{
+window.addCalendar=async()=>{
 
 try{
 
 if(
-!calTitle.value.trim() ||
+!calTitle.value.trim()||
 !calDate.value
 ){
 
@@ -1475,27 +1800,22 @@ calDetails.value="";
 
 catch(e){
 
-msg(
-"calMsg",
-e.message
-);
+msg("calMsg",e.message);
 
 }
 
 };
 
 
-/* =========================
-RESULT
-========================= */
+/* RESULT */
 
-window.addResult = async()=>{
+window.addResult=async()=>{
 
 try{
 
 if(
-!resultStudent.value ||
-!resultExam.value.trim() ||
+!resultStudent.value||
+!resultExam.value.trim()||
 !resultSubject.value.trim()
 ){
 
@@ -1519,10 +1839,10 @@ subject:
 resultSubject.value.trim(),
 
 marks:
-Number(resultMarks.value) || 0,
+Number(resultMarks.value)||0,
 
 maxMarks:
-Number(resultMax.value) || 100
+Number(resultMax.value)||100
 }
 );
 
@@ -1546,17 +1866,15 @@ e.message
 };
 
 
-/* =========================
-DOCUMENT
-========================= */
+/* DOCUMENT */
 
-window.addDocument = async()=>{
+window.addDocument=async()=>{
 
 try{
 
 if(
-!docStudent.value ||
-!docTitle.value.trim() ||
+!docStudent.value||
+!docTitle.value.trim()||
 !docLink.value.trim()
 ){
 
@@ -1591,43 +1909,37 @@ true
 
 catch(e){
 
-msg(
-"docMsg",
-e.message
-);
+msg("docMsg",e.message);
 
 }
 
 };
 
 
-/* =========================
-STUDENT LIST
-========================= */
+/* STUDENT LIST */
 
-window.loadStudents = async()=>{
+window.loadStudents=async()=>{
 
-const box =
+const box=
 document.getElementById(
 "studentsList"
 );
 
-box.innerHTML =
+box.innerHTML=
 '<p class="muted">Loading...</p>';
 
-const ss =
-await students();
+const ss=await students();
 
 if(!ss.length){
 
-box.innerHTML =
+box.innerHTML=
 '<p class="muted">No students.</p>';
 
 return;
 
 }
 
-box.innerHTML =
+box.innerHTML=
 ss.map(d=>
 
 `<div class="item">
@@ -1650,9 +1962,7 @@ Parent: ${clean(d.parentEmail)}
 };
 
 
-/* =========================
-RECORDS
-========================= */
+/* RECORDS */
 
 async function records(
 col,
@@ -1660,7 +1970,7 @@ field,
 value
 ){
 
-const s =
+const s=
 await getDocs(
 query(
 collection(db,col),
@@ -1675,36 +1985,97 @@ d=>d.data()
 }
 
 
-/* =========================
-SHOW
-========================= */
+/* SHOW */
 
 function show(title,html){
 
 document.getElementById(
 "parentContent"
-).innerHTML =
+).innerHTML=
 
 `<div class="card">
+
 <h2>${title}</h2>
+
 ${html}
+
 </div>`;
 
 }
 
 
-/* =========================
-PARENT ATTENDANCE
-========================= */
+/* NOTIFICATIONS */
 
-window.attendance = async()=>{
+window.notifications=async()=>{
+
+show(
+"🔔 Notifications",
+'<p class="muted">Loading...</p>'
+);
+
+const s=
+await getDocs(
+collection(db,"notices")
+);
+
+let n=
+s.docs.map(d=>d.data());
+
+n.sort(
+(x,y)=>
+String(y.date)
+.localeCompare(
+String(x.date)
+)
+);
+
+if(!n.length){
+
+return show(
+"🔔 Notifications",
+'<p class="muted">No notifications available.</p>'
+);
+
+}
+
+show(
+"🔔 Notifications",
+
+n.map(x=>
+
+`<div class="item">
+
+<span class="badge">
+🔔 ${clean(x.date)}
+</span>
+
+<h3 style="margin-top:8px">
+${clean(x.title)}
+</h3>
+
+<p>
+${clean(x.message)}
+</p>
+
+</div>`
+
+).join("")
+
+);
+
+};
+
+
+/* ATTENDANCE */
+
+window.attendance=async()=>{
 
 show(
 "📅 Attendance",
 '<p class="muted">Loading...</p>'
 );
 
-const a =
+const a=
 await records(
 "attendance",
 "parentEmail",
@@ -1733,7 +2104,9 @@ a.map(x=>
 
 `<div class="item">
 
-<h3>📅 ${clean(x.date)}</h3>
+<h3>
+📅 ${clean(x.date)}
+</h3>
 
 <p class="${
 x.status==="Present"
@@ -1751,23 +2124,21 @@ ${clean(x.status)}
 };
 
 
-/* =========================
-PARENT NOTICES
-========================= */
+/* NOTICES */
 
-window.notices = async()=>{
+window.notices=async()=>{
 
 show(
 "📢 Notices",
 '<p class="muted">Loading...</p>'
 );
 
-const s =
+const s=
 await getDocs(
 collection(db,"notices")
 );
 
-let n =
+let n=
 s.docs.map(d=>d.data());
 
 n.sort(
@@ -1812,18 +2183,16 @@ ${clean(x.message)}
 };
 
 
-/* =========================
-PARENT FEES
-========================= */
+/* FEES */
 
-window.fees = async()=>{
+window.fees=async()=>{
 
 show(
 "💰 Fees",
 '<p class="muted">Loading...</p>'
 );
 
-const a =
+const a=
 await records(
 "fees",
 "parentEmail",
@@ -1839,8 +2208,7 @@ return show(
 
 }
 
-const x =
-a[a.length-1];
+const x=a[a.length-1];
 
 show(
 "💰 Fees",
@@ -1848,21 +2216,21 @@ show(
 `<div class="item">
 
 <h3>
-Total Fees: ₹${x.total || 0}
+Total Fees: ₹${x.total||0}
 </h3>
 
 <p>
-Paid: ₹${x.paid || 0}
+Paid: ₹${x.paid||0}
 <br>
 
 <b>
-Due: ₹${x.due || 0}
+Due: ₹${x.due||0}
 </b>
 
 <br>
 
 Due Date:
-${clean(x.dueDate || "Not set")}
+${clean(x.dueDate||"Not set")}
 
 </p>
 
@@ -1872,11 +2240,9 @@ ${clean(x.dueDate || "Not set")}
 };
 
 
-/* =========================
-PARENT HOMEWORK
-========================= */
+/* HOMEWORK */
 
-window.homework = async()=>{
+window.homework=async()=>{
 
 if(!currentStudent)return;
 
@@ -1885,7 +2251,7 @@ show(
 '<p class="muted">Loading...</p>'
 );
 
-const a =
+const a=
 await records(
 "homework",
 "class",
@@ -1934,11 +2300,9 @@ ${clean(x.text)}
 };
 
 
-/* =========================
-PARENT MATERIAL
-========================= */
+/* MATERIAL */
 
-window.materials = async()=>{
+window.materials=async()=>{
 
 if(!currentStudent)return;
 
@@ -1947,7 +2311,7 @@ show(
 '<p class="muted">Loading...</p>'
 );
 
-const a =
+const a=
 await records(
 "materials",
 "class",
@@ -1975,7 +2339,7 @@ ${clean(x.title)}
 </h3>
 
 <p>
-${clean(x.subject || "")}
+${clean(x.subject||"")}
 </p>
 
 <a
@@ -1998,23 +2362,21 @@ rel="noopener"
 };
 
 
-/* =========================
-CALENDAR
-========================= */
+/* CALENDAR */
 
-window.calendar = async()=>{
+window.calendar=async()=>{
 
 show(
 "🗓️ School Calendar",
 '<p class="muted">Loading...</p>'
 );
 
-const s =
+const s=
 await getDocs(
 collection(db,"calendar")
 );
 
-let a =
+let a=
 s.docs.map(d=>d.data());
 
 a.sort(
@@ -2048,7 +2410,7 @@ ${clean(x.title)}
 </h3>
 
 <p>
-${clean(x.details || "")}
+${clean(x.details||"")}
 </p>
 
 </div>`
@@ -2059,18 +2421,16 @@ ${clean(x.details || "")}
 };
 
 
-/* =========================
-RESULT
-========================= */
+/* RESULTS */
 
-window.results = async()=>{
+window.results=async()=>{
 
 show(
 "🧪 Exam / Result",
 '<p class="muted">Loading...</p>'
 );
 
-const a =
+const a=
 await records(
 "results",
 "parentEmail",
@@ -2102,7 +2462,7 @@ ${clean(x.subject)}
 <p>
 Marks:
 <b>
-${x.marks || 0}/${x.maxMarks || 100}
+${x.marks||0}/${x.maxMarks||100}
 </b>
 </p>
 
@@ -2114,11 +2474,9 @@ ${x.marks || 0}/${x.maxMarks || 100}
 };
 
 
-/* =========================
-PROFILE
-========================= */
+/* PROFILE */
 
-window.profile = ()=>{
+window.profile=()=>{
 
 if(!currentStudent)return;
 
@@ -2154,9 +2512,7 @@ ${clean(currentStudent.parentEmail)}
 };
 
 
-/* =========================
-SERVICE WORKER
-========================= */
+/* SERVICE WORKER */
 
 if("serviceWorker" in navigator){
 
@@ -2169,4 +2525,4 @@ navigator.serviceWorker
 </script>
 
 </body>
-  </html>
+</html>
