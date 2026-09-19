@@ -119,8 +119,187 @@ gap:8px;
 margin-top:8px
 }
 .student-actions button{margin-top:0}
+
+/* RESULT CARD */
+
+.result-card{
+background:#fff;
+border:1px solid #d7dce5;
+border-radius:14px;
+padding:16px;
+margin-top:12px
+}
+
+.result-header{
+text-align:center;
+border-bottom:2px solid #17358d;
+padding-bottom:12px;
+margin-bottom:14px
+}
+
+.result-header h1{
+font-size:21px;
+color:#17358d;
+margin-bottom:4px
+}
+
+.result-header h2{
+font-size:15px;
+margin:3px 0;
+color:#172033
+}
+
+.result-header p{
+font-size:12px;
+color:#667085
+}
+
+.result-meta{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:8px;
+font-size:13px;
+margin-bottom:15px
+}
+
+.result-meta div{
+background:#f8faff;
+padding:9px;
+border-radius:8px
+}
+
+.result-table{
+width:100%;
+border-collapse:collapse;
+font-size:12px
+}
+
+.result-table th,
+.result-table td{
+border:1px solid #cfd5df;
+padding:8px 5px;
+text-align:center
+}
+
+.result-table th{
+background:#eef2ff;
+color:#17358d
+}
+
+.result-summary{
+margin-top:15px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:8px
+}
+
+.result-summary div{
+background:#f8faff;
+padding:10px;
+border-radius:9px;
+text-align:center;
+font-size:13px
+}
+
+.result-summary strong{
+display:block;
+font-size:16px;
+color:#17358d;
+margin-top:3px
+}
+
+.result-status{
+margin-top:14px;
+text-align:center;
+padding:10px;
+border-radius:10px;
+font-weight:bold
+}
+
+.result-pass{
+background:#e8f7ee;
+color:#16743d
+}
+
+.result-fail{
+background:#fdecec;
+color:#b42318
+}
+
+.signature{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+margin-top:45px;
+text-align:center;
+font-size:12px
+}
+
+.signature div{
+border-top:1px solid #555;
+padding-top:7px
+}
+
+.print-btn{
+margin-top:14px
+}
+
 @media(max-width:420px){
-.student-actions{grid-template-columns:1fr}
+
+.student-actions{
+grid-template-columns:1fr
+}
+
+.result-meta,
+.result-summary{
+grid-template-columns:1fr
+}
+
+.result-table{
+font-size:11px
+}
+
+.result-table th,
+.result-table td{
+padding:7px 3px
+}
+
+}
+
+@media print{
+
+body{
+background:#fff
+}
+
+header,
+.footer,
+#home,
+#parentLogin,
+#adminLogin,
+#adminDash,
+#studentInfo,
+#parentDash>.topline,
+#parentDash>.grid,
+#parentDash>.danger{
+display:none!important
+}
+
+.container{
+max-width:none;
+padding:0
+}
+
+.result-card{
+box-shadow:none;
+border:1px solid #999;
+page-break-inside:avoid
+}
+
+.print-btn{
+display:none!important
+}
+
 }
 </style>
 </head>
@@ -135,23 +314,41 @@ margin-top:8px
 <div class="container">
 
 <!-- HOME -->
+
 <section id="home">
 
 <div class="card">
+
 <img src="icon.svg" class="logo" alt="DPS Narkatiaganj">
-<div class="school-title">Delhi Public School</div>
-<div class="school-subtitle">Narkatiaganj • Established 2011</div>
+
+<div class="school-title">
+Delhi Public School
+</div>
+
+<div class="school-subtitle">
+Narkatiaganj • Established 2011
+</div>
+
 </div>
 
 <div class="banner">
+
 <h2>🌟 Welcome to DPS Narkatiaganj</h2>
-<p>Knowledge • Values • Confidence • Excellence</p>
+
+<p>
+Knowledge • Values • Confidence • Excellence
+</p>
+
 </div>
 
 <div class="card">
-<div class="section-title">🏫 About Our School</div>
+
+<div class="section-title">
+🏫 About Our School
+</div>
 
 <p class="history">
+
 Delhi Public School, Narkatiaganj की स्थापना वर्ष
 <b>2011</b> में गुणवत्तापूर्ण एवं संस्कारयुक्त शिक्षा के उद्देश्य से की गई।
 
@@ -173,12 +370,19 @@ competitions और अन्य co-curricular activities आयोजित क
 <br><br>
 
 <b>Our Vision:</b><br>
+
 “हर विद्यार्थी को ज्ञान, संस्कार और आत्मविश्वास के साथ भविष्य के लिए तैयार करना।”
+
 </p>
+
 </div>
 
+
 <div class="card">
-<div class="section-title">📸 School Programs & Activities</div>
+
+<div class="section-title">
+📸 School Programs & Activities
+</div>
 
 <p class="muted" style="margin-bottom:12px">
 विद्यालय के विभिन्न कार्यक्रमों और गतिविधियों की झलक।
@@ -186,23 +390,28 @@ competitions और अन्य co-curricular activities आयोजित क
 
 <div class="gallery">
 
-<img src="IMG-20251125-WA0022.jpg" alt="School Program 1">
-<img src="IMG-20260905-WA0018.jpg" alt="School Program 2">
-<img src="IMG-20260905-WA0022.jpg" alt="School Program 3">
-<img src="IMG-20260905-WA0034.jpg" alt="School Program 4">
-<img src="IMG-20260905-WA0043.jpg" alt="School Program 5">
-<img src="IMG-20260905-WA0056.jpg" alt="School Program 6">
-<img src="IMG-20260905-WA0059.jpg" alt="School Program 7">
-<img src="Screenshot_20241114_093054_Maps.jpg" alt="School Program 8">
-<img src="Screenshot_20241114_093113_Maps.jpg" alt="School Program 9">
-<img src="Screenshot_20251125_171128_Google.jpg" alt="School Program 10">
-<img src="file_00000000ed90720ba14937d8a37e3bba.png" alt="School Program 11">
+<img src="IMG-20251125-WA0022.jpg">
+<img src="IMG-20260905-WA0018.jpg">
+<img src="IMG-20260905-WA0022.jpg">
+<img src="IMG-20260905-WA0034.jpg">
+<img src="IMG-20260905-WA0043.jpg">
+<img src="IMG-20260905-WA0056.jpg">
+<img src="IMG-20260905-WA0059.jpg">
+<img src="Screenshot_20241114_093054_Maps.jpg">
+<img src="Screenshot_20241114_093113_Maps.jpg">
+<img src="Screenshot_20251125_171128_Google.jpg">
+<img src="file_00000000ed90720ba14937d8a37e3bba.png">
 
 </div>
+
 </div>
+
 
 <div class="card">
-<div class="section-title">✨ School Highlights</div>
+
+<div class="section-title">
+✨ School Highlights
+</div>
 
 <div class="statbox">
 🎓 <b>Classes</b><br>
@@ -218,9 +427,12 @@ competitions और अन्य co-curricular activities आयोजित क
 📅 <b>Established</b><br>
 <span class="muted">2011</span>
 </div>
+
 </div>
 
+
 <div class="card hero">
+
 <h2>👨‍👩‍👦 Parent Portal</h2>
 
 <p>
@@ -235,15 +447,18 @@ Study Material और Result की जानकारी एक ही जग�
 <button class="secondary" onclick="page('adminLogin')">
 🛡️ Admin Login
 </button>
+
 </div>
 
 </section>
 
 
 <!-- PARENT LOGIN -->
+
 <section id="parentLogin" class="hidden">
 
 <div class="card">
+
 <h2>👨‍👩‍👦 Parent Login</h2>
 
 <label>Email</label>
@@ -252,20 +467,27 @@ Study Material और Result की जानकारी एक ही जग�
 <label>Password</label>
 <input id="pPass" type="password" placeholder="Password">
 
-<button onclick="parentLogin()">🔐 Login</button>
+<button onclick="parentLogin()">
+🔐 Login
+</button>
 
-<button class="secondary" onclick="page('home')">← Back</button>
+<button class="secondary" onclick="page('home')">
+← Back
+</button>
 
 <div id="pMsg"></div>
+
 </div>
 
 </section>
 
 
 <!-- ADMIN LOGIN -->
+
 <section id="adminLogin" class="hidden">
 
 <div class="card">
+
 <h2>🛡️ Admin Login</h2>
 
 <label>Email</label>
@@ -274,27 +496,42 @@ Study Material और Result की जानकारी एक ही जग�
 <label>Password</label>
 <input id="aPass" type="password" placeholder="Password">
 
-<button onclick="adminLogin()">🔐 Admin Login</button>
+<button onclick="adminLogin()">
+🔐 Admin Login
+</button>
 
-<button class="secondary" onclick="page('home')">← Back</button>
+<button class="secondary" onclick="page('home')">
+← Back
+</button>
 
 <div id="aMsg"></div>
+
 </div>
 
 </section>
 
 
 <!-- PARENT DASHBOARD -->
+
 <section id="parentDash" class="hidden">
 
 <div class="topline">
+
 <div>
+
 <h2>👋 Parent Dashboard</h2>
-<p class="muted">DPS Narkatiaganj</p>
-</div>
+
+<p class="muted">
+DPS Narkatiaganj
+</p>
+
 </div>
 
+</div>
+
+
 <div id="studentInfo"></div>
+
 
 <div class="grid">
 
@@ -345,14 +582,19 @@ Study Material और Result की जानकारी एक ही जग�
 
 </div>
 
+
 <div id="parentContent" style="margin-top:15px"></div>
 
-<button class="danger" onclick="logout()">🚪 Logout</button>
+
+<button class="danger" onclick="logout()">
+🚪 Logout
+</button>
 
 </section>
 
 
 <!-- ADMIN DASHBOARD -->
+
 <section id="adminDash" class="hidden">
 
 <h2>🛡️ Admin Dashboard</h2>
@@ -363,6 +605,7 @@ Manage the parent portal
 
 
 <!-- CREATE PARENT -->
+
 <div class="card">
 
 <h2>👨‍👩‍👦 Create Parent Account</h2>
@@ -385,10 +628,12 @@ Admin yahin se parent ka Email aur Password bana sakta hai.
 </button>
 
 <div id="parentCreateMsg"></div>
+
 </div>
 
 
 <!-- ADD STUDENT -->
+
 <div class="card">
 
 <h2>👨‍🎓 Add Student</h2>
@@ -410,15 +655,18 @@ Admin yahin se parent ka Email aur Password bana sakta hai.
 </button>
 
 <div id="sMsg"></div>
+
 </div>
 
 
 <!-- ATTENDANCE -->
+
 <div class="card">
 
 <h2>📅 Add Attendance</h2>
 
 <label>Student</label>
+
 <select id="attStudent">
 <option>Loading...</option>
 </select>
@@ -427,6 +675,7 @@ Admin yahin se parent ka Email aur Password bana sakta hai.
 <input id="attDate" type="date">
 
 <label>Status</label>
+
 <select id="attStatus">
 <option>Present</option>
 <option>Absent</option>
@@ -437,10 +686,12 @@ Admin yahin se parent ka Email aur Password bana sakta hai.
 </button>
 
 <div id="attMsg"></div>
+
 </div>
 
 
 <!-- NOTIFICATION -->
+
 <div class="card">
 
 <h2>🔔 Publish Notification</h2>
@@ -453,7 +704,7 @@ Admin yahin se parent ka Email aur Password bana sakta hai.
 <input id="nTitle" placeholder="School Update">
 
 <label>Message</label>
-<textarea id="nMessage" rows="4" placeholder="Notification message"></textarea>
+<textarea id="nMessage" rows="4"></textarea>
 
 <label>Date</label>
 <input id="nDate" type="date">
@@ -463,24 +714,27 @@ Admin yahin se parent ka Email aur Password bana sakta hai.
 </button>
 
 <div id="nMsg"></div>
+
 </div>
 
 
 <!-- FEES -->
+
 <div class="card">
 
 <h2>💰 Add / Update Fees</h2>
 
 <label>Student</label>
+
 <select id="feeStudent">
 <option>Loading...</option>
 </select>
 
 <label>Total Fees</label>
-<input id="feeTotal" type="number" min="0" placeholder="50000">
+<input id="feeTotal" type="number" min="0">
 
 <label>Paid Amount</label>
-<input id="feePaid" type="number" min="0" placeholder="25000">
+<input id="feePaid" type="number" min="0">
 
 <label>Due Date</label>
 <input id="feeDueDate" type="date">
@@ -490,10 +744,12 @@ Admin yahin se parent ka Email aur Password bana sakta hai.
 </button>
 
 <div id="feeMsg"></div>
+
 </div>
 
 
 <!-- HOMEWORK -->
+
 <div class="card">
 
 <h2>📝 Add Homework</h2>
@@ -505,7 +761,7 @@ Admin yahin se parent ka Email aur Password bana sakta hai.
 <input id="hwSubject" placeholder="Physics">
 
 <label>Homework</label>
-<textarea id="hwText" rows="4" placeholder="Homework details"></textarea>
+<textarea id="hwText" rows="4"></textarea>
 
 <label>Date</label>
 <input id="hwDate" type="date">
@@ -515,10 +771,12 @@ Admin yahin se parent ka Email aur Password bana sakta hai.
 </button>
 
 <div id="hwMsg"></div>
+
 </div>
 
 
 <!-- MATERIAL -->
+
 <div class="card">
 
 <h2>📚 Add Study Material</h2>
@@ -540,10 +798,12 @@ Admin yahin se parent ka Email aur Password bana sakta hai.
 </button>
 
 <div id="matMsg"></div>
+
 </div>
 
 
 <!-- CALENDAR -->
+
 <div class="card">
 
 <h2>🗓️ Add Calendar Event</h2>
@@ -562,27 +822,38 @@ Admin yahin se parent ka Email aur Password bana sakta hai.
 </button>
 
 <div id="calMsg"></div>
+
 </div>
 
 
 <!-- RESULT -->
+
 <div class="card">
 
 <h2>🧪 Add Exam / Result</h2>
 
+<div class="info">
+Academic Session हर साल Admin खुद डाल सकता है।
+Example: 2026–27, 2027–28, 2028–29
+</div>
+
 <label>Student</label>
+
 <select id="resultStudent">
 <option>Loading...</option>
 </select>
 
+<label>Academic Session</label>
+<input id="resultSession" placeholder="2026–27">
+
 <label>Exam</label>
-<input id="resultExam" placeholder="First Terminal">
+<input id="resultExam" placeholder="Annual Examination">
 
 <label>Subject</label>
-<input id="resultSubject" placeholder="Science">
+<input id="resultSubject" placeholder="Mathematics">
 
 <label>Marks</label>
-<input id="resultMarks" type="number" min="0">
+<input id="resultMarks" type="number" min="0" placeholder="85">
 
 <label>Max Marks</label>
 <input id="resultMax" type="number" min="1" value="100">
@@ -592,15 +863,18 @@ Admin yahin se parent ka Email aur Password bana sakta hai.
 </button>
 
 <div id="resultMsg"></div>
+
 </div>
 
 
 <!-- DOCUMENT -->
+
 <div class="card">
 
 <h2>📄 Add Document</h2>
 
 <label>Student</label>
+
 <select id="docStudent">
 <option>Loading...</option>
 </select>
@@ -616,20 +890,29 @@ Admin yahin se parent ka Email aur Password bana sakta hai.
 </button>
 
 <div id="docMsg"></div>
+
 </div>
 
 
 <!-- STUDENT MANAGEMENT -->
+
 <div class="card">
 
 <h2>📋 Student Management</h2>
 
 <div class="info">
+
 ✏️ Edit • ⬆️ Class Update • 📧 Parent Email Update
+
 <br>
+
 🟢 Activate • 🔴 Deactivate
+
 <br><br>
-<strong>Note:</strong> Deactivate करने पर पुराने Attendance, Fees और Result records delete नहीं होंगे।
+
+<strong>Note:</strong>
+Deactivate करने पर पुराने Attendance, Fees और Result records delete नहीं होंगे।
+
 </div>
 
 <button class="secondary" onclick="loadStudents()">
@@ -696,8 +979,11 @@ measurementId:"G-49BGF6LQ9P"
 
 
 const app=initializeApp(firebaseConfig);
+
 const auth=getAuth(app);
+
 const db=getFirestore(app);
+
 
 const parentCreatorApp=
 initializeApp(firebaseConfig,"ParentCreatorApp");
@@ -705,9 +991,11 @@ initializeApp(firebaseConfig,"ParentCreatorApp");
 const parentAuth=
 getAuth(parentCreatorApp);
 
+
 const ADMIN_EMAIL="admin@dpsnke.com";
 
 let currentStudent=null;
+
 
 const today=
 new Date().toISOString().slice(0,10);
@@ -844,14 +1132,6 @@ const s=
 await getDocs(q);
 
 
-/*
-Only active students are allowed into
-the parent dashboard.
-
-Old students without an active field
-are treated as active.
-*/
-
 const activeDocs=
 s.docs.filter(
 d=>d.data().active!==false
@@ -879,6 +1159,7 @@ return;
 const studentDoc=activeDocs[0];
 
 const d=studentDoc.data();
+
 
 currentStudent={
 id:studentDoc.id,
@@ -1105,11 +1386,6 @@ id:d.id,
 
 async function refreshStudentSelects(){
 
-/*
-Only ACTIVE students appear in admin
-attendance / fees / result / document lists.
-*/
-
 const ss=
 (await students())
 .filter(d=>d.active!==false);
@@ -1286,7 +1562,7 @@ msg("attMsg",e.message);
 };
 
 
-/* NOTICE / NOTIFICATION */
+/* NOTICE */
 
 window.addNotice=async()=>{
 
@@ -1301,8 +1577,7 @@ document.getElementById("nMessage")
 .value.trim();
 
 const date=
-document.getElementById("nDate")
-.value;
+document.getElementById("nDate").value;
 
 
 if(!title||!message||!date)
@@ -1529,8 +1804,7 @@ document.getElementById("calTitle")
 .value.trim();
 
 const date=
-document.getElementById("calDate")
-.value;
+document.getElementById("calDate").value;
 
 const details=
 document.getElementById("calDetails")
@@ -1576,7 +1850,7 @@ msg("calMsg",e.message);
 };
 
 
-/* RESULT */
+/* RESULT SAVE */
 
 window.addResult=async()=>{
 
@@ -1584,6 +1858,10 @@ try{
 
 const studentEmail=
 document.getElementById("resultStudent").value;
+
+const session=
+document.getElementById("resultSession")
+.value.trim();
 
 const exam=
 document.getElementById("resultExam")
@@ -1594,17 +1872,34 @@ document.getElementById("resultSubject")
 .value.trim();
 
 const marks=
-Number(document.getElementById("resultMarks").value)||0;
+Number(
+document.getElementById("resultMarks").value
+)||0;
 
 const maxMarks=
-Number(document.getElementById("resultMax").value)||100;
+Number(
+document.getElementById("resultMax").value
+)||100;
 
 
-if(!studentEmail||!exam||!subject)
+if(
+!studentEmail||
+!session||
+!exam||
+!subject
+)
 
 return msg(
 "resultMsg",
-"Fill result fields."
+"Fill all result fields."
+);
+
+
+if(marks<0||marks>maxMarks)
+
+return msg(
+"resultMsg",
+"Marks must be between 0 and Max Marks."
 );
 
 
@@ -1612,25 +1907,34 @@ await addDoc(
 collection(db,"results"),
 {
 parentEmail:studentEmail.toLowerCase(),
+session:session,
 exam:exam,
 subject:subject,
 marks:marks,
-maxMarks:maxMarks
+maxMarks:maxMarks,
+createdAt:serverTimestamp()
 }
 );
 
 
 msg(
 "resultMsg",
-"Result saved.",
+"Result saved successfully.",
 true
 );
+
+
+document.getElementById("resultSubject").value="";
+document.getElementById("resultMarks").value="";
 
 }
 
 catch(e){
 
-msg("resultMsg",e.message);
+msg(
+"resultMsg",
+e.message
+);
 
 }
 
@@ -1690,12 +1994,7 @@ msg("docMsg",e.message);
 };
 
 
-/* =====================================================
-   STUDENT MANAGEMENT
-   ===================================================== */
-
-
-/* LOAD STUDENTS */
+/* STUDENT MANAGEMENT */
 
 window.loadStudents=async()=>{
 
@@ -1753,6 +2052,7 @@ ${clean(d.parentEmail)}
 <br>
 
 Status:
+
 <span class="${
 active
 ?"status-active"
@@ -1765,14 +2065,10 @@ ${active?"🟢 Active":"🔴 Inactive"}
 
 </p>
 
-
 <div class="student-actions">
 
-<button
-onclick="editStudent('${d.id}')">
-
+<button onclick="editStudent('${d.id}')">
 ✏️ Edit Student
-
 </button>
 
 <button
@@ -1819,10 +2115,6 @@ ss.find(x=>x.id===id);
 
 if(!d)return;
 
-
-/*
-Simple phone-friendly edit system.
-*/
 
 const name=
 prompt(
@@ -1916,12 +2208,6 @@ alert(
 window.toggleStudent=async(id,active)=>{
 
 try{
-
-const action=
-active
-?"deactivate"
-:"activate";
-
 
 const ok=
 confirm(
@@ -2457,7 +2743,7 @@ ${clean(x.details||"")}
 };
 
 
-/* RESULTS */
+/* RESULT DISPLAY */
 
 window.results=async()=>{
 
@@ -2483,31 +2769,483 @@ return show(
 );
 
 
-show(
-"🧪 Exam / Result",
+/* GROUP BY SESSION + EXAM */
 
-a.map(x=>`
+const groups={};
 
-<div class="item">
 
-<h3>
-${clean(x.exam)}
-—
+a.forEach(x=>{
+
+const session=
+x.session||"Academic Session";
+
+const exam=
+x.exam||"Examination";
+
+const key=
+session+"||"+exam;
+
+
+if(!groups[key]){
+
+groups[key]={
+session:session,
+exam:exam,
+subjects:[]
+};
+
+}
+
+
+groups[key].subjects.push(x);
+
+});
+
+
+const cards=
+Object.values(groups)
+.map((g,index)=>{
+
+let total=0;
+let maxTotal=0;
+
+
+const rows=
+g.subjects.map(x=>{
+
+const marks=
+Number(x.marks)||0;
+
+const max=
+Number(x.maxMarks)||100;
+
+
+total+=marks;
+maxTotal+=max;
+
+
+return `
+
+<tr>
+
+<td>
 ${clean(x.subject)}
-</h3>
+</td>
+
+<td>
+${marks}
+</td>
+
+<td>
+${max}
+</td>
+
+<td>
+${max>0
+?((marks/max)*100).toFixed(1)
+:"0"}%
+</td>
+
+</tr>
+
+`;
+
+}).join("");
+
+
+const percentage=
+maxTotal>0
+?(total/maxTotal)*100
+:0;
+
+
+let grade="";
+
+if(percentage>=91)
+grade="A1";
+else if(percentage>=81)
+grade="A2";
+else if(percentage>=71)
+grade="B1";
+else if(percentage>=61)
+grade="B2";
+else if(percentage>=51)
+grade="C1";
+else if(percentage>=41)
+grade="C2";
+else if(percentage>=33)
+grade="D";
+else
+grade="E";
+
+
+const result=
+percentage>=33
+?"PASS"
+:"NEEDS IMPROVEMENT";
+
+
+return `
+
+<div class="result-card" id="resultCard${index}">
+
+<div class="result-header">
+
+<h1>
+DELHI PUBLIC SCHOOL
+</h1>
+
+<h2>
+NARKATIAGANJ
+</h2>
 
 <p>
-Marks:
-<b>
-${x.marks||0}/${x.maxMarks||100}
-</b>
+REPORT CARD
 </p>
 
 </div>
 
-`).join("")
 
+<div class="result-meta">
+
+<div>
+<b>Student Name</b><br>
+${clean(studentName())}
+</div>
+
+<div>
+<b>Class</b><br>
+${clean(currentStudent?.class||"")}
+</div>
+
+<div>
+<b>Roll No.</b><br>
+${clean(currentStudent?.roll||"")}
+</div>
+
+<div>
+<b>Academic Session</b><br>
+${clean(g.session)}
+</div>
+
+<div>
+<b>Examination</b><br>
+${clean(g.exam)}
+</div>
+
+<div>
+<b>School</b><br>
+DPS Narkatiaganj
+</div>
+
+</div>
+
+
+<table class="result-table">
+
+<thead>
+
+<tr>
+
+<th>Subject</th>
+<th>Marks</th>
+<th>Max</th>
+<th>Percentage</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+${rows}
+
+</tbody>
+
+</table>
+
+
+<div class="result-summary">
+
+<div>
+Total Marks
+<strong>
+${total} / ${maxTotal}
+</strong>
+</div>
+
+<div>
+Percentage
+<strong>
+${percentage.toFixed(2)}%
+</strong>
+</div>
+
+<div>
+Grade
+<strong>
+${grade}
+</strong>
+</div>
+
+<div>
+Result
+<strong>
+${result}
+</strong>
+</div>
+
+</div>
+
+
+<div class="result-status ${
+result==="PASS"
+?"result-pass"
+:"result-fail"
+}">
+
+${result==="PASS"
+?"✅ RESULT: PASS"
+:"⚠️ RESULT: NEEDS IMPROVEMENT"}
+
+</div>
+
+
+<div class="signature">
+
+<div>
+Class Teacher
+</div>
+
+<div>
+Principal
+</div>
+
+</div>
+
+
+<button
+class="secondary print-btn"
+onclick="printResult(${index})">
+
+🖨️ Print / Save PDF
+
+</button>
+
+
+</div>
+
+`;
+
+});
+
+
+show(
+"🧪 Exam / Result",
+cards.join("")
 );
+
+};
+
+
+/* STUDENT NAME */
+
+function studentName(){
+
+return currentStudent?.name||"Student";
+
+}
+
+
+/* PRINT RESULT */
+
+window.printResult=(index)=>{
+
+const card=
+document.getElementById(
+"resultCard"+index
+);
+
+if(!card)return;
+
+
+const old=
+document.title;
+
+
+document.title=
+"DPS Narkatiaganj Report Card";
+
+
+const printWindow=
+window.open("","_blank");
+
+
+printWindow.document.write(`
+
+<html>
+
+<head>
+
+<title>DPS Narkatiaganj Report Card</title>
+
+<style>
+
+body{
+font-family:Arial,sans-serif;
+padding:25px;
+color:#172033
+}
+
+.result-card{
+border:1px solid #aaa;
+border-radius:12px;
+padding:20px;
+max-width:700px;
+margin:auto
+}
+
+.result-header{
+text-align:center;
+border-bottom:2px solid #17358d;
+padding-bottom:12px;
+margin-bottom:15px
+}
+
+.result-header h1{
+color:#17358d;
+font-size:24px
+}
+
+.result-header h2{
+font-size:17px;
+margin:5px
+}
+
+.result-header p{
+font-size:13px
+}
+
+.result-meta{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:8px;
+font-size:13px;
+margin-bottom:15px
+}
+
+.result-meta div{
+background:#f5f7fb;
+padding:9px;
+border-radius:7px
+}
+
+.result-table{
+width:100%;
+border-collapse:collapse;
+font-size:13px
+}
+
+.result-table th,
+.result-table td{
+border:1px solid #999;
+padding:9px;
+text-align:center
+}
+
+.result-table th{
+background:#eef2ff
+}
+
+.result-summary{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:8px;
+margin-top:15px
+}
+
+.result-summary div{
+background:#f5f7fb;
+padding:10px;
+text-align:center
+}
+
+.result-summary strong{
+display:block;
+font-size:15px;
+margin-top:4px
+}
+
+.result-status{
+text-align:center;
+padding:10px;
+margin-top:15px;
+font-weight:bold
+}
+
+.result-pass{
+background:#e8f7ee;
+color:#16743d
+}
+
+.result-fail{
+background:#fdecec;
+color:#b42318
+}
+
+.signature{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+margin-top:60px;
+text-align:center;
+font-size:12px
+}
+
+.signature div{
+border-top:1px solid #555;
+padding-top:8px
+}
+
+.print-btn{
+display:none
+}
+
+@media(max-width:500px){
+
+.result-meta,
+.result-summary{
+grid-template-columns:1fr
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+${card.outerHTML}
+
+<script>
+
+window.onload=function(){
+window.print();
+};
+
+<\/script>
+
+</body>
+
+</html>
+
+`);
+
+
+printWindow.document.close();
+
+document.title=old;
 
 };
 
