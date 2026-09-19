@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
 <title>DPS Narkatiaganj Parent App</title>
 
 <link rel="manifest" href="manifest.json">
@@ -10,296 +11,461 @@
 
 <style>
 *{
-box-sizing:border-box;
-margin:0;
-padding:0;
-font-family:Arial,sans-serif
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
-body{background:#f4f7fb;color:#172033}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f3f6fb;
+  color:#182033;
+  min-height:100vh;
+}
+
 header{
-background:linear-gradient(135deg,#3158c9,#17358d);
-color:#fff;padding:20px;text-align:center
+  background:#3158c9;
+  color:white;
+  padding:20px 16px;
+  text-align:center;
+  box-shadow:0 4px 12px rgba(0,0,0,.15);
 }
-header h1{font-size:23px}
-header p{font-size:13px;margin-top:5px}
-.container{max-width:650px;margin:auto;padding:16px}
+
+header h1{
+  font-size:24px;
+  margin-bottom:5px;
+}
+
+header p{
+  font-size:14px;
+  opacity:.95;
+}
+
+.container{
+  width:100%;
+  max-width:1000px;
+  margin:auto;
+  padding:20px;
+}
+
 .card{
-background:#fff;border-radius:18px;padding:18px;margin-bottom:15px;
-box-shadow:0 5px 18px #0001
+  background:white;
+  border-radius:22px;
+  padding:22px;
+  margin-bottom:20px;
+  box-shadow:0 5px 20px rgba(20,40,80,.08);
 }
-.hero{text-align:center;padding:28px 18px}
+
 .logo{
-width:90px;height:90px;border-radius:22px;object-fit:cover;
-margin:auto auto 16px;display:block
+  width:90px;
+  height:90px;
+  object-fit:contain;
+  margin:10px auto 15px;
+  display:block;
 }
-h2{font-size:20px;margin-bottom:12px}
-h3{font-size:16px}
-p{line-height:1.5}
-.hero p,.muted{color:#667085}
+
+.center{
+  text-align:center;
+}
+
+h2{
+  margin-bottom:15px;
+}
+
+h3{
+  margin-bottom:8px;
+}
+
+input,
+select,
+textarea{
+  width:100%;
+  padding:14px;
+  border:1px solid #d8deea;
+  border-radius:12px;
+  margin:7px 0 14px;
+  font-size:15px;
+  background:#fff;
+}
+
+textarea{
+  min-height:100px;
+  resize:vertical;
+}
+
 button{
-width:100%;border:0;border-radius:12px;padding:13px;margin-top:9px;
-font-size:15px;font-weight:bold;background:#3158c9;color:#fff
+  border:0;
+  border-radius:12px;
+  padding:13px 18px;
+  background:#3158c9;
+  color:white;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+  margin:4px 0;
 }
-button.secondary{background:#eef2ff;color:#3158c9}
-button.green{background:#198754}
-button.danger{background:#dc3545}
-button.warning{background:#f59e0b;color:#fff}
-input,select,textarea{
-width:100%;padding:12px;border:1px solid #d9dee8;border-radius:11px;
-margin:6px 0 10px;font-size:14px;background:#fff
+
+button:hover{
+  opacity:.92;
 }
-label{display:block;font-size:13px;font-weight:bold;margin-top:5px}
-.hidden{display:none!important}
-.message{
-padding:10px;border-radius:10px;margin-top:10px;font-size:13px
+
+.btn-danger{
+  background:#df3347;
 }
-.success{background:#e8f7ee;color:#16743d}
-.error{background:#fdecec;color:#b42318}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
-.menu{
-background:#fff;border-radius:16px;padding:19px 8px;text-align:center;
-box-shadow:0 4px 15px #0001
+
+.btn-green{
+  background:#198754;
 }
-.menu .icon{font-size:29px;margin-bottom:7px}
-.menu b{font-size:13px}
-.student{
-background:linear-gradient(135deg,#3158c9,#203e9b);
-color:#fff;border-radius:18px;padding:18px;margin-bottom:15px
+
+.btn-gray{
+  background:#687386;
 }
-.row{
-display:flex;justify-content:space-between;border-top:1px solid #ffffff33;
-padding-top:9px;margin-top:9px;font-size:13px
+
+.hidden{
+  display:none!important;
 }
+
+.muted{
+  color:#7a8393;
+}
+
+.small{
+  font-size:13px;
+}
+
 .item{
-border:1px solid #e7eaf0;border-radius:13px;padding:14px;margin-bottom:10px
+  background:#f8faff;
+  border:1px solid #e1e6ef;
+  border-radius:15px;
+  padding:15px;
+  margin:10px 0;
 }
-.item h3{margin-bottom:5px}
-.item p{font-size:13px;color:#667085}
-.present{color:#198754!important;font-weight:bold}
-.absent{color:#dc3545!important;font-weight:bold}
-.badge{
-display:inline-block;padding:4px 8px;border-radius:20px;
-background:#eef2ff;color:#3158c9;font-size:11px;font-weight:bold
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
 }
-.footer{text-align:center;color:#8a94a6;font-size:12px;padding:20px 0 30px}
-.topline{
-display:flex;justify-content:space-between;align-items:center;margin-bottom:12px
+
+.dashboard-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
 }
-.info{
-background:#eef2ff;color:#3158c9;padding:12px;border-radius:12px;
-font-size:13px;margin-bottom:12px
+
+.tile{
+  background:white;
+  min-height:175px;
+  border-radius:24px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+  box-shadow:0 5px 18px rgba(20,40,80,.08);
+  cursor:pointer;
+  transition:.2s;
 }
-.school-title{
-text-align:center;font-size:25px;font-weight:bold;color:#17358d;margin-bottom:5px
+
+.tile:hover{
+  transform:translateY(-2px);
 }
-.school-subtitle{
-text-align:center;color:#667085;font-size:13px;margin-bottom:18px
+
+.tile-icon{
+  font-size:45px;
+  margin-bottom:12px;
 }
-.history{line-height:1.7;font-size:14px;color:#475467}
-.gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+.tile h3{
+  font-size:20px;
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
 .gallery img{
-width:100%;height:150px;object-fit:cover;border-radius:14px;border:1px solid #eee
-}
-.banner{
-background:linear-gradient(135deg,#3158c9,#17358d);color:white;
-border-radius:18px;padding:22px;margin-bottom:15px;text-align:center
-}
-.banner h2{font-size:22px}
-.banner p{font-size:13px;opacity:.95}
-.section-title{
-font-size:18px;font-weight:bold;margin-bottom:12px;color:#172033
-}
-.statbox{background:#f8faff;border-radius:13px;padding:13px;margin-top:10px}
-.status-active{color:#198754;font-weight:bold}
-.status-inactive{color:#dc3545;font-weight:bold}
-.student-actions{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:8px;
-margin-top:8px
-}
-.student-actions button{margin-top:0}
-
-/* RESULT CARD */
-
-.result-card{
-background:#fff;
-border:1px solid #d7dce5;
-border-radius:14px;
-padding:16px;
-margin-top:12px
+  width:100%;
+  height:190px;
+  object-fit:cover;
+  border-radius:15px;
+  background:#eee;
 }
 
-.result-header{
-text-align:center;
-border-bottom:2px solid #17358d;
-padding-bottom:12px;
-margin-bottom:14px
+.school-history{
+  line-height:1.7;
+  color:#3f4756;
 }
 
-.result-header h1{
-font-size:21px;
-color:#17358d;
-margin-bottom:4px
+.notice{
+  border-left:5px solid #3158c9;
 }
 
-.result-header h2{
-font-size:15px;
-margin:3px 0;
-color:#172033
+.form-title{
+  margin-top:20px;
+  margin-bottom:10px;
+  color:#3158c9;
 }
 
-.result-header p{
-font-size:12px;
-color:#667085
+.admin-section{
+  border-top:1px solid #e3e7ef;
+  padding-top:20px;
+  margin-top:20px;
 }
 
-.result-meta{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:8px;
-font-size:13px;
-margin-bottom:15px
+.student-row{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:center;
+  padding:14px;
+  border:1px solid #e0e5ee;
+  border-radius:14px;
+  margin:8px 0;
 }
 
-.result-meta div{
-background:#f8faff;
-padding:9px;
-border-radius:8px
+.status-active{
+  color:#198754;
+  font-weight:bold;
+}
+
+.status-inactive{
+  color:#df3347;
+  font-weight:bold;
+}
+
+/* REPORT CARD */
+
+.report-card{
+  background:#fff;
+  border:2px solid #d8deea;
+  border-radius:18px;
+  overflow:hidden;
+  margin:20px 0;
+  box-shadow:0 5px 20px rgba(20,40,80,.08);
+}
+
+.report-header{
+  background:#3158c9;
+  color:white;
+  padding:22px;
+  text-align:center;
+}
+
+.report-header h2{
+  font-size:24px;
+  margin-bottom:5px;
+}
+
+.report-header h3{
+  font-size:17px;
+  margin-bottom:5px;
+}
+
+.report-header p{
+  font-size:14px;
+}
+
+.report-body{
+  padding:20px;
+}
+
+.student-info{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin-bottom:18px;
+}
+
+.info-box{
+  border:1px solid #dfe4ec;
+  border-radius:10px;
+  padding:11px;
+  background:#fafbfe;
+}
+
+.info-box span{
+  display:block;
+  color:#7a8393;
+  font-size:12px;
+  margin-bottom:4px;
+}
+
+.info-box b{
+  font-size:15px;
 }
 
 .result-table{
-width:100%;
-border-collapse:collapse;
-font-size:12px
+  width:100%;
+  border-collapse:collapse;
+  margin-top:15px;
 }
 
 .result-table th,
 .result-table td{
-border:1px solid #cfd5df;
-padding:8px 5px;
-text-align:center
+  border:1px solid #d6dce6;
+  padding:11px 8px;
+  text-align:center;
+  font-size:14px;
 }
 
 .result-table th{
-background:#eef2ff;
-color:#17358d
+  background:#eef2fb;
+  font-weight:bold;
+}
+
+.result-table td:first-child,
+.result-table th:first-child{
+  text-align:left;
 }
 
 .result-summary{
-margin-top:15px;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:8px
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  margin-top:18px;
 }
 
-.result-summary div{
-background:#f8faff;
-padding:10px;
-border-radius:9px;
-text-align:center;
-font-size:13px
+.summary-box{
+  border:1px solid #dfe4ec;
+  border-radius:10px;
+  padding:12px;
+  text-align:center;
+  background:#fafbfe;
 }
 
-.result-summary strong{
-display:block;
-font-size:16px;
-color:#17358d;
-margin-top:3px
+.summary-box span{
+  display:block;
+  color:#737c8d;
+  font-size:12px;
+  margin-bottom:5px;
 }
 
-.result-status{
-margin-top:14px;
-text-align:center;
-padding:10px;
-border-radius:10px;
-font-weight:bold
+.summary-box b{
+  font-size:17px;
 }
 
-.result-pass{
-background:#e8f7ee;
-color:#16743d
-}
-
-.result-fail{
-background:#fdecec;
-color:#b42318
-}
-
-.signature{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:30px;
-margin-top:45px;
-text-align:center;
-font-size:12px
-}
-
-.signature div{
-border-top:1px solid #555;
-padding-top:7px
+.report-footer{
+  padding:15px 20px 20px;
+  color:#697386;
+  font-size:12px;
+  text-align:center;
 }
 
 .print-btn{
-margin-top:14px
+  margin:15px 20px 20px;
+}
+
+.grade{
+  font-weight:bold;
+}
+
+/* PRINT */
+
+@media print{
+
+  body{
+    background:white;
+  }
+
+  body *{
+    visibility:hidden;
+  }
+
+  .report-card.print-target,
+  .report-card.print-target *{
+    visibility:visible;
+  }
+
+  .report-card.print-target{
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    margin:0;
+    box-shadow:none;
+    border:1px solid #222;
+  }
+
+  .print-btn{
+    display:none!important;
+  }
+
+  .report-header{
+    background:#3158c9!important;
+    color:white!important;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+}
+
+@media(max-width:700px){
+
+  .container{
+    padding:14px;
+  }
+
+  .grid,
+  .dashboard-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+  }
+
+  .tile{
+    min-height:155px;
+    padding:14px;
+  }
+
+  .tile-icon{
+    font-size:38px;
+  }
+
+  .tile h3{
+    font-size:17px;
+  }
+
+  .gallery{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .gallery img{
+    height:145px;
+  }
+
+  .student-info{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .result-summary{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .result-table{
+    font-size:12px;
+  }
+
+  .result-table th,
+  .result-table td{
+    padding:8px 5px;
+  }
 }
 
 @media(max-width:420px){
 
-.student-actions{
-grid-template-columns:1fr
-}
+  .gallery{
+    grid-template-columns:1fr 1fr;
+  }
 
-.result-meta,
-.result-summary{
-grid-template-columns:1fr
-}
+  .student-info{
+    grid-template-columns:1fr;
+  }
 
-.result-table{
-font-size:11px
-}
-
-.result-table th,
-.result-table td{
-padding:7px 3px
-}
-
-}
-
-@media print{
-
-body{
-background:#fff
-}
-
-header,
-.footer,
-#home,
-#parentLogin,
-#adminLogin,
-#adminDash,
-#studentInfo,
-#parentDash>.topline,
-#parentDash>.grid,
-#parentDash>.danger{
-display:none!important
-}
-
-.container{
-max-width:none;
-padding:0
-}
-
-.result-card{
-box-shadow:none;
-border:1px solid #999;
-page-break-inside:avoid
-}
-
-.print-btn{
-display:none!important
-}
-
+  .report-header h2{
+    font-size:20px;
+  }
 }
 </style>
 </head>
@@ -307,3000 +473,3302 @@ display:none!important
 <body>
 
 <header>
-<h1>DELHI PUBLIC SCHOOL</h1>
-<p>Narkatiaganj • Parent Portal</p>
+  <h1>Delhi Public School</h1>
+  <p>Narkatiaganj • Parent Portal</p>
 </header>
 
 <div class="container">
 
 <!-- HOME -->
 
-<section id="home">
+<section id="homeSection">
 
-<div class="card">
+  <div class="card center">
 
-<img src="icon.svg" class="logo" alt="DPS Narkatiaganj">
+    <img src="icon.svg" class="logo">
 
-<div class="school-title">
-Delhi Public School
-</div>
+    <h2>Delhi Public School, Narkatiaganj</h2>
 
-<div class="school-subtitle">
-Narkatiaganj • Established 2011
-</div>
+    <p class="muted">
+      Welcome to the DPS Narkatiaganj Parent Portal
+    </p>
 
-</div>
+    <div style="margin-top:18px">
+      <button onclick="showLogin('parent')">
+        👨‍👩‍👧 Parent Login
+      </button>
 
-<div class="banner">
+      <button onclick="showLogin('admin')" class="btn-gray">
+        🔐 Admin Login
+      </button>
+    </div>
 
-<h2>🌟 Welcome to DPS Narkatiaganj</h2>
-
-<p>
-Knowledge • Values • Confidence • Excellence
-</p>
-
-</div>
-
-<div class="card">
-
-<div class="section-title">
-🏫 About Our School
-</div>
-
-<p class="history">
-
-Delhi Public School, Narkatiaganj की स्थापना वर्ष
-<b>2011</b> में गुणवत्तापूर्ण एवं संस्कारयुक्त शिक्षा के उद्देश्य से की गई।
-
-<br><br>
-
-विद्यालय में <b>NC से Class 10</b> तक विद्यार्थियों के लिए शिक्षा की व्यवस्था है और
-<b>CBSE curriculum</b> के अनुरूप learning environment प्रदान करने का लक्ष्य रखा जाता है।
-
-<br><br>
-
-विद्यालय का उद्देश्य विद्यार्थियों को केवल किताबी ज्ञान तक सीमित न रखकर उनके
-<b>शैक्षणिक, रचनात्मक, नैतिक एवं सामाजिक विकास</b> पर भी ध्यान देना है।
-
-<br><br>
-
-समय-समय पर Teachers' Day, cultural programmes, academic activities,
-competitions और अन्य co-curricular activities आयोजित की जाती हैं।
-
-<br><br>
-
-<b>Our Vision:</b><br>
-
-“हर विद्यार्थी को ज्ञान, संस्कार और आत्मविश्वास के साथ भविष्य के लिए तैयार करना।”
-
-</p>
-
-</div>
+  </div>
 
 
-<div class="card">
+  <div class="card">
 
-<div class="section-title">
-📸 School Programs & Activities
-</div>
+    <h2>🏫 About Our School</h2>
 
-<p class="muted" style="margin-bottom:12px">
-विद्यालय के विभिन्न कार्यक्रमों और गतिविधियों की झलक।
-</p>
+    <div class="school-history">
 
-<div class="gallery">
+      <p>
+        Delhi Public School, Narkatiaganj की स्थापना वर्ष
+        <b>2011</b> में गुणवत्तापूर्ण एवं संस्कारयुक्त शिक्षा
+        के उद्देश्य से की गई।
+      </p>
 
-<img src="IMG-20251125-WA0022.jpg">
-<img src="IMG-20260905-WA0018.jpg">
-<img src="IMG-20260905-WA0022.jpg">
-<img src="IMG-20260905-WA0034.jpg">
-<img src="IMG-20260905-WA0043.jpg">
-<img src="IMG-20260905-WA0056.jpg">
-<img src="IMG-20260905-WA0059.jpg">
-<img src="Screenshot_20241114_093054_Maps.jpg">
-<img src="Screenshot_20241114_093113_Maps.jpg">
-<img src="Screenshot_20251125_171128_Google.jpg">
-<img src="file_00000000ed90720ba14937d8a37e3bba.png">
+      <br>
 
-</div>
+      <p>
+        विद्यालय में NC से Class 10 तक विद्यार्थियों के लिए
+        शिक्षा की व्यवस्था है और CBSE curriculum के अनुरूप
+        learning environment प्रदान करने का लक्ष्य रखा जाता है।
+      </p>
 
-</div>
+      <br>
 
+      <p>
+        विद्यालय का उद्देश्य विद्यार्थियों को केवल किताबी ज्ञान
+        तक सीमित न रखकर उनके शैक्षणिक, रचनात्मक, नैतिक एवं
+        सामाजिक विकास पर भी ध्यान देना है।
+      </p>
 
-<div class="card">
+      <br>
 
-<div class="section-title">
-✨ School Highlights
-</div>
+      <p>
+        विद्यालय में समय-समय पर Teachers' Day, cultural
+        programmes, academic activities, competitions और
+        अन्य co-curricular activities आयोजित की जाती हैं।
+      </p>
 
-<div class="statbox">
-🎓 <b>Classes</b><br>
-<span class="muted">NC to Class 10</span>
-</div>
+      <br>
 
-<div class="statbox">
-📚 <b>Curriculum</b><br>
-<span class="muted">CBSE Curriculum</span>
-</div>
+      <p>
+        <b>Vision:</b>
+        हर विद्यार्थी को ज्ञान, संस्कार और आत्मविश्वास के साथ
+        भविष्य के लिए तैयार करना।
+      </p>
 
-<div class="statbox">
-📅 <b>Established</b><br>
-<span class="muted">2011</span>
-</div>
+    </div>
 
-</div>
+  </div>
 
 
-<div class="card hero">
+  <div class="card">
 
-<h2>👨‍👩‍👦 Parent Portal</h2>
+    <h2>📸 School Activities & Memories</h2>
 
-<p>
-अपने बच्चे की Attendance, Homework, Fees, Notices,
-Study Material और Result की जानकारी एक ही जगह पर देखें।
-</p>
+    <div class="gallery">
 
-<button onclick="page('parentLogin')">
-👨‍👩‍👦 Parent Login
-</button>
+      <img src="IMG-20251125-WA0022.jpg">
+      <img src="IMG-20260905-WA0018.jpg">
+      <img src="IMG-20260905-WA0022.jpg">
+      <img src="IMG-20260905-WA0034.jpg">
+      <img src="IMG-20260905-WA0043.jpg">
+      <img src="IMG-20260905-WA0056.jpg">
+      <img src="IMG-20260905-WA0059.jpg">
+      <img src="Screenshot_20241114_093054_Maps.jpg">
+      <img src="Screenshot_20241114_093113_Maps.jpg">
+      <img src="Screenshot_20251125_171128_Google.jpg">
+      <img src="file_00000000ed90720ba14937d8a37e3bba.png">
 
-<button class="secondary" onclick="page('adminLogin')">
-🛡️ Admin Login
-</button>
+    </div>
 
-</div>
+  </div>
 
 </section>
 
 
-<!-- PARENT LOGIN -->
+<!-- LOGIN -->
 
-<section id="parentLogin" class="hidden">
+<section id="loginSection" class="hidden">
 
-<div class="card">
+  <div class="card">
 
-<h2>👨‍👩‍👦 Parent Login</h2>
+    <button onclick="goHome()" class="btn-gray">
+      ← Back
+    </button>
 
-<label>Email</label>
-<input id="pEmail" type="email" placeholder="Parent email">
+    <div id="loginTitle"></div>
 
-<label>Password</label>
-<input id="pPass" type="password" placeholder="Password">
+    <label>Email</label>
+    <input id="loginEmail" type="email"
+      placeholder="Enter email">
 
-<button onclick="parentLogin()">
-🔐 Login
-</button>
+    <label>Password</label>
+    <input id="loginPassword" type="password"
+      placeholder="Enter password">
 
-<button class="secondary" onclick="page('home')">
-← Back
-</button>
+    <button onclick="login()">
+      Login
+    </button>
 
-<div id="pMsg"></div>
+    <p id="loginMessage" class="muted"></p>
 
-</div>
-
-</section>
-
-
-<!-- ADMIN LOGIN -->
-
-<section id="adminLogin" class="hidden">
-
-<div class="card">
-
-<h2>🛡️ Admin Login</h2>
-
-<label>Email</label>
-<input id="aEmail" type="email" placeholder="Admin email">
-
-<label>Password</label>
-<input id="aPass" type="password" placeholder="Password">
-
-<button onclick="adminLogin()">
-🔐 Admin Login
-</button>
-
-<button class="secondary" onclick="page('home')">
-← Back
-</button>
-
-<div id="aMsg"></div>
-
-</div>
+  </div>
 
 </section>
 
 
 <!-- PARENT DASHBOARD -->
 
-<section id="parentDash" class="hidden">
+<section id="parentSection" class="hidden">
 
-<div class="topline">
+  <div class="card center">
 
-<div>
+    <h2>👨‍👩‍👧 Parent Dashboard</h2>
 
-<h2>👋 Parent Dashboard</h2>
+    <p id="parentWelcome" class="muted"></p>
 
-<p class="muted">
-DPS Narkatiaganj
-</p>
-
-</div>
-
-</div>
+  </div>
 
 
-<div id="studentInfo"></div>
+  <div class="dashboard-grid">
+
+    <div class="tile" onclick="window.notifications()">
+      <div class="tile-icon">🔔</div>
+      <h3>Notifications</h3>
+    </div>
+
+    <div class="tile" onclick="window.attendance()">
+      <div class="tile-icon">📋</div>
+      <h3>Attendance</h3>
+    </div>
+
+    <div class="tile" onclick="window.homework()">
+      <div class="tile-icon">📝</div>
+      <h3>Homework</h3>
+    </div>
+
+    <div class="tile" onclick="window.materials()">
+      <div class="tile-icon">📚</div>
+      <h3>Study Material</h3>
+    </div>
+
+    <div class="tile" onclick="window.calendarPage()">
+      <div class="tile-icon">🗓️</div>
+      <h3>Calendar</h3>
+    </div>
+
+    <div class="tile" onclick="window.results()">
+      <div class="tile-icon">🧪</div>
+      <h3>Exam / Result</h3>
+    </div>
+
+    <div class="tile" onclick="window.profile()">
+      <div class="tile-icon">👤</div>
+      <h3>Profile</h3>
+    </div>
+
+  </div>
 
 
-<div class="grid">
-
-<div class="menu" onclick="notifications()">
-<div class="icon">🔔</div>
-<b>Notifications</b>
-</div>
-
-<div class="menu" onclick="attendance()">
-<div class="icon">📅</div>
-<b>Attendance</b>
-</div>
-
-<div class="menu" onclick="notices()">
-<div class="icon">📢</div>
-<b>Notices</b>
-</div>
-
-<div class="menu" onclick="fees()">
-<div class="icon">💰</div>
-<b>Fees</b>
-</div>
-
-<div class="menu" onclick="homework()">
-<div class="icon">📝</div>
-<b>Homework</b>
-</div>
-
-<div class="menu" onclick="materials()">
-<div class="icon">📚</div>
-<b>Study Material</b>
-</div>
-
-<div class="menu" onclick="calendar()">
-<div class="icon">🗓️</div>
-<b>Calendar</b>
-</div>
-
-<div class="menu" onclick="results()">
-<div class="icon">🧪</div>
-<b>Exam / Result</b>
-</div>
-
-<div class="menu" onclick="profile()">
-<div class="icon">👤</div>
-<b>Profile</b>
-</div>
-
-</div>
+  <div id="parentContent"></div>
 
 
-<div id="parentContent" style="margin-top:15px"></div>
-
-
-<button class="danger" onclick="logout()">
-🚪 Logout
-</button>
+  <button
+    onclick="logout()"
+    class="btn-danger"
+    style="width:100%;margin-top:20px;font-size:18px">
+    🚪 Logout
+  </button>
 
 </section>
 
 
 <!-- ADMIN DASHBOARD -->
 
-<section id="adminDash" class="hidden">
+<section id="adminSection" class="hidden">
 
-<h2>🛡️ Admin Dashboard</h2>
+  <div class="card">
 
-<p class="muted" style="margin-bottom:15px">
-Manage the parent portal
-</p>
+    <h2>🔐 Admin Dashboard</h2>
 
+    <p class="muted">
+      School Management Panel
+    </p>
 
-<!-- CREATE PARENT -->
+  </div>
 
-<div class="card">
 
-<h2>👨‍👩‍👦 Create Parent Account</h2>
+  <!-- CREATE PARENT -->
 
-<div class="info">
-Admin yahin se parent ka Email aur Password bana sakta hai.
-</div>
+  <div class="card">
 
-<label>Parent Name</label>
-<input id="parentName" placeholder="Parent name">
+    <h2 class="form-title">
+      👨‍👩‍👧 Create Parent Account
+    </h2>
 
-<label>Parent Email</label>
-<input id="parentEmailCreate" type="email" placeholder="parent@example.com">
+    <label>Parent Name</label>
+    <input id="parentName"
+      placeholder="Parent Name">
 
-<label>Password</label>
-<input id="parentPasswordCreate" type="password" placeholder="Minimum 6 characters">
+    <label>Parent Email</label>
+    <input id="parentEmail"
+      type="email"
+      placeholder="Parent Email">
 
-<button class="green" onclick="createParentAccount()">
-👤 Create Parent Account
-</button>
+    <label>Password</label>
+    <input id="parentPassword"
+      type="password"
+      placeholder="Create password">
 
-<div id="parentCreateMsg"></div>
+    <button onclick="createParentAccount()">
+      Create Parent Account
+    </button>
 
-</div>
+    <p id="parentCreateMsg" class="muted"></p>
 
+  </div>
 
-<!-- ADD STUDENT -->
 
-<div class="card">
+  <!-- STUDENT -->
 
-<h2>👨‍🎓 Add Student</h2>
+  <div class="card">
 
-<label>Name</label>
-<input id="sName" placeholder="Student name">
+    <h2 class="form-title">
+      👨‍🎓 Add Student
+    </h2>
 
-<label>Class</label>
-<input id="sClass" placeholder="10">
+    <label>Student Name</label>
+    <input id="studentName"
+      placeholder="Student Name">
 
-<label>Roll</label>
-<input id="sRoll" placeholder="1">
+    <label>Class</label>
+    <input id="studentClass"
+      placeholder="e.g. 5">
 
-<label>Parent Email</label>
-<input id="sEmail" type="email" placeholder="parent@example.com">
+    <label>Roll Number</label>
+    <input id="studentRoll"
+      placeholder="Roll Number">
 
-<button class="green" onclick="addStudent()">
-➕ Add Student
-</button>
+    <label>Parent Email</label>
+    <input id="studentParentEmail"
+      type="email"
+      placeholder="Parent Email">
 
-<div id="sMsg"></div>
+    <button onclick="addStudent()">
+      Add Student
+    </button>
 
-</div>
+    <p id="studentMsg" class="muted"></p>
 
+  </div>
 
-<!-- ATTENDANCE -->
 
-<div class="card">
+  <!-- ATTENDANCE -->
 
-<h2>📅 Add Attendance</h2>
+  <div class="card">
 
-<label>Student</label>
+    <h2 class="form-title">
+      📋 Add Attendance
+    </h2>
 
-<select id="attStudent">
-<option>Loading...</option>
-</select>
+    <label>Student</label>
+    <select id="attendanceStudent"></select>
 
-<label>Date</label>
-<input id="attDate" type="date">
+    <label>Date</label>
+    <input id="attendanceDate"
+      type="date">
 
-<label>Status</label>
+    <label>Status</label>
+    <select id="attendanceStatus">
+      <option>Present</option>
+      <option>Absent</option>
+      <option>Leave</option>
+    </select>
 
-<select id="attStatus">
-<option>Present</option>
-<option>Absent</option>
-</select>
+    <button onclick="addAttendance()">
+      Save Attendance
+    </button>
 
-<button class="green" onclick="addAttendance()">
-➕ Add Attendance
-</button>
+    <p id="attendanceMsg" class="muted"></p>
 
-<div id="attMsg"></div>
+  </div>
 
-</div>
 
+  <!-- NOTIFICATION -->
 
-<!-- NOTIFICATION -->
+  <div class="card">
 
-<div class="card">
+    <h2 class="form-title">
+      🔔 Publish Notification
+    </h2>
 
-<h2>🔔 Publish Notification</h2>
+    <label>Title</label>
+    <input id="noticeTitle"
+      placeholder="Notification title">
 
-<div class="info">
-यह notification parent के app में Notifications और Notices दोनों में दिखाई देगा।
-</div>
+    <label>Message</label>
+    <textarea id="noticeMessage"
+      placeholder="Write notification"></textarea>
 
-<label>Title</label>
-<input id="nTitle" placeholder="School Update">
+    <button onclick="addNotice()">
+      Publish Notification
+    </button>
 
-<label>Message</label>
-<textarea id="nMessage" rows="4"></textarea>
+    <p id="noticeMsg" class="muted"></p>
 
-<label>Date</label>
-<input id="nDate" type="date">
+  </div>
 
-<button class="green" onclick="addNotice()">
-🔔 Publish Notification
-</button>
 
-<div id="nMsg"></div>
+  <!-- FEES -->
 
-</div>
+  <div class="card">
 
+    <h2 class="form-title">
+      💰 Add / Update Fees
+    </h2>
 
-<!-- FEES -->
+    <label>Student</label>
+    <select id="feeStudent"></select>
 
-<div class="card">
+    <label>Fee Type</label>
+    <input id="feeType"
+      placeholder="Tuition Fee / Annual Fee">
 
-<h2>💰 Add / Update Fees</h2>
+    <label>Amount</label>
+    <input id="feeAmount"
+      type="number"
+      placeholder="Amount">
 
-<label>Student</label>
+    <label>Status</label>
+    <select id="feeStatus">
+      <option>Paid</option>
+      <option>Pending</option>
+      <option>Partial</option>
+    </select>
 
-<select id="feeStudent">
-<option>Loading...</option>
-</select>
+    <button onclick="addFee()">
+      Save Fee
+    </button>
 
-<label>Total Fees</label>
-<input id="feeTotal" type="number" min="0">
+    <p id="feeMsg" class="muted"></p>
 
-<label>Paid Amount</label>
-<input id="feePaid" type="number" min="0">
+  </div>
 
-<label>Due Date</label>
-<input id="feeDueDate" type="date">
 
-<button class="green" onclick="addFees()">
-💰 Save Fees
-</button>
+  <!-- HOMEWORK -->
 
-<div id="feeMsg"></div>
+  <div class="card">
 
-</div>
+    <h2 class="form-title">
+      📝 Add Homework
+    </h2>
 
+    <label>Class</label>
+    <input id="homeworkClass"
+      placeholder="Class">
 
-<!-- HOMEWORK -->
+    <label>Subject</label>
+    <input id="homeworkSubject"
+      placeholder="Subject">
 
-<div class="card">
+    <label>Homework</label>
+    <textarea id="homeworkText"
+      placeholder="Homework details"></textarea>
 
-<h2>📝 Add Homework</h2>
+    <label>Due Date</label>
+    <input id="homeworkDueDate"
+      type="date">
 
-<label>Class</label>
-<input id="hwClass" placeholder="10">
+    <button onclick="addHomework()">
+      Publish Homework
+    </button>
 
-<label>Subject</label>
-<input id="hwSubject" placeholder="Physics">
+    <p id="homeworkMsg" class="muted"></p>
 
-<label>Homework</label>
-<textarea id="hwText" rows="4"></textarea>
+  </div>
 
-<label>Date</label>
-<input id="hwDate" type="date">
 
-<button class="green" onclick="addHomework()">
-📝 Publish Homework
-</button>
+  <!-- STUDY MATERIAL -->
 
-<div id="hwMsg"></div>
+  <div class="card">
 
-</div>
+    <h2 class="form-title">
+      📚 Add Study Material
+    </h2>
 
+    <label>Class</label>
+    <input id="materialClass"
+      placeholder="Class">
 
-<!-- MATERIAL -->
+    <label>Subject</label>
+    <input id="materialSubject"
+      placeholder="Subject">
 
-<div class="card">
+    <label>Title</label>
+    <input id="materialTitle"
+      placeholder="Material title">
 
-<h2>📚 Add Study Material</h2>
+    <label>Link</label>
+    <input id="materialLink"
+      placeholder="https://...">
 
-<label>Class</label>
-<input id="matClass" placeholder="10">
+    <button onclick="addMaterial()">
+      Add Material
+    </button>
 
-<label>Subject</label>
-<input id="matSubject" placeholder="Science">
+    <p id="materialMsg" class="muted"></p>
 
-<label>Title</label>
-<input id="matTitle" placeholder="Chapter notes">
+  </div>
 
-<label>Link</label>
-<input id="matLink" placeholder="https://...">
 
-<button class="green" onclick="addMaterial()">
-📚 Add Material
-</button>
+  <!-- CALENDAR -->
 
-<div id="matMsg"></div>
+  <div class="card">
 
-</div>
+    <h2 class="form-title">
+      🗓️ Add Calendar Event
+    </h2>
 
+    <label>Event Title</label>
+    <input id="calendarTitle"
+      placeholder="Parent Meeting">
 
-<!-- CALENDAR -->
+    <label>Date</label>
+    <input id="calendarDate"
+      type="date">
 
-<div class="card">
+    <label>Description</label>
+    <textarea id="calendarDescription"
+      placeholder="Event details"></textarea>
 
-<h2>🗓️ Add Calendar Event</h2>
+    <button onclick="addCalendarEvent()">
+      Add Event
+    </button>
 
-<label>Title</label>
-<input id="calTitle" placeholder="Annual Exam">
+    <p id="calendarMsg" class="muted"></p>
 
-<label>Date</label>
-<input id="calDate" type="date">
+  </div>
 
-<label>Details</label>
-<textarea id="calDetails" rows="3"></textarea>
 
-<button class="green" onclick="addCalendar()">
-🗓️ Add Event
-</button>
+  <!-- RESULT -->
 
-<div id="calMsg"></div>
+  <div class="card">
 
-</div>
+    <h2 class="form-title">
+      🧪 Add Exam / Result
+    </h2>
 
+    <label>Student</label>
+    <select id="resultStudent"></select>
 
-<!-- RESULT -->
+    <label>Academic Session</label>
+    <input id="resultSession"
+      placeholder="2026-27">
 
-<div class="card">
+    <label>Examination</label>
+    <input id="resultExam"
+      placeholder="FA-1 / Half Yearly / Annual Exam">
 
-<h2>🧪 Add Exam / Result</h2>
+    <label>Subject</label>
+    <input id="resultSubject"
+      placeholder="Mathematics">
 
-<div class="info">
-Academic Session हर साल Admin खुद डाल सकता है।
-Example: 2026–27, 2027–28, 2028–29
-</div>
+    <label>Maximum Marks</label>
+    <input id="resultMaxMarks"
+      type="number"
+      value="100"
+      placeholder="100">
 
-<label>Student</label>
+    <label>Obtained Marks</label>
+    <input id="resultMarks"
+      type="number"
+      placeholder="80">
 
-<select id="resultStudent">
-<option>Loading...</option>
-</select>
+    <button onclick="addResult()">
+      Save Result
+    </button>
 
-<label>Academic Session</label>
-<input id="resultSession" placeholder="2026–27">
+    <p id="resultMsg" class="muted"></p>
 
-<label>Exam</label>
-<input id="resultExam" placeholder="Annual Examination">
+  </div>
 
-<label>Subject</label>
-<input id="resultSubject" placeholder="Mathematics">
 
-<label>Marks</label>
-<input id="resultMarks" type="number" min="0" placeholder="85">
+  <!-- DOCUMENT -->
 
-<label>Max Marks</label>
-<input id="resultMax" type="number" min="1" value="100">
+  <div class="card">
 
-<button class="green" onclick="addResult()">
-🧪 Save Result
-</button>
+    <h2 class="form-title">
+      📄 Add Document
+    </h2>
 
-<div id="resultMsg"></div>
+    <label>Student</label>
+    <select id="documentStudent"></select>
 
-</div>
+    <label>Document Title</label>
+    <input id="documentTitle"
+      placeholder="Report Card">
 
+    <label>Document Link</label>
+    <input id="documentLink"
+      placeholder="https://...">
 
-<!-- DOCUMENT -->
+    <button onclick="addDocument()">
+      Add Document
+    </button>
 
-<div class="card">
+    <p id="documentMsg" class="muted"></p>
 
-<h2>📄 Add Document</h2>
+  </div>
 
-<label>Student</label>
 
-<select id="docStudent">
-<option>Loading...</option>
-</select>
+  <!-- STUDENT MANAGEMENT -->
 
-<label>Title</label>
-<input id="docTitle" placeholder="Fee Receipt / Result">
+  <div class="card">
 
-<label>Link</label>
-<input id="docLink" placeholder="https://...">
+    <h2 class="form-title">
+      👨‍🎓 Student Management
+    </h2>
 
-<button class="green" onclick="addDocument()">
-📄 Save Document
-</button>
+    <div id="studentList">
+      Loading students...
+    </div>
 
-<div id="docMsg"></div>
+  </div>
 
-</div>
 
-
-<!-- STUDENT MANAGEMENT -->
-
-<div class="card">
-
-<h2>📋 Student Management</h2>
-
-<div class="info">
-
-✏️ Edit • ⬆️ Class Update • 📧 Parent Email Update
-
-<br>
-
-🟢 Activate • 🔴 Deactivate
-
-<br><br>
-
-<strong>Note:</strong>
-Deactivate करने पर पुराने Attendance, Fees और Result records delete नहीं होंगे।
-
-</div>
-
-<button class="secondary" onclick="loadStudents()">
-🔄 Refresh Students
-</button>
-
-<div id="studentsList" style="margin-top:12px"></div>
-
-</div>
-
-
-<button class="danger" onclick="logout()">
-🚪 Logout Admin
-</button>
+  <button
+    onclick="logout()"
+    class="btn-danger"
+    style="width:100%;font-size:18px">
+    🚪 Logout
+  </button>
 
 </section>
 
-
-<div class="footer">
-© DPS Narkatiaganj • Parent Portal
-</div>
 
 </div>
 
 
 <script type="module">
 
-import {initializeApp}
-from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 
 import {
-getAuth,
-signInWithEmailAndPassword,
-createUserWithEmailAndPassword,
-signOut
-}
-from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+  getAuth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signOut
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 
 import {
-getFirestore,
-collection,
-addDoc,
-getDocs,
-query,
-where,
-serverTimestamp,
-doc,
-updateDoc
-}
-from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  where,
+  updateDoc,
+  doc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
 
-const firebaseConfig={
+/* FIREBASE */
 
-apiKey:"AIzaSyBoDLUAc-y9nqFBn8vB9wRUUtMY0WALxwA",
-authDomain:"dps-narkatiaganj.firebaseapp.com",
-projectId:"dps-narkatiaganj",
-storageBucket:"dps-narkatiaganj.firebasestorage.app",
-messagingSenderId:"199351719662",
-appId:"1:199351719662:web:612fb6010c40a42c2a45ff",
-measurementId:"G-49BGF6LQ9P"
+const firebaseConfig = {
 
+  apiKey:
+  "AIzaSyBoDLUAc-y9nqFBn8vB9wRUUtMY0WALxwA",
+
+  authDomain:
+  "dps-narkatiaganj.firebaseapp.com",
+
+  projectId:
+  "dps-narkatiaganj",
+
+  storageBucket:
+  "dps-narkatiaganj.firebasestorage.app",
+
+  messagingSenderId:
+  "199351719662",
+
+  appId:
+  "1:199351719662:web:612fb6010c40a42c2a45ff",
+
+  measurementId:
+  "G-49BGF6LQ9P"
 };
 
 
-const app=initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
-const auth=getAuth(app);
+const auth = getAuth(app);
 
-const db=getFirestore(app);
-
-
-const parentCreatorApp=
-initializeApp(firebaseConfig,"ParentCreatorApp");
-
-const parentAuth=
-getAuth(parentCreatorApp);
+const db = getFirestore(app);
 
 
-const ADMIN_EMAIL="admin@dpsnke.com";
+/*
+  Separate Firebase Auth instance for creating
+  parent accounts without logging admin out.
+*/
 
-let currentStudent=null;
+const parentCreatorApp =
+  initializeApp(
+    firebaseConfig,
+    "ParentCreatorApp"
+  );
 
-
-const today=
-new Date().toISOString().slice(0,10);
-
-
-document.getElementById("attDate").value=today;
-document.getElementById("nDate").value=today;
-document.getElementById("hwDate").value=today;
-document.getElementById("calDate").value=today;
-document.getElementById("feeDueDate").value=today;
-
-
-/* PAGE */
-
-window.page=id=>{
-
-[
-"home",
-"parentLogin",
-"adminLogin",
-"parentDash",
-"adminDash"
-]
-
-.forEach(x=>
-document.getElementById(x)
-.classList.add("hidden")
-);
-
-document.getElementById(id)
-.classList.remove("hidden");
-
-scrollTo(0,0);
-
-};
+const parentAuth =
+  getAuth(parentCreatorApp);
 
 
-/* MESSAGE */
+/* ADMIN EMAIL */
 
-function msg(id,text,ok=false){
+const ADMIN_EMAIL =
+  "admin@dpsnke.com";
 
-const e=document.getElementById(id);
 
-e.className=
-"message "+(ok?"success":"error");
+/* CURRENT LOGIN MODE */
 
-e.textContent=text;
+let loginMode = "parent";
 
+
+/* HELPERS */
+
+function clean(value){
+
+  if(value === undefined ||
+     value === null)
+    return "";
+
+  return String(value)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
 }
 
-
-/* CLEAN */
-
-function clean(v){
-
-return String(v??"")
-.replace(/[&<>"']/g,x=>({
-
-"&":"&amp;",
-"<":"&lt;",
-">":"&gt;",
-'"':"&quot;",
-"'":"&#039;"
-
-}[x]));
-
-}
-
-
-/* CURRENT EMAIL */
 
 function email(){
 
-return auth.currentUser?.email
-?.toLowerCase()||"";
-
+  return auth.currentUser
+    ? auth.currentUser.email.toLowerCase()
+    : "";
 }
 
 
-/* PARENT LOGIN */
+function isAdmin(){
 
-window.parentLogin=async()=>{
-
-try{
-
-const e=
-document.getElementById("pEmail")
-.value.trim()
-.toLowerCase();
-
-const p=
-document.getElementById("pPass")
-.value;
-
-if(!e||!p)
-return msg("pMsg","Enter email and password.");
-
-const r=
-await signInWithEmailAndPassword(auth,e,p);
-
-await loadParent(r.user.email);
-
+  return email() === ADMIN_EMAIL;
 }
 
-catch(e){
 
-console.log(e);
+function showOnly(id){
 
-msg(
-"pMsg",
-"Login failed. Check email/password."
-);
+  const sections = [
+    "homeSection",
+    "loginSection",
+    "parentSection",
+    "adminSection"
+  ];
 
+  sections.forEach(x => {
+
+    document
+      .getElementById(x)
+      .classList.add("hidden");
+
+  });
+
+  document
+    .getElementById(id)
+    .classList.remove("hidden");
+
+  window.scrollTo(0,0);
 }
+
+
+/* HOME */
+
+window.goHome = function(){
+
+  showOnly("homeSection");
 
 };
 
 
-/* LOAD PARENT */
+/* LOGIN SCREEN */
 
-async function loadParent(e){
+window.showLogin = function(mode){
 
-const q=
-query(
-collection(db,"students"),
-where(
-"parentEmail",
-"==",
-e.toLowerCase()
-)
-);
+  loginMode = mode;
 
-const s=
-await getDocs(q);
+  showOnly("loginSection");
 
+  const title =
+    document.getElementById("loginTitle");
 
-const activeDocs=
-s.docs.filter(
-d=>d.data().active!==false
-);
+  if(mode === "admin"){
 
+    title.innerHTML = `
+      <h2>🔐 Admin Login</h2>
+      <p class="muted">
+        School Administration
+      </p>
+    `;
 
-if(activeDocs.length===0){
+  }else{
 
-document.getElementById("studentInfo").innerHTML=
+    title.innerHTML = `
+      <h2>👨‍👩‍👧 Parent Login</h2>
+      <p class="muted">
+        Login to view your child's information
+      </p>
+    `;
 
-'<div class="card">'+
-'<h2>⚠️ Student Not Found</h2>'+
-'<p class="muted">'+
-'No active student is connected with this account.'+
-'</p>'+
-'</div>';
+  }
 
-page("parentDash");
+  document.getElementById("loginMessage")
+    .textContent = "";
 
-return;
-
-}
-
-
-const studentDoc=activeDocs[0];
-
-const d=studentDoc.data();
-
-
-currentStudent={
-id:studentDoc.id,
-...d
 };
 
 
-document.getElementById("studentInfo").innerHTML=
+/* LOGIN */
 
-`<div class="student">
+window.login = async function(){
 
-<h2>👨‍🎓 ${clean(d.name)}</h2>
+  const e =
+    document
+      .getElementById("loginEmail")
+      .value
+      .trim()
+      .toLowerCase();
 
-<div class="row">
-<span>Class</span>
-<b>${clean(d.class)}</b>
-</div>
+  const p =
+    document
+      .getElementById("loginPassword")
+      .value;
 
-<div class="row">
-<span>Roll</span>
-<b>${clean(d.roll)}</b>
-</div>
+  const msg =
+    document.getElementById("loginMessage");
 
-</div>`;
+  if(!e || !p){
 
+    msg.textContent =
+      "Please enter email and password.";
 
-page("parentDash");
+    return;
 
-}
+  }
 
+  msg.textContent = "Logging in...";
 
-/* ADMIN LOGIN */
+  try{
 
-window.adminLogin=async()=>{
+    await signInWithEmailAndPassword(
+      auth,
+      e,
+      p
+    );
 
-const e=
-document.getElementById("aEmail")
-.value.trim()
-.toLowerCase();
+    if(loginMode === "admin"){
 
-const p=
-document.getElementById("aPass")
-.value;
+      if(e !== ADMIN_EMAIL){
 
-if(e!==ADMIN_EMAIL)
+        await signOut(auth);
 
-return msg(
-"aMsg",
-"This is not the admin account."
-);
+        msg.textContent =
+          "This account is not an admin account.";
 
-try{
+        return;
 
-await signInWithEmailAndPassword(
-auth,e,p
-);
+      }
 
-page("adminDash");
+      showOnly("adminSection");
 
-await refreshStudentSelects();
+      await refreshStudentSelects();
 
-await loadStudents();
+      await loadStudentManagement();
 
-}
+    }else{
 
-catch(e){
+      showOnly("parentSection");
 
-console.log(e);
+      await loadParent();
 
-msg(
-"aMsg",
-"Admin login failed."
-);
+    }
 
-}
+    msg.textContent = "";
+
+  }catch(err){
+
+    console.error(err);
+
+    msg.textContent =
+      "Login failed: " +
+      (err.code || err.message);
+
+  }
 
 };
 
 
 /* LOGOUT */
 
-window.logout=async()=>{
+window.logout = async function(){
 
-await signOut(auth);
+  try{
 
-currentStudent=null;
+    await signOut(auth);
 
-page("home");
+  }catch(e){
 
-};
+    console.error(e);
 
+  }
 
-/* CREATE PARENT ACCOUNT */
-
-window.createParentAccount=async()=>{
-
-try{
-
-if(
-!auth.currentUser||
-auth.currentUser.email.toLowerCase()
-!==ADMIN_EMAIL
-)
-
-return msg(
-"parentCreateMsg",
-"Only Admin can create parent accounts."
-);
-
-
-const parentName=
-document.getElementById("parentName")
-.value.trim();
-
-const parentEmail=
-document.getElementById("parentEmailCreate")
-.value.trim()
-.toLowerCase();
-
-const parentPassword=
-document.getElementById("parentPasswordCreate")
-.value;
-
-
-if(!parentName)
-
-return msg(
-"parentCreateMsg",
-"Enter parent name."
-);
-
-if(!parentEmail)
-
-return msg(
-"parentCreateMsg",
-"Enter parent email."
-);
-
-if(parentPassword.length<6)
-
-return msg(
-"parentCreateMsg",
-"Password must be at least 6 characters."
-);
-
-
-await createUserWithEmailAndPassword(
-parentAuth,
-parentEmail,
-parentPassword
-);
-
-
-msg(
-"parentCreateMsg",
-"Parent account created successfully.",
-true
-);
-
-
-document.getElementById("parentName").value="";
-document.getElementById("parentEmailCreate").value="";
-document.getElementById("parentPasswordCreate").value="";
-
-}
-
-catch(e){
-
-console.log(e);
-
-if(e.code==="auth/email-already-in-use")
-
-msg(
-"parentCreateMsg",
-"This email already has a parent account."
-);
-
-else if(e.code==="auth/invalid-email")
-
-msg(
-"parentCreateMsg",
-"Enter a valid email address."
-);
-
-else if(e.code==="auth/weak-password")
-
-msg(
-"parentCreateMsg",
-"Password is too weak."
-);
-
-else
-
-msg(
-"parentCreateMsg",
-"Could not create parent account: "+e.message
-);
-
-}
+  showOnly("homeSection");
 
 };
 
 
-/* GET STUDENTS */
-
-async function students(){
-
-const s=
-await getDocs(
-collection(db,"students")
-);
-
-return s.docs.map(
-d=>({
-id:d.id,
-...d.data()
-})
-);
-
-}
-
-
-/* REFRESH STUDENT DROPDOWNS */
-
-async function refreshStudentSelects(){
-
-const ss=
-(await students())
-.filter(d=>d.active!==false);
-
-
-[
-"attStudent",
-"feeStudent",
-"resultStudent",
-"docStudent"
-]
-
-.forEach(id=>{
-
-const el=
-document.getElementById(id);
-
-el.innerHTML=
-'<option value="">Select Student</option>';
-
-
-ss.forEach(d=>{
-
-if(d.parentEmail){
-
-const o=
-document.createElement("option");
-
-o.value=d.parentEmail;
-
-o.textContent=
-`${d.name} — Class ${d.class}`;
-
-el.appendChild(o);
-
-}
-
-});
-
-});
-
-}
-
-
-/* ADD STUDENT */
-
-window.addStudent=async()=>{
-
-try{
-
-const name=
-document.getElementById("sName")
-.value.trim();
-
-const cl=
-document.getElementById("sClass")
-.value.trim();
-
-const roll=
-document.getElementById("sRoll")
-.value.trim();
-
-const pe=
-document.getElementById("sEmail")
-.value.trim()
-.toLowerCase();
-
-
-if(!name||!cl||!roll||!pe)
-
-return msg(
-"sMsg",
-"Fill all student fields."
-);
-
-
-await addDoc(
-collection(db,"students"),
-{
-name:name,
-class:cl,
-roll:roll,
-parentEmail:pe,
-active:true
-}
-);
-
-
-msg(
-"sMsg",
-"Student added successfully.",
-true
-);
-
-
-[
-"sName",
-"sClass",
-"sRoll",
-"sEmail"
-]
-
-.forEach(id=>
-document.getElementById(id).value=""
-);
-
-
-await refreshStudentSelects();
-
-await loadStudents();
-
-}
-
-catch(e){
-
-msg(
-"sMsg",
-e.message
-);
-
-}
-
-};
-
-
-/* ATTENDANCE */
-
-window.addAttendance=async()=>{
-
-try{
-
-const studentEmail=
-document.getElementById("attStudent").value;
-
-const date=
-document.getElementById("attDate").value;
-
-const status=
-document.getElementById("attStatus").value;
-
-
-if(!studentEmail||!date)
-
-return msg(
-"attMsg",
-"Select student and date."
-);
-
-
-await addDoc(
-collection(db,"attendance"),
-{
-parentEmail:studentEmail.toLowerCase(),
-date:date,
-status:status
-}
-);
-
-
-msg(
-"attMsg",
-"Attendance added successfully.",
-true
-);
-
-}
-
-catch(e){
-
-msg("attMsg",e.message);
-
-}
-
-};
-
-
-/* NOTICE */
-
-window.addNotice=async()=>{
-
-try{
-
-const title=
-document.getElementById("nTitle")
-.value.trim();
-
-const message=
-document.getElementById("nMessage")
-.value.trim();
-
-const date=
-document.getElementById("nDate").value;
-
-
-if(!title||!message||!date)
-
-return msg(
-"nMsg",
-"Fill all notification fields."
-);
-
-
-await addDoc(
-collection(db,"notices"),
-{
-title:title,
-message:message,
-date:date,
-createdAt:serverTimestamp()
-}
-);
-
-
-msg(
-"nMsg",
-"Notification published successfully.",
-true
-);
-
-
-document.getElementById("nTitle").value="";
-document.getElementById("nMessage").value="";
-
-}
-
-catch(e){
-
-msg("nMsg",e.message);
-
-}
-
-};
-
-
-/* FEES */
-
-window.addFees=async()=>{
-
-try{
-
-const studentEmail=
-document.getElementById("feeStudent").value;
-
-if(!studentEmail)
-
-return msg("feeMsg","Select student.");
-
-
-const total=
-Number(document.getElementById("feeTotal").value)||0;
-
-const paid=
-Number(document.getElementById("feePaid").value)||0;
-
-const dueDate=
-document.getElementById("feeDueDate").value;
-
-
-await addDoc(
-collection(db,"fees"),
-{
-parentEmail:studentEmail.toLowerCase(),
-total:total,
-paid:paid,
-due:Math.max(total-paid,0),
-dueDate:dueDate
-}
-);
-
-
-msg(
-"feeMsg",
-"Fees saved successfully.",
-true
-);
-
-}
-
-catch(e){
-
-msg("feeMsg",e.message);
-
-}
-
-};
-
-
-/* HOMEWORK */
-
-window.addHomework=async()=>{
-
-try{
-
-const cl=
-document.getElementById("hwClass")
-.value.trim();
-
-const subject=
-document.getElementById("hwSubject")
-.value.trim();
-
-const text=
-document.getElementById("hwText")
-.value.trim();
-
-const date=
-document.getElementById("hwDate").value;
-
-
-if(!cl||!subject||!text)
-
-return msg(
-"hwMsg",
-"Fill homework fields."
-);
-
-
-await addDoc(
-collection(db,"homework"),
-{
-class:cl,
-subject:subject,
-text:text,
-date:date
-}
-);
-
-
-msg(
-"hwMsg",
-"Homework published.",
-true
-);
-
-
-document.getElementById("hwText").value="";
-
-}
-
-catch(e){
-
-msg("hwMsg",e.message);
-
-}
-
-};
-
-
-/* MATERIAL */
-
-window.addMaterial=async()=>{
-
-try{
-
-const cl=
-document.getElementById("matClass")
-.value.trim();
-
-const subject=
-document.getElementById("matSubject")
-.value.trim();
-
-const title=
-document.getElementById("matTitle")
-.value.trim();
-
-const link=
-document.getElementById("matLink")
-.value.trim();
-
-
-if(!cl||!title||!link)
-
-return msg(
-"matMsg",
-"Fill material fields."
-);
-
-
-await addDoc(
-collection(db,"materials"),
-{
-class:cl,
-subject:subject,
-title:title,
-link:link
-}
-);
-
-
-msg(
-"matMsg",
-"Study material added.",
-true
-);
-
-}
-
-catch(e){
-
-msg("matMsg",e.message);
-
-}
-
-};
-
-
-/* CALENDAR */
-
-window.addCalendar=async()=>{
-
-try{
-
-const title=
-document.getElementById("calTitle")
-.value.trim();
-
-const date=
-document.getElementById("calDate").value;
-
-const details=
-document.getElementById("calDetails")
-.value.trim();
-
-
-if(!title||!date)
-
-return msg(
-"calMsg",
-"Enter title and date."
-);
-
-
-await addDoc(
-collection(db,"calendar"),
-{
-title:title,
-date:date,
-details:details
-}
-);
-
-
-msg(
-"calMsg",
-"Calendar event added.",
-true
-);
-
-
-document.getElementById("calTitle").value="";
-document.getElementById("calDetails").value="";
-
-}
-
-catch(e){
-
-msg("calMsg",e.message);
-
-}
-
-};
-
-
-/* RESULT SAVE */
-
-window.addResult=async()=>{
-
-try{
-
-const studentEmail=
-document.getElementById("resultStudent").value;
-
-const session=
-document.getElementById("resultSession")
-.value.trim();
-
-const exam=
-document.getElementById("resultExam")
-.value.trim();
-
-const subject=
-document.getElementById("resultSubject")
-.value.trim();
-
-const marks=
-Number(
-document.getElementById("resultMarks").value
-)||0;
-
-const maxMarks=
-Number(
-document.getElementById("resultMax").value
-)||100;
-
-
-if(
-!studentEmail||
-!session||
-!exam||
-!subject
-)
-
-return msg(
-"resultMsg",
-"Fill all result fields."
-);
-
-
-if(marks<0||marks>maxMarks)
-
-return msg(
-"resultMsg",
-"Marks must be between 0 and Max Marks."
-);
-
-
-await addDoc(
-collection(db,"results"),
-{
-parentEmail:studentEmail.toLowerCase(),
-session:session,
-exam:exam,
-subject:subject,
-marks:marks,
-maxMarks:maxMarks,
-createdAt:serverTimestamp()
-}
-);
-
-
-msg(
-"resultMsg",
-"Result saved successfully.",
-true
-);
-
-
-document.getElementById("resultSubject").value="";
-document.getElementById("resultMarks").value="";
-
-}
-
-catch(e){
-
-msg(
-"resultMsg",
-e.message
-);
-
-}
-
-};
-
-
-/* DOCUMENT */
-
-window.addDocument=async()=>{
-
-try{
-
-const studentEmail=
-document.getElementById("docStudent").value;
-
-const title=
-document.getElementById("docTitle")
-.value.trim();
-
-const link=
-document.getElementById("docLink")
-.value.trim();
-
-
-if(!studentEmail||!title||!link)
-
-return msg(
-"docMsg",
-"Fill document fields."
-);
-
-
-await addDoc(
-collection(db,"documents"),
-{
-parentEmail:studentEmail.toLowerCase(),
-title:title,
-link:link
-}
-);
-
-
-msg(
-"docMsg",
-"Document saved.",
-true
-);
-
-}
-
-catch(e){
-
-msg("docMsg",e.message);
-
-}
-
-};
-
-
-/* STUDENT MANAGEMENT */
-
-window.loadStudents=async()=>{
-
-const box=
-document.getElementById("studentsList");
-
-box.innerHTML=
-'<p class="muted">Loading students...</p>';
-
-try{
-
-const ss=
-await students();
-
-
-if(!ss.length){
-
-box.innerHTML=
-'<p class="muted">No students found.</p>';
-
-return;
-
-}
-
-
-box.innerHTML=
-ss.map(d=>{
-
-const active=
-d.active!==false;
-
-return `
-
-<div class="item">
-
-<h3>
-👨‍🎓 ${clean(d.name)}
-</h3>
-
-<p>
-
-📚 Class:
-<b>${clean(d.class)}</b>
-
-<br>
-
-🔢 Roll:
-<b>${clean(d.roll)}</b>
-
-<br>
-
-📧 Parent:
-${clean(d.parentEmail)}
-
-<br>
-
-Status:
-
-<span class="${
-active
-?"status-active"
-:"status-inactive"
-}">
-
-${active?"🟢 Active":"🔴 Inactive"}
-
-</span>
-
-</p>
-
-<div class="student-actions">
-
-<button onclick="editStudent('${d.id}')">
-✏️ Edit Student
-</button>
-
-<button
-class="${active?'danger':'green'}"
-onclick="toggleStudent('${d.id}',${active})">
-
-${active
-?"🔴 Deactivate"
-:"🟢 Activate"}
-
-</button>
-
-</div>
-
-</div>
-
-`;
-
-}).join("");
-
-}
-
-catch(e){
-
-box.innerHTML=
-`<p class="error message">${clean(e.message)}</p>`;
-
-}
-
-};
-
-
-/* EDIT STUDENT */
-
-window.editStudent=async(id)=>{
-
-try{
-
-const ss=
-await students();
-
-const d=
-ss.find(x=>x.id===id);
-
-if(!d)return;
-
-
-const name=
-prompt(
-"Student Name",
-d.name||""
-);
-
-if(name===null)return;
-
-
-const cl=
-prompt(
-"Class",
-d.class||""
-);
-
-if(cl===null)return;
-
-
-const roll=
-prompt(
-"Roll Number",
-d.roll||""
-);
-
-if(roll===null)return;
-
-
-const pe=
-prompt(
-"Parent Email",
-d.parentEmail||""
-);
-
-if(pe===null)return;
-
-
-if(
-!name.trim()||
-!cl.trim()||
-!roll.trim()||
-!pe.trim()
+/* FIRESTORE RECORD HELPER */
+
+async function records(
+  collectionName,
+  field,
+  value
 ){
 
-alert(
-"All student details are required."
-);
+  const q =
+    query(
+      collection(db,collectionName),
+      where(field,"==",value)
+    );
 
-return;
+  const snap =
+    await getDocs(q);
 
-}
-
-
-await updateDoc(
-doc(db,"students",id),
-{
-name:name.trim(),
-class:cl.trim(),
-roll:roll.trim(),
-parentEmail:pe.trim().toLowerCase()
-}
-);
-
-
-alert(
-"Student updated successfully."
-);
-
-
-await refreshStudentSelects();
-
-await loadStudents();
-
-}
-
-catch(e){
-
-console.log(e);
-
-alert(
-"Update failed: "+e.message
-);
-
-}
-
-};
-
-
-/* ACTIVATE / DEACTIVATE */
-
-window.toggleStudent=async(id,active)=>{
-
-try{
-
-const ok=
-confirm(
-active
-?
-"क्या आप इस student को deactivate करना चाहते हैं?\n\nपुराने records delete नहीं होंगे।"
-:
-"क्या आप इस student को फिर से activate करना चाहते हैं?"
-);
-
-
-if(!ok)return;
-
-
-await updateDoc(
-doc(db,"students",id),
-{
-active:!active
-}
-);
-
-
-alert(
-active
-?
-"Student deactivated successfully."
-:
-"Student activated successfully."
-);
-
-
-await refreshStudentSelects();
-
-await loadStudents();
-
-}
-
-catch(e){
-
-console.log(e);
-
-alert(
-"Could not update student: "+e.message
-);
-
-}
-
-};
-
-
-/* RECORDS */
-
-async function records(col,field,value){
-
-const s=
-await getDocs(
-query(
-collection(db,col),
-where(field,"==",value)
-)
-);
-
-return s.docs.map(
-d=>d.data()
-);
+  return snap.docs.map(d => ({
+    id:d.id,
+    ...d.data()
+  }));
 
 }
 
 
-/* SHOW */
+/* GET ACTIVE STUDENT */
 
-function show(title,html){
+async function getStudentByEmail(
+  parentEmail
+){
 
-document.getElementById(
-"parentContent"
-).innerHTML=
+  const q =
+    query(
+      collection(db,"students"),
+      where(
+        "parentEmail",
+        "==",
+        parentEmail.toLowerCase()
+      )
+    );
 
-`<div class="card">
+  const snap =
+    await getDocs(q);
 
-<h2>${title}</h2>
+  const list =
+    snap.docs.map(d => ({
+      id:d.id,
+      ...d.data()
+    }));
 
-${html}
+  return list.find(
+    x => x.active !== false
+  ) || list[0] || null;
 
-</div>`;
+}
+
+
+/* PARENT LOAD */
+
+async function loadParent(){
+
+  const e = email();
+
+  document
+    .getElementById("parentWelcome")
+    .textContent =
+      "Logged in as " + e;
+
+  await loadParentDashboard();
+
+}
+
+
+/* PARENT DASHBOARD */
+
+async function loadParentDashboard(){
+
+  const student =
+    await getStudentByEmail(email());
+
+  if(!student){
+
+    document
+      .getElementById("parentWelcome")
+      .textContent =
+        "No student profile found.";
+
+    return;
+
+  }
+
+  document
+    .getElementById("parentWelcome")
+    .innerHTML =
+      `
+      Welcome,
+      <b>${clean(student.name)}</b>
+      • Class ${clean(student.class)}
+      `;
 
 }
 
 
 /* NOTIFICATIONS */
 
-window.notifications=async()=>{
+window.notifications = async function(){
 
-show(
-"🔔 Notifications",
-'<p class="muted">Loading...</p>'
-);
+  showParentContent(
+    "🔔 Notifications",
+    `<p class="muted">Loading...</p>`
+  );
 
+  try{
 
-const s=
-await getDocs(
-collection(db,"notices")
-);
+    const a =
+      await records(
+        "notices",
+        "createdBy",
+        ADMIN_EMAIL
+      );
 
+    if(!a.length){
 
-let n=
-s.docs.map(d=>d.data());
+      const all =
+        await getDocs(
+          collection(db,"notices")
+        );
 
+      const data =
+        all.docs.map(d => ({
+          id:d.id,
+          ...d.data()
+        }));
 
-n.sort(
-(x,y)=>
-String(y.date)
-.localeCompare(String(x.date))
-);
+      if(!data.length){
 
+        showParentContent(
+          "🔔 Notifications",
+          `<p class="muted">
+             No notifications found.
+           </p>`
+        );
 
-if(!n.length)
+        return;
 
-return show(
-"🔔 Notifications",
-'<p class="muted">No notifications available.</p>'
-);
+      }
 
+      showParentContent(
+        "🔔 Notifications",
+        data
+          .sort(
+            (x,y) =>
+              String(y.createdAt || "")
+              .localeCompare(
+                String(x.createdAt || "")
+              )
+          )
+          .map(x => `
+            <div class="item notice">
+              <h3>${clean(x.title)}</h3>
+              <p>${clean(x.message)}</p>
+            </div>
+          `)
+          .join("")
+      );
 
-show(
-"🔔 Notifications",
+      return;
 
-n.map(x=>`
+    }
 
-<div class="item">
+    showParentContent(
+      "🔔 Notifications",
+      a.map(x => `
+        <div class="item notice">
+          <h3>${clean(x.title)}</h3>
+          <p>${clean(x.message)}</p>
+        </div>
+      `).join("")
+    );
 
-<span class="badge">
-🔔 ${clean(x.date)}
-</span>
+  }catch(err){
 
-<h3 style="margin-top:8px">
-${clean(x.title)}
-</h3>
+    showParentContent(
+      "🔔 Notifications",
+      `<p class="muted">
+        Unable to load notifications.
+      </p>`
+    );
 
-<p>
-${clean(x.message)}
-</p>
-
-</div>
-
-`).join("")
-
-);
+  }
 
 };
 
 
 /* ATTENDANCE */
 
-window.attendance=async()=>{
+window.attendance = async function(){
 
-show(
-"📅 Attendance",
-'<p class="muted">Loading...</p>'
-);
+  showParentContent(
+    "📋 Attendance",
+    `<p class="muted">Loading...</p>`
+  );
 
+  try{
 
-const a=
-await records(
-"attendance",
-"parentEmail",
-email()
-);
+    const a =
+      await records(
+        "attendance",
+        "parentEmail",
+        email()
+      );
 
+    if(!a.length){
 
-if(!a.length)
+      showParentContent(
+        "📋 Attendance",
+        `<p class="muted">
+          No attendance records found.
+        </p>`
+      );
 
-return show(
-"📅 Attendance",
-'<p class="muted">No attendance records found.</p>'
-);
+      return;
 
+    }
 
-a.sort(
-(x,y)=>
-String(y.date)
-.localeCompare(String(x.date))
-);
+    a.sort((x,y)=>
+      String(y.date || "")
+      .localeCompare(
+        String(x.date || "")
+      )
+    );
 
+    showParentContent(
+      "📋 Attendance",
 
-show(
-"📅 Attendance",
+      a.map(x => `
 
-a.map(x=>`
+        <div class="item">
 
-<div class="item">
+          <h3>
+            ${clean(x.date)}
+          </h3>
 
-<h3>
-📅 ${clean(x.date)}
-</h3>
+          <p>
+            Status:
+            <b>${clean(x.status)}</b>
+          </p>
 
-<p class="${
-x.status==="Present"
-?"present"
-:"absent"
-}">
+        </div>
 
-${clean(x.status)}
+      `).join("")
+    );
 
-</p>
+  }catch(err){
 
-</div>
+    showParentContent(
+      "📋 Attendance",
+      `<p class="muted">
+        Unable to load attendance.
+      </p>`
+    );
 
-`).join("")
-
-);
-
-};
-
-
-/* NOTICES */
-
-window.notices=async()=>{
-
-show(
-"📢 Notices",
-'<p class="muted">Loading...</p>'
-);
-
-
-const s=
-await getDocs(
-collection(db,"notices")
-);
-
-
-let n=
-s.docs.map(d=>d.data());
-
-
-n.sort(
-(x,y)=>
-String(y.date)
-.localeCompare(String(x.date))
-);
-
-
-if(!n.length)
-
-return show(
-"📢 Notices",
-'<p class="muted">No notices available.</p>'
-);
-
-
-show(
-"📢 Notices",
-
-n.map(x=>`
-
-<div class="item">
-
-<span class="badge">
-${clean(x.date)}
-</span>
-
-<h3 style="margin-top:8px">
-${clean(x.title)}
-</h3>
-
-<p>
-${clean(x.message)}
-</p>
-
-</div>
-
-`).join("")
-
-);
-
-};
-
-
-/* FEES */
-
-window.fees=async()=>{
-
-show(
-"💰 Fees",
-'<p class="muted">Loading...</p>'
-);
-
-
-const a=
-await records(
-"fees",
-"parentEmail",
-email()
-);
-
-
-if(!a.length)
-
-return show(
-"💰 Fees",
-'<p class="muted">No fee record found.</p>'
-);
-
-
-const x=
-a[a.length-1];
-
-
-show(
-"💰 Fees",
-
-`
-
-<div class="item">
-
-<h3>
-Total Fees: ₹${x.total||0}
-</h3>
-
-<p>
-
-Paid: ₹${x.paid||0}
-
-<br>
-
-<b>
-Due: ₹${x.due||0}
-</b>
-
-<br>
-
-Due Date:
-${clean(x.dueDate||"Not set")}
-
-</p>
-
-</div>
-
-`
-
-);
+  }
 
 };
 
 
 /* HOMEWORK */
 
-window.homework=async()=>{
+window.homework = async function(){
 
-if(!currentStudent)return;
+  showParentContent(
+    "📝 Homework",
+    `<p class="muted">Loading...</p>`
+  );
 
+  try{
 
-show(
-"📝 Homework",
-'<p class="muted">Loading...</p>'
-);
+    const snap =
+      await getDocs(
+        collection(db,"homework")
+      );
 
+    const a =
+      snap.docs.map(d => ({
+        id:d.id,
+        ...d.data()
+      }));
 
-const a=
-await records(
-"homework",
-"class",
-String(currentStudent.class)
-);
+    if(!a.length){
 
+      showParentContent(
+        "📝 Homework",
+        `<p class="muted">
+          No homework found.
+        </p>`
+      );
 
-if(!a.length)
+      return;
 
-return show(
-"📝 Homework",
-'<p class="muted">No homework found.</p>'
-);
+    }
 
+    showParentContent(
+      "📝 Homework",
 
-a.sort(
-(x,y)=>
-String(y.date)
-.localeCompare(String(x.date))
-);
+      a.map(x => `
 
+        <div class="item">
 
-show(
-"📝 Homework",
+          <h3>
+            ${clean(x.subject)}
+          </h3>
 
-a.map(x=>`
+          <p>
+            ${clean(x.text)}
+          </p>
 
-<div class="item">
+          <p class="small muted">
+            Class: ${clean(x.class)}
+            ${x.dueDate
+              ? " • Due: " + clean(x.dueDate)
+              : ""}
+          </p>
 
-<span class="badge">
-${clean(x.date)}
-</span>
+        </div>
 
-<h3>
-${clean(x.subject)}
-</h3>
+      `).join("")
+    );
 
-<p>
-${clean(x.text)}
-</p>
+  }catch(err){
 
-</div>
+    showParentContent(
+      "📝 Homework",
+      `<p class="muted">
+        Unable to load homework.
+      </p>`
+    );
 
-`).join("")
-
-);
+  }
 
 };
 
 
 /* MATERIALS */
 
-window.materials=async()=>{
+window.materials = async function(){
 
-if(!currentStudent)return;
+  showParentContent(
+    "📚 Study Material",
+    `<p class="muted">Loading...</p>`
+  );
 
+  try{
 
-show(
-"📚 Study Material",
-'<p class="muted">Loading...</p>'
-);
+    const snap =
+      await getDocs(
+        collection(db,"materials")
+      );
 
+    const a =
+      snap.docs.map(d => ({
+        id:d.id,
+        ...d.data()
+      }));
 
-const a=
-await records(
-"materials",
-"class",
-String(currentStudent.class)
-);
+    if(!a.length){
 
+      showParentContent(
+        "📚 Study Material",
+        `<p class="muted">
+          No study material found.
+        </p>`
+      );
 
-if(!a.length)
+      return;
 
-return show(
-"📚 Study Material",
-'<p class="muted">No material found.</p>'
-);
+    }
 
+    showParentContent(
+      "📚 Study Material",
 
-show(
-"📚 Study Material",
+      a.map(x => `
 
-a.map(x=>`
+        <div class="item">
 
-<div class="item">
+          <h3>
+            ${clean(x.title)}
+          </h3>
 
-<h3>
-${clean(x.title)}
-</h3>
+          <p>
+            Subject:
+            ${clean(x.subject)}
+          </p>
 
-<p>
-${clean(x.subject||"")}
-</p>
+          ${
+            x.link
+            ? `
+              <a
+                href="${clean(x.link)}"
+                target="_blank">
+                <button>
+                  Open Material
+                </button>
+              </a>
+            `
+            : ""
+          }
 
-<a
-href="${clean(x.link)}"
-target="_blank"
-rel="noopener">
+        </div>
 
-<button>
-📖 Open Material
-</button>
+      `).join("")
+    );
 
-</a>
+  }catch(err){
 
-</div>
+    showParentContent(
+      "📚 Study Material",
+      `<p class="muted">
+        Unable to load study material.
+      </p>`
+    );
 
-`).join("")
-
-);
+  }
 
 };
 
 
 /* CALENDAR */
 
-window.calendar=async()=>{
+window.calendarPage = async function(){
 
-show(
-"🗓️ School Calendar",
-'<p class="muted">Loading...</p>'
-);
+  showParentContent(
+    "🗓️ Calendar",
+    `<p class="muted">Loading...</p>`
+  );
 
+  try{
 
-const s=
-await getDocs(
-collection(db,"calendar")
-);
+    const snap =
+      await getDocs(
+        collection(db,"calendar")
+      );
 
+    const a =
+      snap.docs.map(d => ({
+        id:d.id,
+        ...d.data()
+      }));
 
-let a=
-s.docs.map(d=>d.data());
+    if(!a.length){
 
+      showParentContent(
+        "🗓️ Calendar",
+        `<p class="muted">
+          No calendar events found.
+        </p>`
+      );
 
-a.sort(
-(x,y)=>
-String(x.date)
-.localeCompare(String(y.date))
-);
+      return;
 
+    }
 
-if(!a.length)
+    a.sort((x,y)=>
+      String(x.date || "")
+      .localeCompare(
+        String(y.date || "")
+      )
+    );
 
-return show(
-"🗓️ School Calendar",
-'<p class="muted">No events available.</p>'
-);
+    showParentContent(
+      "🗓️ Calendar",
 
+      a.map(x => `
 
-show(
-"🗓️ School Calendar",
+        <div class="item">
 
-a.map(x=>`
+          <h3>
+            ${clean(x.title)}
+          </h3>
 
-<div class="item">
+          <p>
+            📅 ${clean(x.date)}
+          </p>
 
-<span class="badge">
-${clean(x.date)}
-</span>
+          <p>
+            ${clean(x.description)}
+          </p>
 
-<h3>
-${clean(x.title)}
-</h3>
+        </div>
 
-<p>
-${clean(x.details||"")}
-</p>
+      `).join("")
+    );
 
-</div>
+  }catch(err){
 
-`).join("")
+    showParentContent(
+      "🗓️ Calendar",
+      `<p class="muted">
+        Unable to load calendar.
+      </p>`
+    );
 
-);
+  }
 
 };
 
 
-/* RESULT DISPLAY */
+/* FEES */
 
-window.results=async()=>{
+window.fees = async function(){
 
-show(
-"🧪 Exam / Result",
-'<p class="muted">Loading...</p>'
-);
+  showParentContent(
+    "💰 Fees",
+    `<p class="muted">Loading...</p>`
+  );
 
+  const a =
+    await records(
+      "fees",
+      "parentEmail",
+      email()
+    );
 
-const a=
-await records(
-"results",
-"parentEmail",
-email()
-);
+  if(!a.length){
 
+    showParentContent(
+      "💰 Fees",
+      `<p class="muted">
+        No fee records found.
+      </p>`
+    );
 
-if(!a.length)
+    return;
 
-return show(
-"🧪 Exam / Result",
-'<p class="muted">No result records found.</p>'
-);
+  }
 
+  showParentContent(
+    "💰 Fees",
 
-/* GROUP BY SESSION + EXAM */
+    a.map(x => `
 
-const groups={};
+      <div class="item">
 
+        <h3>
+          ${clean(x.type)}
+        </h3>
 
-a.forEach(x=>{
+        <p>
+          Amount:
+          <b>₹${clean(x.amount)}</b>
+        </p>
 
-const session=
-x.session||"Academic Session";
+        <p>
+          Status:
+          <b>${clean(x.status)}</b>
+        </p>
 
-const exam=
-x.exam||"Examination";
+      </div>
 
-const key=
-session+"||"+exam;
+    `).join("")
+  );
 
-
-if(!groups[key]){
-
-groups[key]={
-session:session,
-exam:exam,
-subjects:[]
 };
+
+
+/* DOCUMENTS */
+
+window.documents = async function(){
+
+  showParentContent(
+    "📄 Documents",
+    `<p class="muted">Loading...</p>`
+  );
+
+  const a =
+    await records(
+      "documents",
+      "parentEmail",
+      email()
+    );
+
+  if(!a.length){
+
+    showParentContent(
+      "📄 Documents",
+      `<p class="muted">
+        No documents found.
+      </p>`
+    );
+
+    return;
+
+  }
+
+  showParentContent(
+    "📄 Documents",
+
+    a.map(x => `
+
+      <div class="item">
+
+        <h3>
+          ${clean(x.title)}
+        </h3>
+
+        ${
+          x.link
+          ? `
+            <a href="${clean(x.link)}"
+               target="_blank">
+              <button>
+                Open Document
+              </button>
+            </a>
+          `
+          : ""
+        }
+
+      </div>
+
+    `).join("")
+  );
+
+};
+
+
+/* GRADE */
+
+function gradeForPercent(percent){
+
+  if(percent >= 90) return "A1";
+  if(percent >= 80) return "A2";
+  if(percent >= 70) return "B1";
+  if(percent >= 60) return "B2";
+  if(percent >= 50) return "C1";
+  if(percent >= 40) return "C2";
+  if(percent >= 33) return "D";
+
+  return "E";
 
 }
 
 
-groups[key].subjects.push(x);
+/* CURRENT ACADEMIC SESSION */
 
-});
+function currentSession(){
 
+  const d =
+    new Date();
 
-const cards=
-Object.values(groups)
-.map((g,index)=>{
+  const year =
+    d.getFullYear();
 
-let total=0;
-let maxTotal=0;
+  const month =
+    d.getMonth();
 
+  const startYear =
+    month >= 3
+      ? year
+      : year - 1;
 
-const rows=
-g.subjects.map(x=>{
-
-const marks=
-Number(x.marks)||0;
-
-const max=
-Number(x.maxMarks)||100;
-
-
-total+=marks;
-maxTotal+=max;
-
-
-return `
-
-<tr>
-
-<td>
-${clean(x.subject)}
-</td>
-
-<td>
-${marks}
-</td>
-
-<td>
-${max}
-</td>
-
-<td>
-${max>0
-?((marks/max)*100).toFixed(1)
-:"0"}%
-</td>
-
-</tr>
-
-`;
-
-}).join("");
-
-
-const percentage=
-maxTotal>0
-?(total/maxTotal)*100
-:0;
-
-
-let grade="";
-
-if(percentage>=91)
-grade="A1";
-else if(percentage>=81)
-grade="A2";
-else if(percentage>=71)
-grade="B1";
-else if(percentage>=61)
-grade="B2";
-else if(percentage>=51)
-grade="C1";
-else if(percentage>=41)
-grade="C2";
-else if(percentage>=33)
-grade="D";
-else
-grade="E";
-
-
-const result=
-percentage>=33
-?"PASS"
-:"NEEDS IMPROVEMENT";
-
-
-return `
-
-<div class="result-card" id="resultCard${index}">
-
-<div class="result-header">
-
-<h1>
-DELHI PUBLIC SCHOOL
-</h1>
-
-<h2>
-NARKATIAGANJ
-</h2>
-
-<p>
-REPORT CARD
-</p>
-
-</div>
-
-
-<div class="result-meta">
-
-<div>
-<b>Student Name</b><br>
-${clean(studentName())}
-</div>
-
-<div>
-<b>Class</b><br>
-${clean(currentStudent?.class||"")}
-</div>
-
-<div>
-<b>Roll No.</b><br>
-${clean(currentStudent?.roll||"")}
-</div>
-
-<div>
-<b>Academic Session</b><br>
-${clean(g.session)}
-</div>
-
-<div>
-<b>Examination</b><br>
-${clean(g.exam)}
-</div>
-
-<div>
-<b>School</b><br>
-DPS Narkatiaganj
-</div>
-
-</div>
-
-
-<table class="result-table">
-
-<thead>
-
-<tr>
-
-<th>Subject</th>
-<th>Marks</th>
-<th>Max</th>
-<th>Percentage</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-${rows}
-
-</tbody>
-
-</table>
-
-
-<div class="result-summary">
-
-<div>
-Total Marks
-<strong>
-${total} / ${maxTotal}
-</strong>
-</div>
-
-<div>
-Percentage
-<strong>
-${percentage.toFixed(2)}%
-</strong>
-</div>
-
-<div>
-Grade
-<strong>
-${grade}
-</strong>
-</div>
-
-<div>
-Result
-<strong>
-${result}
-</strong>
-</div>
-
-</div>
-
-
-<div class="result-status ${
-result==="PASS"
-?"result-pass"
-:"result-fail"
-}">
-
-${result==="PASS"
-?"✅ RESULT: PASS"
-:"⚠️ RESULT: NEEDS IMPROVEMENT"}
-
-</div>
-
-
-<div class="signature">
-
-<div>
-Class Teacher
-</div>
-
-<div>
-Principal
-</div>
-
-</div>
-
-
-<button
-class="secondary print-btn"
-onclick="printResult(${index})">
-
-🖨️ Print / Save PDF
-
-</button>
-
-
-</div>
-
-`;
-
-});
-
-
-show(
-"🧪 Exam / Result",
-cards.join("")
-);
-
-};
-
-
-/* STUDENT NAME */
-
-function studentName(){
-
-return currentStudent?.name||"Student";
+  return (
+    startYear +
+    "-" +
+    String(startYear + 1).slice(-2)
+  );
 
 }
+
+
+/* RESULT PAGE */
+
+window.results = async function(){
+
+  showParentContent(
+    "🧪 Exam / Result",
+    `<p class="muted">Loading result...</p>`
+  );
+
+  try{
+
+    const a =
+      await records(
+        "results",
+        "parentEmail",
+        email()
+      );
+
+    if(!a.length){
+
+      showParentContent(
+        "🧪 Exam / Result",
+        `<p class="muted">
+          No result records found.
+        </p>`
+      );
+
+      return;
+
+    }
+
+
+    /*
+      Group results by:
+      Academic Session + Examination
+    */
+
+    const groups = {};
+
+    a.forEach(x => {
+
+      const session =
+        x.session ||
+        currentSession();
+
+      const exam =
+        x.exam ||
+        "Examination";
+
+      const key =
+        session + "||" + exam;
+
+      if(!groups[key]){
+
+        groups[key] = {
+          session,
+          exam,
+          studentName:
+            x.studentName || "",
+          studentClass:
+            x.studentClass || "",
+          studentRoll:
+            x.studentRoll || "",
+          subjects:[]
+        };
+
+      }
+
+      groups[key].subjects.push(x);
+
+    });
+
+
+    const groupList =
+      Object.values(groups);
+
+
+    groupList.sort((a,b)=>{
+
+      const s =
+        String(b.session)
+        .localeCompare(
+          String(a.session)
+        );
+
+      if(s !== 0)
+        return s;
+
+      return String(a.exam)
+        .localeCompare(
+          String(b.exam)
+        );
+
+    });
+
+
+    const html =
+      groupList.map(
+        (group,index) => {
+
+          let total = 0;
+          let maxTotal = 0;
+          let failed = false;
+
+          group.subjects.forEach(x => {
+
+            const marks =
+              Number(x.marks || 0);
+
+            const max =
+              Number(x.maxMarks || 100);
+
+            total += marks;
+            maxTotal += max;
+
+            const pct =
+              max > 0
+                ? marks / max * 100
+                : 0;
+
+            if(pct < 33)
+              failed = true;
+
+          });
+
+
+          const percentage =
+            maxTotal > 0
+              ? total / maxTotal * 100
+              : 0;
+
+          const overallGrade =
+            gradeForPercent(
+              percentage
+            );
+
+          const status =
+            failed
+              ? "Needs Improvement"
+              : "Pass";
+
+
+          const reportId =
+            "report_" + index;
+
+
+          return `
+
+            <div
+              class="report-card"
+              id="${reportId}">
+
+              <div class="report-header">
+
+                <h2>
+                  DELHI PUBLIC SCHOOL
+                </h2>
+
+                <h3>
+                  NARKATIAGANJ
+                </h3>
+
+                <p>
+                  EXAMINATION RESULT
+                </p>
+
+              </div>
+
+
+              <div class="report-body">
+
+                <div class="student-info">
+
+                  <div class="info-box">
+                    <span>Student Name</span>
+                    <b>
+                      ${clean(
+                        group.studentName ||
+                        "Student"
+                      )}
+                    </b>
+                  </div>
+
+                  <div class="info-box">
+                    <span>Academic Session</span>
+                    <b>
+                      ${clean(group.session)}
+                    </b>
+                  </div>
+
+                  <div class="info-box">
+                    <span>Class</span>
+                    <b>
+                      ${clean(
+                        group.studentClass ||
+                        "—"
+                      )}
+                    </b>
+                  </div>
+
+                  <div class="info-box">
+                    <span>Roll No.</span>
+                    <b>
+                      ${clean(
+                        group.studentRoll ||
+                        "—"
+                      )}
+                    </b>
+                  </div>
+
+                  <div
+                    class="info-box"
+                    style="grid-column:1/-1">
+
+                    <span>Examination</span>
+
+                    <b>
+                      ${clean(group.exam)}
+                    </b>
+
+                  </div>
+
+                </div>
+
+
+                <table class="result-table">
+
+                  <thead>
+
+                    <tr>
+
+                      <th>Subject</th>
+
+                      <th>Max Marks</th>
+
+                      <th>Marks</th>
+
+                      <th>Grade</th>
+
+                    </tr>
+
+                  </thead>
+
+                  <tbody>
+
+                    ${
+                      group.subjects
+                      .map(x => {
+
+                        const marks =
+                          Number(
+                            x.marks || 0
+                          );
+
+                        const max =
+                          Number(
+                            x.maxMarks || 100
+                          );
+
+                        const pct =
+                          max > 0
+                            ? marks / max * 100
+                            : 0;
+
+                        return `
+
+                          <tr>
+
+                            <td>
+                              ${clean(
+                                x.subject ||
+                                "Subject"
+                              )}
+                            </td>
+
+                            <td>
+                              ${max}
+                            </td>
+
+                            <td>
+                              <b>${marks}</b>
+                            </td>
+
+                            <td class="grade">
+                              ${gradeForPercent(
+                                pct
+                              )}
+                            </td>
+
+                          </tr>
+
+                        `;
+
+                      }).join("")
+                    }
+
+                  </tbody>
+
+                </table>
+
+
+                <div class="result-summary">
+
+                  <div class="summary-box">
+
+                    <span>Total</span>
+
+                    <b>
+                      ${total} / ${maxTotal}
+                    </b>
+
+                  </div>
+
+
+                  <div class="summary-box">
+
+                    <span>Percentage</span>
+
+                    <b>
+                      ${percentage.toFixed(2)}%
+                    </b>
+
+                  </div>
+
+
+                  <div class="summary-box">
+
+                    <span>Overall Grade</span>
+
+                    <b>
+                      ${overallGrade}
+                    </b>
+
+                  </div>
+
+
+                  <div class="summary-box">
+
+                    <span>Result</span>
+
+                    <b>
+                      ${status}
+                    </b>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <div class="report-footer">
+
+                <p>
+                  This is a school-generated result
+                  available through the DPS Narkatiaganj
+                  Parent Portal.
+                </p>
+
+              </div>
+
+
+              <button
+                class="print-btn"
+                onclick="printResult('${reportId}')">
+
+                🖨️ Print Result
+
+              </button>
+
+            </div>
+
+          `;
+
+        }
+      ).join("");
+
+
+    showParentContent(
+      "🧪 Exam / Result",
+      html
+    );
+
+  }catch(err){
+
+    console.error(err);
+
+    showParentContent(
+      "🧪 Exam / Result",
+      `<p class="muted">
+        Unable to load results.
+      </p>`
+    );
+
+  }
+
+};
 
 
 /* PRINT RESULT */
 
-window.printResult=(index)=>{
+window.printResult = function(id){
 
-const card=
-document.getElementById(
-"resultCard"+index
-);
+  const report =
+    document.getElementById(id);
 
-if(!card)return;
+  if(!report)
+    return;
 
+  document
+    .querySelectorAll(".report-card")
+    .forEach(x =>
+      x.classList.remove("print-target")
+    );
 
-const old=
-document.title;
+  report.classList.add("print-target");
 
+  window.print();
 
-document.title=
-"DPS Narkatiaganj Report Card";
+  setTimeout(()=>{
 
+    report.classList.remove(
+      "print-target"
+    );
 
-const printWindow=
-window.open("","_blank");
-
-
-printWindow.document.write(`
-
-<html>
-
-<head>
-
-<title>DPS Narkatiaganj Report Card</title>
-
-<style>
-
-body{
-font-family:Arial,sans-serif;
-padding:25px;
-color:#172033
-}
-
-.result-card{
-border:1px solid #aaa;
-border-radius:12px;
-padding:20px;
-max-width:700px;
-margin:auto
-}
-
-.result-header{
-text-align:center;
-border-bottom:2px solid #17358d;
-padding-bottom:12px;
-margin-bottom:15px
-}
-
-.result-header h1{
-color:#17358d;
-font-size:24px
-}
-
-.result-header h2{
-font-size:17px;
-margin:5px
-}
-
-.result-header p{
-font-size:13px
-}
-
-.result-meta{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:8px;
-font-size:13px;
-margin-bottom:15px
-}
-
-.result-meta div{
-background:#f5f7fb;
-padding:9px;
-border-radius:7px
-}
-
-.result-table{
-width:100%;
-border-collapse:collapse;
-font-size:13px
-}
-
-.result-table th,
-.result-table td{
-border:1px solid #999;
-padding:9px;
-text-align:center
-}
-
-.result-table th{
-background:#eef2ff
-}
-
-.result-summary{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:8px;
-margin-top:15px
-}
-
-.result-summary div{
-background:#f5f7fb;
-padding:10px;
-text-align:center
-}
-
-.result-summary strong{
-display:block;
-font-size:15px;
-margin-top:4px
-}
-
-.result-status{
-text-align:center;
-padding:10px;
-margin-top:15px;
-font-weight:bold
-}
-
-.result-pass{
-background:#e8f7ee;
-color:#16743d
-}
-
-.result-fail{
-background:#fdecec;
-color:#b42318
-}
-
-.signature{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:40px;
-margin-top:60px;
-text-align:center;
-font-size:12px
-}
-
-.signature div{
-border-top:1px solid #555;
-padding-top:8px
-}
-
-.print-btn{
-display:none
-}
-
-@media(max-width:500px){
-
-.result-meta,
-.result-summary{
-grid-template-columns:1fr
-}
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-${card.outerHTML}
-
-<script>
-
-window.onload=function(){
-window.print();
-};
-
-<\/script>
-
-</body>
-
-</html>
-
-`);
-
-
-printWindow.document.close();
-
-document.title=old;
+  },1000);
 
 };
 
 
 /* PROFILE */
 
-window.profile=()=>{
+window.profile = async function(){
 
-if(!currentStudent)return;
+  const student =
+    await getStudentByEmail(email());
 
+  if(!student){
 
-show(
-"👤 Profile",
+    showParentContent(
+      "👤 Profile",
+      `<p class="muted">
+        No profile found.
+      </p>`
+    );
 
-`
+    return;
 
-<div class="item">
+  }
 
-<h3>
-${clean(currentStudent.name)}
-</h3>
+  showParentContent(
+    "👤 Profile",
 
-<p>
+    `
 
-Class:
-${clean(currentStudent.class)}
+      <div class="item">
 
-<br>
+        <h3>
+          ${clean(student.name)}
+        </h3>
 
-Roll:
-${clean(currentStudent.roll)}
+        <p>
+          Class:
+          <b>${clean(student.class)}</b>
+        </p>
 
-<br>
+        <p>
+          Roll Number:
+          <b>${clean(student.roll)}</b>
+        </p>
 
-Parent Email:
-${clean(currentStudent.parentEmail)}
+        <p>
+          Parent Email:
+          <b>${clean(student.parentEmail)}</b>
+        </p>
 
-</p>
+        <p>
+          Status:
+          <b>
+            ${
+              student.active !== false
+              ? "Active"
+              : "Inactive"
+            }
+          </b>
+        </p>
 
-</div>
+      </div>
 
-`
-
-);
+    `
+  );
 
 };
 
 
-/* SERVICE WORKER */
+/* SHOW PARENT CONTENT */
 
-if("serviceWorker" in navigator){
+function showParentContent(
+  title,
+  content
+){
 
-navigator.serviceWorker
-.register("sw.js")
-.catch(console.log);
+  document
+    .getElementById("parentContent")
+    .innerHTML = `
+
+      <div class="card">
+
+        <button
+          onclick="document.getElementById('parentContent').innerHTML=''"
+          class="btn-gray">
+
+          ← Back
+
+        </button>
+
+        <h2 style="margin-top:15px">
+          ${title}
+        </h2>
+
+        ${content}
+
+      </div>
+
+    `;
+
+  window.scrollTo(0,0);
+
+}
+
+
+/* =========================
+   ADMIN FUNCTIONS
+========================= */
+
+
+/* CREATE PARENT */
+
+window.createParentAccount =
+async function(){
+
+  if(!isAdmin()){
+
+    document
+      .getElementById("parentCreateMsg")
+      .textContent =
+        "Admin login required.";
+
+    return;
+
+  }
+
+
+  const name =
+    document
+      .getElementById("parentName")
+      .value
+      .trim();
+
+  const e =
+    document
+      .getElementById("parentEmail")
+      .value
+      .trim()
+      .toLowerCase();
+
+  const p =
+    document
+      .getElementById("parentPassword")
+      .value;
+
+
+  const msg =
+    document
+      .getElementById("parentCreateMsg");
+
+
+  if(!e || !p){
+
+    msg.textContent =
+      "Email and password required.";
+
+    return;
+
+  }
+
+
+  msg.textContent =
+    "Creating parent account...";
+
+
+  try{
+
+    await createUserWithEmailAndPassword(
+      parentAuth,
+      e,
+      p
+    );
+
+
+    /*
+      Parent name is intentionally not stored
+      in Auth. Student is connected through
+      parent email.
+    */
+
+
+    msg.textContent =
+      "Parent account created successfully.";
+
+    document
+      .getElementById("parentName")
+      .value = "";
+
+    document
+      .getElementById("parentEmail")
+      .value = "";
+
+    document
+      .getElementById("parentPassword")
+      .value = "";
+
+
+    await signOut(parentAuth);
+
+  }catch(err){
+
+    console.error(err);
+
+    msg.textContent =
+      err.code || err.message;
+
+  }
+
+};
+
+
+/* ADD STUDENT */
+
+window.addStudent = async function(){
+
+  if(!isAdmin())
+    return;
+
+  const name =
+    document
+      .getElementById("studentName")
+      .value
+      .trim();
+
+  const cls =
+    document
+      .getElementById("studentClass")
+      .value
+      .trim();
+
+  const roll =
+    document
+      .getElementById("studentRoll")
+      .value
+      .trim();
+
+  const parentEmail =
+    document
+      .getElementById("studentParentEmail")
+      .value
+      .trim()
+      .toLowerCase();
+
+  const msg =
+    document
+      .getElementById("studentMsg");
+
+
+  if(!name || !cls || !parentEmail){
+
+    msg.textContent =
+      "Student name, class and parent email are required.";
+
+    return;
+
+  }
+
+
+  try{
+
+    await addDoc(
+      collection(db,"students"),
+      {
+        name,
+        class:cls,
+        roll,
+        parentEmail,
+        active:true,
+        createdAt:serverTimestamp()
+      }
+    );
+
+
+    msg.textContent =
+      "Student added successfully.";
+
+    document
+      .getElementById("studentName")
+      .value = "";
+
+    document
+      .getElementById("studentClass")
+      .value = "";
+
+    document
+      .getElementById("studentRoll")
+      .value = "";
+
+    document
+      .getElementById("studentParentEmail")
+      .value = "";
+
+
+    await refreshStudentSelects();
+    await loadStudentManagement();
+
+  }catch(err){
+
+    console.error(err);
+
+    msg.textContent =
+      err.code || err.message;
+
+  }
+
+};
+
+
+/* REFRESH STUDENT SELECTS */
+
+async function refreshStudentSelects(){
+
+  const snap =
+    await getDocs(
+      collection(db,"students")
+    );
+
+  const students =
+    snap.docs
+      .map(d => ({
+        id:d.id,
+        ...d.data()
+      }))
+      .filter(x => x.active !== false);
+
+
+  const selects = [
+    "attendanceStudent",
+    "feeStudent",
+    "resultStudent",
+    "documentStudent"
+  ];
+
+
+  selects.forEach(id => {
+
+    const select =
+      document.getElementById(id);
+
+    if(!select)
+      return;
+
+    select.innerHTML =
+      `<option value="">
+        Select Student
+      </option>`;
+
+
+    students.forEach(s => {
+
+      const option =
+        document.createElement("option");
+
+      /*
+        Existing features use parent email
+        as the connection key.
+      */
+
+      option.value =
+        s.parentEmail || "";
+
+      option.textContent =
+        `${s.name} — Class ${s.class}`;
+
+      select.appendChild(option);
+
+    });
+
+  });
+
+
+  document
+    .getElementById("resultSession")
+    .value =
+      currentSession();
+
+}
+
+
+/* ADD ATTENDANCE */
+
+window.addAttendance =
+async function(){
+
+  if(!isAdmin())
+    return;
+
+  const parentEmail =
+    document
+      .getElementById("attendanceStudent")
+      .value;
+
+  const date =
+    document
+      .getElementById("attendanceDate")
+      .value;
+
+  const status =
+    document
+      .getElementById("attendanceStatus")
+      .value;
+
+  const msg =
+    document
+      .getElementById("attendanceMsg");
+
+
+  if(!parentEmail || !date){
+
+    msg.textContent =
+      "Please select student and date.";
+
+    return;
+
+  }
+
+
+  try{
+
+    await addDoc(
+      collection(db,"attendance"),
+      {
+        parentEmail:
+          parentEmail.toLowerCase(),
+
+        date,
+
+        status,
+
+        createdAt:
+          serverTimestamp()
+      }
+    );
+
+
+    msg.textContent =
+      "Attendance saved successfully.";
+
+  }catch(err){
+
+    console.error(err);
+
+    msg.textContent =
+      err.code || err.message;
+
+  }
+
+};
+
+
+/* ADD NOTICE */
+
+window.addNotice =
+async function(){
+
+  if(!isAdmin())
+    return;
+
+  const title =
+    document
+      .getElementById("noticeTitle")
+      .value
+      .trim();
+
+  const message =
+    document
+      .getElementById("noticeMessage")
+      .value
+      .trim();
+
+  const msg =
+    document
+      .getElementById("noticeMsg");
+
+
+  if(!title || !message){
+
+    msg.textContent =
+      "Title and message are required.";
+
+    return;
+
+  }
+
+
+  try{
+
+    await addDoc(
+      collection(db,"notices"),
+      {
+        title,
+        message,
+        createdBy:ADMIN_EMAIL,
+        createdAt:serverTimestamp()
+      }
+    );
+
+
+    msg.textContent =
+      "Notification published.";
+
+    document
+      .getElementById("noticeTitle")
+      .value = "";
+
+    document
+      .getElementById("noticeMessage")
+      .value = "";
+
+  }catch(err){
+
+    console.error(err);
+
+    msg.textContent =
+      err.code || err.message;
+
+  }
+
+};
+
+
+/* ADD FEE */
+
+window.addFee =
+async function(){
+
+  if(!isAdmin())
+    return;
+
+  const parentEmail =
+    document
+      .getElementById("feeStudent")
+      .value;
+
+  const type =
+    document
+      .getElementById("feeType")
+      .value
+      .trim();
+
+  const amount =
+    document
+      .getElementById("feeAmount")
+      .value;
+
+  const status =
+    document
+      .getElementById("feeStatus")
+      .value;
+
+  const msg =
+    document
+      .getElementById("feeMsg");
+
+
+  if(!parentEmail || !type || !amount){
+
+    msg.textContent =
+      "Please fill all fee details.";
+
+    return;
+
+  }
+
+
+  try{
+
+    await addDoc(
+      collection(db,"fees"),
+      {
+        parentEmail:
+          parentEmail.toLowerCase(),
+
+        type,
+
+        amount,
+
+        status,
+
+        createdAt:
+          serverTimestamp()
+      }
+    );
+
+
+    msg.textContent =
+      "Fee saved successfully.";
+
+  }catch(err){
+
+    console.error(err);
+
+    msg.textContent =
+      err.code || err.message;
+
+  }
+
+};
+
+
+/* ADD HOMEWORK */
+
+window.addHomework =
+async function(){
+
+  if(!isAdmin())
+    return;
+
+  const cls =
+    document
+      .getElementById("homeworkClass")
+      .value
+      .trim();
+
+  const subject =
+    document
+      .getElementById("homeworkSubject")
+      .value
+      .trim();
+
+  const text =
+    document
+      .getElementById("homeworkText")
+      .value
+      .trim();
+
+  const dueDate =
+    document
+      .getElementById("homeworkDueDate")
+      .value;
+
+  const msg =
+    document
+      .getElementById("homeworkMsg");
+
+
+  if(!cls || !subject || !text){
+
+    msg.textContent =
+      "Class, subject and homework are required.";
+
+    return;
+
+  }
+
+
+  try{
+
+    await addDoc(
+      collection(db,"homework"),
+      {
+        class:cls,
+        subject,
+        text,
+        dueDate,
+        createdAt:
+          serverTimestamp()
+      }
+    );
+
+
+    msg.textContent =
+      "Homework published.";
+
+    document
+      .getElementById("homeworkText")
+      .value = "";
+
+  }catch(err){
+
+    console.error(err);
+
+    msg.textContent =
+      err.code || err.message;
+
+  }
+
+};
+
+
+/* ADD MATERIAL */
+
+window.addMaterial =
+async function(){
+
+  if(!isAdmin())
+    return;
+
+  const cls =
+    document
+      .getElementById("materialClass")
+      .value
+      .trim();
+
+  const subject =
+    document
+      .getElementById("materialSubject")
+      .value
+      .trim();
+
+  const title =
+    document
+      .getElementById("materialTitle")
+      .value
+      .trim();
+
+  const link =
+    document
+      .getElementById("materialLink")
+      .value
+      .trim();
+
+  const msg =
+    document
+      .getElementById("materialMsg");
+
+
+  if(!cls || !subject || !title){
+
+    msg.textContent =
+      "Class, subject and title are required.";
+
+    return;
+
+  }
+
+
+  try{
+
+    await addDoc(
+      collection(db,"materials"),
+      {
+        class:cls,
+        subject,
+        title,
+        link,
+        createdAt:
+          serverTimestamp()
+      }
+    );
+
+
+    msg.textContent =
+      "Study material added.";
+
+  }catch(err){
+
+    console.error(err);
+
+    msg.textContent =
+      err.code || err.message;
+
+  }
+
+};
+
+
+/* ADD CALENDAR EVENT */
+
+window.addCalendarEvent =
+async function(){
+
+  if(!isAdmin())
+    return;
+
+  const title =
+    document
+      .getElementById("calendarTitle")
+      .value
+      .trim();
+
+  const date =
+    document
+      .getElementById("calendarDate")
+      .value;
+
+  const description =
+    document
+      .getElementById("calendarDescription")
+      .value
+      .trim();
+
+  const msg =
+    document
+      .getElementById("calendarMsg");
+
+
+  if(!title || !date){
+
+    msg.textContent =
+      "Title and date are required.";
+
+    return;
+
+  }
+
+
+  try{
+
+    await addDoc(
+      collection(db,"calendar"),
+      {
+        title,
+        date,
+        description,
+        createdAt:
+          serverTimestamp()
+      }
+    );
+
+
+    msg.textContent =
+      "Calendar event added.";
+
+  }catch(err){
+
+    console.error(err);
+
+    msg.textContent =
+      err.code || err.message;
+
+  }
+
+};
+
+
+/* ADD RESULT */
+
+window.addResult =
+async function(){
+
+  if(!isAdmin())
+    return;
+
+
+  const parentEmail =
+    document
+      .getElementById("resultStudent")
+      .value
+      .trim()
+      .toLowerCase();
+
+  const session =
+    document
+      .getElementById("resultSession")
+      .value
+      .trim();
+
+  const exam =
+    document
+      .getElementById("resultExam")
+      .value
+      .trim();
+
+  const subject =
+    document
+      .getElementById("resultSubject")
+      .value
+      .trim();
+
+  const maxMarks =
+    Number(
+      document
+        .getElementById("resultMaxMarks")
+        .value
+    );
+
+  const marks =
+    Number(
+      document
+        .getElementById("resultMarks")
+        .value
+    );
+
+  const msg =
+    document
+      .getElementById("resultMsg");
+
+
+  if(
+    !parentEmail ||
+    !session ||
+    !exam ||
+    !subject ||
+    !maxMarks
+  ){
+
+    msg.textContent =
+      "Please fill all result details.";
+
+    return;
+
+  }
+
+
+  if(marks < 0 || marks > maxMarks){
+
+    msg.textContent =
+      "Marks must be between 0 and maximum marks.";
+
+    return;
+
+  }
+
+
+  try{
+
+    /*
+      Save student's current information
+      inside result document.
+
+      This keeps old results correct even
+      if the student's class/roll changes later.
+    */
+
+    const student =
+      await getStudentByEmail(
+        parentEmail
+      );
+
+
+    await addDoc(
+      collection(db,"results"),
+      {
+
+        parentEmail,
+
+        studentName:
+          student?.name || "",
+
+        studentClass:
+          student?.class || "",
+
+        studentRoll:
+          student?.roll || "",
+
+        session,
+
+        exam,
+
+        subject,
+
+        marks,
+
+        maxMarks,
+
+        createdAt:
+          serverTimestamp()
+
+      }
+    );
+
+
+    msg.textContent =
+      "Result saved successfully.";
+
+
+    document
+      .getElementById("resultExam")
+      .value = "";
+
+    document
+      .getElementById("resultSubject")
+      .value = "";
+
+    document
+      .getElementById("resultMarks")
+      .value = "";
+
+
+  }catch(err){
+
+    console.error(err);
+
+    msg.textContent =
+      err.code || err.message;
+
+  }
+
+};
+
+
+/* ADD DOCUMENT */
+
+window.addDocument =
+async function(){
+
+  if(!isAdmin())
+    return;
+
+  const parentEmail =
+    document
+      .getElementById("documentStudent")
+      .value;
+
+  const title =
+    document
+      .getElementById("documentTitle")
+      .value
+      .trim();
+
+  const link =
+    document
+      .getElementById("documentLink")
+      .value
+      .trim();
+
+  const msg =
+    document
+      .getElementById("documentMsg");
+
+
+  if(!parentEmail || !title || !link){
+
+    msg.textContent =
+      "Student, title and link are required.";
+
+    return;
+
+  }
+
+
+  try{
+
+    await addDoc(
+      collection(db,"documents"),
+      {
+        parentEmail:
+          parentEmail.toLowerCase(),
+
+        title,
+
+        link,
+
+        createdAt:
+          serverTimestamp()
+      }
+    );
+
+
+    msg.textContent =
+      "Document added successfully.";
+
+  }catch(err){
+
+    console.error(err);
+
+    msg.textContent =
+      err.code || err.message;
+
+  }
+
+};
+
+
+/* STUDENT MANAGEMENT */
+
+async function loadStudentManagement(){
+
+  const box =
+    document.getElementById(
+      "studentList"
+    );
+
+  box.innerHTML =
+    "Loading students...";
+
+
+  try{
+
+    const snap =
+      await getDocs(
+        collection(db,"students")
+      );
+
+    const students =
+      snap.docs.map(d => ({
+        id:d.id,
+        ...d.data()
+      }));
+
+
+    if(!students.length){
+
+      box.innerHTML =
+        `<p class="muted">
+          No students found.
+        </p>`;
+
+      return;
+
+    }
+
+
+    box.innerHTML =
+      students.map(s => `
+
+        <div class="student-row">
+
+          <div>
+
+            <b>
+              ${clean(s.name)}
+            </b>
+
+            <br>
+
+            <span class="small">
+              Class ${clean(s.class)}
+              • Roll ${clean(s.roll)}
+            </span>
+
+            <br>
+
+            <span class="small">
+              ${clean(s.parentEmail)}
+            </span>
+
+            <br>
+
+            <span class="${
+              s.active !== false
+                ? "status-active"
+                : "status-inactive"
+            }">
+
+              ${
+                s.active !== false
+                  ? "Active"
+                  : "Inactive"
+              }
+
+            </span>
+
+          </div>
+
+
+          <div>
+
+            <button
+              onclick="editStudent(
+                '${s.id}'
+              )">
+
+              ✏️ Edit
+
+            </button>
+
+            <button
+              class="${
+                s.active !== false
+                  ? "btn-danger"
+                  : "btn-green"
+              }"
+              onclick="toggleStudent(
+                '${s.id}',
+                ${s.active !== false}
+              )">
+
+              ${
+                s.active !== false
+                  ? "Deactivate"
+                  : "Activate"
+              }
+
+            </button>
+
+          </div>
+
+        </div>
+
+      `).join("");
+
+  }catch(err){
+
+    console.error(err);
+
+    box.innerHTML =
+      `<p class="muted">
+        Unable to load students.
+      </p>`;
+
+  }
+
+}
+
+
+/* EDIT STUDENT */
+
+window.editStudent =
+async function(id){
+
+  if(!isAdmin())
+    return;
+
+
+  const name =
+    prompt(
+      "Student Name:"
+    );
+
+  if(name === null)
+    return;
+
+
+  const cls =
+    prompt(
+      "Class:"
+    );
+
+  if(cls === null)
+    return;
+
+
+  const roll =
+    prompt(
+      "Roll Number:"
+    );
+
+  if(roll === null)
+    return;
+
+
+  const parentEmail =
+    prompt(
+      "Parent Email:"
+    );
+
+  if(parentEmail === null)
+    return;
+
+
+  try{
+
+    await updateDoc(
+      doc(
+        db,
+        "students",
+        id
+      ),
+      {
+        name:name.trim(),
+        class:cls.trim(),
+        roll:roll.trim(),
+        parentEmail:
+          parentEmail.trim().toLowerCase()
+      }
+    );
+
+
+    alert(
+      "Student updated successfully."
+    );
+
+
+    await refreshStudentSelects();
+    await loadStudentManagement();
+
+  }catch(err){
+
+    console.error(err);
+
+    alert(
+      "Unable to update student."
+    );
+
+  }
+
+};
+
+
+/* ACTIVATE / DEACTIVATE */
+
+window.toggleStudent =
+async function(
+  id,
+  currentlyActive
+){
+
+  if(!isAdmin())
+    return;
+
+
+  try{
+
+    await updateDoc(
+      doc(
+        db,
+        "students",
+        id
+      ),
+      {
+        active:
+          !currentlyActive
+      }
+    );
+
+
+    await refreshStudentSelects();
+
+    await loadStudentManagement();
+
+  }catch(err){
+
+    console.error(err);
+
+    alert(
+      "Unable to update student status."
+    );
+
+  }
+
+};
+
+
+/* INITIAL */
+
+document
+  .getElementById("resultSession")
+  .value =
+    currentSession();
+
+
+/* DEFAULT HOME */
+
+showOnly("homeSection");
+
+
+/* PWA SERVICE WORKER */
+
+if(
+  "serviceWorker" in navigator
+){
+
+  navigator
+    .serviceWorker
+    .register("sw.js")
+    .catch(err =>
+      console.log(
+        "Service Worker error:",
+        err
+      )
+    );
 
 }
 
