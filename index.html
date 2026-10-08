@@ -20,10 +20,6 @@
 
 <style>
 
-/* =========================
-   BASIC
-========================= */
-
 *{
   box-sizing:border-box;
   margin:0;
@@ -78,21 +74,11 @@ button:active{
   display:none!important;
 }
 
-
-/* =========================
-   CONTAINER
-========================= */
-
 .container{
   max-width:1100px;
   margin:auto;
   padding:16px;
 }
-
-
-/* =========================
-   HEADER
-========================= */
 
 header{
   background:#3158c9;
@@ -119,11 +105,6 @@ header p{
   margin-top:3px;
 }
 
-
-/* =========================
-   CARD
-========================= */
-
 .card{
   background:white;
   padding:18px;
@@ -137,11 +118,6 @@ header p{
   margin-bottom:12px;
 }
 
-
-/* =========================
-   LOGIN
-========================= */
-
 .login{
   max-width:430px;
   margin:35px auto;
@@ -153,11 +129,6 @@ header p{
   height:90px;
   margin:0 auto 12px;
 }
-
-
-/* =========================
-   INPUTS
-========================= */
 
 input,
 select,
@@ -175,15 +146,9 @@ textarea{
   resize:vertical;
 }
 
-
-/* =========================
-   DASHBOARD TILES
-========================= */
-
 .grid{
   display:grid;
-  grid-template-columns:
-    repeat(auto-fit,minmax(180px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
   gap:14px;
 }
 
@@ -210,11 +175,6 @@ textarea{
   color:#667085;
 }
 
-
-/* =========================
-   TOP BAR
-========================= */
-
 .topbar{
   display:flex;
   justify-content:space-between;
@@ -223,15 +183,9 @@ textarea{
   flex-wrap:wrap;
 }
 
-
-/* =========================
-   GALLERY
-========================= */
-
 .gallery{
   display:grid;
-  grid-template-columns:
-    repeat(auto-fit,minmax(180px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
   gap:10px;
 }
 
@@ -241,11 +195,6 @@ textarea{
   object-fit:cover;
   border-radius:12px;
 }
-
-
-/* =========================
-   ITEMS
-========================= */
 
 .item{
   border:1px solid #e0e5ee;
@@ -261,21 +210,11 @@ textarea{
   margin-top:5px;
 }
 
-
-/* =========================
-   SEARCH
-========================= */
-
 .search-row{
   display:grid;
   grid-template-columns:1fr auto;
   gap:8px;
 }
-
-
-/* =========================
-   NORMAL TABLE
-========================= */
 
 table{
   width:100%;
@@ -293,11 +232,6 @@ td{
 th{
   background:#eef3ff;
 }
-
-
-/* =========================
-   RESULT CARD
-========================= */
 
 .result-card{
   background:#fff;
@@ -335,16 +269,9 @@ th{
   margin:6px;
 }
 
-
-/* =========================
-   STUDENT INFO
-========================= */
-
 .student-info{
   display:grid;
-  grid-template-columns:
-    repeat(4,1fr);
-
+  grid-template-columns:repeat(4,1fr);
   border:1px solid #222;
   margin-top:15px;
 }
@@ -365,11 +292,6 @@ th{
   margin-bottom:3px;
 }
 
-
-/* =========================
-   REPORT TITLE
-========================= */
-
 .report-title{
   background:#e9edf5;
   border:1px solid #222;
@@ -378,11 +300,6 @@ th{
   padding:7px;
   margin-top:15px;
 }
-
-
-/* =========================
-   REPORT TABLE
-========================= */
 
 .report-table{
   width:100%;
@@ -403,16 +320,9 @@ th{
   overflow-x:auto;
 }
 
-
-/* =========================
-   PERFORMANCE
-========================= */
-
 .performance-box{
   display:grid;
-  grid-template-columns:
-    repeat(4,1fr);
-
+  grid-template-columns:repeat(4,1fr);
   border:1px solid #222;
   margin-top:10px;
 }
@@ -427,16 +337,9 @@ th{
   border-right:0;
 }
 
-
-/* =========================
-   FINAL BOX
-========================= */
-
 .final-box{
   display:grid;
-  grid-template-columns:
-    repeat(4,1fr);
-
+  grid-template-columns:repeat(4,1fr);
   border:2px solid #222;
   margin-top:12px;
 }
@@ -451,11 +354,6 @@ th{
   border-right:0;
 }
 
-
-/* =========================
-   PASS / FAIL
-========================= */
-
 .pass{
   color:#188038;
   font-weight:bold;
@@ -466,16 +364,9 @@ th{
   font-weight:bold;
 }
 
-
-/* =========================
-   SIGNATURE
-========================= */
-
 .signatures{
   display:grid;
-  grid-template-columns:
-    repeat(3,1fr);
-
+  grid-template-columns:repeat(3,1fr);
   gap:30px;
   margin-top:65px;
   text-align:center;
@@ -485,11 +376,6 @@ th{
   border-top:1px solid #222;
   padding-top:7px;
 }
-
-
-/* =========================
-   RESULT FORM
-========================= */
 
 .print-btn{
   margin-top:12px;
@@ -513,18 +399,13 @@ th{
 }
 
 .form-table table{
-  min-width:1250px;
+  min-width:650px;
 }
 
 .auto-field{
   background:#eef3ff!important;
   font-weight:bold;
 }
-
-
-/* =========================
-   RESULT FORM INFO
-========================= */
 
 .result-help{
   background:#f0f5ff;
@@ -535,10 +416,42 @@ th{
   font-size:13px;
 }
 
+.term-selector{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin:10px 0 15px;
+}
 
-/* =========================
-   MOBILE
-========================= */
+.term-btn{
+  padding:13px;
+  border:2px solid #d5ddea;
+  background:#fff;
+  color:#26334f;
+  border-radius:10px;
+  font-weight:bold;
+}
+
+.term-btn.active{
+  background:#3158c9;
+  color:#fff;
+  border-color:#3158c9;
+}
+
+.pending{
+  color:#667085;
+  font-style:italic;
+}
+
+.report-note{
+  background:#fff8e1;
+  border:1px solid #f0d98a;
+  border-radius:8px;
+  padding:10px;
+  margin-top:12px;
+  font-size:13px;
+  text-align:center;
+}
 
 @media(max-width:700px){
 
@@ -551,8 +464,7 @@ th{
   }
 
   .student-info{
-    grid-template-columns:
-      repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);
   }
 
   .student-info div:nth-child(4n){
@@ -564,8 +476,7 @@ th{
   }
 
   .performance-box{
-    grid-template-columns:
-      repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);
   }
 
   .performance-box div:nth-child(2n){
@@ -573,8 +484,7 @@ th{
   }
 
   .final-box{
-    grid-template-columns:
-      repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);
   }
 
   .final-box div:nth-child(2n){
@@ -598,12 +508,10 @@ th{
     grid-template-columns:1fr;
   }
 
+  .term-selector{
+    grid-template-columns:1fr 1fr;
+  }
 }
-
-
-/* =========================
-   PRINT
-========================= */
 
 @media print{
 
@@ -636,20 +544,12 @@ th{
     size:A4 landscape;
     margin:8mm;
   }
-
 }
 
 </style>
-
 </head>
 
-
 <body>
-
-
-<!-- =========================
-     SCHOOL HEADER
-========================= -->
 
 <header>
 
@@ -668,13 +568,7 @@ th{
 
 </header>
 
-
 <div class="container">
-
-
-<!-- =========================
-     HOME
-========================= -->
 
 <section id="homeSection">
 
@@ -702,7 +596,6 @@ th{
 
   </div>
 
-
   <div class="card">
 
     <h2>
@@ -712,31 +605,20 @@ th{
     <div class="gallery">
 
       <img src="IMG-20251125-WA0022.jpg">
-
       <img src="IMG-20260905-WA0018.jpg">
-
       <img src="IMG-20260905-WA0022.jpg">
-
       <img src="IMG-20260905-WA0034.jpg">
-
       <img src="IMG-20260905-WA0043.jpg">
-
       <img src="IMG-20260905-WA0056.jpg">
-
       <img src="IMG-20260905-WA0059.jpg">
-
       <img src="Screenshot_20241114_093054_Maps.jpg">
-
       <img src="Screenshot_20241114_093113_Maps.jpg">
-
       <img src="Screenshot_20251125_171128_Google.jpg">
-
       <img src="file_00000000ed90720ba14937d8a37e3bba.png">
 
     </div>
 
   </div>
-
 
   <div class="card">
 
@@ -761,12 +643,6 @@ th{
   </div>
 
 </section>
-
-
-
-<!-- =========================
-     LOGIN
-========================= -->
 
 <section
   id="loginSection"
@@ -826,12 +702,6 @@ th{
 
 </section>
 
-
-
-<!-- =========================
-     PARENT
-========================= -->
-
 <section
   id="parentSection"
   class="hidden"
@@ -861,7 +731,6 @@ th{
 
   </div>
 
-
   <div class="grid">
 
     <div
@@ -869,150 +738,80 @@ th{
       onclick="loadNotifications()"
     >
       🔔
-
-      <b>
-        Notifications
-      </b>
-
-      <span>
-        School notices
-      </span>
-
+      <b>Notifications</b>
+      <span>School notices</span>
     </div>
-
 
     <div
       class="tile"
       onclick="loadAttendance()"
     >
       📅
-
-      <b>
-        Attendance
-      </b>
-
-      <span>
-        Attendance record
-      </span>
-
+      <b>Attendance</b>
+      <span>Attendance record</span>
     </div>
-
 
     <div
       class="tile"
       onclick="loadHomework()"
     >
       📚
-
-      <b>
-        Homework
-      </b>
-
-      <span>
-        Daily homework
-      </span>
-
+      <b>Homework</b>
+      <span>Daily homework</span>
     </div>
-
 
     <div
       class="tile"
       onclick="loadMaterials()"
     >
       📖
-
-      <b>
-        Study Material
-      </b>
-
-      <span>
-        Learning resources
-      </span>
-
+      <b>Study Material</b>
+      <span>Learning resources</span>
     </div>
-
 
     <div
       class="tile"
       onclick="loadCalendar()"
     >
       🗓️
-
-      <b>
-        Calendar
-      </b>
-
-      <span>
-        School events
-      </span>
-
+      <b>Calendar</b>
+      <span>School events</span>
     </div>
-
 
     <div
       class="tile"
       onclick="loadResults()"
     >
       📝
-
-      <b>
-        Exam / Result
-      </b>
-
-      <span>
-        Report card
-      </span>
-
+      <b>Exam / Result</b>
+      <span>Report card</span>
     </div>
-
 
     <div
       class="tile"
       onclick="loadProfile()"
     >
       👤
-
-      <b>
-        Profile
-      </b>
-
-      <span>
-        Student details
-      </span>
-
+      <b>Profile</b>
+      <span>Student details</span>
     </div>
 
   </div>
 
-
   <div id="parentContent"></div>
 
 </section>
-
-
-
-<!-- =========================
-     ADMIN
-========================= -->
 
 <section
   id="adminSection"
   class="hidden"
 >
 
-
   <div class="topbar card">
 
     <div>
-
-      <b>
-        Admin Dashboard
-      </b>
-
-      <div class="small">
-        DPS Narkatiaganj
-      </div>
-
+      <b>Admin Dashboard</b>
+      <div class="small">DPS Narkatiaganj</div>
     </div>
 
     <button
@@ -1023,10 +822,6 @@ th{
     </button>
 
   </div>
-
-
-
-  <!-- CREATE PARENT -->
 
   <div class="card">
 
@@ -1059,10 +854,6 @@ th{
     ></p>
 
   </div>
-
-
-
-  <!-- ADD STUDENT -->
 
   <div class="card">
 
@@ -1105,15 +896,9 @@ th{
 
   </div>
 
-
-
-  <!-- ATTENDANCE -->
-
   <div class="card">
 
-    <h3>
-      Attendance
-    </h3>
+    <h3>Attendance</h3>
 
     <input
       id="attendanceParentEmail"
@@ -1152,15 +937,9 @@ th{
 
   </div>
 
-
-
-  <!-- NOTICE -->
-
   <div class="card">
 
-    <h3>
-      Notification
-    </h3>
+    <h3>Notification</h3>
 
     <input
       id="noticeTitle"
@@ -1186,15 +965,9 @@ th{
 
   </div>
 
-
-
-  <!-- HOMEWORK -->
-
   <div class="card">
 
-    <h3>
-      Homework
-    </h3>
+    <h3>Homework</h3>
 
     <input
       id="homeworkClass"
@@ -1225,15 +998,9 @@ th{
 
   </div>
 
-
-
-  <!-- STUDY MATERIAL -->
-
   <div class="card">
 
-    <h3>
-      Study Material
-    </h3>
+    <h3>Study Material</h3>
 
     <input
       id="materialClass"
@@ -1269,15 +1036,9 @@ th{
 
   </div>
 
-
-
-  <!-- CALENDAR -->
-
   <div class="card">
 
-    <h3>
-      Calendar
-    </h3>
+    <h3>Calendar</h3>
 
     <input
       id="calendarDate"
@@ -1308,11 +1069,7 @@ th{
 
   </div>
 
-
-
-  <!-- =========================
-       RESULT
-  ========================= -->
+  <!-- RESULT -->
 
   <div class="card">
 
@@ -1320,13 +1077,11 @@ th{
       📊 Add / Update Report Card
     </h3>
 
-
     <input
       id="resultParentEmail"
       type="email"
       placeholder="Parent Email"
     >
-
 
     <input
       id="resultSession"
@@ -1334,39 +1089,55 @@ th{
       value="2026-27"
     >
 
-
     <div class="result-help">
 
-      <b>
-        Result Entry Rule:
-      </b>
+      <b>Result Entry Rule:</b>
 
       <br><br>
 
-      FA1, FA2, SA1, FA3, FA4 और SA2 के marks
-      <b>manually enter</b> होंगे।
-
-      <br>
-
-      Final-1 =
-      <b>
-        FA1 + FA2 + SA1
-      </b>
-
-      <br>
-
-      Final-2 =
-      <b>
-        FA3 + FA4 + SA2
-      </b>
+      Pehle <b>Term-I</b> ya <b>Term-II</b> select karo.
 
       <br><br>
 
-      Final-1 और Final-2
-      <b>automatically calculate</b> होंगे।
+      <b>Term-I:</b>
+      FA1 + FA2 + SA1 → Final-1 AUTO
+
+      <br>
+
+      <b>Term-II:</b>
+      FA3 + FA4 + SA2 → Final-2 AUTO
+
+      <br><br>
+
+      Dono terms alag-alag save honge.
+      Agar Term-II abhi enter nahi kiya gaya hai,
+      report card mein <b>Pending</b> dikhega.
 
     </div>
 
+    <!-- TERM SELECTOR -->
+
+    <div class="term-selector">
+
+      <button
+        type="button"
+        id="term1Button"
+        class="term-btn active"
+        onclick="selectResultTerm('term1')"
+      >
+        📘 TERM-I
+      </button>
+
+      <button
+        type="button"
+        id="term2Button"
+        class="term-btn"
+        onclick="selectResultTerm('term2')"
+      >
+        📗 TERM-II
+      </button>
+
+    </div>
 
     <select id="resultSubject">
 
@@ -1400,8 +1171,12 @@ th{
 
     </select>
 
+    <!-- TERM-I -->
 
-    <div class="form-table">
+    <div
+      id="term1Fields"
+      class="form-table"
+    >
 
       <table>
 
@@ -1427,6 +1202,107 @@ th{
             <small>AUTO</small>
           </th>
 
+        </tr>
+
+        <tr>
+
+          <td>
+
+            <input
+              class="marks-input"
+              id="fa1"
+              type="number"
+              min="0"
+              placeholder="Marks"
+            >
+
+            <input
+              class="max-input"
+              id="fa1Max"
+              type="number"
+              min="1"
+              placeholder="Max"
+            >
+
+          </td>
+
+          <td>
+
+            <input
+              class="marks-input"
+              id="fa2"
+              type="number"
+              min="0"
+              placeholder="Marks"
+            >
+
+            <input
+              class="max-input"
+              id="fa2Max"
+              type="number"
+              min="1"
+              placeholder="Max"
+            >
+
+          </td>
+
+          <td>
+
+            <input
+              class="marks-input"
+              id="sa1"
+              type="number"
+              min="0"
+              placeholder="Marks"
+            >
+
+            <input
+              class="max-input"
+              id="sa1Max"
+              type="number"
+              min="1"
+              placeholder="Max"
+            >
+
+          </td>
+
+          <td>
+
+            <input
+              class="marks-input auto-field"
+              id="final1"
+              type="number"
+              readonly
+              placeholder="AUTO"
+            >
+
+            <input
+              class="max-input auto-field"
+              id="final1Max"
+              type="number"
+              readonly
+              placeholder="AUTO"
+            >
+
+          </td>
+
+        </tr>
+
+      </table>
+
+    </div>
+
+    <!-- TERM-II -->
+
+    <div
+      id="term2Fields"
+      class="form-table hidden"
+    >
+
+      <table>
+
+        <tr>
+
           <th>
             FA3<br>
             <small>Marks / Max</small>
@@ -1449,102 +1325,7 @@ th{
 
         </tr>
 
-
         <tr>
-
-          <!-- FA1 -->
-
-          <td>
-
-            <input
-              class="marks-input"
-              id="fa1"
-              type="number"
-              min="0"
-              placeholder="Marks"
-            >
-
-            <input
-              class="max-input"
-              id="fa1Max"
-              type="number"
-              min="1"
-              placeholder="Max"
-            >
-
-          </td>
-
-
-          <!-- FA2 -->
-
-          <td>
-
-            <input
-              class="marks-input"
-              id="fa2"
-              type="number"
-              min="0"
-              placeholder="Marks"
-            >
-
-            <input
-              class="max-input"
-              id="fa2Max"
-              type="number"
-              min="1"
-              placeholder="Max"
-            >
-
-          </td>
-
-
-          <!-- SA1 -->
-
-          <td>
-
-            <input
-              class="marks-input"
-              id="sa1"
-              type="number"
-              min="0"
-              placeholder="Marks"
-            >
-
-            <input
-              class="max-input"
-              id="sa1Max"
-              type="number"
-              min="1"
-              placeholder="Max"
-            >
-
-          </td>
-
-
-          <!-- FINAL 1 -->
-
-          <td>
-
-            <input
-              class="marks-input auto-field"
-              id="final1"
-              type="number"
-              readonly
-              placeholder="AUTO"
-            >
-
-            <input
-              class="max-input auto-field"
-              id="final1Max"
-              type="number"
-              readonly
-              placeholder="AUTO"
-            >
-
-          </td>
-
-
-          <!-- FA3 -->
 
           <td>
 
@@ -1566,9 +1347,6 @@ th{
 
           </td>
 
-
-          <!-- FA4 -->
-
           <td>
 
             <input
@@ -1589,9 +1367,6 @@ th{
 
           </td>
 
-
-          <!-- SA2 -->
-
           <td>
 
             <input
@@ -1611,9 +1386,6 @@ th{
             >
 
           </td>
-
-
-          <!-- FINAL 2 -->
 
           <td>
 
@@ -1641,17 +1413,14 @@ th{
 
     </div>
 
-
     <br>
-
 
     <button
       class="primary"
       onclick="calculateAndSaveResult()"
     >
-      Save Subject Result
+      Save Selected Term Result
     </button>
-
 
     <p
       id="resultMsg"
@@ -1660,11 +1429,7 @@ th{
 
   </div>
 
-
-
-  <!-- =========================
-       RESULT MANAGEMENT
-  ========================= -->
+  <!-- RESULT MANAGEMENT -->
 
   <div class="card">
 
@@ -1693,11 +1458,7 @@ th{
 
   </div>
 
-
-
-  <!-- =========================
-       STUDENT MANAGEMENT
-  ========================= -->
+  <!-- STUDENT MANAGEMENT -->
 
   <div class="card">
 
@@ -1730,10 +1491,7 @@ th{
 
 </div>
 
-
-
 <script type="module">
-
 
 /* =====================================================
    FIREBASE IMPORTS
@@ -1746,7 +1504,6 @@ import {
 }
 from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 
-
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -1757,7 +1514,6 @@ import {
   onAuthStateChanged
 }
 from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
-
 
 import {
   getFirestore,
@@ -1774,7 +1530,6 @@ import {
 from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
 
-
 /* =====================================================
    FIREBASE CONFIG
 ===================================================== */
@@ -1782,7 +1537,7 @@ from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 const firebaseConfig={
 
   apiKey:
-    "AIzaSyBoDLUAc-y9nqFBn8vB9wRUUtMY0WALxwA",
+    "AIzaSyBoDLUAc-y9nQFBn8vB9wRUUtMY0WALxwA",
 
   authDomain:
     "dps-narkatiaganj.firebaseapp.com",
@@ -1805,7 +1560,6 @@ const firebaseConfig={
 };
 
 
-
 /* =====================================================
    FIREBASE APP
 ===================================================== */
@@ -1815,18 +1569,15 @@ const app =
   ? getApp()
   : initializeApp(firebaseConfig);
 
-
 const auth =
   getAuth(app);
-
 
 const db =
   getFirestore(app);
 
 
-
 /* =====================================================
-   SECONDARY AUTH FOR PARENT CREATION
+   SECONDARY AUTH
 ===================================================== */
 
 const parentCreatorApp =
@@ -1840,10 +1591,8 @@ const parentCreatorApp =
     "ParentCreatorApp"
   );
 
-
 const parentAuth =
   getAuth(parentCreatorApp);
-
 
 
 /* =====================================================
@@ -1862,6 +1611,8 @@ let studentManagementData =
 let resultManagementData =
   [];
 
+let selectedResultTerm =
+  "term1";
 
 
 /* =====================================================
@@ -1874,7 +1625,6 @@ await setPersistence(
 );
 
 
-
 /* =====================================================
    SHOW LOGIN
 ===================================================== */
@@ -1885,62 +1635,35 @@ function(type){
   loginType =
     type;
 
+  document
+    .getElementById("homeSection")
+    .classList.add("hidden");
 
   document
-    .getElementById(
-      "homeSection"
-    )
-    .classList.add(
-      "hidden"
-    );
-
+    .getElementById("parentSection")
+    .classList.add("hidden");
 
   document
-    .getElementById(
-      "parentSection"
-    )
-    .classList.add(
-      "hidden"
-    );
-
+    .getElementById("adminSection")
+    .classList.add("hidden");
 
   document
-    .getElementById(
-      "adminSection"
-    )
-    .classList.add(
-      "hidden"
-    );
-
+    .getElementById("loginSection")
+    .classList.remove("hidden");
 
   document
-    .getElementById(
-      "loginSection"
-    )
-    .classList.remove(
-      "hidden"
-    );
-
-
-  document
-    .getElementById(
-      "loginTitle"
-    )
+    .getElementById("loginTitle")
     .textContent =
       type === "admin"
       ? "Admin Login"
       : "Parent Login";
 
-
   document
-    .getElementById(
-      "loginMsg"
-    )
+    .getElementById("loginMsg")
     .textContent =
       "";
 
 };
-
 
 
 /* =====================================================
@@ -1951,42 +1674,22 @@ window.goHome =
 function(){
 
   document
-    .getElementById(
-      "loginSection"
-    )
-    .classList.add(
-      "hidden"
-    );
-
+    .getElementById("loginSection")
+    .classList.add("hidden");
 
   document
-    .getElementById(
-      "parentSection"
-    )
-    .classList.add(
-      "hidden"
-    );
-
+    .getElementById("parentSection")
+    .classList.add("hidden");
 
   document
-    .getElementById(
-      "adminSection"
-    )
-    .classList.add(
-      "hidden"
-    );
-
+    .getElementById("adminSection")
+    .classList.add("hidden");
 
   document
-    .getElementById(
-      "homeSection"
-    )
-    .classList.remove(
-      "hidden"
-    );
+    .getElementById("homeSection")
+    .classList.remove("hidden");
 
 };
-
 
 
 /* =====================================================
@@ -1998,21 +1701,15 @@ async function(){
 
   const email =
     document
-      .getElementById(
-        "loginEmail"
-      )
+      .getElementById("loginEmail")
       .value
       .trim()
       .toLowerCase();
 
-
   const password =
     document
-      .getElementById(
-        "loginPassword"
-      )
+      .getElementById("loginPassword")
       .value;
-
 
   if(
     !email ||
@@ -2020,16 +1717,12 @@ async function(){
   ){
 
     document
-      .getElementById(
-        "loginMsg"
-      )
+      .getElementById("loginMsg")
       .textContent =
         "Email and password required.";
 
     return;
-
   }
-
 
   try{
 
@@ -2038,7 +1731,6 @@ async function(){
       browserLocalPersistence
     );
 
-
     const result =
       await signInWithEmailAndPassword(
         auth,
@@ -2046,33 +1738,25 @@ async function(){
         password
       );
 
-
     currentUser =
       result.user;
-
 
     openDashboard(
       result.user
     );
 
-
   }catch(e){
 
     console.error(e);
 
-
     document
-      .getElementById(
-        "loginMsg"
-      )
+      .getElementById("loginMsg")
       .textContent =
         "Login failed: " +
         e.message;
-
   }
 
 };
-
 
 
 /* =====================================================
@@ -2098,36 +1782,20 @@ onAuthStateChanged(
         null;
 
       document
-        .getElementById(
-          "loginSection"
-        )
-        .classList.add(
-          "hidden"
-        );
+        .getElementById("loginSection")
+        .classList.add("hidden");
 
       document
-        .getElementById(
-          "parentSection"
-        )
-        .classList.add(
-          "hidden"
-        );
+        .getElementById("parentSection")
+        .classList.add("hidden");
 
       document
-        .getElementById(
-          "adminSection"
-        )
-        .classList.add(
-          "hidden"
-        );
+        .getElementById("adminSection")
+        .classList.add("hidden");
 
       document
-        .getElementById(
-          "homeSection"
-        )
-        .classList.remove(
-          "hidden"
-        );
+        .getElementById("homeSection")
+        .classList.remove("hidden");
 
     }
 
@@ -2135,39 +1803,24 @@ onAuthStateChanged(
 );
 
 
-
 /* =====================================================
    OPEN DASHBOARD
 ===================================================== */
 
-function openDashboard(
-  user
-){
+function openDashboard(user){
 
   document
-    .getElementById(
-      "homeSection"
-    )
-    .classList.add(
-      "hidden"
-    );
-
+    .getElementById("homeSection")
+    .classList.add("hidden");
 
   document
-    .getElementById(
-      "loginSection"
-    )
-    .classList.add(
-      "hidden"
-    );
-
+    .getElementById("loginSection")
+    .classList.add("hidden");
 
   const userEmail =
     String(
       user.email || ""
-    )
-    .toLowerCase();
-
+    ).toLowerCase();
 
   if(
     userEmail ===
@@ -2175,59 +1828,33 @@ function openDashboard(
   ){
 
     document
-      .getElementById(
-        "parentSection"
-      )
-      .classList.add(
-        "hidden"
-      );
-
+      .getElementById("parentSection")
+      .classList.add("hidden");
 
     document
-      .getElementById(
-        "adminSection"
-      )
-      .classList.remove(
-        "hidden"
-      );
-
+      .getElementById("adminSection")
+      .classList.remove("hidden");
 
     loadStudentManagement();
-
     loadResultManagement();
-
 
   }else{
 
     document
-      .getElementById(
-        "adminSection"
-      )
-      .classList.add(
-        "hidden"
-      );
-
+      .getElementById("adminSection")
+      .classList.add("hidden");
 
     document
-      .getElementById(
-        "parentSection"
-      )
-      .classList.remove(
-        "hidden"
-      );
-
+      .getElementById("parentSection")
+      .classList.remove("hidden");
 
     document
-      .getElementById(
-        "parentWelcome"
-      )
+      .getElementById("parentWelcome")
       .textContent =
         user.email || "";
-
   }
 
 }
-
 
 
 /* =====================================================
@@ -2249,63 +1876,36 @@ async function(){
 
   }
 
-
   currentUser =
     null;
 
+  document
+    .getElementById("parentSection")
+    .classList.add("hidden");
 
   document
-    .getElementById(
-      "parentSection"
-    )
-    .classList.add(
-      "hidden"
-    );
-
+    .getElementById("adminSection")
+    .classList.add("hidden");
 
   document
-    .getElementById(
-      "adminSection"
-    )
-    .classList.add(
-      "hidden"
-    );
-
+    .getElementById("loginSection")
+    .classList.add("hidden");
 
   document
-    .getElementById(
-      "loginSection"
-    )
-    .classList.add(
-      "hidden"
-    );
-
+    .getElementById("homeSection")
+    .classList.remove("hidden");
 
   document
-    .getElementById(
-      "homeSection"
-    )
-    .classList.remove(
-      "hidden"
-    );
-
-
-  document
-    .getElementById(
-      "loginEmail"
-    )
+    .getElementById("loginEmail")
     .value =
       "";
 
   document
-    .getElementById(
-      "loginPassword"
-    )
+    .getElementById("loginPassword")
     .value =
       "";
 
 };
-
 
 
 /* =====================================================
@@ -2330,27 +1930,19 @@ async function(){
     );
 
     return;
-
   }
-
 
   const email =
     document
-      .getElementById(
-        "newParentEmail"
-      )
+      .getElementById("newParentEmail")
       .value
       .trim()
       .toLowerCase();
 
-
   const password =
     document
-      .getElementById(
-        "newParentPassword"
-      )
+      .getElementById("newParentPassword")
       .value;
-
 
   if(
     !email ||
@@ -2362,9 +1954,7 @@ async function(){
     );
 
     return;
-
   }
-
 
   if(
     password.length < 6
@@ -2375,9 +1965,7 @@ async function(){
     );
 
     return;
-
   }
-
 
   try{
 
@@ -2387,49 +1975,35 @@ async function(){
       password
     );
 
-
     await signOut(
       parentAuth
     );
 
-
     document
-      .getElementById(
-        "parentCreateMsg"
-      )
+      .getElementById("parentCreateMsg")
       .textContent =
         "Parent account created successfully.";
 
-
     document
-      .getElementById(
-        "newParentEmail"
-      )
+      .getElementById("newParentEmail")
       .value =
         "";
 
     document
-      .getElementById(
-        "newParentPassword"
-      )
+      .getElementById("newParentPassword")
       .value =
         "";
-
 
   }catch(e){
 
     document
-      .getElementById(
-        "parentCreateMsg"
-      )
+      .getElementById("parentCreateMsg")
       .textContent =
         "Error: " +
         e.message;
-
   }
 
 };
-
 
 
 /* =====================================================
@@ -2441,40 +2015,28 @@ async function(){
 
   const name =
     document
-      .getElementById(
-        "studentName"
-      )
+      .getElementById("studentName")
       .value
       .trim();
-
 
   const cls =
     document
-      .getElementById(
-        "studentClass"
-      )
+      .getElementById("studentClass")
       .value
       .trim();
-
 
   const roll =
     document
-      .getElementById(
-        "studentRoll"
-      )
+      .getElementById("studentRoll")
       .value
       .trim();
 
-
   const parentEmail =
     document
-      .getElementById(
-        "studentParentEmail"
-      )
+      .getElementById("studentParentEmail")
       .value
       .trim()
       .toLowerCase();
-
 
   if(
     !name ||
@@ -2486,9 +2048,7 @@ async function(){
     );
 
     return;
-
   }
-
 
   try{
 
@@ -2500,30 +2060,19 @@ async function(){
       {
 
         name:name,
-
         class:cls,
-
         roll:roll,
-
-        parentEmail:
-          parentEmail,
-
+        parentEmail:parentEmail,
         active:true,
-
-        createdAt:
-          serverTimestamp()
+        createdAt:serverTimestamp()
 
       }
     );
 
-
     document
-      .getElementById(
-        "studentMsg"
-      )
+      .getElementById("studentMsg")
       .textContent =
         "Student added successfully.";
-
 
     [
       "studentName",
@@ -2535,32 +2084,24 @@ async function(){
       id => {
 
         document
-          .getElementById(
-            id
-          )
+          .getElementById(id)
           .value =
             "";
 
       }
     );
 
-
     loadStudentManagement();
-
 
   }catch(e){
 
     document
-      .getElementById(
-        "studentMsg"
-      )
+      .getElementById("studentMsg")
       .textContent =
         e.message;
-
   }
 
 };
-
 
 
 /* =====================================================
@@ -2572,29 +2113,20 @@ async function(){
 
   const parentEmail =
     document
-      .getElementById(
-        "attendanceParentEmail"
-      )
+      .getElementById("attendanceParentEmail")
       .value
       .trim()
       .toLowerCase();
 
-
   const date =
     document
-      .getElementById(
-        "attendanceDate"
-      )
+      .getElementById("attendanceDate")
       .value;
-
 
   const status =
     document
-      .getElementById(
-        "attendanceStatus"
-      )
+      .getElementById("attendanceStatus")
       .value;
-
 
   if(
     !parentEmail ||
@@ -2606,9 +2138,7 @@ async function(){
     );
 
     return;
-
   }
-
 
   try{
 
@@ -2618,41 +2148,27 @@ async function(){
         "attendance"
       ),
       {
-
         parentEmail,
-
         date,
-
         status,
-
-        createdAt:
-          serverTimestamp()
-
+        createdAt:serverTimestamp()
       }
     );
 
-
     document
-      .getElementById(
-        "attendanceMsg"
-      )
+      .getElementById("attendanceMsg")
       .textContent =
         "Attendance saved.";
-
 
   }catch(e){
 
     document
-      .getElementById(
-        "attendanceMsg"
-      )
+      .getElementById("attendanceMsg")
       .textContent =
         e.message;
-
   }
 
 };
-
 
 
 /* =====================================================
@@ -2664,21 +2180,15 @@ async function(){
 
   const title =
     document
-      .getElementById(
-        "noticeTitle"
-      )
+      .getElementById("noticeTitle")
       .value
       .trim();
-
 
   const text =
     document
-      .getElementById(
-        "noticeText"
-      )
+      .getElementById("noticeText")
       .value
       .trim();
-
 
   if(
     !title ||
@@ -2690,9 +2200,7 @@ async function(){
     );
 
     return;
-
   }
-
 
   try{
 
@@ -2702,54 +2210,36 @@ async function(){
         "notices"
       ),
       {
-
         title,
-
         text,
-
-        createdAt:
-          serverTimestamp()
-
+        createdAt:serverTimestamp()
       }
     );
 
-
     document
-      .getElementById(
-        "noticeMsg"
-      )
+      .getElementById("noticeMsg")
       .textContent =
         "Notification added.";
 
-
     document
-      .getElementById(
-        "noticeTitle"
-      )
+      .getElementById("noticeTitle")
       .value =
         "";
 
     document
-      .getElementById(
-        "noticeText"
-      )
+      .getElementById("noticeText")
       .value =
         "";
-
 
   }catch(e){
 
     document
-      .getElementById(
-        "noticeMsg"
-      )
+      .getElementById("noticeMsg")
       .textContent =
         e.message;
-
   }
 
 };
-
 
 
 /* =====================================================
@@ -2761,30 +2251,21 @@ async function(){
 
   const cls =
     document
-      .getElementById(
-        "homeworkClass"
-      )
+      .getElementById("homeworkClass")
       .value
       .trim();
-
 
   const subject =
     document
-      .getElementById(
-        "homeworkSubject"
-      )
+      .getElementById("homeworkSubject")
       .value
       .trim();
-
 
   const text =
     document
-      .getElementById(
-        "homeworkText"
-      )
+      .getElementById("homeworkText")
       .value
       .trim();
-
 
   if(
     !cls ||
@@ -2797,9 +2278,7 @@ async function(){
     );
 
     return;
-
   }
-
 
   try{
 
@@ -2809,41 +2288,27 @@ async function(){
         "homework"
       ),
       {
-
         class:cls,
-
         subject,
-
         text,
-
-        createdAt:
-          serverTimestamp()
-
+        createdAt:serverTimestamp()
       }
     );
 
-
     document
-      .getElementById(
-        "homeworkMsg"
-      )
+      .getElementById("homeworkMsg")
       .textContent =
         "Homework added.";
-
 
   }catch(e){
 
     document
-      .getElementById(
-        "homeworkMsg"
-      )
+      .getElementById("homeworkMsg")
       .textContent =
         e.message;
-
   }
 
 };
-
 
 
 /* =====================================================
@@ -2855,39 +2320,27 @@ async function(){
 
   const cls =
     document
-      .getElementById(
-        "materialClass"
-      )
+      .getElementById("materialClass")
       .value
       .trim();
-
 
   const subject =
     document
-      .getElementById(
-        "materialSubject"
-      )
+      .getElementById("materialSubject")
       .value
       .trim();
-
 
   const title =
     document
-      .getElementById(
-        "materialTitle"
-      )
+      .getElementById("materialTitle")
       .value
       .trim();
-
 
   const link =
     document
-      .getElementById(
-        "materialLink"
-      )
+      .getElementById("materialLink")
       .value
       .trim();
-
 
   if(
     !cls ||
@@ -2901,9 +2354,7 @@ async function(){
     );
 
     return;
-
   }
-
 
   try{
 
@@ -2913,43 +2364,28 @@ async function(){
         "materials"
       ),
       {
-
         class:cls,
-
         subject,
-
         title,
-
         link,
-
-        createdAt:
-          serverTimestamp()
-
+        createdAt:serverTimestamp()
       }
     );
 
-
     document
-      .getElementById(
-        "materialMsg"
-      )
+      .getElementById("materialMsg")
       .textContent =
         "Study material added.";
-
 
   }catch(e){
 
     document
-      .getElementById(
-        "materialMsg"
-      )
+      .getElementById("materialMsg")
       .textContent =
         e.message;
-
   }
 
 };
-
 
 
 /* =====================================================
@@ -2961,29 +2397,20 @@ async function(){
 
   const date =
     document
-      .getElementById(
-        "calendarDate"
-      )
+      .getElementById("calendarDate")
       .value;
-
 
   const title =
     document
-      .getElementById(
-        "calendarTitle"
-      )
+      .getElementById("calendarTitle")
       .value
       .trim();
-
 
   const details =
     document
-      .getElementById(
-        "calendarDetails"
-      )
+      .getElementById("calendarDetails")
       .value
       .trim();
-
 
   if(
     !date ||
@@ -2995,9 +2422,7 @@ async function(){
     );
 
     return;
-
   }
-
 
   try{
 
@@ -3007,84 +2432,141 @@ async function(){
         "calendar"
       ),
       {
-
         date,
-
         title,
-
         details,
-
-        createdAt:
-          serverTimestamp()
-
+        createdAt:serverTimestamp()
       }
     );
 
-
     document
-      .getElementById(
-        "calendarMsg"
-      )
+      .getElementById("calendarMsg")
       .textContent =
         "Calendar event added.";
-
 
   }catch(e){
 
     document
-      .getElementById(
-        "calendarMsg"
-      )
+      .getElementById("calendarMsg")
       .textContent =
         e.message;
-
   }
 
 };
 
+
+/* =====================================================
+   RESULT TERM SELECTOR
+===================================================== */
+
+window.selectResultTerm =
+function(term){
+
+  selectedResultTerm =
+    term;
+
+  const term1 =
+    document.getElementById(
+      "term1Fields"
+    );
+
+  const term2 =
+    document.getElementById(
+      "term2Fields"
+    );
+
+  const btn1 =
+    document.getElementById(
+      "term1Button"
+    );
+
+  const btn2 =
+    document.getElementById(
+      "term2Button"
+    );
+
+  if(
+    term === "term1"
+  ){
+
+    term1.classList.remove(
+      "hidden"
+    );
+
+    term2.classList.add(
+      "hidden"
+    );
+
+    btn1.classList.add(
+      "active"
+    );
+
+    btn2.classList.remove(
+      "active"
+    );
+
+  }else{
+
+    term1.classList.add(
+      "hidden"
+    );
+
+    term2.classList.remove(
+      "hidden"
+    );
+
+    btn1.classList.remove(
+      "active"
+    );
+
+    btn2.classList.add(
+      "active"
+    );
+
+  }
+
+  document
+    .getElementById("resultMsg")
+    .textContent =
+      "";
+
+};
 
 
 /* =====================================================
    GET NUMBER
 ===================================================== */
 
-function getNumber(
-  id
-){
+function getNumber(id){
+
+  const element =
+    document.getElementById(
+      id
+    );
+
+  if(!element){
+    return null;
+  }
 
   const value =
-    document
-      .getElementById(
-        id
-      )
-      .value
-      .trim();
-
+    element.value.trim();
 
   if(value === ""){
     return null;
   }
 
-
   const number =
     Number(value);
 
-
   if(
-    !Number.isFinite(
-      number
-    )
+    !Number.isFinite(number)
   ){
-
     return null;
-
   }
-
 
   return number;
 
 }
-
 
 
 /* =====================================================
@@ -3102,7 +2584,6 @@ function calculateFinals(){
   const sa1 =
     getNumber("sa1") ?? 0;
 
-
   const fa1Max =
     getNumber("fa1Max") ?? 0;
 
@@ -3111,7 +2592,6 @@ function calculateFinals(){
 
   const sa1Max =
     getNumber("sa1Max") ?? 0;
-
 
   const fa3 =
     getNumber("fa3") ?? 0;
@@ -3122,7 +2602,6 @@ function calculateFinals(){
   const sa2 =
     getNumber("sa2") ?? 0;
 
-
   const fa3Max =
     getNumber("fa3Max") ?? 0;
 
@@ -3132,68 +2611,31 @@ function calculateFinals(){
   const sa2Max =
     getNumber("sa2Max") ?? 0;
 
-
-  const final1 =
-    fa1 +
-    fa2 +
-    sa1;
-
-
-  const final1Max =
-    fa1Max +
-    fa2Max +
-    sa1Max;
-
-
-  const final2 =
-    fa3 +
-    fa4 +
-    sa2;
-
-
-  const final2Max =
-    fa3Max +
-    fa4Max +
-    sa2Max;
-
+  document
+    .getElementById("final1")
+    .value =
+      fa1 + fa2 + sa1;
 
   document
-    .getElementById(
-      "final1"
-    )
+    .getElementById("final1Max")
     .value =
-      final1;
-
+      fa1Max + fa2Max + sa1Max;
 
   document
-    .getElementById(
-      "final1Max"
-    )
+    .getElementById("final2")
     .value =
-      final1Max;
-
+      fa3 + fa4 + sa2;
 
   document
-    .getElementById(
-      "final2"
-    )
+    .getElementById("final2Max")
     .value =
-      final2;
-
-
-  document
-    .getElementById(
-      "final2Max"
-    )
-    .value =
-      final2Max;
+      fa3Max + fa4Max + sa2Max;
 
 }
 
 
-
 /* =====================================================
-   FINAL CALCULATION LISTENERS
+   FINAL LISTENERS
 ===================================================== */
 
 [
@@ -3214,9 +2656,7 @@ function calculateFinals(){
   id => {
 
     document
-      .getElementById(
-        id
-      )
+      .getElementById(id)
       .addEventListener(
         "input",
         calculateFinals
@@ -3224,7 +2664,6 @@ function calculateFinals(){
 
   }
 );
-
 
 
 /* =====================================================
@@ -3236,30 +2675,21 @@ async function(){
 
   const parentEmail =
     document
-      .getElementById(
-        "resultParentEmail"
-      )
+      .getElementById("resultParentEmail")
       .value
       .trim()
       .toLowerCase();
 
-
   const session =
     document
-      .getElementById(
-        "resultSession"
-      )
+      .getElementById("resultSession")
       .value
       .trim();
 
-
   const subject =
     document
-      .getElementById(
-        "resultSubject"
-      )
+      .getElementById("resultSubject")
       .value;
-
 
   if(
     !parentEmail ||
@@ -3271,213 +2701,234 @@ async function(){
     );
 
     return;
-
   }
-
-
-  const fieldIds = [
-
-    "fa1",
-    "fa1Max",
-
-    "fa2",
-    "fa2Max",
-
-    "sa1",
-    "sa1Max",
-
-    "fa3",
-    "fa3Max",
-
-    "fa4",
-    "fa4Max",
-
-    "sa2",
-    "sa2Max"
-
-  ];
-
-
-  for(
-    const id of fieldIds
-  ){
-
-    const value =
-      getNumber(id);
-
-
-    if(
-      value === null
-    ){
-
-      alert(
-        "Please enter all marks and maximum marks."
-      );
-
-      document
-        .getElementById(
-          id
-        )
-        .focus();
-
-      return;
-
-    }
-
-
-    if(
-      value < 0
-    ){
-
-      alert(
-        "Marks cannot be negative."
-      );
-
-      return;
-
-    }
-
-  }
-
-
-  const fa1 =
-    getNumber("fa1");
-
-  const fa1Max =
-    getNumber("fa1Max");
-
-  const fa2 =
-    getNumber("fa2");
-
-  const fa2Max =
-    getNumber("fa2Max");
-
-  const sa1 =
-    getNumber("sa1");
-
-  const sa1Max =
-    getNumber("sa1Max");
-
-
-  const fa3 =
-    getNumber("fa3");
-
-  const fa3Max =
-    getNumber("fa3Max");
-
-  const fa4 =
-    getNumber("fa4");
-
-  const fa4Max =
-    getNumber("fa4Max");
-
-  const sa2 =
-    getNumber("sa2");
-
-  const sa2Max =
-    getNumber("sa2Max");
-
-
-  if(
-    fa1 > fa1Max ||
-    fa2 > fa2Max ||
-    sa1 > sa1Max ||
-    fa3 > fa3Max ||
-    fa4 > fa4Max ||
-    sa2 > sa2Max
-  ){
-
-    alert(
-      "Obtained marks cannot be greater than maximum marks."
-    );
-
-    return;
-
-  }
-
 
   calculateFinals();
 
+  let termData = {};
 
-  const final1 =
-    Number(
-      document
-        .getElementById(
-          "final1"
+  /* =========================
+     TERM-I
+  ========================= */
+
+  if(
+    selectedResultTerm === "term1"
+  ){
+
+    const ids = [
+      "fa1",
+      "fa1Max",
+      "fa2",
+      "fa2Max",
+      "sa1",
+      "sa1Max"
+    ];
+
+    for(
+      const id of ids
+    ){
+
+      const value =
+        getNumber(id);
+
+      if(
+        value === null
+      ){
+
+        alert(
+          "Term-I ke sabhi marks aur Max marks enter karo."
+        );
+
+        document
+          .getElementById(id)
+          .focus();
+
+        return;
+      }
+
+      if(
+        value < 0
+      ){
+
+        alert(
+          "Marks cannot be negative."
+        );
+
+        return;
+      }
+
+    }
+
+    const fa1 =
+      getNumber("fa1");
+
+    const fa1Max =
+      getNumber("fa1Max");
+
+    const fa2 =
+      getNumber("fa2");
+
+    const fa2Max =
+      getNumber("fa2Max");
+
+    const sa1 =
+      getNumber("sa1");
+
+    const sa1Max =
+      getNumber("sa1Max");
+
+    if(
+      fa1 > fa1Max ||
+      fa2 > fa2Max ||
+      sa1 > sa1Max
+    ){
+
+      alert(
+        "Obtained marks cannot be greater than maximum marks."
+      );
+
+      return;
+    }
+
+    termData = {
+
+      fa1,
+      fa1Max,
+
+      fa2,
+      fa2Max,
+
+      sa1,
+      sa1Max,
+
+      final1:
+        Number(
+          document
+            .getElementById("final1")
+            .value
+        ),
+
+      final1Max:
+        Number(
+          document
+            .getElementById("final1Max")
+            .value
         )
-        .value
-    );
+
+    };
+
+  }
 
 
-  const final1Max =
-    Number(
-      document
-        .getElementById(
-          "final1Max"
+  /* =========================
+     TERM-II
+  ========================= */
+
+  else{
+
+    const ids = [
+      "fa3",
+      "fa3Max",
+      "fa4",
+      "fa4Max",
+      "sa2",
+      "sa2Max"
+    ];
+
+    for(
+      const id of ids
+    ){
+
+      const value =
+        getNumber(id);
+
+      if(
+        value === null
+      ){
+
+        alert(
+          "Term-II ke sabhi marks aur Max marks enter karo."
+        );
+
+        document
+          .getElementById(id)
+          .focus();
+
+        return;
+      }
+
+      if(
+        value < 0
+      ){
+
+        alert(
+          "Marks cannot be negative."
+        );
+
+        return;
+      }
+
+    }
+
+    const fa3 =
+      getNumber("fa3");
+
+    const fa3Max =
+      getNumber("fa3Max");
+
+    const fa4 =
+      getNumber("fa4");
+
+    const fa4Max =
+      getNumber("fa4Max");
+
+    const sa2 =
+      getNumber("sa2");
+
+    const sa2Max =
+      getNumber("sa2Max");
+
+    if(
+      fa3 > fa3Max ||
+      fa4 > fa4Max ||
+      sa2 > sa2Max
+    ){
+
+      alert(
+        "Obtained marks cannot be greater than maximum marks."
+      );
+
+      return;
+    }
+
+    termData = {
+
+      fa3,
+      fa3Max,
+
+      fa4,
+      fa4Max,
+
+      sa2,
+      sa2Max,
+
+      final2:
+        Number(
+          document
+            .getElementById("final2")
+            .value
+        ),
+
+      final2Max:
+        Number(
+          document
+            .getElementById("final2Max")
+            .value
         )
-        .value
-    );
 
+    };
 
-  const final2 =
-    Number(
-      document
-        .getElementById(
-          "final2"
-        )
-        .value
-    );
-
-
-  const final2Max =
-    Number(
-      document
-        .getElementById(
-          "final2Max"
-        )
-        .value
-    );
-
-
-  const data = {
-
-    parentEmail,
-
-    session,
-
-    exam:
-      "Annual Examination",
-
-    subject,
-
-    fa1,
-    fa1Max,
-
-    fa2,
-    fa2Max,
-
-    sa1,
-    sa1Max,
-
-    final1,
-    final1Max,
-
-    fa3,
-    fa3Max,
-
-    fa4,
-    fa4Max,
-
-    sa2,
-    sa2Max,
-
-    final2,
-    final2Max,
-
-    createdAt:
-      serverTimestamp()
-
-  };
+  }
 
 
   try{
@@ -3499,10 +2950,8 @@ async function(){
         )
       );
 
-
     let student =
       null;
-
 
     students.forEach(
       x => {
@@ -3512,7 +2961,6 @@ async function(){
           student = {
 
             id:x.id,
-
             ...x.data()
 
           };
@@ -3522,7 +2970,6 @@ async function(){
       }
     );
 
-
     if(!student){
 
       alert(
@@ -3530,21 +2977,41 @@ async function(){
       );
 
       return;
-
     }
 
 
-    data.studentName =
-      student.name || "";
+    /* BASE DATA */
 
-    data.studentClass =
-      student.class || "";
+    const baseData = {
 
-    data.studentRoll =
-      student.roll || "";
+      parentEmail,
 
+      session,
 
-    /* FIND EXISTING RESULT */
+      exam:
+        "Annual Examination",
+
+      subject,
+
+      studentName:
+        student.name || "",
+
+      studentClass:
+        student.class || "",
+
+      studentRoll:
+        student.roll || "",
+
+      updatedTerm:
+        selectedResultTerm === "term1"
+        ? "Term-I"
+        : "Term-II",
+
+      updatedAt:
+        serverTimestamp()
+
+    };
+
 
     const existing =
       await getDocs(
@@ -3584,15 +3051,22 @@ async function(){
           db,
           "results"
         ),
-        data
-      );
+        {
 
+          ...baseData,
+
+          ...termData,
+
+          createdAt:
+            serverTimestamp()
+
+        }
+      );
 
     }else{
 
       const existingDoc =
         existing.docs[0];
-
 
       await updateDoc(
         doc(
@@ -3600,85 +3074,83 @@ async function(){
           "results",
           existingDoc.id
         ),
-        data
+        {
+
+          ...baseData,
+
+          ...termData
+
+        }
       );
 
     }
 
 
     document
-      .getElementById(
-        "resultMsg"
-      )
+      .getElementById("resultMsg")
       .textContent =
-        "Result saved successfully.";
+        (
+          selectedResultTerm === "term1"
+          ? "Term-I"
+          : "Term-II"
+        )
+        +
+        " result saved successfully.";
 
-
-    clearResultForm();
-
+    clearSelectedResultForm();
 
     loadResultManagement();
-
 
   }catch(e){
 
     console.error(e);
 
-
     document
-      .getElementById(
-        "resultMsg"
-      )
+      .getElementById("resultMsg")
       .textContent =
         "Error: " +
         e.message;
-
   }
 
 };
 
 
-
 /* =====================================================
-   CLEAR RESULT FORM
+   CLEAR SELECTED TERM ONLY
 ===================================================== */
 
-function clearResultForm(){
+function clearSelectedResultForm(){
 
-  [
+  const ids =
+    selectedResultTerm === "term1"
+    ?
+    [
+      "fa1",
+      "fa1Max",
+      "fa2",
+      "fa2Max",
+      "sa1",
+      "sa1Max",
+      "final1",
+      "final1Max"
+    ]
+    :
+    [
+      "fa3",
+      "fa3Max",
+      "fa4",
+      "fa4Max",
+      "sa2",
+      "sa2Max",
+      "final2",
+      "final2Max"
+    ];
 
-    "fa1",
-    "fa1Max",
-
-    "fa2",
-    "fa2Max",
-
-    "sa1",
-    "sa1Max",
-
-    "final1",
-    "final1Max",
-
-    "fa3",
-    "fa3Max",
-
-    "fa4",
-    "fa4Max",
-
-    "sa2",
-    "sa2Max",
-
-    "final2",
-    "final2Max"
-
-  ]
-  .forEach(
+  ids.forEach(
     id => {
 
       document
-        .getElementById(
-          id
-        )
+        .getElementById(id)
         .value =
           "";
 
@@ -3686,7 +3158,6 @@ function clearResultForm(){
   );
 
 }
-
 
 
 /* =====================================================
@@ -3701,7 +3172,6 @@ async function(){
       "parentContent"
     );
 
-
   try{
 
     const snap =
@@ -3712,10 +3182,8 @@ async function(){
         )
       );
 
-
     let html =
       '<div class="card"><h2>Notifications</h2>';
-
 
     if(
       snap.empty
@@ -3726,13 +3194,11 @@ async function(){
 
     }
 
-
     snap.forEach(
       x => {
 
         const d =
           x.data();
-
 
         html += `
 
@@ -3759,14 +3225,11 @@ async function(){
       }
     );
 
-
     html +=
       "</div>";
 
-
     box.innerHTML =
       html;
-
 
   }catch(e){
 
@@ -3776,7 +3239,6 @@ async function(){
   }
 
 };
-
 
 
 /* =====================================================
@@ -3791,18 +3253,13 @@ async function(){
       "parentContent"
     );
 
-
   if(!currentUser){
-
     return;
-
   }
-
 
   const email =
     currentUser.email
       .toLowerCase();
-
 
   try{
 
@@ -3821,10 +3278,8 @@ async function(){
         )
       );
 
-
     let html =
       '<div class="card"><h2>Attendance</h2>';
-
 
     if(
       snap.empty
@@ -3840,26 +3295,17 @@ async function(){
         <table>
 
           <tr>
-
-            <th>
-              Date
-            </th>
-
-            <th>
-              Status
-            </th>
-
+            <th>Date</th>
+            <th>Status</th>
           </tr>
 
       `;
-
 
       snap.forEach(
         x => {
 
           const d =
             x.data();
-
 
           html += `
 
@@ -3886,20 +3332,16 @@ async function(){
         }
       );
 
-
       html +=
         "</table>";
 
     }
 
-
     html +=
       "</div>";
 
-
     box.innerHTML =
       html;
-
 
   }catch(e){
 
@@ -3911,9 +3353,8 @@ async function(){
 };
 
 
-
 /* =====================================================
-   HOMEWORK
+   HOMEWORK VIEW
 ===================================================== */
 
 window.loadHomework =
@@ -3923,7 +3364,6 @@ async function(){
     document.getElementById(
       "parentContent"
     );
-
 
   try{
 
@@ -3935,10 +3375,8 @@ async function(){
         )
       );
 
-
     let html =
       '<div class="card"><h2>Homework</h2>';
-
 
     if(
       snap.empty
@@ -3949,13 +3387,11 @@ async function(){
 
     }
 
-
     snap.forEach(
       x => {
 
         const d =
           x.data();
-
 
         html += `
 
@@ -3969,13 +3405,11 @@ async function(){
             </b>
 
             <div class="small">
-
               Class:
               ${escapeHtml(
                 d.class ||
                 ""
               )}
-
             </div>
 
             <p>
@@ -3992,14 +3426,11 @@ async function(){
       }
     );
 
-
     html +=
       "</div>";
 
-
     box.innerHTML =
       html;
-
 
   }catch(e){
 
@@ -4009,7 +3440,6 @@ async function(){
   }
 
 };
-
 
 
 /* =====================================================
@@ -4024,7 +3454,6 @@ async function(){
       "parentContent"
     );
 
-
   try{
 
     const snap =
@@ -4035,10 +3464,8 @@ async function(){
         )
       );
 
-
     let html =
       '<div class="card"><h2>Study Material</h2>';
-
 
     if(
       snap.empty
@@ -4049,13 +3476,11 @@ async function(){
 
     }
 
-
     snap.forEach(
       x => {
 
         const d =
           x.data();
-
 
         html += `
 
@@ -4105,14 +3530,11 @@ async function(){
       }
     );
 
-
     html +=
       "</div>";
 
-
     box.innerHTML =
       html;
-
 
   }catch(e){
 
@@ -4124,9 +3546,8 @@ async function(){
 };
 
 
-
 /* =====================================================
-   CALENDAR
+   CALENDAR VIEW
 ===================================================== */
 
 window.loadCalendar =
@@ -4136,7 +3557,6 @@ async function(){
     document.getElementById(
       "parentContent"
     );
-
 
   try{
 
@@ -4148,10 +3568,8 @@ async function(){
         )
       );
 
-
     let html =
       '<div class="card"><h2>School Calendar</h2>';
-
 
     if(
       snap.empty
@@ -4162,13 +3580,11 @@ async function(){
 
     }
 
-
     snap.forEach(
       x => {
 
         const d =
           x.data();
-
 
         html += `
 
@@ -4202,14 +3618,11 @@ async function(){
       }
     );
 
-
     html +=
       "</div>";
 
-
     box.innerHTML =
       html;
-
 
   }catch(e){
 
@@ -4219,7 +3632,6 @@ async function(){
   }
 
 };
-
 
 
 /* =====================================================
@@ -4234,18 +3646,13 @@ async function(){
       "parentContent"
     );
 
-
   if(!currentUser){
-
     return;
-
   }
-
 
   const email =
     currentUser.email
       .toLowerCase();
-
 
   try{
 
@@ -4264,10 +3671,8 @@ async function(){
         )
       );
 
-
     let html =
       '<div class="card"><h2>Student Profile</h2>';
-
 
     if(
       snap.empty
@@ -4284,15 +3689,11 @@ async function(){
           const d =
             x.data();
 
-
           html += `
 
             <div class="item">
 
-              <b>
-                Student Name:
-              </b>
-
+              <b>Student Name:</b>
               ${escapeHtml(
                 d.name ||
                 ""
@@ -4300,10 +3701,7 @@ async function(){
 
               <br><br>
 
-              <b>
-                Class:
-              </b>
-
+              <b>Class:</b>
               ${escapeHtml(
                 String(
                   d.class ||
@@ -4313,10 +3711,7 @@ async function(){
 
               <br><br>
 
-              <b>
-                Roll No:
-              </b>
-
+              <b>Roll No:</b>
               ${escapeHtml(
                 String(
                   d.roll ||
@@ -4326,10 +3721,7 @@ async function(){
 
               <br><br>
 
-              <b>
-                Academic Session:
-              </b>
-
+              <b>Academic Session:</b>
               2026–27
 
             </div>
@@ -4341,14 +3733,11 @@ async function(){
 
     }
 
-
     html +=
       "</div>";
 
-
     box.innerHTML =
       html;
-
 
   }catch(e){
 
@@ -4360,9 +3749,8 @@ async function(){
 };
 
 
-
 /* =====================================================
-   RESULTS
+   LOAD RESULTS
 ===================================================== */
 
 window.loadResults =
@@ -4373,18 +3761,13 @@ async function(){
       "parentContent"
     );
 
-
   if(!currentUser){
-
     return;
-
   }
-
 
   const email =
     currentUser.email
       .toLowerCase();
-
 
   try{
 
@@ -4403,20 +3786,14 @@ async function(){
         )
       );
 
-
     let student = {
 
       name:"",
-
       class:"",
-
       roll:"",
-
-      parentEmail:
-        email
+      parentEmail:email
 
     };
-
 
     studentSnap.forEach(
       x => {
@@ -4428,7 +3805,6 @@ async function(){
           student = {
 
             id:x.id,
-
             ...x.data()
 
           };
@@ -4437,7 +3813,6 @@ async function(){
 
       }
     );
-
 
     const resultSnap =
       await getDocs(
@@ -4454,9 +3829,7 @@ async function(){
         )
       );
 
-
     const groups = {};
-
 
     resultSnap.forEach(
       x => {
@@ -4464,11 +3837,9 @@ async function(){
         const d =
           x.data();
 
-
         const key =
           d.session ||
           "2026-27";
-
 
         if(
           !groups[key]
@@ -4477,20 +3848,17 @@ async function(){
           groups[key] = {
 
             session:key,
-
             subjects:[]
 
           };
 
         }
 
-
         groups[key]
           .subjects
           .push({
 
             id:x.id,
-
             ...d
 
           });
@@ -4498,15 +3866,11 @@ async function(){
       }
     );
 
-
     let html =
       '<div class="card"><h2>📝 Exam / Result</h2>';
 
-
     if(
-      Object.keys(
-        groups
-      ).length === 0
+      Object.keys(groups).length === 0
     ){
 
       html +=
@@ -4515,10 +3879,7 @@ async function(){
     }else{
 
       const sortedKeys =
-        Object.keys(
-          groups
-        ).sort();
-
+        Object.keys(groups).sort();
 
       for(
         const key of sortedKeys
@@ -4534,19 +3895,15 @@ async function(){
 
     }
 
-
     html +=
       "</div>";
-
 
     box.innerHTML =
       html;
 
-
   }catch(e){
 
     console.error(e);
-
 
     box.innerHTML =
       '<div class="card">Unable to load result.</div>';
@@ -4554,7 +3911,6 @@ async function(){
   }
 
 };
-
 
 
 /* =====================================================
@@ -4569,24 +3925,16 @@ function createReportCard(
   const subjects = [
 
     "Hindi",
-
     "English",
-
     "Mathematics",
-
     "Science",
-
     "Social Studies",
-
     "Computer",
-
     "G.K."
 
   ];
 
-
   const subjectMap = {};
-
 
   group.subjects.forEach(
     s => {
@@ -4602,58 +3950,36 @@ function createReportCard(
   );
 
 
-  let rows =
-    "";
+  let rows = "";
 
 
-  let fa1Total =
-    0;
+  let totals = {
 
-  let fa2Total =
-    0;
+    fa1:0,
+    fa1Max:0,
 
-  let sa1Total =
-    0;
+    fa2:0,
+    fa2Max:0,
 
-  let final1Total =
-    0;
+    sa1:0,
+    sa1Max:0,
 
-  let fa3Total =
-    0;
+    final1:0,
+    final1Max:0,
 
-  let fa4Total =
-    0;
+    fa3:0,
+    fa3Max:0,
 
-  let sa2Total =
-    0;
+    fa4:0,
+    fa4Max:0,
 
-  let final2Total =
-    0;
+    sa2:0,
+    sa2Max:0,
 
+    final2:0,
+    final2Max:0
 
-  let fa1MaxTotal =
-    0;
-
-  let fa2MaxTotal =
-    0;
-
-  let sa1MaxTotal =
-    0;
-
-  let final1MaxTotal =
-    0;
-
-  let fa3MaxTotal =
-    0;
-
-  let fa4MaxTotal =
-    0;
-
-  let sa2MaxTotal =
-    0;
-
-  let final2MaxTotal =
-    0;
+  };
 
 
   subjects.forEach(
@@ -4699,27 +4025,14 @@ function createReportCard(
 
 
       const final1 =
-        s?.final1 !== undefined
-        ? Number(
-            s.final1 || 0
-          )
-        : (
-            fa1 +
-            fa2 +
-            sa1
-          );
-
+        Number(
+          s?.final1 || 0
+        );
 
       const final1Max =
-        s?.final1Max !== undefined
-        ? Number(
-            s.final1Max || 0
-          )
-        : (
-            fa1Max +
-            fa2Max +
-            sa1Max
-          );
+        Number(
+          s?.final1Max || 0
+        );
 
 
       const fa3 =
@@ -4756,61 +4069,39 @@ function createReportCard(
 
 
       const final2 =
-        s?.final2 !== undefined
-        ? Number(
-            s.final2 || 0
-          )
-        : (
-            fa3 +
-            fa4 +
-            sa2
-          );
-
+        Number(
+          s?.final2 || 0
+        );
 
       const final2Max =
-        s?.final2Max !== undefined
-        ? Number(
-            s.final2Max || 0
-          )
-        : (
-            fa3Max +
-            fa4Max +
-            sa2Max
-          );
+        Number(
+          s?.final2Max || 0
+        );
 
 
-      fa1Total += fa1;
+      totals.fa1 += fa1;
+      totals.fa1Max += fa1Max;
 
-      fa2Total += fa2;
+      totals.fa2 += fa2;
+      totals.fa2Max += fa2Max;
 
-      sa1Total += sa1;
+      totals.sa1 += sa1;
+      totals.sa1Max += sa1Max;
 
-      final1Total += final1;
+      totals.final1 += final1;
+      totals.final1Max += final1Max;
 
-      fa3Total += fa3;
+      totals.fa3 += fa3;
+      totals.fa3Max += fa3Max;
 
-      fa4Total += fa4;
+      totals.fa4 += fa4;
+      totals.fa4Max += fa4Max;
 
-      sa2Total += sa2;
+      totals.sa2 += sa2;
+      totals.sa2Max += sa2Max;
 
-      final2Total += final2;
-
-
-      fa1MaxTotal += fa1Max;
-
-      fa2MaxTotal += fa2Max;
-
-      sa1MaxTotal += sa1Max;
-
-      final1MaxTotal += final1Max;
-
-      fa3MaxTotal += fa3Max;
-
-      fa4MaxTotal += fa4Max;
-
-      sa2MaxTotal += sa2Max;
-
-      final2MaxTotal += final2Max;
+      totals.final2 += final2;
+      totals.final2Max += final2Max;
 
 
       rows += `
@@ -4818,11 +4109,8 @@ function createReportCard(
         <tr>
 
           <td>
-            ${escapeHtml(
-              subject
-            )}
+            ${escapeHtml(subject)}
           </td>
-
 
           <td>
             ${displayMark(
@@ -4831,14 +4119,12 @@ function createReportCard(
             )}
           </td>
 
-
           <td>
             ${displayMark(
               s?.fa2,
               s?.fa2Max
             )}
           </td>
-
 
           <td>
             ${displayMark(
@@ -4847,16 +4133,16 @@ function createReportCard(
             )}
           </td>
 
-
           <td class="final-column">
+
             <b>
               ${displayMark(
-                final1,
-                final1Max
+                s?.final1,
+                s?.final1Max
               )}
             </b>
-          </td>
 
+          </td>
 
           <td>
             ${displayMark(
@@ -4865,14 +4151,12 @@ function createReportCard(
             )}
           </td>
 
-
           <td>
             ${displayMark(
               s?.fa4,
               s?.fa4Max
             )}
           </td>
-
 
           <td>
             ${displayMark(
@@ -4881,14 +4165,15 @@ function createReportCard(
             )}
           </td>
 
-
           <td class="final-column">
+
             <b>
               ${displayMark(
-                final2,
-                final2Max
+                s?.final2,
+                s?.final2Max
               )}
             </b>
+
           </td>
 
         </tr>
@@ -4900,45 +4185,75 @@ function createReportCard(
 
 
   /* =========================
+     TERM DATA STATUS
+  ========================= */
+
+  const term1HasData =
+    totals.final1Max > 0;
+
+  const term2HasData =
+    totals.final2Max > 0;
+
+
+  /* =========================
      PERCENTAGES
   ========================= */
 
   const sa1Percent =
     percentage(
-      sa1Total,
-      sa1MaxTotal
+      totals.sa1,
+      totals.sa1Max
     );
-
 
   const sa2Percent =
     percentage(
-      sa2Total,
-      sa2MaxTotal
+      totals.sa2,
+      totals.sa2Max
     );
-
 
   const final1Percent =
     percentage(
-      final1Total,
-      final1MaxTotal
+      totals.final1,
+      totals.final1Max
     );
-
 
   const final2Percent =
     percentage(
-      final2Total,
-      final2MaxTotal
+      totals.final2,
+      totals.final2Max
     );
 
 
-  const overallTotal =
-    final1Total +
-    final2Total;
+  /* =========================
+     OVERALL
+  ========================= */
 
+  let overallTotal = 0;
+  let overallMax = 0;
 
-  const overallMax =
-    final1MaxTotal +
-    final2MaxTotal;
+  if(
+    term1HasData
+  ){
+
+    overallTotal +=
+      totals.final1;
+
+    overallMax +=
+      totals.final1Max;
+
+  }
+
+  if(
+    term2HasData
+  ){
+
+    overallTotal +=
+      totals.final2;
+
+    overallMax +=
+      totals.final2Max;
+
+  }
 
 
   const overallPercent =
@@ -4948,55 +4263,261 @@ function createReportCard(
     );
 
 
-  /* =========================
-     GRADES
-  ========================= */
-
-  const sa1Grade =
-    getGrade(
-      sa1Percent
-    );
-
-
-  const sa2Grade =
-    getGrade(
-      sa2Percent
-    );
-
-
   const overallGrade =
     getGrade(
       overallPercent
     );
 
 
+  let finalResult =
+    "PENDING";
+
+
+  if(
+    overallMax > 0
+  ){
+
+    finalResult =
+      Number(
+        overallPercent
+      ) >= 33
+      ? "PASS"
+      : "FAIL";
+
+  }
+
+
   /* =========================
-     RESULT
+     DISPLAY TOTALS
   ========================= */
 
-  const sa1Result =
-    Number(
-      sa1Percent
-    ) >= 33
-    ? "PASS"
-    : "FAIL";
+  const fa1TotalDisplay =
+    term1HasData
+    ? totals.fa1 + " / " + totals.fa1Max
+    : "—";
+
+  const fa2TotalDisplay =
+    term1HasData
+    ? totals.fa2 + " / " + totals.fa2Max
+    : "—";
+
+  const sa1TotalDisplay =
+    term1HasData
+    ? totals.sa1 + " / " + totals.sa1Max
+    : "—";
+
+  const final1TotalDisplay =
+    term1HasData
+    ? totals.final1 + " / " + totals.final1Max
+    : "—";
 
 
-  const sa2Result =
-    Number(
-      sa2Percent
-    ) >= 33
-    ? "PASS"
-    : "FAIL";
+  const fa3TotalDisplay =
+    term2HasData
+    ? totals.fa3 + " / " + totals.fa3Max
+    : "—";
+
+  const fa4TotalDisplay =
+    term2HasData
+    ? totals.fa4 + " / " + totals.fa4Max
+    : "—";
+
+  const sa2TotalDisplay =
+    term2HasData
+    ? totals.sa2 + " / " + totals.sa2Max
+    : "—";
+
+  const final2TotalDisplay =
+    term2HasData
+    ? totals.final2 + " / " + totals.final2Max
+    : "—";
 
 
-  const finalResult =
-    Number(
-      overallPercent
-    ) >= 33
-    ? "PASS"
-    : "FAIL";
+  /* =========================
+     PERFORMANCE
+  ========================= */
 
+  const sa1Block =
+    term1HasData
+    ?
+
+    `
+
+      <div class="performance-box">
+
+        <div>
+          <b>SA-1 Total</b>
+          <br><br>
+          ${totals.sa1} / ${totals.sa1Max}
+        </div>
+
+        <div>
+          <b>SA-1 Percentage</b>
+          <br><br>
+          ${sa1Percent}%
+        </div>
+
+        <div>
+          <b>SA-1 Grade</b>
+          <br><br>
+          ${getGrade(sa1Percent)}
+        </div>
+
+        <div>
+          <b>SA-1 Result</b>
+          <br><br>
+
+          <span class="${
+            Number(sa1Percent) >= 33
+            ? "pass"
+            : "fail"
+          }">
+
+            ${
+              Number(sa1Percent) >= 33
+              ? "PASS"
+              : "FAIL"
+            }
+
+          </span>
+
+        </div>
+
+      </div>
+
+    `
+
+    :
+
+    `
+
+      <div class="performance-box">
+
+        <div style="grid-column:1/-1">
+
+          <b>
+            TERM-I PERFORMANCE
+          </b>
+
+          <br><br>
+
+          <span class="pending">
+            Not Available / Pending
+          </span>
+
+        </div>
+
+      </div>
+
+    `;
+
+
+  const sa2Block =
+    term2HasData
+    ?
+
+    `
+
+      <div class="performance-box">
+
+        <div>
+          <b>SA-2 Total</b>
+          <br><br>
+          ${totals.sa2} / ${totals.sa2Max}
+        </div>
+
+        <div>
+          <b>SA-2 Percentage</b>
+          <br><br>
+          ${sa2Percent}%
+        </div>
+
+        <div>
+          <b>SA-2 Grade</b>
+          <br><br>
+          ${getGrade(sa2Percent)}
+        </div>
+
+        <div>
+          <b>SA-2 Result</b>
+          <br><br>
+
+          <span class="${
+            Number(sa2Percent) >= 33
+            ? "pass"
+            : "fail"
+          }">
+
+            ${
+              Number(sa2Percent) >= 33
+              ? "PASS"
+              : "FAIL"
+            }
+
+          </span>
+
+        </div>
+
+      </div>
+
+    `
+
+    :
+
+    `
+
+      <div class="performance-box">
+
+        <div style="grid-column:1/-1">
+
+          <b>
+            TERM-II PERFORMANCE
+          </b>
+
+          <br><br>
+
+          <span class="pending">
+            Pending
+          </span>
+
+        </div>
+
+      </div>
+
+    `;
+
+
+  /* =========================
+     FINAL OVERALL TITLE
+  ========================= */
+
+  let overallTitle =
+    "FINAL OVERALL";
+
+  if(
+    term1HasData &&
+    !term2HasData
+  ){
+
+    overallTitle =
+      "CURRENT OVERALL – TERM-I";
+
+  }
+
+  if(
+    !term1HasData &&
+    term2HasData
+  ){
+
+    overallTitle =
+      "CURRENT OVERALL – TERM-II";
+
+  }
+
+
+  /* =========================
+     REPORT ID
+  ========================= */
 
   const id =
     "report_" +
@@ -5012,9 +4533,6 @@ function createReportCard(
       id="${id}"
     >
 
-
-      <!-- HEADER -->
-
       <div class="report-head">
 
         <img
@@ -5022,16 +4540,13 @@ function createReportCard(
           alt="DPS Logo"
         >
 
-
         <h1>
           DELHI PUBLIC SCHOOL
         </h1>
 
-
         <h2>
           NARKATIAGANJ
         </h2>
-
 
         <h3>
           ANNUAL EXAMINATION
@@ -5040,20 +4555,12 @@ function createReportCard(
           )}
         </h3>
 
-
         <div>
-
-          <b>
-            REPORT CARD
-          </b>
-
+          <b>REPORT CARD</b>
         </div>
 
       </div>
 
-
-
-      <!-- STUDENT DETAILS -->
 
       <div class="student-info">
 
@@ -5070,7 +4577,6 @@ function createReportCard(
 
         </div>
 
-
         <div>
 
           <b>
@@ -5085,7 +4591,6 @@ function createReportCard(
           )}
 
         </div>
-
 
         <div>
 
@@ -5102,7 +4607,6 @@ function createReportCard(
 
         </div>
 
-
         <div>
 
           <b>
@@ -5118,13 +4622,8 @@ function createReportCard(
       </div>
 
 
-
-      <!-- SUBJECT RESULT -->
-
       <div class="report-title">
-
         SUBJECT-WISE RESULT
-
       </div>
 
 
@@ -5140,11 +4639,9 @@ function createReportCard(
                 Subject
               </th>
 
-
               <th colspan="4">
                 TERM - I
               </th>
-
 
               <th colspan="4">
                 TERM - II
@@ -5152,53 +4649,25 @@ function createReportCard(
 
             </tr>
 
-
             <tr>
 
-              <th>
-                FA1
-              </th>
+              <th>FA1</th>
+              <th>FA2</th>
+              <th>SA1</th>
+              <th>Final-1</th>
 
-              <th>
-                FA2
-              </th>
-
-              <th>
-                SA1
-              </th>
-
-              <th>
-                Final-1
-              </th>
-
-
-              <th>
-                FA3
-              </th>
-
-              <th>
-                FA4
-              </th>
-
-              <th>
-                SA2
-              </th>
-
-              <th>
-                Final-2
-              </th>
+              <th>FA3</th>
+              <th>FA4</th>
+              <th>SA2</th>
+              <th>Final-2</th>
 
             </tr>
 
           </thead>
 
-
           <tbody>
 
             ${rows}
-
-
-            <!-- TOTAL -->
 
             <tr>
 
@@ -5206,68 +4675,40 @@ function createReportCard(
                 TOTAL
               </th>
 
-
               <th>
-                ${fa1Total}
-                /
-                ${fa1MaxTotal}
+                ${fa1TotalDisplay}
               </th>
 
-
               <th>
-                ${fa2Total}
-                /
-                ${fa2MaxTotal}
+                ${fa2TotalDisplay}
               </th>
 
-
               <th>
-                ${sa1Total}
-                /
-                ${sa1MaxTotal}
+                ${sa1TotalDisplay}
               </th>
-
 
               <th class="final-column">
-
                 <b>
-                  ${final1Total}
-                  /
-                  ${final1MaxTotal}
+                  ${final1TotalDisplay}
                 </b>
-
               </th>
-
 
               <th>
-                ${fa3Total}
-                /
-                ${fa3MaxTotal}
+                ${fa3TotalDisplay}
               </th>
-
 
               <th>
-                ${fa4Total}
-                /
-                ${fa4MaxTotal}
+                ${fa4TotalDisplay}
               </th>
-
 
               <th>
-                ${sa2Total}
-                /
-                ${sa2MaxTotal}
+                ${sa2TotalDisplay}
               </th>
-
 
               <th class="final-column">
-
                 <b>
-                  ${final2Total}
-                  /
-                  ${final2MaxTotal}
+                  ${final2TotalDisplay}
                 </b>
-
               </th>
 
             </tr>
@@ -5279,161 +4720,18 @@ function createReportCard(
       </div>
 
 
-
-      <!-- PERFORMANCE -->
-
       <div class="report-title">
-
         PERFORMANCE SUMMARY
-
       </div>
 
 
+      ${sa1Block}
 
-      <!-- SA1 -->
+      ${sa2Block}
 
-      <div class="performance-box">
-
-        <div>
-
-          <b>
-            SA-1 Total
-          </b>
-
-          <br><br>
-
-          ${sa1Total}
-          /
-          ${sa1MaxTotal}
-
-        </div>
-
-
-        <div>
-
-          <b>
-            SA-1 Percentage
-          </b>
-
-          <br><br>
-
-          ${sa1Percent}%
-
-        </div>
-
-
-        <div>
-
-          <b>
-            SA-1 Grade
-          </b>
-
-          <br><br>
-
-          ${sa1Grade}
-
-        </div>
-
-
-        <div>
-
-          <b>
-            SA-1 Result
-          </b>
-
-          <br><br>
-
-          <span
-            class="${
-              sa1Result === "PASS"
-              ? "pass"
-              : "fail"
-            }"
-          >
-            ${sa1Result}
-          </span>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- SA2 -->
-
-      <div class="performance-box">
-
-        <div>
-
-          <b>
-            SA-2 Total
-          </b>
-
-          <br><br>
-
-          ${sa2Total}
-          /
-          ${sa2MaxTotal}
-
-        </div>
-
-
-        <div>
-
-          <b>
-            SA-2 Percentage
-          </b>
-
-          <br><br>
-
-          ${sa2Percent}%
-
-        </div>
-
-
-        <div>
-
-          <b>
-            SA-2 Grade
-          </b>
-
-          <br><br>
-
-          ${sa2Grade}
-
-        </div>
-
-
-        <div>
-
-          <b>
-            SA-2 Result
-          </b>
-
-          <br><br>
-
-          <span
-            class="${
-              sa2Result === "PASS"
-              ? "pass"
-              : "fail"
-            }"
-          >
-            ${sa2Result}
-          </span>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- FINAL OVERALL -->
 
       <div class="report-title">
-
-        FINAL OVERALL
-
+        ${overallTitle}
       </div>
 
 
@@ -5447,12 +4745,13 @@ function createReportCard(
 
           <br><br>
 
-          ${overallTotal}
-          /
-          ${overallMax}
+          ${
+            overallMax > 0
+            ? overallTotal + " / " + overallMax
+            : "—"
+          }
 
         </div>
-
 
         <div>
 
@@ -5462,10 +4761,13 @@ function createReportCard(
 
           <br><br>
 
-          ${overallPercent}%
+          ${
+            overallMax > 0
+            ? overallPercent + "%"
+            : "—"
+          }
 
         </div>
-
 
         <div>
 
@@ -5475,27 +4777,32 @@ function createReportCard(
 
           <br><br>
 
-          ${overallGrade}
+          ${
+            overallMax > 0
+            ? overallGrade
+            : "—"
+          }
 
         </div>
-
 
         <div>
 
           <b>
-            Final Result
+            Result
           </b>
 
           <br><br>
 
-          <span
-            class="${
-              finalResult === "PASS"
-              ? "pass"
-              : "fail"
-            }"
-          >
+          <span class="${
+            finalResult === "PASS"
+            ? "pass"
+            : finalResult === "FAIL"
+            ? "fail"
+            : "pending"
+          }">
+
             ${finalResult}
+
           </span>
 
         </div>
@@ -5503,13 +4810,8 @@ function createReportCard(
       </div>
 
 
-
-      <!-- TERM PERCENTAGE -->
-
       <div class="report-title">
-
         TERM PERFORMANCE
-
       </div>
 
 
@@ -5523,13 +4825,18 @@ function createReportCard(
 
           <br><br>
 
-          ${final1Total}
-          /
-          ${final1MaxTotal}
-
-          <br>
-
-          ${final1Percent}%
+          ${
+            term1HasData
+            ?
+            totals.final1 +
+            " / " +
+            totals.final1Max +
+            "<br>" +
+            final1Percent +
+            "%"
+            :
+            '<span class="pending">Pending</span>'
+          }
 
         </div>
 
@@ -5542,9 +4849,13 @@ function createReportCard(
 
           <br><br>
 
-          ${getGrade(
-            final1Percent
-          )}
+          ${
+            term1HasData
+            ?
+            getGrade(final1Percent)
+            :
+            '<span class="pending">Pending</span>'
+          }
 
         </div>
 
@@ -5557,13 +4868,18 @@ function createReportCard(
 
           <br><br>
 
-          ${final2Total}
-          /
-          ${final2MaxTotal}
-
-          <br>
-
-          ${final2Percent}%
+          ${
+            term2HasData
+            ?
+            totals.final2 +
+            " / " +
+            totals.final2Max +
+            "<br>" +
+            final2Percent +
+            "%"
+            :
+            '<span class="pending">Pending</span>'
+          }
 
         </div>
 
@@ -5576,22 +4892,44 @@ function createReportCard(
 
           <br><br>
 
-          ${getGrade(
-            final2Percent
-          )}
+          ${
+            term2HasData
+            ?
+            getGrade(final2Percent)
+            :
+            '<span class="pending">Pending</span>'
+          }
 
         </div>
 
       </div>
 
 
+      ${
+        term1HasData && !term2HasData
+        ?
 
-      <!-- GRADING SCALE -->
+        `
+
+        <div class="report-note">
+
+          ℹ️ Term-II result is pending.
+          FA3, FA4 और SA2 marks आने के बाद
+          Term-II update किया जाएगा।
+
+        </div>
+
+        `
+
+        :
+
+        ""
+
+      }
+
 
       <div class="report-title">
-
         GRADING SCALE
-
       </div>
 
 
@@ -5611,108 +4949,44 @@ function createReportCard(
 
           </tr>
 
-
           <tr>
-
-            <td>
-              A1
-            </td>
-
-            <td>
-              90–100%
-            </td>
-
+            <td>A1</td>
+            <td>90–100%</td>
           </tr>
 
-
           <tr>
-
-            <td>
-              A2
-            </td>
-
-            <td>
-              80–89%
-            </td>
-
+            <td>A2</td>
+            <td>80–89%</td>
           </tr>
 
-
           <tr>
-
-            <td>
-              B1
-            </td>
-
-            <td>
-              70–79%
-            </td>
-
+            <td>B1</td>
+            <td>70–79%</td>
           </tr>
 
-
           <tr>
-
-            <td>
-              B2
-            </td>
-
-            <td>
-              60–69%
-            </td>
-
+            <td>B2</td>
+            <td>60–69%</td>
           </tr>
 
-
           <tr>
-
-            <td>
-              C1
-            </td>
-
-            <td>
-              50–59%
-            </td>
-
+            <td>C1</td>
+            <td>50–59%</td>
           </tr>
 
-
           <tr>
-
-            <td>
-              C2
-            </td>
-
-            <td>
-              40–49%
-            </td>
-
+            <td>C2</td>
+            <td>40–49%</td>
           </tr>
 
-
           <tr>
-
-            <td>
-              D
-            </td>
-
-            <td>
-              33–39%
-            </td>
-
+            <td>D</td>
+            <td>33–39%</td>
           </tr>
 
-
           <tr>
-
-            <td>
-              E
-            </td>
-
-            <td>
-              Below 33%
-            </td>
-
+            <td>E</td>
+            <td>Below 33%</td>
           </tr>
 
         </table>
@@ -5720,20 +4994,15 @@ function createReportCard(
       </div>
 
 
-
-      <!-- SIGNATURES -->
-
       <div class="signatures">
 
         <div>
           Class Teacher Signature
         </div>
 
-
         <div>
           Principal Signature
         </div>
-
 
         <div>
           Parent Signature
@@ -5741,9 +5010,6 @@ function createReportCard(
 
       </div>
 
-
-
-      <!-- PRINT -->
 
       <button
         class="primary print-btn"
@@ -5758,7 +5024,6 @@ function createReportCard(
   `;
 
 }
-
 
 
 /* =====================================================
@@ -5780,14 +5045,19 @@ function displayMark(
 
   }
 
-
   const obtained =
     Number(value);
-
 
   const maximum =
     Number(max);
 
+  if(
+    !Number.isFinite(obtained)
+  ){
+
+    return "—";
+
+  }
 
   if(
     maximum > 0
@@ -5801,11 +5071,9 @@ function displayMark(
 
   }
 
-
-  return obtained;
+  return "—";
 
 }
-
 
 
 /* =====================================================
@@ -5826,7 +5094,6 @@ function percentage(
 
   }
 
-
   return (
     (
       obtained /
@@ -5839,7 +5106,6 @@ function percentage(
 }
 
 
-
 /* =====================================================
    GRADE
 ===================================================== */
@@ -5849,57 +5115,32 @@ function getGrade(
 ){
 
   percent =
-    Number(
-      percent
-    );
+    Number(percent);
 
-
-  if(
-    percent >= 90
-  )
+  if(percent >= 90)
     return "A1";
 
-
-  if(
-    percent >= 80
-  )
+  if(percent >= 80)
     return "A2";
 
-
-  if(
-    percent >= 70
-  )
+  if(percent >= 70)
     return "B1";
 
-
-  if(
-    percent >= 60
-  )
+  if(percent >= 60)
     return "B2";
 
-
-  if(
-    percent >= 50
-  )
+  if(percent >= 50)
     return "C1";
 
-
-  if(
-    percent >= 40
-  )
+  if(percent >= 40)
     return "C2";
 
-
-  if(
-    percent >= 33
-  )
+  if(percent >= 33)
     return "D";
-
 
   return "E";
 
 }
-
 
 
 /* =====================================================
@@ -5914,13 +5155,9 @@ function(id){
       id
     );
 
-
   if(!element){
-
     return;
-
   }
-
 
   document
     .querySelectorAll(
@@ -5936,14 +5173,11 @@ function(id){
       }
     );
 
-
   element.classList.add(
     "print-target"
   );
 
-
   window.print();
-
 
   setTimeout(
     () => {
@@ -5959,7 +5193,6 @@ function(id){
 };
 
 
-
 /* =====================================================
    STUDENT MANAGEMENT
 ===================================================== */
@@ -5972,7 +5205,6 @@ async function(){
       "studentManagement"
     );
 
-
   try{
 
     const snap =
@@ -5983,10 +5215,8 @@ async function(){
         )
       );
 
-
     studentManagementData =
       [];
-
 
     snap.forEach(
       x => {
@@ -5995,7 +5225,6 @@ async function(){
           .push({
 
             id:x.id,
-
             ...x.data()
 
           });
@@ -6003,9 +5232,7 @@ async function(){
       }
     );
 
-
     filterStudents();
-
 
   }catch(e){
 
@@ -6015,7 +5242,6 @@ async function(){
   }
 
 };
-
 
 
 /* =====================================================
@@ -6030,7 +5256,6 @@ function(){
       "studentManagement"
     );
 
-
   const search =
     (
       document
@@ -6043,7 +5268,6 @@ function(){
     .toLowerCase()
     .trim();
 
-
   const list =
     studentManagementData
       .filter(
@@ -6054,9 +5278,7 @@ function(){
             ""
           )
           .toLowerCase()
-          .includes(
-            search
-          )
+          .includes(search)
 
           ||
 
@@ -6065,9 +5287,7 @@ function(){
             ""
           )
           .toLowerCase()
-          .includes(
-            search
-          )
+          .includes(search)
 
           ||
 
@@ -6076,9 +5296,7 @@ function(){
             ""
           )
           .toLowerCase()
-          .includes(
-            search
-          )
+          .includes(search)
 
           ||
 
@@ -6087,9 +5305,8 @@ function(){
             ""
           )
           .toLowerCase()
-          .includes(
-            search
-          )
+          .includes(search)
+
       );
 
 
@@ -6119,7 +5336,6 @@ function(){
               )}
             </b>
 
-
             <div class="small">
 
               Class:
@@ -6142,7 +5358,6 @@ function(){
 
             </div>
 
-
             <div class="small">
 
               Parent:
@@ -6152,7 +5367,6 @@ function(){
               )}
 
             </div>
-
 
             <div class="small">
 
@@ -6165,10 +5379,7 @@ function(){
 
             </div>
 
-
-            <div
-              style="margin-top:10px"
-            >
+            <div style="margin-top:10px">
 
               <button
                 class="secondary"
@@ -6176,7 +5387,6 @@ function(){
               >
                 Edit
               </button>
-
 
               <button
                 class="secondary"
@@ -6193,7 +5403,6 @@ function(){
                 }
 
               </button>
-
 
               <button
                 class="danger"
@@ -6213,7 +5422,6 @@ function(){
 };
 
 
-
 /* =====================================================
    EDIT STUDENT
 ===================================================== */
@@ -6228,69 +5436,45 @@ async function(id){
           x.id === id
       );
 
-
   if(!student){
-
     return;
-
   }
-
 
   const name =
     prompt(
       "Student Name:",
-      student.name ||
-      ""
+      student.name || ""
     );
 
-
-  if(
-    name === null
-  )
+  if(name === null)
     return;
-
 
   const cls =
     prompt(
       "Class:",
-      student.class ||
-      ""
+      student.class || ""
     );
 
-
-  if(
-    cls === null
-  )
+  if(cls === null)
     return;
-
 
   const roll =
     prompt(
       "Roll Number:",
-      student.roll ||
-      ""
+      student.roll || ""
     );
 
-
-  if(
-    roll === null
-  )
+  if(roll === null)
     return;
-
 
   const parentEmail =
     prompt(
       "Parent Email:",
-      student.parentEmail ||
-      ""
+      student.parentEmail || ""
     );
 
-
-  if(
-    parentEmail === null
-  )
+  if(parentEmail === null)
     return;
-
 
   try{
 
@@ -6316,9 +5500,7 @@ async function(id){
       }
     );
 
-
     await loadStudentManagement();
-
 
   }catch(e){
 
@@ -6329,7 +5511,6 @@ async function(id){
   }
 
 };
-
 
 
 /* =====================================================
@@ -6351,16 +5532,12 @@ async function(
         id
       ),
       {
-
         active:
           !current
-
       }
     );
 
-
     await loadStudentManagement();
-
 
   }catch(e){
 
@@ -6371,7 +5548,6 @@ async function(
   }
 
 };
-
 
 
 /* =====================================================
@@ -6386,10 +5562,8 @@ async function(id){
       "Delete this student?"
     );
 
-
   if(!ok)
     return;
-
 
   try{
 
@@ -6401,9 +5575,7 @@ async function(id){
       )
     );
 
-
     await loadStudentManagement();
-
 
   }catch(e){
 
@@ -6414,7 +5586,6 @@ async function(id){
   }
 
 };
-
 
 
 /* =====================================================
@@ -6429,7 +5600,6 @@ async function(){
       "resultManagement"
     );
 
-
   try{
 
     const snap =
@@ -6440,10 +5610,8 @@ async function(){
         )
       );
 
-
     resultManagementData =
       [];
-
 
     snap.forEach(
       x => {
@@ -6452,7 +5620,6 @@ async function(){
           .push({
 
             id:x.id,
-
             ...x.data()
 
           });
@@ -6460,9 +5627,7 @@ async function(){
       }
     );
 
-
     filterResults();
-
 
   }catch(e){
 
@@ -6472,7 +5637,6 @@ async function(){
   }
 
 };
-
 
 
 /* =====================================================
@@ -6487,7 +5651,6 @@ function(){
       "resultManagement"
     );
 
-
   const search =
     (
       document
@@ -6500,7 +5663,6 @@ function(){
     .toLowerCase()
     .trim();
 
-
   const list =
     resultManagementData
       .filter(
@@ -6511,9 +5673,7 @@ function(){
             ""
           )
           .toLowerCase()
-          .includes(
-            search
-          )
+          .includes(search)
 
           ||
 
@@ -6522,9 +5682,7 @@ function(){
             ""
           )
           .toLowerCase()
-          .includes(
-            search
-          )
+          .includes(search)
 
           ||
 
@@ -6533,9 +5691,7 @@ function(){
             ""
           )
           .toLowerCase()
-          .includes(
-            search
-          )
+          .includes(search)
 
           ||
 
@@ -6544,9 +5700,8 @@ function(){
             ""
           )
           .toLowerCase()
-          .includes(
-            search
-          )
+          .includes(search)
+
       );
 
 
@@ -6565,95 +5720,108 @@ function(){
   box.innerHTML =
     list
       .map(
-        r => `
+        r => {
 
-          <div class="item">
+          const term1 =
+            Number(
+              r.final1Max ||
+              0
+            ) > 0
+            ?
+            `${Number(r.final1 || 0)}
+             /
+             ${Number(r.final1Max || 0)}`
+            :
+            "Pending";
 
-            <b>
-              ${escapeHtml(
-                r.studentName ||
-                ""
-              )}
-            </b>
-
-
-            <div>
-
-              Subject:
-              ${escapeHtml(
-                r.subject ||
-                ""
-              )}
-
-            </div>
-
-
-            <div class="small">
-
-              Parent:
-              ${escapeHtml(
-                r.parentEmail ||
-                ""
-              )}
-
-              <br>
-
-              Session:
-              ${escapeHtml(
-                r.session ||
-                ""
-              )}
-
-              <br>
-
-              Final-1:
-              ${Number(
-                r.final1 ||
-                0
-              )}
-              /
-              ${Number(
-                r.final1Max ||
-                0
-              )}
-
-              <br>
-
-              Final-2:
-              ${Number(
-                r.final2 ||
-                0
-              )}
-              /
-              ${Number(
-                r.final2Max ||
-                0
-              )}
-
-            </div>
+          const term2 =
+            Number(
+              r.final2Max ||
+              0
+            ) > 0
+            ?
+            `${Number(r.final2 || 0)}
+             /
+             ${Number(r.final2Max || 0)}`
+            :
+            "Pending";
 
 
-            <div
-              style="margin-top:10px"
-            >
+          return `
 
-              <button
-                class="danger"
-                onclick="deleteResult('${r.id}')"
+            <div class="item">
+
+              <b>
+                ${escapeHtml(
+                  r.studentName ||
+                  ""
+                )}
+              </b>
+
+              <div>
+
+                Subject:
+                ${escapeHtml(
+                  r.subject ||
+                  ""
+                )}
+
+              </div>
+
+              <div class="small">
+
+                Parent:
+                ${escapeHtml(
+                  r.parentEmail ||
+                  ""
+                )}
+
+                <br>
+
+                Session:
+                ${escapeHtml(
+                  r.session ||
+                  ""
+                )}
+
+                <br>
+
+                Term-I Final-1:
+                <b>
+                  ${term1}
+                </b>
+
+                <br>
+
+                Term-II Final-2:
+                <b>
+                  ${term2}
+                </b>
+
+              </div>
+
+              <div
+                style="margin-top:10px"
               >
-                Delete
-              </button>
+
+                <button
+                  class="danger"
+                  onclick="deleteResult('${r.id}')"
+                >
+                  Delete
+                </button>
+
+              </div>
 
             </div>
 
-          </div>
+          `;
 
-        `
+        }
       )
       .join("");
 
 };
-
 
 
 /* =====================================================
@@ -6670,7 +5838,6 @@ async function(id){
   )
     return;
 
-
   try{
 
     await deleteDoc(
@@ -6681,9 +5848,7 @@ async function(id){
       )
     );
 
-
     await loadResultManagement();
-
 
   }catch(e){
 
@@ -6694,7 +5859,6 @@ async function(id){
   }
 
 };
-
 
 
 /* =====================================================
@@ -6732,7 +5896,6 @@ function escapeHtml(
 }
 
 
-
 /* =====================================================
    SAFE URL
 ===================================================== */
@@ -6748,7 +5911,6 @@ function safeUrl(
         url
       );
 
-
     if(
       u.protocol === "http:" ||
       u.protocol === "https:"
@@ -6760,11 +5922,9 @@ function safeUrl(
 
   }catch(e){}
 
-
   return "#";
 
 }
-
 
 
 /* =====================================================
