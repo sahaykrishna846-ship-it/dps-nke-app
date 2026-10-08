@@ -48,6 +48,11 @@ button{
   color:white;
 }
 
+.success{
+  background:#188038;
+  color:white;
+}
+
 .hidden{
   display:none!important;
 }
@@ -210,7 +215,7 @@ th{
 .result-card{
   background:#fff;
   border:1px solid #222;
-  max-width:900px;
+  max-width:1000px;
   margin:20px auto;
   padding:22px;
 }
@@ -275,9 +280,18 @@ th{
   margin-top:15px;
 }
 
+.report-table{
+  width:100%;
+  min-width:760px;
+}
+
 .report-table th{
   background:#dfe5ef;
   color:#111;
+}
+
+.report-scroll{
+  overflow-x:auto;
 }
 
 .summary{
@@ -297,6 +311,50 @@ th{
   border-right:0;
 }
 
+.performance-box{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border:1px solid #222;
+  margin-top:10px;
+}
+
+.performance-box div{
+  padding:10px;
+  text-align:center;
+  border-right:1px solid #222;
+}
+
+.performance-box div:last-child{
+  border-right:0;
+}
+
+.final-box{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border:2px solid #222;
+  margin-top:12px;
+}
+
+.final-box div{
+  padding:12px;
+  text-align:center;
+  border-right:1px solid #222;
+}
+
+.final-box div:last-child{
+  border-right:0;
+}
+
+.pass{
+  color:#188038;
+  font-weight:bold;
+}
+
+.fail{
+  color:#d93025;
+  font-weight:bold;
+}
+
 .signatures{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -312,6 +370,20 @@ th{
 
 .print-btn{
   margin-top:12px;
+}
+
+.marks-input{
+  min-width:80px;
+  margin:0;
+  padding:7px;
+}
+
+.form-table{
+  overflow-x:auto;
+}
+
+.form-table table{
+  min-width:950px;
 }
 
 @media(max-width:700px){
@@ -336,6 +408,22 @@ th{
     border-right:0;
   }
 
+  .performance-box{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .performance-box div:nth-child(2n){
+    border-right:0;
+  }
+
+  .final-box{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .final-box div:nth-child(2n){
+    border-right:0;
+  }
+
   .signatures{
     grid-template-columns:1fr;
     margin-top:45px;
@@ -347,15 +435,6 @@ th{
 
   .report-head h1{
     font-size:21px;
-  }
-
-  table{
-    font-size:12px;
-  }
-
-  th,
-  td{
-    padding:6px;
   }
 }
 
@@ -387,8 +466,8 @@ th{
   }
 
   @page{
-    size:A4;
-    margin:10mm;
+    size:A4 landscape;
+    margin:8mm;
   }
 }
 </style>
@@ -412,15 +491,16 @@ th{
     <p>
       Delhi Public School, Narkatiaganj की स्थापना वर्ष 2011 में
       गुणवत्तापूर्ण एवं संस्कारयुक्त शिक्षा के उद्देश्य से की गई।
-      विद्यालय में NC से Class 10 तक विद्यार्थियों के लिए शिक्षा की
-      व्यवस्था है।
+      विद्यालय विद्यार्थियों के शैक्षणिक, रचनात्मक, नैतिक एवं
+      सामाजिक विकास पर ध्यान देता है।
     </p>
 
     <br>
 
     <p>
-      विद्यालय का उद्देश्य विद्यार्थियों के शैक्षणिक, रचनात्मक,
-      नैतिक एवं सामाजिक विकास पर ध्यान देना है।
+      यह Parent Portal अभिभावकों को विद्यालय की महत्वपूर्ण
+      जानकारी, homework, attendance एवं report card देखने की
+      सुविधा प्रदान करता है।
     </p>
   </div>
 
@@ -588,14 +668,11 @@ th{
   </div>
 
 
+  <!-- CREATE PARENT -->
+
   <div class="card">
 
     <h3>Create Parent Account</h3>
-
-    <input
-      id="parentName"
-      placeholder="Parent Name"
-    >
 
     <input
       id="newParentEmail"
@@ -620,6 +697,8 @@ th{
 
   </div>
 
+
+  <!-- ADD STUDENT -->
 
   <div class="card">
 
@@ -658,6 +737,8 @@ th{
   </div>
 
 
+  <!-- ATTENDANCE -->
+
   <div class="card">
 
     <h3>Attendance</h3>
@@ -690,6 +771,8 @@ th{
   </div>
 
 
+  <!-- NOTICE -->
+
   <div class="card">
 
     <h3>Notification</h3>
@@ -715,6 +798,8 @@ th{
 
   </div>
 
+
+  <!-- HOMEWORK -->
 
   <div class="card">
 
@@ -746,6 +831,8 @@ th{
 
   </div>
 
+
+  <!-- STUDY MATERIAL -->
 
   <div class="card">
 
@@ -783,6 +870,8 @@ th{
   </div>
 
 
+  <!-- CALENDAR -->
+
   <div class="card">
 
     <h3>Calendar</h3>
@@ -814,9 +903,11 @@ th{
   </div>
 
 
+  <!-- RESULT -->
+
   <div class="card">
 
-    <h3>Add Result</h3>
+    <h3>📊 Add / Update Report Card</h3>
 
     <input
       id="resultParentEmail"
@@ -826,42 +917,171 @@ th{
 
     <input
       id="resultSession"
-      placeholder="Academic Session e.g. 2026-2027"
+      placeholder="Academic Session e.g. 2026-27"
+      value="2026-27"
     >
 
-    <input
-      id="resultExam"
-      placeholder="Exam e.g. Term I"
-    >
+    <p class="small">
+      Select the subject and enter marks. Final-1 and Final-2
+      are calculated automatically.
+    </p>
 
-    <input
-      id="resultSubject"
-      placeholder="Subject"
-    >
+    <select id="resultSubject">
+      <option value="Hindi">Hindi</option>
+      <option value="English">English</option>
+      <option value="Mathematics">Mathematics</option>
+      <option value="Science">Science</option>
+      <option value="Social Studies">Social Studies</option>
+      <option value="Computer">Computer</option>
+      <option value="G.K.">G.K.</option>
+    </select>
 
-    <input
-      id="resultMarks"
-      type="number"
-      placeholder="Obtained Marks"
-    >
+    <div class="form-table">
 
-    <input
-      id="resultMaxMarks"
-      type="number"
-      placeholder="Maximum Marks"
-    >
+      <table>
+
+        <tr>
+          <th>FA1</th>
+          <th>FA2</th>
+          <th>SA1</th>
+          <th>Final-1</th>
+          <th>FA3</th>
+          <th>FA4</th>
+          <th>SA2</th>
+          <th>Final-2</th>
+        </tr>
+
+        <tr>
+
+          <td>
+            <input
+              class="marks-input"
+              id="fa1"
+              type="number"
+              min="0"
+              placeholder="FA1"
+            >
+          </td>
+
+          <td>
+            <input
+              class="marks-input"
+              id="fa2"
+              type="number"
+              min="0"
+              placeholder="FA2"
+            >
+          </td>
+
+          <td>
+            <input
+              class="marks-input"
+              id="sa1"
+              type="number"
+              min="0"
+              placeholder="SA1"
+            >
+          </td>
+
+          <td>
+            <input
+              class="marks-input"
+              id="final1"
+              type="number"
+              readonly
+              placeholder="Auto"
+            >
+          </td>
+
+          <td>
+            <input
+              class="marks-input"
+              id="fa3"
+              type="number"
+              min="0"
+              placeholder="FA3"
+            >
+          </td>
+
+          <td>
+            <input
+              class="marks-input"
+              id="fa4"
+              type="number"
+              min="0"
+              placeholder="FA4"
+            >
+          </td>
+
+          <td>
+            <input
+              class="marks-input"
+              id="sa2"
+              type="number"
+              min="0"
+              placeholder="SA2"
+            >
+          </td>
+
+          <td>
+            <input
+              class="marks-input"
+              id="final2"
+              type="number"
+              readonly
+              placeholder="Auto"
+            >
+          </td>
+
+        </tr>
+
+      </table>
+
+    </div>
+
+    <br>
 
     <button
       class="primary"
-      onclick="addResult()"
+      onclick="calculateAndSaveResult()"
     >
-      Add Result
+      Save Subject Result
     </button>
 
     <p id="resultMsg" class="small"></p>
 
   </div>
 
+
+  <!-- RESULT MANAGEMENT -->
+
+  <div class="card">
+
+    <h3>Result Management</h3>
+
+    <div class="search-row">
+
+      <input
+        id="resultSearch"
+        placeholder="Search student / subject / email"
+        oninput="filterResults()"
+      >
+
+      <button
+        class="secondary"
+        onclick="loadResultManagement()"
+      >
+        Refresh
+      </button>
+
+    </div>
+
+    <div id="resultManagement"></div>
+
+  </div>
+
+
+  <!-- STUDENT MANAGEMENT -->
 
   <div class="card">
 
@@ -888,32 +1108,6 @@ th{
 
   </div>
 
-
-  <div class="card">
-
-    <h3>Result Management</h3>
-
-    <div class="search-row">
-
-      <input
-        id="resultSearch"
-        placeholder="Search student / subject / exam / session"
-        oninput="filterResults()"
-      >
-
-      <button
-        class="secondary"
-        onclick="loadResultManagement()"
-      >
-        Refresh
-      </button>
-
-    </div>
-
-    <div id="resultManagement"></div>
-
-  </div>
-
 </section>
 
 </div>
@@ -925,14 +1119,19 @@ import {
   initializeApp,
   getApps,
   getApp
-} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+}
+from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 
 import {
   getAuth,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
-  signOut
-} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+  signOut,
+  setPersistence,
+  browserLocalPersistence,
+  onAuthStateChanged
+}
+from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 
 import {
   getFirestore,
@@ -945,8 +1144,13 @@ import {
   deleteDoc,
   doc,
   serverTimestamp
-} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+}
+from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
+
+/* =========================
+   FIREBASE CONFIG
+========================= */
 
 const firebaseConfig={
 
@@ -972,6 +1176,10 @@ const firebaseConfig={
 };
 
 
+/* =========================
+   FIREBASE APP
+========================= */
+
 const app=
   getApps().length
   ?getApp()
@@ -982,6 +1190,11 @@ const auth=getAuth(app);
 
 const db=getFirestore(app);
 
+
+/*
+  Separate Firebase Auth instance for creating
+  parent accounts without logging the admin out.
+*/
 
 const parentCreatorApp=
   getApps().find(
@@ -998,6 +1211,10 @@ const parentAuth=
   getAuth(parentCreatorApp);
 
 
+/* =========================
+   LOCAL STATE
+========================= */
+
 let loginType="parent";
 
 let currentUser=null;
@@ -1006,6 +1223,20 @@ let studentManagementData=[];
 
 let resultManagementData=[];
 
+
+/* =========================
+   PERSISTENT LOGIN
+========================= */
+
+await setPersistence(
+  auth,
+  browserLocalPersistence
+);
+
+
+/* =========================
+   LOGIN SCREEN
+========================= */
 
 window.showLogin=function(type){
 
@@ -1060,6 +1291,10 @@ window.goHome=function(){
 };
 
 
+/* =========================
+   LOGIN
+========================= */
+
 window.login=async function(){
 
   const email=
@@ -1096,35 +1331,7 @@ window.login=async function(){
 
     currentUser=result.user;
 
-
-    document
-      .getElementById("loginSection")
-      .classList.add("hidden");
-
-
-    if(
-      email.toLowerCase()==="admin@dpsnke.com"
-    ){
-
-      document
-        .getElementById("adminSection")
-        .classList.remove("hidden");
-
-      loadStudentManagement();
-
-      loadResultManagement();
-
-    }else{
-
-      document
-        .getElementById("parentSection")
-        .classList.remove("hidden");
-
-      document
-        .getElementById("parentWelcome")
-        .textContent=email;
-    }
-
+    openDashboard(result.user);
 
   }catch(e){
 
@@ -1136,15 +1343,105 @@ window.login=async function(){
 };
 
 
+/* =========================
+   AUTO LOGIN
+========================= */
+
+onAuthStateChanged(
+  auth,
+  user=>{
+
+    if(user){
+
+      currentUser=user;
+
+      openDashboard(user);
+
+    }
+
+  }
+);
+
+
+/* =========================
+   OPEN DASHBOARD
+========================= */
+
+function openDashboard(user){
+
+  document
+    .getElementById("homeSection")
+    .classList.add("hidden");
+
+  document
+    .getElementById("loginSection")
+    .classList.add("hidden");
+
+
+  if(
+    user.email.toLowerCase()
+    ==="admin@dpsnke.com"
+  ){
+
+    document
+      .getElementById("parentSection")
+      .classList.add("hidden");
+
+    document
+      .getElementById("adminSection")
+      .classList.remove("hidden");
+
+    loadStudentManagement();
+
+    loadResultManagement();
+
+  }else{
+
+    document
+      .getElementById("adminSection")
+      .classList.add("hidden");
+
+    document
+      .getElementById("parentSection")
+      .classList.remove("hidden");
+
+    document
+      .getElementById("parentWelcome")
+      .textContent=user.email;
+
+  }
+
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
 window.logout=async function(){
 
   await signOut(auth);
 
   currentUser=null;
 
-  goHome();
+  document
+    .getElementById("parentSection")
+    .classList.add("hidden");
+
+  document
+    .getElementById("adminSection")
+    .classList.add("hidden");
+
+  document
+    .getElementById("homeSection")
+    .classList.remove("hidden");
+
 };
 
+
+/* =========================
+   CREATE PARENT
+========================= */
 
 window.createParentAccount=async function(){
 
@@ -1205,8 +1502,13 @@ window.createParentAccount=async function(){
       .textContent=
         "Error: "+e.message;
   }
+
 };
 
+
+/* =========================
+   ADD STUDENT
+========================= */
 
 window.addStudent=async function(){
 
@@ -1232,7 +1534,8 @@ window.addStudent=async function(){
     document
       .getElementById("studentParentEmail")
       .value
-      .trim();
+      .trim()
+      .toLowerCase();
 
 
   if(!name||!parentEmail){
@@ -1291,8 +1594,13 @@ window.addStudent=async function(){
       .getElementById("studentMsg")
       .textContent=e.message;
   }
+
 };
 
+
+/* =========================
+   ATTENDANCE
+========================= */
 
 window.addAttendance=async function(){
 
@@ -1300,7 +1608,8 @@ window.addAttendance=async function(){
     document
       .getElementById("attendanceParentEmail")
       .value
-      .trim();
+      .trim()
+      .toLowerCase();
 
   const date=
     document
@@ -1347,8 +1656,13 @@ window.addAttendance=async function(){
       .getElementById("attendanceMsg")
       .textContent=e.message;
   }
+
 };
 
+
+/* =========================
+   NOTICE
+========================= */
 
 window.addNotice=async function(){
 
@@ -1406,8 +1720,13 @@ window.addNotice=async function(){
       .getElementById("noticeMsg")
       .textContent=e.message;
   }
+
 };
 
+
+/* =========================
+   HOMEWORK
+========================= */
 
 window.addHomework=async function(){
 
@@ -1464,8 +1783,13 @@ window.addHomework=async function(){
       .getElementById("homeworkMsg")
       .textContent=e.message;
   }
+
 };
 
+
+/* =========================
+   MATERIAL
+========================= */
 
 window.addMaterial=async function(){
 
@@ -1529,8 +1853,13 @@ window.addMaterial=async function(){
       .getElementById("materialMsg")
       .textContent=e.message;
   }
+
 };
 
+
+/* =========================
+   CALENDAR
+========================= */
 
 window.addCalendar=async function(){
 
@@ -1586,16 +1915,99 @@ window.addCalendar=async function(){
       .getElementById("calendarMsg")
       .textContent=e.message;
   }
+
 };
 
 
-window.addResult=async function(){
+/* =========================
+   AUTO FINAL CALCULATION
+========================= */
+
+function calculateFinals(){
+
+  const fa1=
+    Number(
+      document.getElementById("fa1").value
+    )||0;
+
+  const fa2=
+    Number(
+      document.getElementById("fa2").value
+    )||0;
+
+  const sa1=
+    Number(
+      document.getElementById("sa1").value
+    )||0;
+
+  const fa3=
+    Number(
+      document.getElementById("fa3").value
+    )||0;
+
+  const fa4=
+    Number(
+      document.getElementById("fa4").value
+    )||0;
+
+  const sa2=
+    Number(
+      document.getElementById("sa2").value
+    )||0;
+
+
+  const final1=
+    fa1+fa2+sa1;
+
+  const final2=
+    fa3+fa4+sa2;
+
+
+  document
+    .getElementById("final1")
+    .value=
+      final1||"";
+
+  document
+    .getElementById("final2")
+    .value=
+      final2||"";
+
+}
+
+
+[
+  "fa1",
+  "fa2",
+  "sa1",
+  "fa3",
+  "fa4",
+  "sa2"
+].forEach(id=>{
+
+  document
+    .getElementById(id)
+    .addEventListener(
+      "input",
+      calculateFinals
+    );
+
+});
+
+
+/* =========================
+   SAVE SUBJECT RESULT
+========================= */
+
+window.calculateAndSaveResult=
+async function(){
 
   const parentEmail=
     document
       .getElementById("resultParentEmail")
       .value
-      .trim();
+      .trim()
+      .toLowerCase();
 
   const session=
     document
@@ -1603,47 +2015,68 @@ window.addResult=async function(){
       .value
       .trim();
 
-  const exam=
-    document
-      .getElementById("resultExam")
-      .value
-      .trim();
-
   const subject=
     document
       .getElementById("resultSubject")
-      .value
-      .trim();
-
-  const marks=
-    Number(
-      document
-        .getElementById("resultMarks")
-        .value
-    );
-
-  const maxMarks=
-    Number(
-      document
-        .getElementById("resultMaxMarks")
-        .value
-    );
+      .value;
 
 
-  if(
-    !parentEmail||
-    !session||
-    !exam||
-    !subject||
-    !maxMarks
-  ){
+  if(!parentEmail||!session){
 
     alert(
-      "Fill all result fields."
+      "Parent email and session required."
     );
 
     return;
   }
+
+
+  calculateFinals();
+
+
+  const data={
+
+    parentEmail:parentEmail,
+
+    session:session,
+
+    subject:subject,
+
+    fa1:Number(
+      document.getElementById("fa1").value
+    )||0,
+
+    fa2:Number(
+      document.getElementById("fa2").value
+    )||0,
+
+    sa1:Number(
+      document.getElementById("sa1").value
+    )||0,
+
+    final1:Number(
+      document.getElementById("final1").value
+    )||0,
+
+    fa3:Number(
+      document.getElementById("fa3").value
+    )||0,
+
+    fa4:Number(
+      document.getElementById("fa4").value
+    )||0,
+
+    sa2:Number(
+      document.getElementById("sa2").value
+    )||0,
+
+    final2:Number(
+      document.getElementById("final2").value
+    )||0,
+
+    createdAt:serverTimestamp()
+
+  };
 
 
   try{
@@ -1678,28 +2111,75 @@ window.addResult=async function(){
     });
 
 
-    await addDoc(
-      collection(db,"results"),
-      {
-        parentEmail,
-        studentName:student?.name||"",
-        studentClass:student?.class||"",
-        studentRoll:student?.roll||"",
-        session,
-        exam,
-        subject,
-        marks,
-        maxMarks,
-        createdAt:serverTimestamp()
-      }
-    );
+    data.studentName=
+      student?.name||"";
+
+    data.studentClass=
+      student?.class||"";
+
+    data.studentRoll=
+      student?.roll||"";
+
+
+    /*
+      One document per student + subject + session.
+      If existing record is found, update it.
+    */
+
+    const existing=
+      await getDocs(
+        query(
+          collection(db,"results"),
+          where(
+            "parentEmail",
+            "==",
+            parentEmail
+          ),
+          where(
+            "session",
+            "==",
+            session
+          ),
+          where(
+            "subject",
+            "==",
+            subject
+          )
+        )
+      );
+
+
+    if(existing.empty){
+
+      await addDoc(
+        collection(db,"results"),
+        data
+      );
+
+    }else{
+
+      const existingDoc=
+        existing.docs[0];
+
+      await updateDoc(
+        doc(
+          db,
+          "results",
+          existingDoc.id
+        ),
+        data
+      );
+
+    }
 
 
     document
       .getElementById("resultMsg")
       .textContent=
-        "Result added successfully.";
+        "Result saved successfully.";
 
+
+    clearResultForm();
 
     loadResultManagement();
 
@@ -1707,15 +2187,49 @@ window.addResult=async function(){
 
     document
       .getElementById("resultMsg")
-      .textContent=e.message;
+      .textContent=
+        "Error: "+e.message;
   }
+
 };
 
+
+/* =========================
+   CLEAR RESULT FORM
+========================= */
+
+function clearResultForm(){
+
+  [
+    "fa1",
+    "fa2",
+    "sa1",
+    "final1",
+    "fa3",
+    "fa4",
+    "sa2",
+    "final2"
+  ].forEach(id=>{
+
+    document
+      .getElementById(id)
+      .value="";
+
+  });
+
+}
+
+
+/* =========================
+   PARENT NOTIFICATIONS
+========================= */
 
 window.loadNotifications=async function(){
 
   const box=
-    document.getElementById("parentContent");
+    document.getElementById(
+      "parentContent"
+    );
 
 
   try{
@@ -1730,16 +2244,37 @@ window.loadNotifications=async function(){
       '<div class="card"><h2>Notifications</h2>';
 
 
+    if(snap.empty){
+
+      html+=
+        "<p>No notifications.</p>";
+
+    }
+
+
     snap.forEach(x=>{
 
       const d=x.data();
 
 
       html+=`
+
         <div class="item">
-          <b>${escapeHtml(d.title||"Notification")}</b>
-          <p>${escapeHtml(d.text||"")}</p>
+
+          <b>
+            ${escapeHtml(
+              d.title||"Notification"
+            )}
+          </b>
+
+          <p>
+            ${escapeHtml(
+              d.text||""
+            )}
+          </p>
+
         </div>
+
       `;
 
     });
@@ -1755,15 +2290,23 @@ window.loadNotifications=async function(){
       '<div class="card">Unable to load notifications.</div>';
 
   }
+
 };
 
+
+/* =========================
+   ATTENDANCE VIEW
+========================= */
 
 window.loadAttendance=async function(){
 
   const box=
-    document.getElementById("parentContent");
+    document.getElementById(
+      "parentContent"
+    );
 
-  const email=currentUser.email;
+  const email=
+    currentUser.email.toLowerCase();
 
 
   try{
@@ -1793,11 +2336,14 @@ window.loadAttendance=async function(){
     }else{
 
       html+=`
+
         <table>
+
           <tr>
             <th>Date</th>
             <th>Status</th>
           </tr>
+
       `;
 
 
@@ -1805,11 +2351,25 @@ window.loadAttendance=async function(){
 
         const d=x.data();
 
+
         html+=`
+
           <tr>
-            <td>${escapeHtml(d.date||"")}</td>
-            <td>${escapeHtml(d.status||"")}</td>
+
+            <td>
+              ${escapeHtml(
+                d.date||""
+              )}
+            </td>
+
+            <td>
+              ${escapeHtml(
+                d.status||""
+              )}
+            </td>
+
           </tr>
+
         `;
 
       });
@@ -1829,13 +2389,20 @@ window.loadAttendance=async function(){
       '<div class="card">Unable to load attendance.</div>';
 
   }
+
 };
 
+
+/* =========================
+   HOMEWORK VIEW
+========================= */
 
 window.loadHomework=async function(){
 
   const box=
-    document.getElementById("parentContent");
+    document.getElementById(
+      "parentContent"
+    );
 
 
   try{
@@ -1850,26 +2417,44 @@ window.loadHomework=async function(){
       '<div class="card"><h2>Homework</h2>';
 
 
+    if(snap.empty){
+
+      html+=
+        "<p>No homework found.</p>";
+
+    }
+
+
     snap.forEach(x=>{
 
       const d=x.data();
 
 
       html+=`
+
         <div class="item">
 
-          <b>${escapeHtml(d.subject||"")}</b>
+          <b>
+            ${escapeHtml(
+              d.subject||""
+            )}
+          </b>
 
           <div class="small">
             Class:
-            ${escapeHtml(d.class||"")}
+            ${escapeHtml(
+              d.class||""
+            )}
           </div>
 
           <p>
-            ${escapeHtml(d.text||"")}
+            ${escapeHtml(
+              d.text||""
+            )}
           </p>
 
         </div>
+
       `;
 
     });
@@ -1885,13 +2470,20 @@ window.loadHomework=async function(){
       '<div class="card">Unable to load homework.</div>';
 
   }
+
 };
 
+
+/* =========================
+   MATERIAL VIEW
+========================= */
 
 window.loadMaterials=async function(){
 
   const box=
-    document.getElementById("parentContent");
+    document.getElementById(
+      "parentContent"
+    );
 
 
   try{
@@ -1906,32 +2498,52 @@ window.loadMaterials=async function(){
       '<div class="card"><h2>Study Material</h2>';
 
 
+    if(snap.empty){
+
+      html+=
+        "<p>No study material found.</p>";
+
+    }
+
+
     snap.forEach(x=>{
 
       const d=x.data();
 
 
       html+=`
+
         <div class="item">
 
           <b>
-            ${escapeHtml(d.title||"")}
+            ${escapeHtml(
+              d.title||""
+            )}
           </b>
 
           <div>
-            ${escapeHtml(d.subject||"")}
+            ${escapeHtml(
+              d.subject||""
+            )}
             |
-            Class ${escapeHtml(d.class||"")}
+            Class
+            ${escapeHtml(
+              d.class||""
+            )}
           </div>
+
+          <br>
 
           <a
             href="${safeUrl(d.link)}"
             target="_blank"
+            rel="noopener"
           >
             Open Material
           </a>
 
         </div>
+
       `;
 
     });
@@ -1947,13 +2559,20 @@ window.loadMaterials=async function(){
       '<div class="card">Unable to load materials.</div>';
 
   }
+
 };
 
+
+/* =========================
+   CALENDAR VIEW
+========================= */
 
 window.loadCalendar=async function(){
 
   const box=
-    document.getElementById("parentContent");
+    document.getElementById(
+      "parentContent"
+    );
 
 
   try{
@@ -1968,27 +2587,43 @@ window.loadCalendar=async function(){
       '<div class="card"><h2>School Calendar</h2>';
 
 
+    if(snap.empty){
+
+      html+=
+        "<p>No events found.</p>";
+
+    }
+
+
     snap.forEach(x=>{
 
       const d=x.data();
 
 
       html+=`
+
         <div class="item">
 
           <b>
-            ${escapeHtml(d.title||"")}
+            ${escapeHtml(
+              d.title||""
+            )}
           </b>
 
           <div>
-            ${escapeHtml(d.date||"")}
+            ${escapeHtml(
+              d.date||""
+            )}
           </div>
 
           <p>
-            ${escapeHtml(d.details||"")}
+            ${escapeHtml(
+              d.details||""
+            )}
           </p>
 
         </div>
+
       `;
 
     });
@@ -2004,15 +2639,23 @@ window.loadCalendar=async function(){
       '<div class="card">Unable to load calendar.</div>';
 
   }
+
 };
 
+
+/* =========================
+   PROFILE
+========================= */
 
 window.loadProfile=async function(){
 
   const box=
-    document.getElementById("parentContent");
+    document.getElementById(
+      "parentContent"
+    );
 
-  const email=currentUser.email;
+  const email=
+    currentUser.email.toLowerCase();
 
 
   try{
@@ -2047,24 +2690,39 @@ window.loadProfile=async function(){
 
 
         html+=`
+
           <div class="item">
 
-            <b>Name:</b>
-            ${escapeHtml(d.name||"")}
-            <br>
+            <b>Student Name:</b>
+            ${escapeHtml(
+              d.name||""
+            )}
+
+            <br><br>
 
             <b>Class:</b>
-            ${escapeHtml(String(d.class||""))}
-            <br>
+            ${escapeHtml(
+              String(
+                d.class||""
+              )
+            )}
 
-            <b>Roll:</b>
-            ${escapeHtml(String(d.roll||""))}
-            <br>
+            <br><br>
 
-            <b>Parent Email:</b>
-            ${escapeHtml(d.parentEmail||"")}
+            <b>Roll No:</b>
+            ${escapeHtml(
+              String(
+                d.roll||""
+              )
+            )}
+
+            <br><br>
+
+            <b>Academic Session:</b>
+            2026–27
 
           </div>
+
         `;
 
       });
@@ -2082,15 +2740,23 @@ window.loadProfile=async function(){
       '<div class="card">Unable to load profile.</div>';
 
   }
+
 };
 
+
+/* =========================
+   RESULT VIEW
+========================= */
 
 window.loadResults=async function(){
 
   const box=
-    document.getElementById("parentContent");
+    document.getElementById(
+      "parentContent"
+    );
 
-  const email=currentUser.email;
+  const email=
+    currentUser.email.toLowerCase();
 
 
   try{
@@ -2150,17 +2816,15 @@ window.loadResults=async function(){
 
       const d=x.data();
 
+
       const key=
-        (d.session||"")+
-        "___"+
-        (d.exam||"");
+        d.session||"2026-27";
 
 
       if(!groups[key]){
 
         groups[key]={
-          session:d.session||"",
-          exam:d.exam||"",
+          session:key,
           subjects:[]
         };
 
@@ -2176,24 +2840,24 @@ window.loadResults=async function(){
 
 
     let html=
-      '<div class="card"><h2>Exam / Result</h2>';
+      '<div class="card"><h2>📝 Exam / Result</h2>';
 
 
-    const keys=
-      Object.keys(groups);
-
-
-    if(!keys.length){
+    if(
+      Object.keys(groups).length===0
+    ){
 
       html+=
         "<p>No result found.</p>";
 
     }else{
 
-      for(const key of keys){
+      for(
+        const key of Object.keys(groups)
+      ){
 
         html+=
-          await createReportCard(
+          createReportCard(
             student,
             groups[key]
           );
@@ -2209,98 +2873,229 @@ window.loadResults=async function(){
 
   }catch(e){
 
+    console.error(e);
+
     box.innerHTML=
       '<div class="card">Unable to load result.</div>';
 
   }
+
 };
 
 
-async function createReportCard(
+/* =========================
+   REPORT CARD
+========================= */
+
+function createReportCard(
   student,
   group
 ){
 
-  let total=0;
+  const subjects=[
+    "Hindi",
+    "English",
+    "Mathematics",
+    "Science",
+    "Social Studies",
+    "Computer",
+    "G.K."
+  ];
 
-  let maxTotal=0;
+
+  const subjectMap={};
 
 
   group.subjects.forEach(s=>{
 
-    total+=Number(s.marks||0);
-
-    maxTotal+=Number(s.maxMarks||0);
+    subjectMap[
+      String(
+        s.subject||""
+      )
+    ]=s;
 
   });
-
-
-  const percentage=
-    maxTotal
-    ?((total/maxTotal)*100).toFixed(2)
-    :"0.00";
-
-
-  const overallGrade=
-    getGrade(
-      Number(percentage)
-    );
-
-
-  const attendance=
-    await getAttendanceSummary(
-      student.parentEmail
-    );
 
 
   let rows="";
 
 
-  group.subjects.forEach(
-    (s,index)=>{
+  let sa1Total=0;
 
-      const marks=
-        Number(s.marks||0);
+  let sa2Total=0;
 
-      const max=
-        Number(s.maxMarks||0);
+  let final1Total=0;
 
-      const pct=
-        max
-        ?(marks/max)*100
-        :0;
+  let final2Total=0;
+
+
+  subjects.forEach(
+    (subject,index)=>{
+
+      const s=
+        subjectMap[subject]||{};
+
+
+      const fa1=
+        Number(s.fa1||0);
+
+      const fa2=
+        Number(s.fa2||0);
+
+      const sa1=
+        Number(s.sa1||0);
+
+      const final1=
+        Number(
+          s.final1!==undefined
+          ?s.final1
+          :(fa1+fa2+sa1)
+        );
+
+
+      const fa3=
+        Number(s.fa3||0);
+
+      const fa4=
+        Number(s.fa4||0);
+
+      const sa2=
+        Number(s.sa2||0);
+
+      const final2=
+        Number(
+          s.final2!==undefined
+          ?s.final2
+          :(fa3+fa4+sa2)
+        );
+
+
+      sa1Total+=sa1;
+
+      sa2Total+=sa2;
+
+      final1Total+=final1;
+
+      final2Total+=final2;
 
 
       rows+=`
+
         <tr>
 
           <td>
-            ${index+1}
+            ${escapeHtml(subject)}
           </td>
 
-          <td style="text-align:left">
-            ${escapeHtml(
-              s.subject||""
-            )}
-          </td>
+          <td>${displayMark(s.fa1)}</td>
 
-          <td>
-            ${max}
-          </td>
+          <td>${displayMark(s.fa2)}</td>
 
-          <td>
-            ${marks}
-          </td>
+          <td>${displayMark(s.sa1)}</td>
 
-          <td>
-            ${getGrade(pct)}
-          </td>
+          <td><b>${displayMark(final1)}</b></td>
+
+          <td>${displayMark(s.fa3)}</td>
+
+          <td>${displayMark(s.fa4)}</td>
+
+          <td>${displayMark(s.sa2)}</td>
+
+          <td><b>${displayMark(final2)}</b></td>
 
         </tr>
+
       `;
 
     }
   );
+
+
+  /*
+    Maximum marks are kept configurable here.
+    Change these values if school's actual
+    maximum marks are different.
+  */
+
+  const sa1Max=
+    subjects.length*100;
+
+  const sa2Max=
+    subjects.length*100;
+
+  const final1Max=
+    subjects.length*300;
+
+  const final2Max=
+    subjects.length*300;
+
+
+  const sa1Percent=
+    percentage(
+      sa1Total,
+      sa1Max
+    );
+
+  const sa2Percent=
+    percentage(
+      sa2Total,
+      sa2Max
+    );
+
+  const final1Percent=
+    percentage(
+      final1Total,
+      final1Max
+    );
+
+  const final2Percent=
+    percentage(
+      final2Total,
+      final2Max
+    );
+
+
+  /*
+    Final overall uses both final terms.
+  */
+
+  const overallTotal=
+    final1Total+final2Total;
+
+  const overallMax=
+    final1Max+final2Max;
+
+  const overallPercent=
+    percentage(
+      overallTotal,
+      overallMax
+    );
+
+
+  const sa1Grade=
+    getGrade(sa1Percent);
+
+  const sa2Grade=
+    getGrade(sa2Percent);
+
+  const overallGrade=
+    getGrade(overallPercent);
+
+
+  const sa1Result=
+    sa1Percent>=33
+    ?"PASS"
+    :"FAIL";
+
+  const sa2Result=
+    sa2Percent>=33
+    ?"PASS"
+    :"FAIL";
+
+  const finalResult=
+    overallPercent>=33
+    ?"PASS"
+    :"FAIL";
 
 
   const id=
@@ -2321,7 +3116,7 @@ async function createReportCard(
 
         <img
           src="icon.svg"
-          alt="School Logo"
+          alt="DPS Logo"
         >
 
         <h1>
@@ -2333,17 +3128,16 @@ async function createReportCard(
         </h2>
 
         <h3>
-          REPORT CARD:
+          ANNUAL EXAMINATION
           ${escapeHtml(
-            group.session||""
+            group.session
           )}
         </h3>
 
         <div>
-          <b>Examination:</b>
-          ${escapeHtml(
-            group.exam||""
-          )}
+          <b>
+            REPORT CARD
+          </b>
         </div>
 
       </div>
@@ -2352,44 +3146,140 @@ async function createReportCard(
       <div class="student-info">
 
         <div>
-
-          <b>
-            Student Name
-          </b>
-
+          <b>Student Name</b>
           ${escapeHtml(
             student.name||""
           )}
-
         </div>
 
-
         <div>
-
-          <b>
-            Class
-          </b>
-
+          <b>Class</b>
           ${escapeHtml(
             String(
               student.class||""
             )
           )}
-
         </div>
 
-
         <div>
-
-          <b>
-            Roll Number
-          </b>
-
+          <b>Roll No.</b>
           ${escapeHtml(
             String(
               student.roll||""
             )
           )}
+        </div>
+
+        <div>
+          <b>Academic Session</b>
+          ${escapeHtml(
+            group.session
+          )}
+        </div>
+
+      </div>
+
+
+      <div class="report-title">
+        SUBJECT-WISE RESULT
+      </div>
+
+
+      <div class="report-scroll">
+
+        <table class="report-table">
+
+          <thead>
+
+            <tr>
+
+              <th rowspan="2">
+                Subject
+              </th>
+
+              <th colspan="4">
+                TERM - I
+              </th>
+
+              <th colspan="4">
+                TERM - II
+              </th>
+
+            </tr>
+
+            <tr>
+
+              <th>FA1</th>
+              <th>FA2</th>
+              <th>SA1</th>
+              <th>Final-1</th>
+
+              <th>FA3</th>
+              <th>FA4</th>
+              <th>SA2</th>
+              <th>Final-2</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            ${rows}
+
+            <tr>
+
+              <th>
+                TOTAL
+              </th>
+
+              <th>Auto</th>
+              <th>Auto</th>
+
+              <th>
+                ${sa1Total}
+              </th>
+
+              <th>
+                ${final1Total}
+              </th>
+
+              <th>Auto</th>
+              <th>Auto</th>
+
+              <th>
+                ${sa2Total}
+              </th>
+
+              <th>
+                ${final2Total}
+              </th>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+
+      <div class="report-title">
+        PERFORMANCE SUMMARY
+      </div>
+
+
+      <div class="performance-box">
+
+        <div>
+
+          <b>
+            SA-1 Total
+          </b>
+
+          <br><br>
+
+          ${sa1Total} / ${sa1Max}
 
         </div>
 
@@ -2397,12 +3287,110 @@ async function createReportCard(
         <div>
 
           <b>
-            Academic Session
+            SA-1 Percentage
           </b>
 
-          ${escapeHtml(
-            group.session||""
-          )}
+          <br><br>
+
+          ${sa1Percent}%
+
+        </div>
+
+
+        <div>
+
+          <b>
+            SA-1 Grade
+          </b>
+
+          <br><br>
+
+          ${sa1Grade}
+
+        </div>
+
+
+        <div>
+
+          <b>
+            SA-1 Result
+          </b>
+
+          <br><br>
+
+          <span
+            class="${
+              sa1Result==="PASS"
+              ?"pass"
+              :"fail"
+            }"
+          >
+            ${sa1Result}
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="performance-box">
+
+        <div>
+
+          <b>
+            SA-2 Total
+          </b>
+
+          <br><br>
+
+          ${sa2Total} / ${sa2Max}
+
+        </div>
+
+
+        <div>
+
+          <b>
+            SA-2 Percentage
+          </b>
+
+          <br><br>
+
+          ${sa2Percent}%
+
+        </div>
+
+
+        <div>
+
+          <b>
+            SA-2 Grade
+          </b>
+
+          <br><br>
+
+          ${sa2Grade}
+
+        </div>
+
+
+        <div>
+
+          <b>
+            SA-2 Result
+          </b>
+
+          <br><br>
+
+          <span
+            class="${
+              sa2Result==="PASS"
+              ?"pass"
+              :"fail"
+            }"
+          >
+            ${sa2Result}
+          </span>
 
         </div>
 
@@ -2410,61 +3398,23 @@ async function createReportCard(
 
 
       <div class="report-title">
-        SCHOLASTIC AREA
+        FINAL OVERALL
       </div>
 
 
-      <table class="report-table">
-
-        <thead>
-
-          <tr>
-
-            <th>
-              S.No.
-            </th>
-
-            <th>
-              Subject
-            </th>
-
-            <th>
-              Max Marks
-            </th>
-
-            <th>
-              Marks Obtained
-            </th>
-
-            <th>
-              Grade
-            </th>
-
-          </tr>
-
-        </thead>
-
-
-        <tbody>
-          ${rows}
-        </tbody>
-
-      </table>
-
-
-      <div class="summary">
+      <div class="final-box">
 
         <div>
 
           <b>
-            Total
+            Total Marks
           </b>
 
-          <br>
+          <br><br>
 
-          ${total}
+          ${overallTotal}
           /
-          ${maxTotal}
+          ${overallMax}
 
         </div>
 
@@ -2475,9 +3425,9 @@ async function createReportCard(
             Percentage
           </b>
 
-          <br>
+          <br><br>
 
-          ${percentage}%
+          ${overallPercent}%
 
         </div>
 
@@ -2488,7 +3438,7 @@ async function createReportCard(
             Overall Grade
           </b>
 
-          <br>
+          <br><br>
 
           ${overallGrade}
 
@@ -2498,145 +3448,24 @@ async function createReportCard(
         <div>
 
           <b>
-            Result
+            Final Result
           </b>
 
-          <br>
+          <br><br>
 
-          ${
-            Number(percentage)>=33
-            ?"PASS"
-            :"NEEDS IMPROVEMENT"
-          }
+          <span
+            class="${
+              finalResult==="PASS"
+              ?"pass"
+              :"fail"
+            }"
+          >
+            ${finalResult}
+          </span>
 
         </div>
 
       </div>
-
-
-      <div class="report-title">
-        ATTENDANCE
-      </div>
-
-
-      <table class="report-table">
-
-        <tr>
-
-          <th>
-            Total Working Days
-          </th>
-
-          <th>
-            Present
-          </th>
-
-          <th>
-            Absent
-          </th>
-
-          <th>
-            Attendance %
-          </th>
-
-        </tr>
-
-
-        <tr>
-
-          <td>
-            ${attendance.total}
-          </td>
-
-          <td>
-            ${attendance.present}
-          </td>
-
-          <td>
-            ${attendance.absent}
-          </td>
-
-          <td>
-            ${attendance.percent}%
-          </td>
-
-        </tr>
-
-      </table>
-
-
-      <div class="report-title">
-        CO-SCHOLASTIC AREAS
-      </div>
-
-
-      <table class="report-table">
-
-        <tr>
-
-          <th>
-            Area
-          </th>
-
-          <th>
-            Grade / Remark
-          </th>
-
-        </tr>
-
-
-        <tr>
-
-          <td>
-            Work Education
-          </td>
-
-          <td>
-            —
-          </td>
-
-        </tr>
-
-
-        <tr>
-
-          <td>
-            Art Education
-          </td>
-
-          <td>
-            —
-          </td>
-
-        </tr>
-
-
-        <tr>
-
-          <td>
-            Health & Physical Education
-          </td>
-
-          <td>
-            —
-          </td>
-
-        </tr>
-
-
-        <tr>
-
-          <td>
-            Discipline
-          </td>
-
-          <td>
-            —
-          </td>
-
-        </tr>
-
-      </table>
 
 
       <div class="report-title">
@@ -2644,75 +3473,72 @@ async function createReportCard(
       </div>
 
 
-      <table class="report-table">
+      <div class="report-scroll">
 
-        <tr>
+        <table class="report-table">
 
-          <th>
-            Grade
-          </th>
+          <tr>
+            <th>Grade</th>
+            <th>Marks Range</th>
+          </tr>
 
-          <th>
-            Marks Range
-          </th>
+          <tr>
+            <td>A1</td>
+            <td>90–100%</td>
+          </tr>
 
-        </tr>
+          <tr>
+            <td>A2</td>
+            <td>80–89%</td>
+          </tr>
 
-        <tr>
-          <td>A1</td>
-          <td>90–100</td>
-        </tr>
+          <tr>
+            <td>B1</td>
+            <td>70–79%</td>
+          </tr>
 
-        <tr>
-          <td>A2</td>
-          <td>80–89</td>
-        </tr>
+          <tr>
+            <td>B2</td>
+            <td>60–69%</td>
+          </tr>
 
-        <tr>
-          <td>B1</td>
-          <td>70–79</td>
-        </tr>
+          <tr>
+            <td>C1</td>
+            <td>50–59%</td>
+          </tr>
 
-        <tr>
-          <td>B2</td>
-          <td>60–69</td>
-        </tr>
+          <tr>
+            <td>C2</td>
+            <td>40–49%</td>
+          </tr>
 
-        <tr>
-          <td>C1</td>
-          <td>50–59</td>
-        </tr>
+          <tr>
+            <td>D</td>
+            <td>33–39%</td>
+          </tr>
 
-        <tr>
-          <td>C2</td>
-          <td>40–49</td>
-        </tr>
+          <tr>
+            <td>E</td>
+            <td>Below 33%</td>
+          </tr>
 
-        <tr>
-          <td>D</td>
-          <td>33–39</td>
-        </tr>
+        </table>
 
-        <tr>
-          <td>E</td>
-          <td>Below 33</td>
-        </tr>
-
-      </table>
+      </div>
 
 
       <div class="signatures">
 
         <div>
-          Class Teacher
+          Class Teacher Signature
         </div>
 
         <div>
-          Principal
+          Principal Signature
         </div>
 
         <div>
-          Parent / Guardian
+          Parent Signature
         </div>
 
       </div>
@@ -2728,75 +3554,92 @@ async function createReportCard(
     </div>
 
   `;
+
 }
 
 
-async function getAttendanceSummary(
-  email
+/* =========================
+   DISPLAY MARK
+========================= */
+
+function displayMark(value){
+
+  if(
+    value===undefined||
+    value===null||
+    value===""
+  ){
+
+    return "—";
+
+  }
+
+  return Number(value);
+
+}
+
+
+/* =========================
+   PERCENTAGE
+========================= */
+
+function percentage(
+  obtained,
+  maximum
 ){
 
-  let total=0;
+  if(!maximum){
 
-  let present=0;
+    return "0.00";
 
-  let absent=0;
+  }
 
+  return(
+    (obtained/maximum)*100
+  ).toFixed(2);
 
-  try{
-
-    const snap=
-      await getDocs(
-        query(
-          collection(db,"attendance"),
-          where(
-            "parentEmail",
-            "==",
-            email
-          )
-        )
-      );
-
-
-    snap.forEach(x=>{
-
-      total++;
-
-      if(
-        x.data().status==="Present"
-      ){
-
-        present++;
-
-      }else{
-
-        absent++;
-
-      }
-
-    });
-
-  }catch(e){}
-
-
-  const percent=
-    total
-    ?((present/total)*100).toFixed(2)
-    :"0.00";
-
-
-  return{
-    total,
-    present,
-    absent,
-    percent
-  };
 }
 
+
+/* =========================
+   GRADE
+========================= */
+
+function getGrade(percent){
+
+  percent=Number(percent);
+
+
+  if(percent>=90)return"A1";
+
+  if(percent>=80)return"A2";
+
+  if(percent>=70)return"B1";
+
+  if(percent>=60)return"B2";
+
+  if(percent>=50)return"C1";
+
+  if(percent>=40)return"C2";
+
+  if(percent>=33)return"D";
+
+  return"E";
+
+}
+
+
+/* =========================
+   PRINT
+========================= */
 
 window.printReport=function(id){
 
   const element=
     document.getElementById(id);
+
+
+  if(!element)return;
 
 
   document
@@ -2824,28 +3667,13 @@ window.printReport=function(id){
     );
 
   },1000);
+
 };
 
 
-function getGrade(percent){
-
-  if(percent>=90)return"A1";
-
-  if(percent>=80)return"A2";
-
-  if(percent>=70)return"B1";
-
-  if(percent>=60)return"B2";
-
-  if(percent>=50)return"C1";
-
-  if(percent>=40)return"C2";
-
-  if(percent>=33)return"D";
-
-  return"E";
-}
-
+/* =========================
+   STUDENT MANAGEMENT
+========================= */
 
 window.loadStudentManagement=
 async function(){
@@ -2885,6 +3713,7 @@ async function(){
       "<p>Unable to load students.</p>";
 
   }
+
 };
 
 
@@ -2948,6 +3777,7 @@ window.filterStudents=function(){
       "<p>No student found.</p>";
 
     return;
+
   }
 
 
@@ -2983,7 +3813,6 @@ window.filterStudents=function(){
 
         </div>
 
-
         <div class="small">
 
           Parent:
@@ -2993,7 +3822,6 @@ window.filterStudents=function(){
 
         </div>
 
-
         <div style="margin-top:10px">
 
           <button
@@ -3002,7 +3830,6 @@ window.filterStudents=function(){
           >
             Edit
           </button>
-
 
           <button
             class="secondary"
@@ -3020,7 +3847,6 @@ window.filterStudents=function(){
 
           </button>
 
-
           <button
             class="danger"
             onclick="deleteStudent('${s.id}')"
@@ -3035,6 +3861,7 @@ window.filterStudents=function(){
     `
     )
     .join("");
+
 };
 
 
@@ -3098,7 +3925,8 @@ async function(id){
         name,
         class:cls,
         roll,
-        parentEmail
+        parentEmail:
+          parentEmail.trim().toLowerCase()
       }
     );
 
@@ -3110,6 +3938,7 @@ async function(id){
     alert(e.message);
 
   }
+
 };
 
 
@@ -3136,6 +3965,7 @@ async function(
     alert(e.message);
 
   }
+
 };
 
 
@@ -3144,10 +3974,7 @@ async function(id){
 
   const ok=
     confirm(
-      "Delete this student?\n\n"+
-      "Student document will be deleted. "+
-      "Attendance, fees, results and documents "+
-      "will NOT be deleted automatically."
+      "Delete this student?"
     );
 
 
@@ -3168,8 +3995,13 @@ async function(id){
     alert(e.message);
 
   }
+
 };
 
+
+/* =========================
+   RESULT MANAGEMENT
+========================= */
 
 window.loadResultManagement=
 async function(){
@@ -3209,11 +4041,11 @@ async function(){
       "<p>Unable to load results.</p>";
 
   }
+
 };
 
 
-window.filterResults=
-function(){
+window.filterResults=function(){
 
   const box=
     document.getElementById(
@@ -3252,14 +4084,6 @@ function(){
         ||
 
         String(
-          r.exam||""
-        )
-        .toLowerCase()
-        .includes(search)
-
-        ||
-
-        String(
           r.session||""
         )
         .toLowerCase()
@@ -3281,6 +4105,7 @@ function(){
       "<p>No result found.</p>";
 
     return;
+
   }
 
 
@@ -3296,44 +4121,31 @@ function(){
           )}
         </b>
 
-
         <div>
 
           ${escapeHtml(
             r.subject||""
           )}
 
-          —
-
-          ${r.marks||0}/${r.maxMarks||0}
-
         </div>
-
 
         <div class="small">
 
+          Parent:
+          ${escapeHtml(
+            r.parentEmail||""
+          )}
+
+          <br>
+
+          Session:
           ${escapeHtml(
             r.session||""
           )}
 
-          |
-
-          ${escapeHtml(
-            r.exam||""
-          )}
-
         </div>
 
-
         <div style="margin-top:10px">
-
-          <button
-            class="secondary"
-            onclick="editResult('${r.id}')"
-          >
-            Edit
-          </button>
-
 
           <button
             class="danger"
@@ -3349,92 +4161,7 @@ function(){
     `
     )
     .join("");
-};
 
-
-window.editResult=
-async function(id){
-
-  const result=
-    resultManagementData.find(
-      x=>x.id===id
-    );
-
-
-  if(!result)return;
-
-
-  const subject=
-    prompt(
-      "Subject:",
-      result.subject||""
-    );
-
-
-  if(subject===null)return;
-
-
-  const marks=
-    prompt(
-      "Marks Obtained:",
-      result.marks||""
-    );
-
-
-  if(marks===null)return;
-
-
-  const maxMarks=
-    prompt(
-      "Maximum Marks:",
-      result.maxMarks||""
-    );
-
-
-  if(maxMarks===null)return;
-
-
-  const exam=
-    prompt(
-      "Exam:",
-      result.exam||""
-    );
-
-
-  if(exam===null)return;
-
-
-  const session=
-    prompt(
-      "Session:",
-      result.session||""
-    );
-
-
-  if(session===null)return;
-
-
-  try{
-
-    await updateDoc(
-      doc(db,"results",id),
-      {
-        subject,
-        marks:Number(marks),
-        maxMarks:Number(maxMarks),
-        exam,
-        session
-      }
-    );
-
-
-    await loadResultManagement();
-
-  }catch(e){
-
-    alert(e.message);
-
-  }
 };
 
 
@@ -3443,7 +4170,7 @@ async function(id){
 
   if(
     !confirm(
-      "Delete this result?"
+      "Delete this subject result?"
     )
   )return;
 
@@ -3462,8 +4189,13 @@ async function(id){
     alert(e.message);
 
   }
+
 };
 
+
+/* =========================
+   SECURITY HELPERS
+========================= */
 
 function escapeHtml(value){
 
@@ -3488,6 +4220,7 @@ function escapeHtml(value){
       "'",
       "&#039;"
     );
+
 }
 
 
@@ -3512,8 +4245,13 @@ function safeUrl(url){
 
 
   return "#";
+
 }
 
+
+/* =========================
+   SERVICE WORKER
+========================= */
 
 if(
   "serviceWorker"
