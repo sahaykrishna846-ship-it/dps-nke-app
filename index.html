@@ -1,15 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1.0"
+>
 
 <title>DPS Narkatiaganj Parent App</title>
 
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#3158c9">
+
+<meta
+  name="theme-color"
+  content="#3158c9"
+>
 
 <style>
+
+/* =========================
+   BASIC
+========================= */
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -22,7 +36,10 @@ body{
   color:#172033;
 }
 
-button,input,select,textarea{
+button,
+input,
+select,
+textarea{
   font:inherit;
 }
 
@@ -31,6 +48,10 @@ button{
   border-radius:10px;
   padding:11px 15px;
   cursor:pointer;
+}
+
+button:active{
+  transform:scale(.98);
 }
 
 .primary{
@@ -57,11 +78,21 @@ button{
   display:none!important;
 }
 
+
+/* =========================
+   CONTAINER
+========================= */
+
 .container{
   max-width:1100px;
   margin:auto;
   padding:16px;
 }
+
+
+/* =========================
+   HEADER
+========================= */
 
 header{
   background:#3158c9;
@@ -88,6 +119,11 @@ header p{
   margin-top:3px;
 }
 
+
+/* =========================
+   CARD
+========================= */
+
 .card{
   background:white;
   padding:18px;
@@ -101,6 +137,11 @@ header p{
   margin-bottom:12px;
 }
 
+
+/* =========================
+   LOGIN
+========================= */
+
 .login{
   max-width:430px;
   margin:35px auto;
@@ -112,6 +153,11 @@ header p{
   height:90px;
   margin:0 auto 12px;
 }
+
+
+/* =========================
+   INPUTS
+========================= */
 
 input,
 select,
@@ -129,9 +175,15 @@ textarea{
   resize:vertical;
 }
 
+
+/* =========================
+   DASHBOARD TILES
+========================= */
+
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  grid-template-columns:
+    repeat(auto-fit,minmax(180px,1fr));
   gap:14px;
 }
 
@@ -144,6 +196,10 @@ textarea{
   border:1px solid #edf0f5;
 }
 
+.tile:hover{
+  box-shadow:0 5px 18px #00000018;
+}
+
 .tile b{
   display:block;
   margin:6px 0;
@@ -154,6 +210,11 @@ textarea{
   color:#667085;
 }
 
+
+/* =========================
+   TOP BAR
+========================= */
+
 .topbar{
   display:flex;
   justify-content:space-between;
@@ -162,9 +223,15 @@ textarea{
   flex-wrap:wrap;
 }
 
+
+/* =========================
+   GALLERY
+========================= */
+
 .gallery{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  grid-template-columns:
+    repeat(auto-fit,minmax(180px,1fr));
   gap:10px;
 }
 
@@ -174,6 +241,11 @@ textarea{
   object-fit:cover;
   border-radius:12px;
 }
+
+
+/* =========================
+   ITEMS
+========================= */
 
 .item{
   border:1px solid #e0e5ee;
@@ -189,11 +261,21 @@ textarea{
   margin-top:5px;
 }
 
+
+/* =========================
+   SEARCH
+========================= */
+
 .search-row{
   display:grid;
   grid-template-columns:1fr auto;
   gap:8px;
 }
+
+
+/* =========================
+   NORMAL TABLE
+========================= */
 
 table{
   width:100%;
@@ -212,10 +294,15 @@ th{
   background:#eef3ff;
 }
 
+
+/* =========================
+   RESULT CARD
+========================= */
+
 .result-card{
   background:#fff;
   border:1px solid #222;
-  max-width:1000px;
+  max-width:1100px;
   margin:20px auto;
   padding:22px;
 }
@@ -248,9 +335,16 @@ th{
   margin:6px;
 }
 
+
+/* =========================
+   STUDENT INFO
+========================= */
+
 .student-info{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:
+    repeat(4,1fr);
+
   border:1px solid #222;
   margin-top:15px;
 }
@@ -271,6 +365,11 @@ th{
   margin-bottom:3px;
 }
 
+
+/* =========================
+   REPORT TITLE
+========================= */
+
 .report-title{
   background:#e9edf5;
   border:1px solid #222;
@@ -280,9 +379,14 @@ th{
   margin-top:15px;
 }
 
+
+/* =========================
+   REPORT TABLE
+========================= */
+
 .report-table{
   width:100%;
-  min-width:760px;
+  min-width:850px;
 }
 
 .report-table th{
@@ -290,30 +394,25 @@ th{
   color:#111;
 }
 
+.report-table .final-column{
+  background:#f1f5ff;
+  font-weight:bold;
+}
+
 .report-scroll{
   overflow-x:auto;
 }
 
-.summary{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  border:1px solid #222;
-  margin-top:12px;
-}
 
-.summary div{
-  padding:10px;
-  text-align:center;
-  border-right:1px solid #222;
-}
-
-.summary div:last-child{
-  border-right:0;
-}
+/* =========================
+   PERFORMANCE
+========================= */
 
 .performance-box{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:
+    repeat(4,1fr);
+
   border:1px solid #222;
   margin-top:10px;
 }
@@ -328,9 +427,16 @@ th{
   border-right:0;
 }
 
+
+/* =========================
+   FINAL BOX
+========================= */
+
 .final-box{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:
+    repeat(4,1fr);
+
   border:2px solid #222;
   margin-top:12px;
 }
@@ -345,6 +451,11 @@ th{
   border-right:0;
 }
 
+
+/* =========================
+   PASS / FAIL
+========================= */
+
 .pass{
   color:#188038;
   font-weight:bold;
@@ -355,9 +466,16 @@ th{
   font-weight:bold;
 }
 
+
+/* =========================
+   SIGNATURE
+========================= */
+
 .signatures{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:
+    repeat(3,1fr);
+
   gap:30px;
   margin-top:65px;
   text-align:center;
@@ -367,6 +485,11 @@ th{
   border-top:1px solid #222;
   padding-top:7px;
 }
+
+
+/* =========================
+   RESULT FORM
+========================= */
 
 .print-btn{
   margin-top:12px;
@@ -378,18 +501,58 @@ th{
   padding:7px;
 }
 
+.max-input{
+  min-width:75px;
+  margin:0;
+  padding:7px;
+  background:#f8faff;
+}
+
 .form-table{
   overflow-x:auto;
 }
 
 .form-table table{
-  min-width:950px;
+  min-width:1250px;
 }
+
+.auto-field{
+  background:#eef3ff!important;
+  font-weight:bold;
+}
+
+
+/* =========================
+   RESULT FORM INFO
+========================= */
+
+.result-help{
+  background:#f0f5ff;
+  border:1px solid #d5e0ff;
+  border-radius:10px;
+  padding:12px;
+  margin:10px 0 15px;
+  font-size:13px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:700px){
 
+  .container{
+    padding:10px;
+  }
+
+  header h1{
+    font-size:21px;
+  }
+
   .student-info{
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:
+      repeat(2,1fr);
   }
 
   .student-info div:nth-child(4n){
@@ -400,16 +563,9 @@ th{
     border-right:0;
   }
 
-  .summary{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .summary div:nth-child(2n){
-    border-right:0;
-  }
-
   .performance-box{
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:
+      repeat(2,1fr);
   }
 
   .performance-box div:nth-child(2n){
@@ -417,7 +573,8 @@ th{
   }
 
   .final-box{
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:
+      repeat(2,1fr);
   }
 
   .final-box div:nth-child(2n){
@@ -436,7 +593,17 @@ th{
   .report-head h1{
     font-size:21px;
   }
+
+  .search-row{
+    grid-template-columns:1fr;
+  }
+
 }
+
+
+/* =========================
+   PRINT
+========================= */
 
 @media print{
 
@@ -469,83 +636,154 @@ th{
     size:A4 landscape;
     margin:8mm;
   }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- =========================
+     SCHOOL HEADER
+========================= -->
+
 <header>
-  <img src="icon.svg" alt="DPS Logo">
-  <h1>DELHI PUBLIC SCHOOL</h1>
-  <p>NARKATIAGANJ</p>
+
+  <img
+    src="icon.svg"
+    alt="DPS Logo"
+  >
+
+  <h1>
+    DELHI PUBLIC SCHOOL
+  </h1>
+
+  <p>
+    NARKATIAGANJ
+  </p>
+
 </header>
 
+
 <div class="container">
+
+
+<!-- =========================
+     HOME
+========================= -->
 
 <section id="homeSection">
 
   <div class="card">
-    <h2>Welcome to DPS Narkatiaganj</h2>
+
+    <h2>
+      Welcome to DPS Narkatiaganj
+    </h2>
 
     <p>
-      Delhi Public School, Narkatiaganj की स्थापना वर्ष 2011 में
-      गुणवत्तापूर्ण एवं संस्कारयुक्त शिक्षा के उद्देश्य से की गई।
-      विद्यालय विद्यार्थियों के शैक्षणिक, रचनात्मक, नैतिक एवं
-      सामाजिक विकास पर ध्यान देता है।
+      Delhi Public School, Narkatiaganj की स्थापना वर्ष
+      2011 में गुणवत्तापूर्ण एवं संस्कारयुक्त शिक्षा के
+      उद्देश्य से की गई।
+      विद्यालय विद्यार्थियों के शैक्षणिक, रचनात्मक,
+      नैतिक एवं सामाजिक विकास पर ध्यान देता है।
     </p>
 
     <br>
 
     <p>
       यह Parent Portal अभिभावकों को विद्यालय की महत्वपूर्ण
-      जानकारी, homework, attendance एवं report card देखने की
-      सुविधा प्रदान करता है।
+      जानकारी, homework, attendance एवं report card देखने
+      की सुविधा प्रदान करता है।
     </p>
+
   </div>
 
+
   <div class="card">
-    <h2>School Activities</h2>
+
+    <h2>
+      School Activities
+    </h2>
 
     <div class="gallery">
 
       <img src="IMG-20251125-WA0022.jpg">
+
       <img src="IMG-20260905-WA0018.jpg">
+
       <img src="IMG-20260905-WA0022.jpg">
+
       <img src="IMG-20260905-WA0034.jpg">
+
       <img src="IMG-20260905-WA0043.jpg">
+
       <img src="IMG-20260905-WA0056.jpg">
+
       <img src="IMG-20260905-WA0059.jpg">
+
       <img src="Screenshot_20241114_093054_Maps.jpg">
+
       <img src="Screenshot_20241114_093113_Maps.jpg">
+
       <img src="Screenshot_20251125_171128_Google.jpg">
+
       <img src="file_00000000ed90720ba14937d8a37e3bba.png">
 
     </div>
+
   </div>
 
-  <div class="card">
-    <h2>Parent Login</h2>
 
-    <button class="primary" onclick="showLogin('parent')">
+  <div class="card">
+
+    <h2>
+      Parent Login
+    </h2>
+
+    <button
+      class="primary"
+      onclick="showLogin('parent')"
+    >
       Parent Login
     </button>
 
-    <button class="secondary" onclick="showLogin('admin')">
+    <button
+      class="secondary"
+      onclick="showLogin('admin')"
+    >
       Admin Login
     </button>
+
   </div>
 
 </section>
 
 
-<section id="loginSection" class="hidden">
+
+<!-- =========================
+     LOGIN
+========================= -->
+
+<section
+  id="loginSection"
+  class="hidden"
+>
 
   <div class="card login">
 
-    <img class="logo" src="icon.svg">
+    <img
+      class="logo"
+      src="icon.svg"
+    >
 
-    <h2 id="loginTitle" style="text-align:center">
+    <h2
+      id="loginTitle"
+      style="text-align:center"
+    >
       Parent Login
     </h2>
 
@@ -553,12 +791,14 @@ th{
       id="loginEmail"
       type="email"
       placeholder="Email"
+      autocomplete="email"
     >
 
     <input
       id="loginPassword"
       type="password"
       placeholder="Password"
+      autocomplete="current-password"
     >
 
     <button
@@ -577,102 +817,222 @@ th{
       Back
     </button>
 
-    <p id="loginMsg" class="small"></p>
+    <p
+      id="loginMsg"
+      class="small"
+    ></p>
 
   </div>
 
 </section>
 
 
-<section id="parentSection" class="hidden">
+
+<!-- =========================
+     PARENT
+========================= -->
+
+<section
+  id="parentSection"
+  class="hidden"
+>
 
   <div class="topbar card">
 
     <div>
-      <b>Parent Dashboard</b>
-      <div id="parentWelcome" class="small"></div>
+
+      <b>
+        Parent Dashboard
+      </b>
+
+      <div
+        id="parentWelcome"
+        class="small"
+      ></div>
+
     </div>
 
-    <button class="danger" onclick="logout()">
+    <button
+      class="danger"
+      onclick="logout()"
+    >
       Logout
     </button>
 
   </div>
 
+
   <div class="grid">
 
-    <div class="tile" onclick="loadNotifications()">
+    <div
+      class="tile"
+      onclick="loadNotifications()"
+    >
       🔔
-      <b>Notifications</b>
-      <span>School notices</span>
+
+      <b>
+        Notifications
+      </b>
+
+      <span>
+        School notices
+      </span>
+
     </div>
 
-    <div class="tile" onclick="loadAttendance()">
+
+    <div
+      class="tile"
+      onclick="loadAttendance()"
+    >
       📅
-      <b>Attendance</b>
-      <span>Attendance record</span>
+
+      <b>
+        Attendance
+      </b>
+
+      <span>
+        Attendance record
+      </span>
+
     </div>
 
-    <div class="tile" onclick="loadHomework()">
+
+    <div
+      class="tile"
+      onclick="loadHomework()"
+    >
       📚
-      <b>Homework</b>
-      <span>Daily homework</span>
+
+      <b>
+        Homework
+      </b>
+
+      <span>
+        Daily homework
+      </span>
+
     </div>
 
-    <div class="tile" onclick="loadMaterials()">
+
+    <div
+      class="tile"
+      onclick="loadMaterials()"
+    >
       📖
-      <b>Study Material</b>
-      <span>Learning resources</span>
+
+      <b>
+        Study Material
+      </b>
+
+      <span>
+        Learning resources
+      </span>
+
     </div>
 
-    <div class="tile" onclick="loadCalendar()">
+
+    <div
+      class="tile"
+      onclick="loadCalendar()"
+    >
       🗓️
-      <b>Calendar</b>
-      <span>School events</span>
+
+      <b>
+        Calendar
+      </b>
+
+      <span>
+        School events
+      </span>
+
     </div>
 
-    <div class="tile" onclick="loadResults()">
+
+    <div
+      class="tile"
+      onclick="loadResults()"
+    >
       📝
-      <b>Exam / Result</b>
-      <span>Report card</span>
+
+      <b>
+        Exam / Result
+      </b>
+
+      <span>
+        Report card
+      </span>
+
     </div>
 
-    <div class="tile" onclick="loadProfile()">
+
+    <div
+      class="tile"
+      onclick="loadProfile()"
+    >
       👤
-      <b>Profile</b>
-      <span>Student details</span>
+
+      <b>
+        Profile
+      </b>
+
+      <span>
+        Student details
+      </span>
+
     </div>
 
   </div>
+
 
   <div id="parentContent"></div>
 
 </section>
 
 
-<section id="adminSection" class="hidden">
+
+<!-- =========================
+     ADMIN
+========================= -->
+
+<section
+  id="adminSection"
+  class="hidden"
+>
+
 
   <div class="topbar card">
 
     <div>
-      <b>Admin Dashboard</b>
+
+      <b>
+        Admin Dashboard
+      </b>
+
       <div class="small">
         DPS Narkatiaganj
       </div>
+
     </div>
 
-    <button class="danger" onclick="logout()">
+    <button
+      class="danger"
+      onclick="logout()"
+    >
       Logout
     </button>
 
   </div>
 
 
+
   <!-- CREATE PARENT -->
 
   <div class="card">
 
-    <h3>Create Parent Account</h3>
+    <h3>
+      Create Parent Account
+    </h3>
 
     <input
       id="newParentEmail"
@@ -693,16 +1053,22 @@ th{
       Create Parent
     </button>
 
-    <p id="parentCreateMsg" class="small"></p>
+    <p
+      id="parentCreateMsg"
+      class="small"
+    ></p>
 
   </div>
+
 
 
   <!-- ADD STUDENT -->
 
   <div class="card">
 
-    <h3>Add Student</h3>
+    <h3>
+      Add Student
+    </h3>
 
     <input
       id="studentName"
@@ -732,16 +1098,22 @@ th{
       Add Student
     </button>
 
-    <p id="studentMsg" class="small"></p>
+    <p
+      id="studentMsg"
+      class="small"
+    ></p>
 
   </div>
+
 
 
   <!-- ATTENDANCE -->
 
   <div class="card">
 
-    <h3>Attendance</h3>
+    <h3>
+      Attendance
+    </h3>
 
     <input
       id="attendanceParentEmail"
@@ -755,8 +1127,15 @@ th{
     >
 
     <select id="attendanceStatus">
-      <option value="Present">Present</option>
-      <option value="Absent">Absent</option>
+
+      <option value="Present">
+        Present
+      </option>
+
+      <option value="Absent">
+        Absent
+      </option>
+
     </select>
 
     <button
@@ -766,16 +1145,22 @@ th{
       Save Attendance
     </button>
 
-    <p id="attendanceMsg" class="small"></p>
+    <p
+      id="attendanceMsg"
+      class="small"
+    ></p>
 
   </div>
+
 
 
   <!-- NOTICE -->
 
   <div class="card">
 
-    <h3>Notification</h3>
+    <h3>
+      Notification
+    </h3>
 
     <input
       id="noticeTitle"
@@ -794,16 +1179,22 @@ th{
       Add Notification
     </button>
 
-    <p id="noticeMsg" class="small"></p>
+    <p
+      id="noticeMsg"
+      class="small"
+    ></p>
 
   </div>
+
 
 
   <!-- HOMEWORK -->
 
   <div class="card">
 
-    <h3>Homework</h3>
+    <h3>
+      Homework
+    </h3>
 
     <input
       id="homeworkClass"
@@ -827,16 +1218,22 @@ th{
       Add Homework
     </button>
 
-    <p id="homeworkMsg" class="small"></p>
+    <p
+      id="homeworkMsg"
+      class="small"
+    ></p>
 
   </div>
+
 
 
   <!-- STUDY MATERIAL -->
 
   <div class="card">
 
-    <h3>Study Material</h3>
+    <h3>
+      Study Material
+    </h3>
 
     <input
       id="materialClass"
@@ -865,16 +1262,22 @@ th{
       Add Material
     </button>
 
-    <p id="materialMsg" class="small"></p>
+    <p
+      id="materialMsg"
+      class="small"
+    ></p>
 
   </div>
+
 
 
   <!-- CALENDAR -->
 
   <div class="card">
 
-    <h3>Calendar</h3>
+    <h3>
+      Calendar
+    </h3>
 
     <input
       id="calendarDate"
@@ -898,16 +1301,25 @@ th{
       Add Event
     </button>
 
-    <p id="calendarMsg" class="small"></p>
+    <p
+      id="calendarMsg"
+      class="small"
+    ></p>
 
   </div>
 
 
-  <!-- RESULT -->
+
+  <!-- =========================
+       RESULT
+  ========================= -->
 
   <div class="card">
 
-    <h3>📊 Add / Update Report Card</h3>
+    <h3>
+      📊 Add / Update Report Card
+    </h3>
+
 
     <input
       id="resultParentEmail"
@@ -915,122 +1327,312 @@ th{
       placeholder="Parent Email"
     >
 
+
     <input
       id="resultSession"
       placeholder="Academic Session e.g. 2026-27"
       value="2026-27"
     >
 
-    <p class="small">
-      Select the subject and enter marks. Final-1 and Final-2
-      are calculated automatically.
-    </p>
+
+    <div class="result-help">
+
+      <b>
+        Result Entry Rule:
+      </b>
+
+      <br><br>
+
+      FA1, FA2, SA1, FA3, FA4 और SA2 के marks
+      <b>manually enter</b> होंगे।
+
+      <br>
+
+      Final-1 =
+      <b>
+        FA1 + FA2 + SA1
+      </b>
+
+      <br>
+
+      Final-2 =
+      <b>
+        FA3 + FA4 + SA2
+      </b>
+
+      <br><br>
+
+      Final-1 और Final-2
+      <b>automatically calculate</b> होंगे।
+
+    </div>
+
 
     <select id="resultSubject">
-      <option value="Hindi">Hindi</option>
-      <option value="English">English</option>
-      <option value="Mathematics">Mathematics</option>
-      <option value="Science">Science</option>
-      <option value="Social Studies">Social Studies</option>
-      <option value="Computer">Computer</option>
-      <option value="G.K.">G.K.</option>
+
+      <option value="Hindi">
+        Hindi
+      </option>
+
+      <option value="English">
+        English
+      </option>
+
+      <option value="Mathematics">
+        Mathematics
+      </option>
+
+      <option value="Science">
+        Science
+      </option>
+
+      <option value="Social Studies">
+        Social Studies
+      </option>
+
+      <option value="Computer">
+        Computer
+      </option>
+
+      <option value="G.K.">
+        G.K.
+      </option>
+
     </select>
+
 
     <div class="form-table">
 
       <table>
 
         <tr>
-          <th>FA1</th>
-          <th>FA2</th>
-          <th>SA1</th>
-          <th>Final-1</th>
-          <th>FA3</th>
-          <th>FA4</th>
-          <th>SA2</th>
-          <th>Final-2</th>
+
+          <th>
+            FA1<br>
+            <small>Marks / Max</small>
+          </th>
+
+          <th>
+            FA2<br>
+            <small>Marks / Max</small>
+          </th>
+
+          <th>
+            SA1<br>
+            <small>Marks / Max</small>
+          </th>
+
+          <th>
+            Final-1<br>
+            <small>AUTO</small>
+          </th>
+
+          <th>
+            FA3<br>
+            <small>Marks / Max</small>
+          </th>
+
+          <th>
+            FA4<br>
+            <small>Marks / Max</small>
+          </th>
+
+          <th>
+            SA2<br>
+            <small>Marks / Max</small>
+          </th>
+
+          <th>
+            Final-2<br>
+            <small>AUTO</small>
+          </th>
+
         </tr>
+
 
         <tr>
 
+          <!-- FA1 -->
+
           <td>
+
             <input
               class="marks-input"
               id="fa1"
               type="number"
               min="0"
-              placeholder="FA1"
+              placeholder="Marks"
             >
+
+            <input
+              class="max-input"
+              id="fa1Max"
+              type="number"
+              min="1"
+              placeholder="Max"
+            >
+
           </td>
 
+
+          <!-- FA2 -->
+
           <td>
+
             <input
               class="marks-input"
               id="fa2"
               type="number"
               min="0"
-              placeholder="FA2"
+              placeholder="Marks"
             >
+
+            <input
+              class="max-input"
+              id="fa2Max"
+              type="number"
+              min="1"
+              placeholder="Max"
+            >
+
           </td>
 
+
+          <!-- SA1 -->
+
           <td>
+
             <input
               class="marks-input"
               id="sa1"
               type="number"
               min="0"
-              placeholder="SA1"
+              placeholder="Marks"
             >
+
+            <input
+              class="max-input"
+              id="sa1Max"
+              type="number"
+              min="1"
+              placeholder="Max"
+            >
+
           </td>
 
+
+          <!-- FINAL 1 -->
+
           <td>
+
             <input
-              class="marks-input"
+              class="marks-input auto-field"
               id="final1"
               type="number"
               readonly
-              placeholder="Auto"
+              placeholder="AUTO"
             >
+
+            <input
+              class="max-input auto-field"
+              id="final1Max"
+              type="number"
+              readonly
+              placeholder="AUTO"
+            >
+
           </td>
 
+
+          <!-- FA3 -->
+
           <td>
+
             <input
               class="marks-input"
               id="fa3"
               type="number"
               min="0"
-              placeholder="FA3"
+              placeholder="Marks"
             >
+
+            <input
+              class="max-input"
+              id="fa3Max"
+              type="number"
+              min="1"
+              placeholder="Max"
+            >
+
           </td>
 
+
+          <!-- FA4 -->
+
           <td>
+
             <input
               class="marks-input"
               id="fa4"
               type="number"
               min="0"
-              placeholder="FA4"
+              placeholder="Marks"
             >
+
+            <input
+              class="max-input"
+              id="fa4Max"
+              type="number"
+              min="1"
+              placeholder="Max"
+            >
+
           </td>
 
+
+          <!-- SA2 -->
+
           <td>
+
             <input
               class="marks-input"
               id="sa2"
               type="number"
               min="0"
-              placeholder="SA2"
+              placeholder="Marks"
             >
+
+            <input
+              class="max-input"
+              id="sa2Max"
+              type="number"
+              min="1"
+              placeholder="Max"
+            >
+
           </td>
 
+
+          <!-- FINAL 2 -->
+
           <td>
+
             <input
-              class="marks-input"
+              class="marks-input auto-field"
               id="final2"
               type="number"
               readonly
-              placeholder="Auto"
+              placeholder="AUTO"
             >
+
+            <input
+              class="max-input auto-field"
+              id="final2Max"
+              type="number"
+              readonly
+              placeholder="AUTO"
+            >
+
           </td>
 
         </tr>
@@ -1039,7 +1641,9 @@ th{
 
     </div>
 
+
     <br>
+
 
     <button
       class="primary"
@@ -1048,16 +1652,25 @@ th{
       Save Subject Result
     </button>
 
-    <p id="resultMsg" class="small"></p>
+
+    <p
+      id="resultMsg"
+      class="small"
+    ></p>
 
   </div>
 
 
-  <!-- RESULT MANAGEMENT -->
+
+  <!-- =========================
+       RESULT MANAGEMENT
+  ========================= -->
 
   <div class="card">
 
-    <h3>Result Management</h3>
+    <h3>
+      Result Management
+    </h3>
 
     <div class="search-row">
 
@@ -1081,11 +1694,16 @@ th{
   </div>
 
 
-  <!-- STUDENT MANAGEMENT -->
+
+  <!-- =========================
+       STUDENT MANAGEMENT
+  ========================= -->
 
   <div class="card">
 
-    <h3>Student Management</h3>
+    <h3>
+      Student Management
+    </h3>
 
     <div class="search-row">
 
@@ -1113,7 +1731,13 @@ th{
 </div>
 
 
+
 <script type="module">
+
+
+/* =====================================================
+   FIREBASE IMPORTS
+===================================================== */
 
 import {
   initializeApp,
@@ -1121,6 +1745,7 @@ import {
   getApp
 }
 from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+
 
 import {
   getAuth,
@@ -1132,6 +1757,7 @@ import {
   onAuthStateChanged
 }
 from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+
 
 import {
   getFirestore,
@@ -1148,57 +1774,65 @@ import {
 from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
 
-/* =========================
+
+/* =====================================================
    FIREBASE CONFIG
-========================= */
+===================================================== */
 
 const firebaseConfig={
 
-  apiKey:"AIzaSyBoDLUAc-y9nqFBn8vB9wRUUtMY0WALxwA",
+  apiKey:
+    "AIzaSyBoDLUAc-y9nqFBn8vB9wRUUtMY0WALxwA",
 
   authDomain:
-  "dps-narkatiaganj.firebaseapp.com",
+    "dps-narkatiaganj.firebaseapp.com",
 
   projectId:
-  "dps-narkatiaganj",
+    "dps-narkatiaganj",
 
   storageBucket:
-  "dps-narkatiaganj.firebasestorage.app",
+    "dps-narkatiaganj.firebasestorage.app",
 
   messagingSenderId:
-  "199351719662",
+    "199351719662",
 
   appId:
-  "1:199351719662:web:612fb6010c40a42c2a45ff",
+    "1:199351719662:web:612fb6010c40a42c2a45ff",
 
   measurementId:
-  "G-49BGF6LQ9P"
+    "G-49BGF6LQ9P"
+
 };
 
 
-/* =========================
+
+/* =====================================================
    FIREBASE APP
-========================= */
+===================================================== */
 
-const app=
+const app =
   getApps().length
-  ?getApp()
-  :initializeApp(firebaseConfig);
+  ? getApp()
+  : initializeApp(firebaseConfig);
 
 
-const auth=getAuth(app);
+const auth =
+  getAuth(app);
 
-const db=getFirestore(app);
+
+const db =
+  getFirestore(app);
 
 
-/*
-  Separate Firebase Auth instance for creating
-  parent accounts without logging the admin out.
-*/
 
-const parentCreatorApp=
+/* =====================================================
+   SECONDARY AUTH FOR PARENT CREATION
+===================================================== */
+
+const parentCreatorApp =
   getApps().find(
-    a=>a.name==="ParentCreatorApp"
+    a =>
+      a.name === "ParentCreatorApp"
   )
   ||
   initializeApp(
@@ -1207,26 +1841,32 @@ const parentCreatorApp=
   );
 
 
-const parentAuth=
+const parentAuth =
   getAuth(parentCreatorApp);
 
 
-/* =========================
-   LOCAL STATE
-========================= */
 
-let loginType="parent";
+/* =====================================================
+   STATE
+===================================================== */
 
-let currentUser=null;
+let loginType =
+  "parent";
 
-let studentManagementData=[];
+let currentUser =
+  null;
 
-let resultManagementData=[];
+let studentManagementData =
+  [];
+
+let resultManagementData =
+  [];
 
 
-/* =========================
-   PERSISTENT LOGIN
-========================= */
+
+/* =====================================================
+   PERSIST LOGIN
+===================================================== */
 
 await setPersistence(
   auth,
@@ -1234,128 +1874,260 @@ await setPersistence(
 );
 
 
-/* =========================
-   LOGIN SCREEN
-========================= */
 
-window.showLogin=function(type){
+/* =====================================================
+   SHOW LOGIN
+===================================================== */
 
-  loginType=type;
+window.showLogin =
+function(type){
 
-  document
-    .getElementById("homeSection")
-    .classList.add("hidden");
+  loginType =
+    type;
 
-  document
-    .getElementById("parentSection")
-    .classList.add("hidden");
 
   document
-    .getElementById("adminSection")
-    .classList.add("hidden");
+    .getElementById(
+      "homeSection"
+    )
+    .classList.add(
+      "hidden"
+    );
+
 
   document
-    .getElementById("loginSection")
-    .classList.remove("hidden");
+    .getElementById(
+      "parentSection"
+    )
+    .classList.add(
+      "hidden"
+    );
+
 
   document
-    .getElementById("loginTitle")
-    .textContent=
-      type==="admin"
-      ?"Admin Login"
-      :"Parent Login";
+    .getElementById(
+      "adminSection"
+    )
+    .classList.add(
+      "hidden"
+    );
+
 
   document
-    .getElementById("loginMsg")
-    .textContent="";
+    .getElementById(
+      "loginSection"
+    )
+    .classList.remove(
+      "hidden"
+    );
+
+
+  document
+    .getElementById(
+      "loginTitle"
+    )
+    .textContent =
+      type === "admin"
+      ? "Admin Login"
+      : "Parent Login";
+
+
+  document
+    .getElementById(
+      "loginMsg"
+    )
+    .textContent =
+      "";
+
 };
 
 
-window.goHome=function(){
+
+/* =====================================================
+   GO HOME
+===================================================== */
+
+window.goHome =
+function(){
 
   document
-    .getElementById("loginSection")
-    .classList.add("hidden");
+    .getElementById(
+      "loginSection"
+    )
+    .classList.add(
+      "hidden"
+    );
+
 
   document
-    .getElementById("parentSection")
-    .classList.add("hidden");
+    .getElementById(
+      "parentSection"
+    )
+    .classList.add(
+      "hidden"
+    );
+
 
   document
-    .getElementById("adminSection")
-    .classList.add("hidden");
+    .getElementById(
+      "adminSection"
+    )
+    .classList.add(
+      "hidden"
+    );
+
 
   document
-    .getElementById("homeSection")
-    .classList.remove("hidden");
+    .getElementById(
+      "homeSection"
+    )
+    .classList.remove(
+      "hidden"
+    );
+
 };
 
 
-/* =========================
+
+/* =====================================================
    LOGIN
-========================= */
+===================================================== */
 
-window.login=async function(){
+window.login =
+async function(){
 
-  const email=
+  const email =
     document
-      .getElementById("loginEmail")
+      .getElementById(
+        "loginEmail"
+      )
       .value
-      .trim();
+      .trim()
+      .toLowerCase();
 
-  const password=
+
+  const password =
     document
-      .getElementById("loginPassword")
+      .getElementById(
+        "loginPassword"
+      )
       .value;
 
 
-  if(!email||!password){
+  if(
+    !email ||
+    !password
+  ){
 
     document
-      .getElementById("loginMsg")
-      .textContent=
+      .getElementById(
+        "loginMsg"
+      )
+      .textContent =
         "Email and password required.";
 
     return;
+
   }
 
 
   try{
 
-    const result=
+    await setPersistence(
+      auth,
+      browserLocalPersistence
+    );
+
+
+    const result =
       await signInWithEmailAndPassword(
         auth,
         email,
         password
       );
 
-    currentUser=result.user;
 
-    openDashboard(result.user);
+    currentUser =
+      result.user;
+
+
+    openDashboard(
+      result.user
+    );
+
 
   }catch(e){
 
+    console.error(e);
+
+
     document
-      .getElementById("loginMsg")
-      .textContent=
-        "Login failed: "+e.message;
+      .getElementById(
+        "loginMsg"
+      )
+      .textContent =
+        "Login failed: " +
+        e.message;
+
   }
+
 };
 
 
-/* =========================
+
+/* =====================================================
    AUTO LOGIN
-========================= */
+===================================================== */
 
 onAuthStateChanged(
   auth,
-  user=>{
+  user => {
 
     if(user){
 
-      currentUser=user;
+      currentUser =
+        user;
 
-      openDashboard(user);
+      openDashboard(
+        user
+      );
+
+    }else{
+
+      currentUser =
+        null;
+
+      document
+        .getElementById(
+          "loginSection"
+        )
+        .classList.add(
+          "hidden"
+        );
+
+      document
+        .getElementById(
+          "parentSection"
+        )
+        .classList.add(
+          "hidden"
+        );
+
+      document
+        .getElementById(
+          "adminSection"
+        )
+        .classList.add(
+          "hidden"
+        );
+
+      document
+        .getElementById(
+          "homeSection"
+        )
+        .classList.remove(
+          "hidden"
+        );
 
     }
 
@@ -1363,119 +2135,247 @@ onAuthStateChanged(
 );
 
 
-/* =========================
+
+/* =====================================================
    OPEN DASHBOARD
-========================= */
+===================================================== */
 
-function openDashboard(user){
-
-  document
-    .getElementById("homeSection")
-    .classList.add("hidden");
+function openDashboard(
+  user
+){
 
   document
-    .getElementById("loginSection")
-    .classList.add("hidden");
+    .getElementById(
+      "homeSection"
+    )
+    .classList.add(
+      "hidden"
+    );
+
+
+  document
+    .getElementById(
+      "loginSection"
+    )
+    .classList.add(
+      "hidden"
+    );
+
+
+  const userEmail =
+    String(
+      user.email || ""
+    )
+    .toLowerCase();
 
 
   if(
-    user.email.toLowerCase()
-    ==="admin@dpsnke.com"
+    userEmail ===
+    "admin@dpsnke.com"
   ){
 
     document
-      .getElementById("parentSection")
-      .classList.add("hidden");
+      .getElementById(
+        "parentSection"
+      )
+      .classList.add(
+        "hidden"
+      );
+
 
     document
-      .getElementById("adminSection")
-      .classList.remove("hidden");
+      .getElementById(
+        "adminSection"
+      )
+      .classList.remove(
+        "hidden"
+      );
+
 
     loadStudentManagement();
 
     loadResultManagement();
 
+
   }else{
 
     document
-      .getElementById("adminSection")
-      .classList.add("hidden");
+      .getElementById(
+        "adminSection"
+      )
+      .classList.add(
+        "hidden"
+      );
+
 
     document
-      .getElementById("parentSection")
-      .classList.remove("hidden");
+      .getElementById(
+        "parentSection"
+      )
+      .classList.remove(
+        "hidden"
+      );
+
 
     document
-      .getElementById("parentWelcome")
-      .textContent=user.email;
+      .getElementById(
+        "parentWelcome"
+      )
+      .textContent =
+        user.email || "";
 
   }
 
 }
 
 
-/* =========================
+
+/* =====================================================
    LOGOUT
-========================= */
+===================================================== */
 
-window.logout=async function(){
+window.logout =
+async function(){
 
-  await signOut(auth);
+  try{
 
-  currentUser=null;
+    await signOut(
+      auth
+    );
+
+  }catch(e){
+
+    console.error(e);
+
+  }
+
+
+  currentUser =
+    null;
+
 
   document
-    .getElementById("parentSection")
-    .classList.add("hidden");
+    .getElementById(
+      "parentSection"
+    )
+    .classList.add(
+      "hidden"
+    );
+
 
   document
-    .getElementById("adminSection")
-    .classList.add("hidden");
+    .getElementById(
+      "adminSection"
+    )
+    .classList.add(
+      "hidden"
+    );
+
 
   document
-    .getElementById("homeSection")
-    .classList.remove("hidden");
+    .getElementById(
+      "loginSection"
+    )
+    .classList.add(
+      "hidden"
+    );
+
+
+  document
+    .getElementById(
+      "homeSection"
+    )
+    .classList.remove(
+      "hidden"
+    );
+
+
+  document
+    .getElementById(
+      "loginEmail"
+    )
+    .value =
+      "";
+
+  document
+    .getElementById(
+      "loginPassword"
+    )
+    .value =
+      "";
 
 };
 
 
-/* =========================
-   CREATE PARENT
-========================= */
 
-window.createParentAccount=async function(){
+/* =====================================================
+   CREATE PARENT ACCOUNT
+===================================================== */
+
+window.createParentAccount =
+async function(){
 
   if(
     !auth.currentUser ||
-    auth.currentUser.email.toLowerCase()
-    !=="admin@dpsnke.com"
+    String(
+      auth.currentUser.email || ""
+    )
+    .toLowerCase()
+    !==
+    "admin@dpsnke.com"
   ){
 
-    alert("Admin login required.");
+    alert(
+      "Admin login required."
+    );
 
     return;
+
   }
 
 
-  const email=
+  const email =
     document
-      .getElementById("newParentEmail")
+      .getElementById(
+        "newParentEmail"
+      )
       .value
-      .trim();
+      .trim()
+      .toLowerCase();
 
-  const password=
+
+  const password =
     document
-      .getElementById("newParentPassword")
+      .getElementById(
+        "newParentPassword"
+      )
       .value;
 
 
-  if(!email||!password){
+  if(
+    !email ||
+    !password
+  ){
 
     alert(
       "Parent email and password required."
     );
 
     return;
+
+  }
+
+
+  if(
+    password.length < 6
+  ){
+
+    alert(
+      "Password must be at least 6 characters."
+    );
+
+    return;
+
   }
 
 
@@ -1487,604 +2387,1110 @@ window.createParentAccount=async function(){
       password
     );
 
-    await signOut(parentAuth);
+
+    await signOut(
+      parentAuth
+    );
 
 
     document
-      .getElementById("parentCreateMsg")
-      .textContent=
+      .getElementById(
+        "parentCreateMsg"
+      )
+      .textContent =
         "Parent account created successfully.";
+
+
+    document
+      .getElementById(
+        "newParentEmail"
+      )
+      .value =
+        "";
+
+    document
+      .getElementById(
+        "newParentPassword"
+      )
+      .value =
+        "";
+
 
   }catch(e){
 
     document
-      .getElementById("parentCreateMsg")
-      .textContent=
-        "Error: "+e.message;
+      .getElementById(
+        "parentCreateMsg"
+      )
+      .textContent =
+        "Error: " +
+        e.message;
+
   }
 
 };
 
 
-/* =========================
+
+/* =====================================================
    ADD STUDENT
-========================= */
+===================================================== */
 
-window.addStudent=async function(){
+window.addStudent =
+async function(){
 
-  const name=
+  const name =
     document
-      .getElementById("studentName")
+      .getElementById(
+        "studentName"
+      )
       .value
       .trim();
 
-  const cls=
+
+  const cls =
     document
-      .getElementById("studentClass")
+      .getElementById(
+        "studentClass"
+      )
       .value
       .trim();
 
-  const roll=
+
+  const roll =
     document
-      .getElementById("studentRoll")
+      .getElementById(
+        "studentRoll"
+      )
       .value
       .trim();
 
-  const parentEmail=
+
+  const parentEmail =
     document
-      .getElementById("studentParentEmail")
+      .getElementById(
+        "studentParentEmail"
+      )
       .value
       .trim()
       .toLowerCase();
 
 
-  if(!name||!parentEmail){
+  if(
+    !name ||
+    !parentEmail
+  ){
 
     alert(
       "Student name and parent email required."
     );
 
     return;
+
   }
 
 
   try{
 
     await addDoc(
-      collection(db,"students"),
+      collection(
+        db,
+        "students"
+      ),
       {
+
         name:name,
+
         class:cls,
+
         roll:roll,
-        parentEmail:parentEmail,
+
+        parentEmail:
+          parentEmail,
+
         active:true,
-        createdAt:serverTimestamp()
+
+        createdAt:
+          serverTimestamp()
+
       }
     );
 
 
     document
-      .getElementById("studentMsg")
-      .textContent=
+      .getElementById(
+        "studentMsg"
+      )
+      .textContent =
         "Student added successfully.";
 
 
-    document
-      .getElementById("studentName")
-      .value="";
+    [
+      "studentName",
+      "studentClass",
+      "studentRoll",
+      "studentParentEmail"
+    ]
+    .forEach(
+      id => {
 
-    document
-      .getElementById("studentClass")
-      .value="";
+        document
+          .getElementById(
+            id
+          )
+          .value =
+            "";
 
-    document
-      .getElementById("studentRoll")
-      .value="";
-
-    document
-      .getElementById("studentParentEmail")
-      .value="";
+      }
+    );
 
 
     loadStudentManagement();
 
+
   }catch(e){
 
     document
-      .getElementById("studentMsg")
-      .textContent=e.message;
+      .getElementById(
+        "studentMsg"
+      )
+      .textContent =
+        e.message;
+
   }
 
 };
 
 
-/* =========================
+
+/* =====================================================
    ATTENDANCE
-========================= */
+===================================================== */
 
-window.addAttendance=async function(){
+window.addAttendance =
+async function(){
 
-  const parentEmail=
+  const parentEmail =
     document
-      .getElementById("attendanceParentEmail")
+      .getElementById(
+        "attendanceParentEmail"
+      )
       .value
       .trim()
       .toLowerCase();
 
-  const date=
+
+  const date =
     document
-      .getElementById("attendanceDate")
+      .getElementById(
+        "attendanceDate"
+      )
       .value;
 
-  const status=
+
+  const status =
     document
-      .getElementById("attendanceStatus")
+      .getElementById(
+        "attendanceStatus"
+      )
       .value;
 
 
-  if(!parentEmail||!date){
+  if(
+    !parentEmail ||
+    !date
+  ){
 
     alert(
       "Parent email and date required."
     );
 
     return;
+
   }
 
 
   try{
 
     await addDoc(
-      collection(db,"attendance"),
+      collection(
+        db,
+        "attendance"
+      ),
       {
+
         parentEmail,
+
         date,
+
         status,
-        createdAt:serverTimestamp()
+
+        createdAt:
+          serverTimestamp()
+
       }
     );
 
 
     document
-      .getElementById("attendanceMsg")
-      .textContent=
+      .getElementById(
+        "attendanceMsg"
+      )
+      .textContent =
         "Attendance saved.";
+
 
   }catch(e){
 
     document
-      .getElementById("attendanceMsg")
-      .textContent=e.message;
+      .getElementById(
+        "attendanceMsg"
+      )
+      .textContent =
+        e.message;
+
   }
 
 };
 
 
-/* =========================
+
+/* =====================================================
    NOTICE
-========================= */
+===================================================== */
 
-window.addNotice=async function(){
+window.addNotice =
+async function(){
 
-  const title=
+  const title =
     document
-      .getElementById("noticeTitle")
+      .getElementById(
+        "noticeTitle"
+      )
       .value
       .trim();
 
-  const text=
+
+  const text =
     document
-      .getElementById("noticeText")
+      .getElementById(
+        "noticeText"
+      )
       .value
       .trim();
 
 
-  if(!title||!text){
+  if(
+    !title ||
+    !text
+  ){
 
     alert(
       "Title and notification required."
     );
 
     return;
+
   }
 
 
   try{
 
     await addDoc(
-      collection(db,"notices"),
+      collection(
+        db,
+        "notices"
+      ),
       {
+
         title,
+
         text,
-        createdAt:serverTimestamp()
+
+        createdAt:
+          serverTimestamp()
+
       }
     );
 
 
     document
-      .getElementById("noticeMsg")
-      .textContent=
+      .getElementById(
+        "noticeMsg"
+      )
+      .textContent =
         "Notification added.";
 
-    document
-      .getElementById("noticeTitle")
-      .value="";
 
     document
-      .getElementById("noticeText")
-      .value="";
+      .getElementById(
+        "noticeTitle"
+      )
+      .value =
+        "";
+
+    document
+      .getElementById(
+        "noticeText"
+      )
+      .value =
+        "";
+
 
   }catch(e){
 
     document
-      .getElementById("noticeMsg")
-      .textContent=e.message;
+      .getElementById(
+        "noticeMsg"
+      )
+      .textContent =
+        e.message;
+
   }
 
 };
 
 
-/* =========================
+
+/* =====================================================
    HOMEWORK
-========================= */
+===================================================== */
 
-window.addHomework=async function(){
+window.addHomework =
+async function(){
 
-  const cls=
+  const cls =
     document
-      .getElementById("homeworkClass")
-      .value
-      .trim();
-
-  const subject=
-    document
-      .getElementById("homeworkSubject")
-      .value
-      .trim();
-
-  const text=
-    document
-      .getElementById("homeworkText")
+      .getElementById(
+        "homeworkClass"
+      )
       .value
       .trim();
 
 
-  if(!cls||!subject||!text){
+  const subject =
+    document
+      .getElementById(
+        "homeworkSubject"
+      )
+      .value
+      .trim();
+
+
+  const text =
+    document
+      .getElementById(
+        "homeworkText"
+      )
+      .value
+      .trim();
+
+
+  if(
+    !cls ||
+    !subject ||
+    !text
+  ){
 
     alert(
       "Fill all homework fields."
     );
 
     return;
+
   }
 
 
   try{
 
     await addDoc(
-      collection(db,"homework"),
+      collection(
+        db,
+        "homework"
+      ),
       {
+
         class:cls,
+
         subject,
+
         text,
-        createdAt:serverTimestamp()
+
+        createdAt:
+          serverTimestamp()
+
       }
     );
 
 
     document
-      .getElementById("homeworkMsg")
-      .textContent=
+      .getElementById(
+        "homeworkMsg"
+      )
+      .textContent =
         "Homework added.";
+
 
   }catch(e){
 
     document
-      .getElementById("homeworkMsg")
-      .textContent=e.message;
+      .getElementById(
+        "homeworkMsg"
+      )
+      .textContent =
+        e.message;
+
   }
 
 };
 
 
-/* =========================
+
+/* =====================================================
    MATERIAL
-========================= */
+===================================================== */
 
-window.addMaterial=async function(){
+window.addMaterial =
+async function(){
 
-  const cls=
+  const cls =
     document
-      .getElementById("materialClass")
-      .value
-      .trim();
-
-  const subject=
-    document
-      .getElementById("materialSubject")
-      .value
-      .trim();
-
-  const title=
-    document
-      .getElementById("materialTitle")
-      .value
-      .trim();
-
-  const link=
-    document
-      .getElementById("materialLink")
+      .getElementById(
+        "materialClass"
+      )
       .value
       .trim();
 
 
-  if(!cls||!subject||!title||!link){
+  const subject =
+    document
+      .getElementById(
+        "materialSubject"
+      )
+      .value
+      .trim();
+
+
+  const title =
+    document
+      .getElementById(
+        "materialTitle"
+      )
+      .value
+      .trim();
+
+
+  const link =
+    document
+      .getElementById(
+        "materialLink"
+      )
+      .value
+      .trim();
+
+
+  if(
+    !cls ||
+    !subject ||
+    !title ||
+    !link
+  ){
 
     alert(
       "Fill all material fields."
     );
 
     return;
+
   }
 
 
   try{
 
     await addDoc(
-      collection(db,"materials"),
+      collection(
+        db,
+        "materials"
+      ),
       {
+
         class:cls,
+
         subject,
+
         title,
+
         link,
-        createdAt:serverTimestamp()
+
+        createdAt:
+          serverTimestamp()
+
       }
     );
 
 
     document
-      .getElementById("materialMsg")
-      .textContent=
+      .getElementById(
+        "materialMsg"
+      )
+      .textContent =
         "Study material added.";
+
 
   }catch(e){
 
     document
-      .getElementById("materialMsg")
-      .textContent=e.message;
+      .getElementById(
+        "materialMsg"
+      )
+      .textContent =
+        e.message;
+
   }
 
 };
 
 
-/* =========================
+
+/* =====================================================
    CALENDAR
-========================= */
+===================================================== */
 
-window.addCalendar=async function(){
+window.addCalendar =
+async function(){
 
-  const date=
+  const date =
     document
-      .getElementById("calendarDate")
+      .getElementById(
+        "calendarDate"
+      )
       .value;
 
-  const title=
+
+  const title =
     document
-      .getElementById("calendarTitle")
+      .getElementById(
+        "calendarTitle"
+      )
       .value
       .trim();
 
-  const details=
+
+  const details =
     document
-      .getElementById("calendarDetails")
+      .getElementById(
+        "calendarDetails"
+      )
       .value
       .trim();
 
 
-  if(!date||!title){
+  if(
+    !date ||
+    !title
+  ){
 
     alert(
       "Date and title required."
     );
 
     return;
+
   }
 
 
   try{
 
     await addDoc(
-      collection(db,"calendar"),
+      collection(
+        db,
+        "calendar"
+      ),
       {
+
         date,
+
         title,
+
         details,
-        createdAt:serverTimestamp()
+
+        createdAt:
+          serverTimestamp()
+
       }
     );
 
 
     document
-      .getElementById("calendarMsg")
-      .textContent=
+      .getElementById(
+        "calendarMsg"
+      )
+      .textContent =
         "Calendar event added.";
+
 
   }catch(e){
 
     document
-      .getElementById("calendarMsg")
-      .textContent=e.message;
+      .getElementById(
+        "calendarMsg"
+      )
+      .textContent =
+        e.message;
+
   }
 
 };
 
 
-/* =========================
-   AUTO FINAL CALCULATION
-========================= */
 
-function calculateFinals(){
+/* =====================================================
+   GET NUMBER
+===================================================== */
 
-  const fa1=
-    Number(
-      document.getElementById("fa1").value
-    )||0;
+function getNumber(
+  id
+){
 
-  const fa2=
-    Number(
-      document.getElementById("fa2").value
-    )||0;
-
-  const sa1=
-    Number(
-      document.getElementById("sa1").value
-    )||0;
-
-  const fa3=
-    Number(
-      document.getElementById("fa3").value
-    )||0;
-
-  const fa4=
-    Number(
-      document.getElementById("fa4").value
-    )||0;
-
-  const sa2=
-    Number(
-      document.getElementById("sa2").value
-    )||0;
+  const value =
+    document
+      .getElementById(
+        id
+      )
+      .value
+      .trim();
 
 
-  const final1=
-    fa1+fa2+sa1;
-
-  const final2=
-    fa3+fa4+sa2;
+  if(value === ""){
+    return null;
+  }
 
 
-  document
-    .getElementById("final1")
-    .value=
-      final1||"";
+  const number =
+    Number(value);
 
-  document
-    .getElementById("final2")
-    .value=
-      final2||"";
+
+  if(
+    !Number.isFinite(
+      number
+    )
+  ){
+
+    return null;
+
+  }
+
+
+  return number;
 
 }
 
+
+
+/* =====================================================
+   AUTO FINAL CALCULATION
+===================================================== */
+
+function calculateFinals(){
+
+  const fa1 =
+    getNumber("fa1") ?? 0;
+
+  const fa2 =
+    getNumber("fa2") ?? 0;
+
+  const sa1 =
+    getNumber("sa1") ?? 0;
+
+
+  const fa1Max =
+    getNumber("fa1Max") ?? 0;
+
+  const fa2Max =
+    getNumber("fa2Max") ?? 0;
+
+  const sa1Max =
+    getNumber("sa1Max") ?? 0;
+
+
+  const fa3 =
+    getNumber("fa3") ?? 0;
+
+  const fa4 =
+    getNumber("fa4") ?? 0;
+
+  const sa2 =
+    getNumber("sa2") ?? 0;
+
+
+  const fa3Max =
+    getNumber("fa3Max") ?? 0;
+
+  const fa4Max =
+    getNumber("fa4Max") ?? 0;
+
+  const sa2Max =
+    getNumber("sa2Max") ?? 0;
+
+
+  const final1 =
+    fa1 +
+    fa2 +
+    sa1;
+
+
+  const final1Max =
+    fa1Max +
+    fa2Max +
+    sa1Max;
+
+
+  const final2 =
+    fa3 +
+    fa4 +
+    sa2;
+
+
+  const final2Max =
+    fa3Max +
+    fa4Max +
+    sa2Max;
+
+
+  document
+    .getElementById(
+      "final1"
+    )
+    .value =
+      final1;
+
+
+  document
+    .getElementById(
+      "final1Max"
+    )
+    .value =
+      final1Max;
+
+
+  document
+    .getElementById(
+      "final2"
+    )
+    .value =
+      final2;
+
+
+  document
+    .getElementById(
+      "final2Max"
+    )
+    .value =
+      final2Max;
+
+}
+
+
+
+/* =====================================================
+   FINAL CALCULATION LISTENERS
+===================================================== */
 
 [
   "fa1",
   "fa2",
   "sa1",
+  "fa1Max",
+  "fa2Max",
+  "sa1Max",
   "fa3",
   "fa4",
-  "sa2"
-].forEach(id=>{
+  "sa2",
+  "fa3Max",
+  "fa4Max",
+  "sa2Max"
+]
+.forEach(
+  id => {
 
-  document
-    .getElementById(id)
-    .addEventListener(
-      "input",
-      calculateFinals
-    );
+    document
+      .getElementById(
+        id
+      )
+      .addEventListener(
+        "input",
+        calculateFinals
+      );
 
-});
+  }
+);
 
 
-/* =========================
-   SAVE SUBJECT RESULT
-========================= */
 
-window.calculateAndSaveResult=
+/* =====================================================
+   SAVE RESULT
+===================================================== */
+
+window.calculateAndSaveResult =
 async function(){
 
-  const parentEmail=
+  const parentEmail =
     document
-      .getElementById("resultParentEmail")
+      .getElementById(
+        "resultParentEmail"
+      )
       .value
       .trim()
       .toLowerCase();
 
-  const session=
+
+  const session =
     document
-      .getElementById("resultSession")
+      .getElementById(
+        "resultSession"
+      )
       .value
       .trim();
 
-  const subject=
+
+  const subject =
     document
-      .getElementById("resultSubject")
+      .getElementById(
+        "resultSubject"
+      )
       .value;
 
 
-  if(!parentEmail||!session){
+  if(
+    !parentEmail ||
+    !session
+  ){
 
     alert(
       "Parent email and session required."
     );
 
     return;
+
+  }
+
+
+  const fieldIds = [
+
+    "fa1",
+    "fa1Max",
+
+    "fa2",
+    "fa2Max",
+
+    "sa1",
+    "sa1Max",
+
+    "fa3",
+    "fa3Max",
+
+    "fa4",
+    "fa4Max",
+
+    "sa2",
+    "sa2Max"
+
+  ];
+
+
+  for(
+    const id of fieldIds
+  ){
+
+    const value =
+      getNumber(id);
+
+
+    if(
+      value === null
+    ){
+
+      alert(
+        "Please enter all marks and maximum marks."
+      );
+
+      document
+        .getElementById(
+          id
+        )
+        .focus();
+
+      return;
+
+    }
+
+
+    if(
+      value < 0
+    ){
+
+      alert(
+        "Marks cannot be negative."
+      );
+
+      return;
+
+    }
+
+  }
+
+
+  const fa1 =
+    getNumber("fa1");
+
+  const fa1Max =
+    getNumber("fa1Max");
+
+  const fa2 =
+    getNumber("fa2");
+
+  const fa2Max =
+    getNumber("fa2Max");
+
+  const sa1 =
+    getNumber("sa1");
+
+  const sa1Max =
+    getNumber("sa1Max");
+
+
+  const fa3 =
+    getNumber("fa3");
+
+  const fa3Max =
+    getNumber("fa3Max");
+
+  const fa4 =
+    getNumber("fa4");
+
+  const fa4Max =
+    getNumber("fa4Max");
+
+  const sa2 =
+    getNumber("sa2");
+
+  const sa2Max =
+    getNumber("sa2Max");
+
+
+  if(
+    fa1 > fa1Max ||
+    fa2 > fa2Max ||
+    sa1 > sa1Max ||
+    fa3 > fa3Max ||
+    fa4 > fa4Max ||
+    sa2 > sa2Max
+  ){
+
+    alert(
+      "Obtained marks cannot be greater than maximum marks."
+    );
+
+    return;
+
   }
 
 
   calculateFinals();
 
 
-  const data={
+  const final1 =
+    Number(
+      document
+        .getElementById(
+          "final1"
+        )
+        .value
+    );
 
-    parentEmail:parentEmail,
 
-    session:session,
+  const final1Max =
+    Number(
+      document
+        .getElementById(
+          "final1Max"
+        )
+        .value
+    );
 
-    subject:subject,
 
-    fa1:Number(
-      document.getElementById("fa1").value
-    )||0,
+  const final2 =
+    Number(
+      document
+        .getElementById(
+          "final2"
+        )
+        .value
+    );
 
-    fa2:Number(
-      document.getElementById("fa2").value
-    )||0,
 
-    sa1:Number(
-      document.getElementById("sa1").value
-    )||0,
+  const final2Max =
+    Number(
+      document
+        .getElementById(
+          "final2Max"
+        )
+        .value
+    );
 
-    final1:Number(
-      document.getElementById("final1").value
-    )||0,
 
-    fa3:Number(
-      document.getElementById("fa3").value
-    )||0,
+  const data = {
 
-    fa4:Number(
-      document.getElementById("fa4").value
-    )||0,
+    parentEmail,
 
-    sa2:Number(
-      document.getElementById("sa2").value
-    )||0,
+    session,
 
-    final2:Number(
-      document.getElementById("final2").value
-    )||0,
+    exam:
+      "Annual Examination",
 
-    createdAt:serverTimestamp()
+    subject,
+
+    fa1,
+    fa1Max,
+
+    fa2,
+    fa2Max,
+
+    sa1,
+    sa1Max,
+
+    final1,
+    final1Max,
+
+    fa3,
+    fa3Max,
+
+    fa4,
+    fa4Max,
+
+    sa2,
+    sa2Max,
+
+    final2,
+    final2Max,
+
+    createdAt:
+      serverTimestamp()
 
   };
 
 
   try{
 
-    const students=
+    /* FIND STUDENT */
+
+    const students =
       await getDocs(
         query(
-          collection(db,"students"),
+          collection(
+            db,
+            "students"
+          ),
           where(
             "parentEmail",
             "==",
@@ -2094,52 +3500,72 @@ async function(){
       );
 
 
-    let student=null;
+    let student =
+      null;
 
 
-    students.forEach(x=>{
+    students.forEach(
+      x => {
 
-      if(!student){
+        if(!student){
 
-        student={
-          id:x.id,
-          ...x.data()
-        };
+          student = {
+
+            id:x.id,
+
+            ...x.data()
+
+          };
+
+        }
 
       }
-
-    });
-
-
-    data.studentName=
-      student?.name||"";
-
-    data.studentClass=
-      student?.class||"";
-
-    data.studentRoll=
-      student?.roll||"";
+    );
 
 
-    /*
-      One document per student + subject + session.
-      If existing record is found, update it.
-    */
+    if(!student){
 
-    const existing=
+      alert(
+        "No student found for this parent email."
+      );
+
+      return;
+
+    }
+
+
+    data.studentName =
+      student.name || "";
+
+    data.studentClass =
+      student.class || "";
+
+    data.studentRoll =
+      student.roll || "";
+
+
+    /* FIND EXISTING RESULT */
+
+    const existing =
       await getDocs(
         query(
-          collection(db,"results"),
+          collection(
+            db,
+            "results"
+          ),
+
           where(
             "parentEmail",
             "==",
             parentEmail
           ),
+
           where(
             "session",
             "==",
             session
           ),
+
           where(
             "subject",
             "==",
@@ -2149,17 +3575,24 @@ async function(){
       );
 
 
-    if(existing.empty){
+    if(
+      existing.empty
+    ){
 
       await addDoc(
-        collection(db,"results"),
+        collection(
+          db,
+          "results"
+        ),
         data
       );
 
+
     }else{
 
-      const existingDoc=
+      const existingDoc =
         existing.docs[0];
+
 
       await updateDoc(
         doc(
@@ -2174,59 +3607,96 @@ async function(){
 
 
     document
-      .getElementById("resultMsg")
-      .textContent=
+      .getElementById(
+        "resultMsg"
+      )
+      .textContent =
         "Result saved successfully.";
 
 
     clearResultForm();
 
+
     loadResultManagement();
+
 
   }catch(e){
 
+    console.error(e);
+
+
     document
-      .getElementById("resultMsg")
-      .textContent=
-        "Error: "+e.message;
+      .getElementById(
+        "resultMsg"
+      )
+      .textContent =
+        "Error: " +
+        e.message;
+
   }
 
 };
 
 
-/* =========================
+
+/* =====================================================
    CLEAR RESULT FORM
-========================= */
+===================================================== */
 
 function clearResultForm(){
 
   [
+
     "fa1",
+    "fa1Max",
+
     "fa2",
+    "fa2Max",
+
     "sa1",
+    "sa1Max",
+
     "final1",
+    "final1Max",
+
     "fa3",
+    "fa3Max",
+
     "fa4",
+    "fa4Max",
+
     "sa2",
-    "final2"
-  ].forEach(id=>{
+    "sa2Max",
 
-    document
-      .getElementById(id)
-      .value="";
+    "final2",
+    "final2Max"
 
-  });
+  ]
+  .forEach(
+    id => {
+
+      document
+        .getElementById(
+          id
+        )
+        .value =
+          "";
+
+    }
+  );
 
 }
 
 
-/* =========================
-   PARENT NOTIFICATIONS
-========================= */
 
-window.loadNotifications=async function(){
+/* =====================================================
+   NOTIFICATIONS
+===================================================== */
 
-  const box=
+window.loadNotifications =
+async function(){
+
+  const box =
     document.getElementById(
       "parentContent"
     );
@@ -2234,59 +3704,73 @@ window.loadNotifications=async function(){
 
   try{
 
-    const snap=
+    const snap =
       await getDocs(
-        collection(db,"notices")
+        collection(
+          db,
+          "notices"
+        )
       );
 
 
-    let html=
+    let html =
       '<div class="card"><h2>Notifications</h2>';
 
 
-    if(snap.empty){
+    if(
+      snap.empty
+    ){
 
-      html+=
+      html +=
         "<p>No notifications.</p>";
 
     }
 
 
-    snap.forEach(x=>{
+    snap.forEach(
+      x => {
 
-      const d=x.data();
-
-
-      html+=`
-
-        <div class="item">
-
-          <b>
-            ${escapeHtml(
-              d.title||"Notification"
-            )}
-          </b>
-
-          <p>
-            ${escapeHtml(
-              d.text||""
-            )}
-          </p>
-
-        </div>
-
-      `;
-
-    });
+        const d =
+          x.data();
 
 
-    html+="</div>";
+        html += `
 
-    box.innerHTML=html;
+          <div class="item">
+
+            <b>
+              ${escapeHtml(
+                d.title ||
+                "Notification"
+              )}
+            </b>
+
+            <p>
+              ${escapeHtml(
+                d.text ||
+                ""
+              )}
+            </p>
+
+          </div>
+
+        `;
+
+      }
+    );
+
+
+    html +=
+      "</div>";
+
+
+    box.innerHTML =
+      html;
+
 
   }catch(e){
 
-    box.innerHTML=
+    box.innerHTML =
       '<div class="card">Unable to load notifications.</div>';
 
   }
@@ -2294,27 +3778,41 @@ window.loadNotifications=async function(){
 };
 
 
-/* =========================
+
+/* =====================================================
    ATTENDANCE VIEW
-========================= */
+===================================================== */
 
-window.loadAttendance=async function(){
+window.loadAttendance =
+async function(){
 
-  const box=
+  const box =
     document.getElementById(
       "parentContent"
     );
 
-  const email=
-    currentUser.email.toLowerCase();
+
+  if(!currentUser){
+
+    return;
+
+  }
+
+
+  const email =
+    currentUser.email
+      .toLowerCase();
 
 
   try{
 
-    const snap=
+    const snap =
       await getDocs(
         query(
-          collection(db,"attendance"),
+          collection(
+            db,
+            "attendance"
+          ),
           where(
             "parentEmail",
             "==",
@@ -2324,68 +3822,88 @@ window.loadAttendance=async function(){
       );
 
 
-    let html=
+    let html =
       '<div class="card"><h2>Attendance</h2>';
 
 
-    if(snap.empty){
+    if(
+      snap.empty
+    ){
 
-      html+=
+      html +=
         "<p>No attendance record found.</p>";
 
     }else{
 
-      html+=`
+      html += `
 
         <table>
 
           <tr>
-            <th>Date</th>
-            <th>Status</th>
+
+            <th>
+              Date
+            </th>
+
+            <th>
+              Status
+            </th>
+
           </tr>
 
       `;
 
 
-      snap.forEach(x=>{
+      snap.forEach(
+        x => {
 
-        const d=x.data();
-
-
-        html+=`
-
-          <tr>
-
-            <td>
-              ${escapeHtml(
-                d.date||""
-              )}
-            </td>
-
-            <td>
-              ${escapeHtml(
-                d.status||""
-              )}
-            </td>
-
-          </tr>
-
-        `;
-
-      });
+          const d =
+            x.data();
 
 
-      html+="</table>";
+          html += `
+
+            <tr>
+
+              <td>
+                ${escapeHtml(
+                  d.date ||
+                  ""
+                )}
+              </td>
+
+              <td>
+                ${escapeHtml(
+                  d.status ||
+                  ""
+                )}
+              </td>
+
+            </tr>
+
+          `;
+
+        }
+      );
+
+
+      html +=
+        "</table>";
+
     }
 
 
-    html+="</div>";
+    html +=
+      "</div>";
 
-    box.innerHTML=html;
+
+    box.innerHTML =
+      html;
+
 
   }catch(e){
 
-    box.innerHTML=
+    box.innerHTML =
       '<div class="card">Unable to load attendance.</div>';
 
   }
@@ -2393,13 +3911,15 @@ window.loadAttendance=async function(){
 };
 
 
-/* =========================
-   HOMEWORK VIEW
-========================= */
 
-window.loadHomework=async function(){
+/* =====================================================
+   HOMEWORK
+===================================================== */
 
-  const box=
+window.loadHomework =
+async function(){
+
+  const box =
     document.getElementById(
       "parentContent"
     );
@@ -2407,66 +3927,83 @@ window.loadHomework=async function(){
 
   try{
 
-    const snap=
+    const snap =
       await getDocs(
-        collection(db,"homework")
+        collection(
+          db,
+          "homework"
+        )
       );
 
 
-    let html=
+    let html =
       '<div class="card"><h2>Homework</h2>';
 
 
-    if(snap.empty){
+    if(
+      snap.empty
+    ){
 
-      html+=
+      html +=
         "<p>No homework found.</p>";
 
     }
 
 
-    snap.forEach(x=>{
+    snap.forEach(
+      x => {
 
-      const d=x.data();
+        const d =
+          x.data();
 
 
-      html+=`
+        html += `
 
-        <div class="item">
+          <div class="item">
 
-          <b>
-            ${escapeHtml(
-              d.subject||""
-            )}
-          </b>
+            <b>
+              ${escapeHtml(
+                d.subject ||
+                ""
+              )}
+            </b>
 
-          <div class="small">
-            Class:
-            ${escapeHtml(
-              d.class||""
-            )}
+            <div class="small">
+
+              Class:
+              ${escapeHtml(
+                d.class ||
+                ""
+              )}
+
+            </div>
+
+            <p>
+              ${escapeHtml(
+                d.text ||
+                ""
+              )}
+            </p>
+
           </div>
 
-          <p>
-            ${escapeHtml(
-              d.text||""
-            )}
-          </p>
+        `;
 
-        </div>
-
-      `;
-
-    });
+      }
+    );
 
 
-    html+="</div>";
+    html +=
+      "</div>";
 
-    box.innerHTML=html;
+
+    box.innerHTML =
+      html;
+
 
   }catch(e){
 
-    box.innerHTML=
+    box.innerHTML =
       '<div class="card">Unable to load homework.</div>';
 
   }
@@ -2474,13 +4011,15 @@ window.loadHomework=async function(){
 };
 
 
-/* =========================
-   MATERIAL VIEW
-========================= */
 
-window.loadMaterials=async function(){
+/* =====================================================
+   MATERIALS
+===================================================== */
 
-  const box=
+window.loadMaterials =
+async function(){
+
+  const box =
     document.getElementById(
       "parentContent"
     );
@@ -2488,74 +4027,96 @@ window.loadMaterials=async function(){
 
   try{
 
-    const snap=
+    const snap =
       await getDocs(
-        collection(db,"materials")
+        collection(
+          db,
+          "materials"
+        )
       );
 
 
-    let html=
+    let html =
       '<div class="card"><h2>Study Material</h2>';
 
 
-    if(snap.empty){
+    if(
+      snap.empty
+    ){
 
-      html+=
+      html +=
         "<p>No study material found.</p>";
 
     }
 
 
-    snap.forEach(x=>{
+    snap.forEach(
+      x => {
 
-      const d=x.data();
+        const d =
+          x.data();
 
 
-      html+=`
+        html += `
 
-        <div class="item">
+          <div class="item">
 
-          <b>
-            ${escapeHtml(
-              d.title||""
-            )}
-          </b>
+            <b>
+              ${escapeHtml(
+                d.title ||
+                ""
+              )}
+            </b>
 
-          <div>
-            ${escapeHtml(
-              d.subject||""
-            )}
-            |
-            Class
-            ${escapeHtml(
-              d.class||""
-            )}
+            <div>
+
+              ${escapeHtml(
+                d.subject ||
+                ""
+              )}
+
+              |
+
+              Class
+
+              ${escapeHtml(
+                d.class ||
+                ""
+              )}
+
+            </div>
+
+            <br>
+
+            <a
+              href="${safeUrl(
+                d.link
+              )}"
+              target="_blank"
+              rel="noopener"
+            >
+              Open Material
+            </a>
+
           </div>
 
-          <br>
+        `;
 
-          <a
-            href="${safeUrl(d.link)}"
-            target="_blank"
-            rel="noopener"
-          >
-            Open Material
-          </a>
-
-        </div>
-
-      `;
-
-    });
+      }
+    );
 
 
-    html+="</div>";
+    html +=
+      "</div>";
 
-    box.innerHTML=html;
+
+    box.innerHTML =
+      html;
+
 
   }catch(e){
 
-    box.innerHTML=
+    box.innerHTML =
       '<div class="card">Unable to load materials.</div>';
 
   }
@@ -2563,13 +4124,15 @@ window.loadMaterials=async function(){
 };
 
 
-/* =========================
-   CALENDAR VIEW
-========================= */
 
-window.loadCalendar=async function(){
+/* =====================================================
+   CALENDAR
+===================================================== */
 
-  const box=
+window.loadCalendar =
+async function(){
+
+  const box =
     document.getElementById(
       "parentContent"
     );
@@ -2577,65 +4140,80 @@ window.loadCalendar=async function(){
 
   try{
 
-    const snap=
+    const snap =
       await getDocs(
-        collection(db,"calendar")
+        collection(
+          db,
+          "calendar"
+        )
       );
 
 
-    let html=
+    let html =
       '<div class="card"><h2>School Calendar</h2>';
 
 
-    if(snap.empty){
+    if(
+      snap.empty
+    ){
 
-      html+=
+      html +=
         "<p>No events found.</p>";
 
     }
 
 
-    snap.forEach(x=>{
+    snap.forEach(
+      x => {
 
-      const d=x.data();
+        const d =
+          x.data();
 
 
-      html+=`
+        html += `
 
-        <div class="item">
+          <div class="item">
 
-          <b>
-            ${escapeHtml(
-              d.title||""
-            )}
-          </b>
+            <b>
+              ${escapeHtml(
+                d.title ||
+                ""
+              )}
+            </b>
 
-          <div>
-            ${escapeHtml(
-              d.date||""
-            )}
+            <div>
+              ${escapeHtml(
+                d.date ||
+                ""
+              )}
+            </div>
+
+            <p>
+              ${escapeHtml(
+                d.details ||
+                ""
+              )}
+            </p>
+
           </div>
 
-          <p>
-            ${escapeHtml(
-              d.details||""
-            )}
-          </p>
+        `;
 
-        </div>
-
-      `;
-
-    });
+      }
+    );
 
 
-    html+="</div>";
+    html +=
+      "</div>";
 
-    box.innerHTML=html;
+
+    box.innerHTML =
+      html;
+
 
   }catch(e){
 
-    box.innerHTML=
+    box.innerHTML =
       '<div class="card">Unable to load calendar.</div>';
 
   }
@@ -2643,27 +4221,41 @@ window.loadCalendar=async function(){
 };
 
 
-/* =========================
+
+/* =====================================================
    PROFILE
-========================= */
+===================================================== */
 
-window.loadProfile=async function(){
+window.loadProfile =
+async function(){
 
-  const box=
+  const box =
     document.getElementById(
       "parentContent"
     );
 
-  const email=
-    currentUser.email.toLowerCase();
+
+  if(!currentUser){
+
+    return;
+
+  }
+
+
+  const email =
+    currentUser.email
+      .toLowerCase();
 
 
   try{
 
-    const snap=
+    const snap =
       await getDocs(
         query(
-          collection(db,"students"),
+          collection(
+            db,
+            "students"
+          ),
           where(
             "parentEmail",
             "==",
@@ -2673,70 +4265,94 @@ window.loadProfile=async function(){
       );
 
 
-    let html=
+    let html =
       '<div class="card"><h2>Student Profile</h2>';
 
 
-    if(snap.empty){
+    if(
+      snap.empty
+    ){
 
-      html+=
+      html +=
         "<p>No student found.</p>";
 
     }else{
 
-      snap.forEach(x=>{
+      snap.forEach(
+        x => {
 
-        const d=x.data();
+          const d =
+            x.data();
 
 
-        html+=`
+          html += `
 
-          <div class="item">
+            <div class="item">
 
-            <b>Student Name:</b>
-            ${escapeHtml(
-              d.name||""
-            )}
+              <b>
+                Student Name:
+              </b>
 
-            <br><br>
+              ${escapeHtml(
+                d.name ||
+                ""
+              )}
 
-            <b>Class:</b>
-            ${escapeHtml(
-              String(
-                d.class||""
-              )
-            )}
+              <br><br>
 
-            <br><br>
+              <b>
+                Class:
+              </b>
 
-            <b>Roll No:</b>
-            ${escapeHtml(
-              String(
-                d.roll||""
-              )
-            )}
+              ${escapeHtml(
+                String(
+                  d.class ||
+                  ""
+                )
+              )}
 
-            <br><br>
+              <br><br>
 
-            <b>Academic Session:</b>
-            2026–27
+              <b>
+                Roll No:
+              </b>
 
-          </div>
+              ${escapeHtml(
+                String(
+                  d.roll ||
+                  ""
+                )
+              )}
 
-        `;
+              <br><br>
 
-      });
+              <b>
+                Academic Session:
+              </b>
+
+              2026–27
+
+            </div>
+
+          `;
+
+        }
+      );
 
     }
 
 
-    html+="</div>";
+    html +=
+      "</div>";
 
-    box.innerHTML=html;
+
+    box.innerHTML =
+      html;
+
 
   }catch(e){
 
-    box.innerHTML=
+    box.innerHTML =
       '<div class="card">Unable to load profile.</div>';
 
   }
@@ -2744,27 +4360,41 @@ window.loadProfile=async function(){
 };
 
 
-/* =========================
-   RESULT VIEW
-========================= */
 
-window.loadResults=async function(){
+/* =====================================================
+   RESULTS
+===================================================== */
 
-  const box=
+window.loadResults =
+async function(){
+
+  const box =
     document.getElementById(
       "parentContent"
     );
 
-  const email=
-    currentUser.email.toLowerCase();
+
+  if(!currentUser){
+
+    return;
+
+  }
+
+
+  const email =
+    currentUser.email
+      .toLowerCase();
 
 
   try{
 
-    const studentSnap=
+    const studentSnap =
       await getDocs(
         query(
-          collection(db,"students"),
+          collection(
+            db,
+            "students"
+          ),
           where(
             "parentEmail",
             "==",
@@ -2774,32 +4404,48 @@ window.loadResults=async function(){
       );
 
 
-    let student={
+    let student = {
+
       name:"",
+
       class:"",
+
       roll:"",
-      parentEmail:email
+
+      parentEmail:
+        email
+
     };
 
 
-    studentSnap.forEach(x=>{
+    studentSnap.forEach(
+      x => {
 
-      if(!student.name){
+        if(
+          !student.name
+        ){
 
-        student={
-          id:x.id,
-          ...x.data()
-        };
+          student = {
+
+            id:x.id,
+
+            ...x.data()
+
+          };
+
+        }
 
       }
+    );
 
-    });
 
-
-    const resultSnap=
+    const resultSnap =
       await getDocs(
         query(
-          collection(db,"results"),
+          collection(
+            db,
+            "results"
+          ),
           where(
             "parentEmail",
             "==",
@@ -2809,54 +4455,76 @@ window.loadResults=async function(){
       );
 
 
-    const groups={};
+    const groups = {};
 
 
-    resultSnap.forEach(x=>{
+    resultSnap.forEach(
+      x => {
 
-      const d=x.data();
-
-
-      const key=
-        d.session||"2026-27";
+        const d =
+          x.data();
 
 
-      if(!groups[key]){
+        const key =
+          d.session ||
+          "2026-27";
 
-        groups[key]={
-          session:key,
-          subjects:[]
-        };
+
+        if(
+          !groups[key]
+        ){
+
+          groups[key] = {
+
+            session:key,
+
+            subjects:[]
+
+          };
+
+        }
+
+
+        groups[key]
+          .subjects
+          .push({
+
+            id:x.id,
+
+            ...d
+
+          });
 
       }
+    );
 
 
-      groups[key].subjects.push({
-        id:x.id,
-        ...d
-      });
-
-    });
-
-
-    let html=
+    let html =
       '<div class="card"><h2>📝 Exam / Result</h2>';
 
 
     if(
-      Object.keys(groups).length===0
+      Object.keys(
+        groups
+      ).length === 0
     ){
 
-      html+=
+      html +=
         "<p>No result found.</p>";
 
     }else{
 
+      const sortedKeys =
+        Object.keys(
+          groups
+        ).sort();
+
+
       for(
-        const key of Object.keys(groups)
+        const key of sortedKeys
       ){
 
-        html+=
+        html +=
           createReportCard(
             student,
             groups[key]
@@ -2867,15 +4535,20 @@ window.loadResults=async function(){
     }
 
 
-    html+="</div>";
+    html +=
+      "</div>";
 
-    box.innerHTML=html;
+
+    box.innerHTML =
+      html;
+
 
   }catch(e){
 
     console.error(e);
 
-    box.innerHTML=
+
+    box.innerHTML =
       '<div class="card">Unable to load result.</div>';
 
   }
@@ -2883,125 +4556,340 @@ window.loadResults=async function(){
 };
 
 
-/* =========================
+
+/* =====================================================
    REPORT CARD
-========================= */
+===================================================== */
 
 function createReportCard(
   student,
   group
 ){
 
-  const subjects=[
+  const subjects = [
+
     "Hindi",
+
     "English",
+
     "Mathematics",
+
     "Science",
+
     "Social Studies",
+
     "Computer",
+
     "G.K."
+
   ];
 
 
-  const subjectMap={};
+  const subjectMap = {};
 
 
-  group.subjects.forEach(s=>{
+  group.subjects.forEach(
+    s => {
 
-    subjectMap[
-      String(
-        s.subject||""
-      )
-    ]=s;
+      subjectMap[
+        String(
+          s.subject ||
+          ""
+        )
+      ] = s;
 
-  });
+    }
+  );
 
 
-  let rows="";
+  let rows =
+    "";
 
 
-  let sa1Total=0;
+  let fa1Total =
+    0;
 
-  let sa2Total=0;
+  let fa2Total =
+    0;
 
-  let final1Total=0;
+  let sa1Total =
+    0;
 
-  let final2Total=0;
+  let final1Total =
+    0;
+
+  let fa3Total =
+    0;
+
+  let fa4Total =
+    0;
+
+  let sa2Total =
+    0;
+
+  let final2Total =
+    0;
+
+
+  let fa1MaxTotal =
+    0;
+
+  let fa2MaxTotal =
+    0;
+
+  let sa1MaxTotal =
+    0;
+
+  let final1MaxTotal =
+    0;
+
+  let fa3MaxTotal =
+    0;
+
+  let fa4MaxTotal =
+    0;
+
+  let sa2MaxTotal =
+    0;
+
+  let final2MaxTotal =
+    0;
 
 
   subjects.forEach(
-    (subject,index)=>{
+    subject => {
 
-      const s=
-        subjectMap[subject]||{};
+      const s =
+        subjectMap[
+          subject
+        ] || null;
 
 
-      const fa1=
-        Number(s.fa1||0);
-
-      const fa2=
-        Number(s.fa2||0);
-
-      const sa1=
-        Number(s.sa1||0);
-
-      const final1=
+      const fa1 =
         Number(
-          s.final1!==undefined
-          ?s.final1
-          :(fa1+fa2+sa1)
+          s?.fa1 || 0
+        );
+
+      const fa1Max =
+        Number(
+          s?.fa1Max || 0
         );
 
 
-      const fa3=
-        Number(s.fa3||0);
-
-      const fa4=
-        Number(s.fa4||0);
-
-      const sa2=
-        Number(s.sa2||0);
-
-      const final2=
+      const fa2 =
         Number(
-          s.final2!==undefined
-          ?s.final2
-          :(fa3+fa4+sa2)
+          s?.fa2 || 0
+        );
+
+      const fa2Max =
+        Number(
+          s?.fa2Max || 0
         );
 
 
-      sa1Total+=sa1;
+      const sa1 =
+        Number(
+          s?.sa1 || 0
+        );
 
-      sa2Total+=sa2;
+      const sa1Max =
+        Number(
+          s?.sa1Max || 0
+        );
 
-      final1Total+=final1;
 
-      final2Total+=final2;
+      const final1 =
+        s?.final1 !== undefined
+        ? Number(
+            s.final1 || 0
+          )
+        : (
+            fa1 +
+            fa2 +
+            sa1
+          );
 
 
-      rows+=`
+      const final1Max =
+        s?.final1Max !== undefined
+        ? Number(
+            s.final1Max || 0
+          )
+        : (
+            fa1Max +
+            fa2Max +
+            sa1Max
+          );
+
+
+      const fa3 =
+        Number(
+          s?.fa3 || 0
+        );
+
+      const fa3Max =
+        Number(
+          s?.fa3Max || 0
+        );
+
+
+      const fa4 =
+        Number(
+          s?.fa4 || 0
+        );
+
+      const fa4Max =
+        Number(
+          s?.fa4Max || 0
+        );
+
+
+      const sa2 =
+        Number(
+          s?.sa2 || 0
+        );
+
+      const sa2Max =
+        Number(
+          s?.sa2Max || 0
+        );
+
+
+      const final2 =
+        s?.final2 !== undefined
+        ? Number(
+            s.final2 || 0
+          )
+        : (
+            fa3 +
+            fa4 +
+            sa2
+          );
+
+
+      const final2Max =
+        s?.final2Max !== undefined
+        ? Number(
+            s.final2Max || 0
+          )
+        : (
+            fa3Max +
+            fa4Max +
+            sa2Max
+          );
+
+
+      fa1Total += fa1;
+
+      fa2Total += fa2;
+
+      sa1Total += sa1;
+
+      final1Total += final1;
+
+      fa3Total += fa3;
+
+      fa4Total += fa4;
+
+      sa2Total += sa2;
+
+      final2Total += final2;
+
+
+      fa1MaxTotal += fa1Max;
+
+      fa2MaxTotal += fa2Max;
+
+      sa1MaxTotal += sa1Max;
+
+      final1MaxTotal += final1Max;
+
+      fa3MaxTotal += fa3Max;
+
+      fa4MaxTotal += fa4Max;
+
+      sa2MaxTotal += sa2Max;
+
+      final2MaxTotal += final2Max;
+
+
+      rows += `
 
         <tr>
 
           <td>
-            ${escapeHtml(subject)}
+            ${escapeHtml(
+              subject
+            )}
           </td>
 
-          <td>${displayMark(s.fa1)}</td>
 
-          <td>${displayMark(s.fa2)}</td>
+          <td>
+            ${displayMark(
+              s?.fa1,
+              s?.fa1Max
+            )}
+          </td>
 
-          <td>${displayMark(s.sa1)}</td>
 
-          <td><b>${displayMark(final1)}</b></td>
+          <td>
+            ${displayMark(
+              s?.fa2,
+              s?.fa2Max
+            )}
+          </td>
 
-          <td>${displayMark(s.fa3)}</td>
 
-          <td>${displayMark(s.fa4)}</td>
+          <td>
+            ${displayMark(
+              s?.sa1,
+              s?.sa1Max
+            )}
+          </td>
 
-          <td>${displayMark(s.sa2)}</td>
 
-          <td><b>${displayMark(final2)}</b></td>
+          <td class="final-column">
+            <b>
+              ${displayMark(
+                final1,
+                final1Max
+              )}
+            </b>
+          </td>
+
+
+          <td>
+            ${displayMark(
+              s?.fa3,
+              s?.fa3Max
+            )}
+          </td>
+
+
+          <td>
+            ${displayMark(
+              s?.fa4,
+              s?.fa4Max
+            )}
+          </td>
+
+
+          <td>
+            ${displayMark(
+              s?.sa2,
+              s?.sa2Max
+            )}
+          </td>
+
+
+          <td class="final-column">
+            <b>
+              ${displayMark(
+                final2,
+                final2Max
+              )}
+            </b>
+          </td>
 
         </tr>
 
@@ -3011,106 +4899,121 @@ function createReportCard(
   );
 
 
-  /*
-    Maximum marks are kept configurable here.
-    Change these values if school's actual
-    maximum marks are different.
-  */
+  /* =========================
+     PERCENTAGES
+  ========================= */
 
-  const sa1Max=
-    subjects.length*100;
-
-  const sa2Max=
-    subjects.length*100;
-
-  const final1Max=
-    subjects.length*300;
-
-  const final2Max=
-    subjects.length*300;
-
-
-  const sa1Percent=
+  const sa1Percent =
     percentage(
       sa1Total,
-      sa1Max
+      sa1MaxTotal
     );
 
-  const sa2Percent=
+
+  const sa2Percent =
     percentage(
       sa2Total,
-      sa2Max
+      sa2MaxTotal
     );
 
-  const final1Percent=
+
+  const final1Percent =
     percentage(
       final1Total,
-      final1Max
+      final1MaxTotal
     );
 
-  const final2Percent=
+
+  const final2Percent =
     percentage(
       final2Total,
-      final2Max
+      final2MaxTotal
     );
 
 
-  /*
-    Final overall uses both final terms.
-  */
+  const overallTotal =
+    final1Total +
+    final2Total;
 
-  const overallTotal=
-    final1Total+final2Total;
 
-  const overallMax=
-    final1Max+final2Max;
+  const overallMax =
+    final1MaxTotal +
+    final2MaxTotal;
 
-  const overallPercent=
+
+  const overallPercent =
     percentage(
       overallTotal,
       overallMax
     );
 
 
-  const sa1Grade=
-    getGrade(sa1Percent);
+  /* =========================
+     GRADES
+  ========================= */
 
-  const sa2Grade=
-    getGrade(sa2Percent);
-
-  const overallGrade=
-    getGrade(overallPercent);
-
-
-  const sa1Result=
-    sa1Percent>=33
-    ?"PASS"
-    :"FAIL";
-
-  const sa2Result=
-    sa2Percent>=33
-    ?"PASS"
-    :"FAIL";
-
-  const finalResult=
-    overallPercent>=33
-    ?"PASS"
-    :"FAIL";
+  const sa1Grade =
+    getGrade(
+      sa1Percent
+    );
 
 
-  const id=
-    "report_"+
+  const sa2Grade =
+    getGrade(
+      sa2Percent
+    );
+
+
+  const overallGrade =
+    getGrade(
+      overallPercent
+    );
+
+
+  /* =========================
+     RESULT
+  ========================= */
+
+  const sa1Result =
+    Number(
+      sa1Percent
+    ) >= 33
+    ? "PASS"
+    : "FAIL";
+
+
+  const sa2Result =
+    Number(
+      sa2Percent
+    ) >= 33
+    ? "PASS"
+    : "FAIL";
+
+
+  const finalResult =
+    Number(
+      overallPercent
+    ) >= 33
+    ? "PASS"
+    : "FAIL";
+
+
+  const id =
+    "report_" +
     Math.random()
       .toString(36)
       .slice(2);
 
 
-  return`
+  return `
 
     <div
       class="result-card"
       id="${id}"
     >
+
+
+      <!-- HEADER -->
 
       <div class="report-head">
 
@@ -3119,13 +5022,16 @@ function createReportCard(
           alt="DPS Logo"
         >
 
+
         <h1>
           DELHI PUBLIC SCHOOL
         </h1>
 
+
         <h2>
           NARKATIAGANJ
         </h2>
+
 
         <h3>
           ANNUAL EXAMINATION
@@ -3134,54 +5040,91 @@ function createReportCard(
           )}
         </h3>
 
+
         <div>
+
           <b>
             REPORT CARD
           </b>
+
         </div>
 
       </div>
 
+
+
+      <!-- STUDENT DETAILS -->
 
       <div class="student-info">
 
         <div>
-          <b>Student Name</b>
+
+          <b>
+            Student Name
+          </b>
+
           ${escapeHtml(
-            student.name||""
+            student.name ||
+            ""
           )}
+
         </div>
 
+
         <div>
-          <b>Class</b>
+
+          <b>
+            Class
+          </b>
+
           ${escapeHtml(
             String(
-              student.class||""
+              student.class ||
+              ""
             )
           )}
+
         </div>
 
+
         <div>
-          <b>Roll No.</b>
+
+          <b>
+            Roll No.
+          </b>
+
           ${escapeHtml(
             String(
-              student.roll||""
+              student.roll ||
+              ""
             )
           )}
+
         </div>
 
+
         <div>
-          <b>Academic Session</b>
+
+          <b>
+            Academic Session
+          </b>
+
           ${escapeHtml(
             group.session
           )}
+
         </div>
 
       </div>
 
 
+
+      <!-- SUBJECT RESULT -->
+
       <div class="report-title">
+
         SUBJECT-WISE RESULT
+
       </div>
 
 
@@ -3197,9 +5140,11 @@ function createReportCard(
                 Subject
               </th>
 
+
               <th colspan="4">
                 TERM - I
               </th>
+
 
               <th colspan="4">
                 TERM - II
@@ -3207,25 +5152,53 @@ function createReportCard(
 
             </tr>
 
+
             <tr>
 
-              <th>FA1</th>
-              <th>FA2</th>
-              <th>SA1</th>
-              <th>Final-1</th>
+              <th>
+                FA1
+              </th>
 
-              <th>FA3</th>
-              <th>FA4</th>
-              <th>SA2</th>
-              <th>Final-2</th>
+              <th>
+                FA2
+              </th>
+
+              <th>
+                SA1
+              </th>
+
+              <th>
+                Final-1
+              </th>
+
+
+              <th>
+                FA3
+              </th>
+
+              <th>
+                FA4
+              </th>
+
+              <th>
+                SA2
+              </th>
+
+              <th>
+                Final-2
+              </th>
 
             </tr>
 
           </thead>
 
+
           <tbody>
 
             ${rows}
+
+
+            <!-- TOTAL -->
 
             <tr>
 
@@ -3233,26 +5206,68 @@ function createReportCard(
                 TOTAL
               </th>
 
-              <th>Auto</th>
-              <th>Auto</th>
+
+              <th>
+                ${fa1Total}
+                /
+                ${fa1MaxTotal}
+              </th>
+
+
+              <th>
+                ${fa2Total}
+                /
+                ${fa2MaxTotal}
+              </th>
+
 
               <th>
                 ${sa1Total}
+                /
+                ${sa1MaxTotal}
               </th>
+
+
+              <th class="final-column">
+
+                <b>
+                  ${final1Total}
+                  /
+                  ${final1MaxTotal}
+                </b>
+
+              </th>
+
 
               <th>
-                ${final1Total}
+                ${fa3Total}
+                /
+                ${fa3MaxTotal}
               </th>
 
-              <th>Auto</th>
-              <th>Auto</th>
+
+              <th>
+                ${fa4Total}
+                /
+                ${fa4MaxTotal}
+              </th>
+
 
               <th>
                 ${sa2Total}
+                /
+                ${sa2MaxTotal}
               </th>
 
-              <th>
-                ${final2Total}
+
+              <th class="final-column">
+
+                <b>
+                  ${final2Total}
+                  /
+                  ${final2MaxTotal}
+                </b>
+
               </th>
 
             </tr>
@@ -3264,10 +5279,18 @@ function createReportCard(
       </div>
 
 
+
+      <!-- PERFORMANCE -->
+
       <div class="report-title">
+
         PERFORMANCE SUMMARY
+
       </div>
 
+
+
+      <!-- SA1 -->
 
       <div class="performance-box">
 
@@ -3279,7 +5302,9 @@ function createReportCard(
 
           <br><br>
 
-          ${sa1Total} / ${sa1Max}
+          ${sa1Total}
+          /
+          ${sa1MaxTotal}
 
         </div>
 
@@ -3320,9 +5345,9 @@ function createReportCard(
 
           <span
             class="${
-              sa1Result==="PASS"
-              ?"pass"
-              :"fail"
+              sa1Result === "PASS"
+              ? "pass"
+              : "fail"
             }"
           >
             ${sa1Result}
@@ -3332,6 +5357,9 @@ function createReportCard(
 
       </div>
 
+
+
+      <!-- SA2 -->
 
       <div class="performance-box">
 
@@ -3343,7 +5371,9 @@ function createReportCard(
 
           <br><br>
 
-          ${sa2Total} / ${sa2Max}
+          ${sa2Total}
+          /
+          ${sa2MaxTotal}
 
         </div>
 
@@ -3384,9 +5414,9 @@ function createReportCard(
 
           <span
             class="${
-              sa2Result==="PASS"
-              ?"pass"
-              :"fail"
+              sa2Result === "PASS"
+              ? "pass"
+              : "fail"
             }"
           >
             ${sa2Result}
@@ -3397,8 +5427,13 @@ function createReportCard(
       </div>
 
 
+
+      <!-- FINAL OVERALL -->
+
       <div class="report-title">
+
         FINAL OVERALL
+
       </div>
 
 
@@ -3455,9 +5490,9 @@ function createReportCard(
 
           <span
             class="${
-              finalResult==="PASS"
-              ?"pass"
-              :"fail"
+              finalResult === "PASS"
+              ? "pass"
+              : "fail"
             }"
           >
             ${finalResult}
@@ -3468,8 +5503,95 @@ function createReportCard(
       </div>
 
 
+
+      <!-- TERM PERCENTAGE -->
+
       <div class="report-title">
+
+        TERM PERFORMANCE
+
+      </div>
+
+
+      <div class="performance-box">
+
+        <div>
+
+          <b>
+            Final-1
+          </b>
+
+          <br><br>
+
+          ${final1Total}
+          /
+          ${final1MaxTotal}
+
+          <br>
+
+          ${final1Percent}%
+
+        </div>
+
+
+        <div>
+
+          <b>
+            Final-1 Grade
+          </b>
+
+          <br><br>
+
+          ${getGrade(
+            final1Percent
+          )}
+
+        </div>
+
+
+        <div>
+
+          <b>
+            Final-2
+          </b>
+
+          <br><br>
+
+          ${final2Total}
+          /
+          ${final2MaxTotal}
+
+          <br>
+
+          ${final2Percent}%
+
+        </div>
+
+
+        <div>
+
+          <b>
+            Final-2 Grade
+          </b>
+
+          <br><br>
+
+          ${getGrade(
+            final2Percent
+          )}
+
+        </div>
+
+      </div>
+
+
+
+      <!-- GRADING SCALE -->
+
+      <div class="report-title">
+
         GRADING SCALE
+
       </div>
 
 
@@ -3478,48 +5600,119 @@ function createReportCard(
         <table class="report-table">
 
           <tr>
-            <th>Grade</th>
-            <th>Marks Range</th>
+
+            <th>
+              Grade
+            </th>
+
+            <th>
+              Marks Range
+            </th>
+
           </tr>
 
-          <tr>
-            <td>A1</td>
-            <td>90–100%</td>
-          </tr>
 
           <tr>
-            <td>A2</td>
-            <td>80–89%</td>
+
+            <td>
+              A1
+            </td>
+
+            <td>
+              90–100%
+            </td>
+
           </tr>
 
-          <tr>
-            <td>B1</td>
-            <td>70–79%</td>
-          </tr>
 
           <tr>
-            <td>B2</td>
-            <td>60–69%</td>
+
+            <td>
+              A2
+            </td>
+
+            <td>
+              80–89%
+            </td>
+
           </tr>
 
-          <tr>
-            <td>C1</td>
-            <td>50–59%</td>
-          </tr>
 
           <tr>
-            <td>C2</td>
-            <td>40–49%</td>
+
+            <td>
+              B1
+            </td>
+
+            <td>
+              70–79%
+            </td>
+
           </tr>
 
-          <tr>
-            <td>D</td>
-            <td>33–39%</td>
-          </tr>
 
           <tr>
-            <td>E</td>
-            <td>Below 33%</td>
+
+            <td>
+              B2
+            </td>
+
+            <td>
+              60–69%
+            </td>
+
+          </tr>
+
+
+          <tr>
+
+            <td>
+              C1
+            </td>
+
+            <td>
+              50–59%
+            </td>
+
+          </tr>
+
+
+          <tr>
+
+            <td>
+              C2
+            </td>
+
+            <td>
+              40–49%
+            </td>
+
+          </tr>
+
+
+          <tr>
+
+            <td>
+              D
+            </td>
+
+            <td>
+              33–39%
+            </td>
+
+          </tr>
+
+
+          <tr>
+
+            <td>
+              E
+            </td>
+
+            <td>
+              Below 33%
+            </td>
+
           </tr>
 
         </table>
@@ -3527,15 +5720,20 @@ function createReportCard(
       </div>
 
 
+
+      <!-- SIGNATURES -->
+
       <div class="signatures">
 
         <div>
           Class Teacher Signature
         </div>
 
+
         <div>
           Principal Signature
         </div>
+
 
         <div>
           Parent Signature
@@ -3544,12 +5742,16 @@ function createReportCard(
       </div>
 
 
+
+      <!-- PRINT -->
+
       <button
         class="primary print-btn"
         onclick="printReport('${id}')"
       >
         🖨️ Print / Save PDF
       </button>
+
 
     </div>
 
@@ -3558,97 +5760,180 @@ function createReportCard(
 }
 
 
-/* =========================
-   DISPLAY MARK
-========================= */
 
-function displayMark(value){
+/* =====================================================
+   DISPLAY MARK
+===================================================== */
+
+function displayMark(
+  value,
+  max
+){
 
   if(
-    value===undefined||
-    value===null||
-    value===""
+    value === undefined ||
+    value === null ||
+    value === ""
   ){
 
     return "—";
 
   }
 
-  return Number(value);
+
+  const obtained =
+    Number(value);
+
+
+  const maximum =
+    Number(max);
+
+
+  if(
+    maximum > 0
+  ){
+
+    return (
+      obtained +
+      " / " +
+      maximum
+    );
+
+  }
+
+
+  return obtained;
 
 }
 
 
-/* =========================
+
+/* =====================================================
    PERCENTAGE
-========================= */
+===================================================== */
 
 function percentage(
   obtained,
   maximum
 ){
 
-  if(!maximum){
+  if(
+    !maximum ||
+    maximum <= 0
+  ){
 
     return "0.00";
 
   }
 
-  return(
-    (obtained/maximum)*100
-  ).toFixed(2);
+
+  return (
+    (
+      obtained /
+      maximum
+    ) *
+    100
+  )
+  .toFixed(2);
 
 }
 
 
-/* =========================
+
+/* =====================================================
    GRADE
-========================= */
+===================================================== */
 
-function getGrade(percent){
+function getGrade(
+  percent
+){
 
-  percent=Number(percent);
+  percent =
+    Number(
+      percent
+    );
 
 
-  if(percent>=90)return"A1";
+  if(
+    percent >= 90
+  )
+    return "A1";
 
-  if(percent>=80)return"A2";
 
-  if(percent>=70)return"B1";
+  if(
+    percent >= 80
+  )
+    return "A2";
 
-  if(percent>=60)return"B2";
 
-  if(percent>=50)return"C1";
+  if(
+    percent >= 70
+  )
+    return "B1";
 
-  if(percent>=40)return"C2";
 
-  if(percent>=33)return"D";
+  if(
+    percent >= 60
+  )
+    return "B2";
 
-  return"E";
+
+  if(
+    percent >= 50
+  )
+    return "C1";
+
+
+  if(
+    percent >= 40
+  )
+    return "C2";
+
+
+  if(
+    percent >= 33
+  )
+    return "D";
+
+
+  return "E";
 
 }
 
 
-/* =========================
-   PRINT
-========================= */
 
-window.printReport=function(id){
+/* =====================================================
+   PRINT REPORT
+===================================================== */
 
-  const element=
-    document.getElementById(id);
+window.printReport =
+function(id){
+
+  const element =
+    document.getElementById(
+      id
+    );
 
 
-  if(!element)return;
+  if(!element){
+
+    return;
+
+  }
 
 
   document
-    .querySelectorAll(".print-target")
+    .querySelectorAll(
+      ".print-target"
+    )
     .forEach(
-      x=>
+      x => {
+
         x.classList.remove(
           "print-target"
-        )
+        );
+
+      }
     );
 
 
@@ -3660,25 +5945,29 @@ window.printReport=function(id){
   window.print();
 
 
-  setTimeout(()=>{
+  setTimeout(
+    () => {
 
-    element.classList.remove(
-      "print-target"
-    );
+      element.classList.remove(
+        "print-target"
+      );
 
-  },1000);
+    },
+    1000
+  );
 
 };
 
 
-/* =========================
-   STUDENT MANAGEMENT
-========================= */
 
-window.loadStudentManagement=
+/* =====================================================
+   STUDENT MANAGEMENT
+===================================================== */
+
+window.loadStudentManagement =
 async function(){
 
-  const box=
+  const box =
     document.getElementById(
       "studentManagement"
     );
@@ -3686,30 +5975,41 @@ async function(){
 
   try{
 
-    const snap=
+    const snap =
       await getDocs(
-        collection(db,"students")
+        collection(
+          db,
+          "students"
+        )
       );
 
 
-    studentManagementData=[];
+    studentManagementData =
+      [];
 
 
-    snap.forEach(x=>{
+    snap.forEach(
+      x => {
 
-      studentManagementData.push({
-        id:x.id,
-        ...x.data()
-      });
+        studentManagementData
+          .push({
 
-    });
+            id:x.id,
+
+            ...x.data()
+
+          });
+
+      }
+    );
 
 
     filterStudents();
 
+
   }catch(e){
 
-    box.innerHTML=
+    box.innerHTML =
       "<p>Unable to load students.</p>";
 
   }
@@ -3717,63 +6017,87 @@ async function(){
 };
 
 
-window.filterStudents=function(){
 
-  const box=
+/* =====================================================
+   FILTER STUDENTS
+===================================================== */
+
+window.filterStudents =
+function(){
+
+  const box =
     document.getElementById(
       "studentManagement"
     );
 
 
-  const search=
+  const search =
     (
-      document.getElementById(
-        "studentSearch"
-      )?.value||""
+      document
+        .getElementById(
+          "studentSearch"
+        )
+        ?.value ||
+      ""
     )
     .toLowerCase()
     .trim();
 
 
-  const list=
-    studentManagementData.filter(
-      s=>
+  const list =
+    studentManagementData
+      .filter(
+        s =>
 
-        String(
-          s.name||""
-        )
-        .toLowerCase()
-        .includes(search)
+          String(
+            s.name ||
+            ""
+          )
+          .toLowerCase()
+          .includes(
+            search
+          )
 
-        ||
+          ||
 
-        String(
-          s.class||""
-        )
-        .toLowerCase()
-        .includes(search)
+          String(
+            s.class ||
+            ""
+          )
+          .toLowerCase()
+          .includes(
+            search
+          )
 
-        ||
+          ||
 
-        String(
-          s.roll||""
-        )
-        .toLowerCase()
-        .includes(search)
+          String(
+            s.roll ||
+            ""
+          )
+          .toLowerCase()
+          .includes(
+            search
+          )
 
-        ||
+          ||
 
-        String(
-          s.parentEmail||""
-        )
-        .toLowerCase()
-        .includes(search)
-    );
+          String(
+            s.parentEmail ||
+            ""
+          )
+          .toLowerCase()
+          .includes(
+            search
+          )
+      );
 
 
-  if(!list.length){
+  if(
+    !list.length
+  ){
 
-    box.innerHTML=
+    box.innerHTML =
       "<p>No student found.</p>";
 
     return;
@@ -3781,168 +6105,238 @@ window.filterStudents=function(){
   }
 
 
-  box.innerHTML=
-    list.map(
-      s=>`
+  box.innerHTML =
+    list
+      .map(
+        s => `
 
-      <div class="item">
+          <div class="item">
 
-        <b>
-          ${escapeHtml(
-            s.name||""
-          )}
-        </b>
+            <b>
+              ${escapeHtml(
+                s.name ||
+                ""
+              )}
+            </b>
 
-        <div class="small">
 
-          Class:
-          ${escapeHtml(
-            String(
-              s.class||""
-            )
-          )}
+            <div class="small">
 
-          |
+              Class:
+              ${escapeHtml(
+                String(
+                  s.class ||
+                  ""
+                )
+              )}
 
-          Roll:
-          ${escapeHtml(
-            String(
-              s.roll||""
-            )
-          )}
+              |
 
-        </div>
+              Roll:
+              ${escapeHtml(
+                String(
+                  s.roll ||
+                  ""
+                )
+              )}
 
-        <div class="small">
+            </div>
 
-          Parent:
-          ${escapeHtml(
-            s.parentEmail||""
-          )}
 
-        </div>
+            <div class="small">
 
-        <div style="margin-top:10px">
+              Parent:
+              ${escapeHtml(
+                s.parentEmail ||
+                ""
+              )}
 
-          <button
-            class="secondary"
-            onclick="editStudent('${s.id}')"
-          >
-            Edit
-          </button>
+            </div>
 
-          <button
-            class="secondary"
-            onclick="toggleStudent(
-              '${s.id}',
-              ${s.active!==false}
-            )"
-          >
 
-            ${
-              s.active===false
-              ?"Activate"
-              :"Deactivate"
-            }
+            <div class="small">
 
-          </button>
+              Status:
+              ${
+                s.active === false
+                ? "Inactive"
+                : "Active"
+              }
 
-          <button
-            class="danger"
-            onclick="deleteStudent('${s.id}')"
-          >
-            Delete
-          </button>
+            </div>
 
-        </div>
 
-      </div>
+            <div
+              style="margin-top:10px"
+            >
 
-    `
-    )
-    .join("");
+              <button
+                class="secondary"
+                onclick="editStudent('${s.id}')"
+              >
+                Edit
+              </button>
+
+
+              <button
+                class="secondary"
+                onclick="toggleStudent(
+                  '${s.id}',
+                  ${s.active !== false}
+                )"
+              >
+
+                ${
+                  s.active === false
+                  ? "Activate"
+                  : "Deactivate"
+                }
+
+              </button>
+
+
+              <button
+                class="danger"
+                onclick="deleteStudent('${s.id}')"
+              >
+                Delete
+              </button>
+
+            </div>
+
+          </div>
+
+        `
+      )
+      .join("");
 
 };
 
 
-window.editStudent=
+
+/* =====================================================
+   EDIT STUDENT
+===================================================== */
+
+window.editStudent =
 async function(id){
 
-  const student=
-    studentManagementData.find(
-      x=>x.id===id
-    );
+  const student =
+    studentManagementData
+      .find(
+        x =>
+          x.id === id
+      );
 
 
-  if(!student)return;
+  if(!student){
+
+    return;
+
+  }
 
 
-  const name=
+  const name =
     prompt(
       "Student Name:",
-      student.name||""
+      student.name ||
+      ""
     );
 
 
-  if(name===null)return;
+  if(
+    name === null
+  )
+    return;
 
 
-  const cls=
+  const cls =
     prompt(
       "Class:",
-      student.class||""
+      student.class ||
+      ""
     );
 
 
-  if(cls===null)return;
+  if(
+    cls === null
+  )
+    return;
 
 
-  const roll=
+  const roll =
     prompt(
       "Roll Number:",
-      student.roll||""
+      student.roll ||
+      ""
     );
 
 
-  if(roll===null)return;
+  if(
+    roll === null
+  )
+    return;
 
 
-  const parentEmail=
+  const parentEmail =
     prompt(
       "Parent Email:",
-      student.parentEmail||""
+      student.parentEmail ||
+      ""
     );
 
 
-  if(parentEmail===null)return;
+  if(
+    parentEmail === null
+  )
+    return;
 
 
   try{
 
     await updateDoc(
-      doc(db,"students",id),
+      doc(
+        db,
+        "students",
+        id
+      ),
       {
+
         name,
+
         class:cls,
+
         roll,
+
         parentEmail:
-          parentEmail.trim().toLowerCase()
+          parentEmail
+            .trim()
+            .toLowerCase()
+
       }
     );
 
 
     await loadStudentManagement();
 
+
   }catch(e){
 
-    alert(e.message);
+    alert(
+      e.message
+    );
 
   }
 
 };
 
 
-window.toggleStudent=
+
+/* =====================================================
+   TOGGLE STUDENT
+===================================================== */
+
+window.toggleStudent =
 async function(
   id,
   current
@@ -3951,62 +6345,86 @@ async function(
   try{
 
     await updateDoc(
-      doc(db,"students",id),
+      doc(
+        db,
+        "students",
+        id
+      ),
       {
-        active:!current
+
+        active:
+          !current
+
       }
     );
 
 
     await loadStudentManagement();
 
+
   }catch(e){
 
-    alert(e.message);
+    alert(
+      e.message
+    );
 
   }
 
 };
 
 
-window.deleteStudent=
+
+/* =====================================================
+   DELETE STUDENT
+===================================================== */
+
+window.deleteStudent =
 async function(id){
 
-  const ok=
+  const ok =
     confirm(
       "Delete this student?"
     );
 
 
-  if(!ok)return;
+  if(!ok)
+    return;
 
 
   try{
 
     await deleteDoc(
-      doc(db,"students",id)
+      doc(
+        db,
+        "students",
+        id
+      )
     );
 
 
     await loadStudentManagement();
 
+
   }catch(e){
 
-    alert(e.message);
+    alert(
+      e.message
+    );
 
   }
 
 };
 
 
-/* =========================
-   RESULT MANAGEMENT
-========================= */
 
-window.loadResultManagement=
+/* =====================================================
+   RESULT MANAGEMENT
+===================================================== */
+
+window.loadResultManagement =
 async function(){
 
-  const box=
+  const box =
     document.getElementById(
       "resultManagement"
     );
@@ -4014,30 +6432,41 @@ async function(){
 
   try{
 
-    const snap=
+    const snap =
       await getDocs(
-        collection(db,"results")
+        collection(
+          db,
+          "results"
+        )
       );
 
 
-    resultManagementData=[];
+    resultManagementData =
+      [];
 
 
-    snap.forEach(x=>{
+    snap.forEach(
+      x => {
 
-      resultManagementData.push({
-        id:x.id,
-        ...x.data()
-      });
+        resultManagementData
+          .push({
 
-    });
+            id:x.id,
+
+            ...x.data()
+
+          });
+
+      }
+    );
 
 
     filterResults();
 
+
   }catch(e){
 
-    box.innerHTML=
+    box.innerHTML =
       "<p>Unable to load results.</p>";
 
   }
@@ -4045,63 +6474,87 @@ async function(){
 };
 
 
-window.filterResults=function(){
 
-  const box=
+/* =====================================================
+   FILTER RESULTS
+===================================================== */
+
+window.filterResults =
+function(){
+
+  const box =
     document.getElementById(
       "resultManagement"
     );
 
 
-  const search=
+  const search =
     (
-      document.getElementById(
-        "resultSearch"
-      )?.value||""
+      document
+        .getElementById(
+          "resultSearch"
+        )
+        ?.value ||
+      ""
     )
     .toLowerCase()
     .trim();
 
 
-  const list=
-    resultManagementData.filter(
-      r=>
+  const list =
+    resultManagementData
+      .filter(
+        r =>
 
-        String(
-          r.studentName||""
-        )
-        .toLowerCase()
-        .includes(search)
+          String(
+            r.studentName ||
+            ""
+          )
+          .toLowerCase()
+          .includes(
+            search
+          )
 
-        ||
+          ||
 
-        String(
-          r.subject||""
-        )
-        .toLowerCase()
-        .includes(search)
+          String(
+            r.subject ||
+            ""
+          )
+          .toLowerCase()
+          .includes(
+            search
+          )
 
-        ||
+          ||
 
-        String(
-          r.session||""
-        )
-        .toLowerCase()
-        .includes(search)
+          String(
+            r.session ||
+            ""
+          )
+          .toLowerCase()
+          .includes(
+            search
+          )
 
-        ||
+          ||
 
-        String(
-          r.parentEmail||""
-        )
-        .toLowerCase()
-        .includes(search)
-    );
+          String(
+            r.parentEmail ||
+            ""
+          )
+          .toLowerCase()
+          .includes(
+            search
+          )
+      );
 
 
-  if(!list.length){
+  if(
+    !list.length
+  ){
 
-    box.innerHTML=
+    box.innerHTML =
       "<p>No result found.</p>";
 
     return;
@@ -4109,132 +6562,196 @@ window.filterResults=function(){
   }
 
 
-  box.innerHTML=
-    list.map(
-      r=>`
+  box.innerHTML =
+    list
+      .map(
+        r => `
 
-      <div class="item">
+          <div class="item">
 
-        <b>
-          ${escapeHtml(
-            r.studentName||""
-          )}
-        </b>
+            <b>
+              ${escapeHtml(
+                r.studentName ||
+                ""
+              )}
+            </b>
 
-        <div>
 
-          ${escapeHtml(
-            r.subject||""
-          )}
+            <div>
 
-        </div>
+              Subject:
+              ${escapeHtml(
+                r.subject ||
+                ""
+              )}
 
-        <div class="small">
+            </div>
 
-          Parent:
-          ${escapeHtml(
-            r.parentEmail||""
-          )}
 
-          <br>
+            <div class="small">
 
-          Session:
-          ${escapeHtml(
-            r.session||""
-          )}
+              Parent:
+              ${escapeHtml(
+                r.parentEmail ||
+                ""
+              )}
 
-        </div>
+              <br>
 
-        <div style="margin-top:10px">
+              Session:
+              ${escapeHtml(
+                r.session ||
+                ""
+              )}
 
-          <button
-            class="danger"
-            onclick="deleteResult('${r.id}')"
-          >
-            Delete
-          </button>
+              <br>
 
-        </div>
+              Final-1:
+              ${Number(
+                r.final1 ||
+                0
+              )}
+              /
+              ${Number(
+                r.final1Max ||
+                0
+              )}
 
-      </div>
+              <br>
 
-    `
-    )
-    .join("");
+              Final-2:
+              ${Number(
+                r.final2 ||
+                0
+              )}
+              /
+              ${Number(
+                r.final2Max ||
+                0
+              )}
+
+            </div>
+
+
+            <div
+              style="margin-top:10px"
+            >
+
+              <button
+                class="danger"
+                onclick="deleteResult('${r.id}')"
+              >
+                Delete
+              </button>
+
+            </div>
+
+          </div>
+
+        `
+      )
+      .join("");
 
 };
 
 
-window.deleteResult=
+
+/* =====================================================
+   DELETE RESULT
+===================================================== */
+
+window.deleteResult =
 async function(id){
 
   if(
     !confirm(
       "Delete this subject result?"
     )
-  )return;
+  )
+    return;
 
 
   try{
 
     await deleteDoc(
-      doc(db,"results",id)
+      doc(
+        db,
+        "results",
+        id
+      )
     );
 
 
     await loadResultManagement();
 
+
   }catch(e){
 
-    alert(e.message);
+    alert(
+      e.message
+    );
 
   }
 
 };
 
 
-/* =========================
-   SECURITY HELPERS
-========================= */
 
-function escapeHtml(value){
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
 
-  return String(value??"")
-    .replaceAll(
-      "&",
-      "&amp;"
-    )
-    .replaceAll(
-      "<",
-      "&lt;"
-    )
-    .replaceAll(
-      ">",
-      "&gt;"
-    )
-    .replaceAll(
-      '"',
-      "&quot;"
-    )
-    .replaceAll(
-      "'",
-      "&#039;"
-    );
+function escapeHtml(
+  value
+){
+
+  return String(
+    value ?? ""
+  )
+  .replaceAll(
+    "&",
+    "&amp;"
+  )
+  .replaceAll(
+    "<",
+    "&lt;"
+  )
+  .replaceAll(
+    ">",
+    "&gt;"
+  )
+  .replaceAll(
+    '"',
+    "&quot;"
+  )
+  .replaceAll(
+    "'",
+    "&#039;"
+  );
 
 }
 
 
-function safeUrl(url){
+
+/* =====================================================
+   SAFE URL
+===================================================== */
+
+function safeUrl(
+  url
+){
 
   try{
 
-    const u=
-      new URL(url);
+    const u =
+      new URL(
+        url
+      );
 
 
     if(
-      u.protocol==="http:"||
-      u.protocol==="https:"
+      u.protocol === "http:" ||
+      u.protocol === "https:"
     ){
 
       return u.href;
@@ -4249,19 +6766,23 @@ function safeUrl(url){
 }
 
 
-/* =========================
+
+/* =====================================================
    SERVICE WORKER
-========================= */
+===================================================== */
 
 if(
   "serviceWorker"
   in navigator
 ){
 
-  navigator.serviceWorker
-    .register("sw.js")
+  navigator
+    .serviceWorker
+    .register(
+      "sw.js"
+    )
     .catch(
-      ()=>{}
+      () => {}
     );
 
 }
